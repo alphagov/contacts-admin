@@ -8,6 +8,8 @@ Bundler.require(:default, Rails.env)
 
 module HmrcContacts
   class Application < Rails::Application
+    require 'hmrc_contacts'
+
     # Generators
     config.generators do |g|
       g.orm                 :active_record
