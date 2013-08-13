@@ -40,6 +40,8 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    ci_reporter (1.7.3)
+      builder (>= 2.1.2)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -158,6 +160,7 @@ PLATFORMS
 DEPENDENCIES
   aws-ses
   capistrano
+  ci_reporter
   coffee-rails (~> 4.0.0)
   exception_notification
   factory_girl_rails

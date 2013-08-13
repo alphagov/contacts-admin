@@ -28,6 +28,7 @@ end
 # testing
 
 group :test do
+  gem "ci_reporter"
   gem 'rspec-rails', '~> 2.14'
   gem 'factory_girl_rails'
 end
