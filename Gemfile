@@ -3,6 +3,7 @@ source "https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/"
 
 gem 'rails', '4.0.0'
 
+gem 'active_hash'
 gem 'mysql2'
 gem 'unicorn'
 
