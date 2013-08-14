@@ -1,4 +1,4 @@
-class ClusterGroup < ActiveYaml::Base
+class ContactType < ActiveYaml::Base
   include ActiveHash::Associations
 
   has_many :contacts

@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130814075035) do
+ActiveRecord::Schema.define(version: 20130814105650) do
 
   create_table "contacts", force: true do |t|
     t.string   "title"
-    t.integer  "cluster_group_id"
+    t.integer  "contact_type_id", null: false
     t.text     "description"
     t.text     "keywords"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "contacts", ["cluster_group_id"], name: "index_contacts_on_cluster_group_id", using: :btree
+  add_index "contacts", ["contact_type_id"], name: "index_contacts_on_contact_type_id", using: :btree
 
   create_table "email_addresses", force: true do |t|
     t.integer  "contact_id"

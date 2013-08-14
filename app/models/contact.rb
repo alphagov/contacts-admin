@@ -1,7 +1,7 @@
 class Contact < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
 
-  belongs_to_active_hash :cluster_group
+  belongs_to_active_hash :contact_type
 
   serialize :keywords, Array
 
