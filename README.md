@@ -15,3 +15,7 @@
 ````
 ./startup.sh
 ````
+
+## Development notes
+
+* ```app/tasks``` - contains one-off tasks that can be run via console or a rake task.
