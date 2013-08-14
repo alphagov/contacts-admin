@@ -3,6 +3,7 @@ source "https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/"
 
 gem 'rails', '4.0.0'
 
+gem 'active_hash'
 gem 'mysql2'
 gem 'unicorn'
 
@@ -31,4 +32,5 @@ group :test do
   gem "ci_reporter"
   gem 'rspec-rails', '~> 2.14'
   gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
 end
