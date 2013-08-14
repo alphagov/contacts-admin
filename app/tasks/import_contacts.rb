@@ -2,8 +2,16 @@ require 'csv'
 
 class ImportContacts
   class ContactBuilder
+    def self.build(attributes)
+      new(attributes).build
+    end
+
     def initialize(attributes = {})
       @attributes = attributes
+    end
+
+    def build
+      Contact.new
     end
   end
 
