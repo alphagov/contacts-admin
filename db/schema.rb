@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130814105650) do
+ActiveRecord::Schema.define(version: 20130814110403) do
 
   create_table "contacts", force: true do |t|
     t.string   "title"
-    t.integer  "contact_type_id", null: false
+    t.integer  "contact_type_id",  null: false
     t.text     "description"
     t.text     "keywords"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "contact_form_url"
   end
 
   add_index "contacts", ["contact_type_id"], name: "index_contacts_on_contact_type_id", using: :btree
