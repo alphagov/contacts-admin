@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130814072057) do
+ActiveRecord::Schema.define(version: 20130814075035) do
 
   create_table "contacts", force: true do |t|
     t.string   "title"
@@ -23,5 +23,54 @@ ActiveRecord::Schema.define(version: 20130814072057) do
   end
 
   add_index "contacts", ["cluster_group_id"], name: "index_contacts_on_cluster_group_id", using: :btree
+
+  create_table "email_addresses", force: true do |t|
+    t.integer  "contact_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "email"
+    t.string   "link"
+    t.text     "more_info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "numbers", force: true do |t|
+    t.integer  "contact_id"
+    t.string   "title"
+    t.string   "number"
+    t.string   "international_number"
+    t.text     "description"
+    t.text     "open_hours"
+    t.text     "more_info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "numbers", ["contact_id"], name: "index_numbers_on_contact_id", using: :btree
+
+  create_table "post_addresses", force: true do |t|
+    t.integer  "contact_id"
+    t.string   "title"
+    t.text     "description"
+    t.text     "address"
+    t.text     "more_info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "post_addresses", ["contact_id"], name: "index_post_addresses_on_contact_id", using: :btree
+
+  create_table "websites", force: true do |t|
+    t.integer  "contact_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "link"
+    t.text     "more_info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "websites", ["contact_id"], name: "index_websites_on_contact_id", using: :btree
 
 end
