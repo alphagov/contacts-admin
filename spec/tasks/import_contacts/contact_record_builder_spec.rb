@@ -6,6 +6,20 @@ describe ImportContacts::ContactRecordBuilder do
       expect(described_class.build({})).to be_kind_of ContactRecord
     end
 
+    it 'assigns description to contact record' do
+      description = 'some description'
+      attributes = {'description' => description}
+
+      expect(described_class.build(attributes).description).to eq description
+    end
+
+    it 'assigns keywords to contact record' do
+      keywords = 'kw1,kw2'
+      attributes = {'keywords' => keywords}
+
+      expect(described_class.build(attributes).keywords).to eq ['kw1', 'kw2']
+    end
+
     context 'with website association' do
       let(:site_title) { 'website title' }
       let(:site_desc)  { 'website description' }

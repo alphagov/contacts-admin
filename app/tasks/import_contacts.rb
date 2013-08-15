@@ -8,11 +8,18 @@ class ImportContacts
 
     def initialize(attributes = {})
       @attributes = attributes
-      @contact_record = ContactRecord.new
+      @contact_record = ContactRecord.new(contact_attributes)
     end
 
     def attributes
       @attributes || {}
+    end
+
+    def contact_attributes
+      {
+        description: attributes['description'],
+        keywords: attributes.fetch('keywords', '').split(",")
+      }
     end
 
     def website_attributes
@@ -76,8 +83,7 @@ class ImportContacts
          description: attributes['phonetexthead2'],
          open_hours: attributes['phoneopenhours2'],
          number: attributes['telephone2']
-      },
-      ]
+      }]
     end
 
     def build
