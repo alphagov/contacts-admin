@@ -4,6 +4,6 @@ FactoryGirl.define do
   sequence(:contact_title) { |n| "contact title #{n}" }
 
   factory :contact do
-    title { generate(:title)  }
+    title { generate(:contact_title)  }
   end
 end
