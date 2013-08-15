@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe ImportContacts::ContactBuilder do
+describe ImportContacts::ContactRecordBuilder do
   describe 'build' do
-    it 'returns instance of Contact' do
+    it 'returns instance of ContactRecord' do
       expect(described_class.build({})).to be_kind_of Contact
     end
 
