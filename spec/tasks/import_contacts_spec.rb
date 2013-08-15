@@ -37,7 +37,7 @@ describe ImportContacts, with_fakefs: true do
         content1,content2}
     }
 
-    it 'invokes contact builder which builds contact entry', :focus do
+    it 'invokes contact builder which builds contact entry' do
       ImportContacts.new(file_name).import(contact_builder)
 
       expect(contact_builder).to have_received(:build)

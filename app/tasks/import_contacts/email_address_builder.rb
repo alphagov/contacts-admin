@@ -17,7 +17,7 @@ class ImportContacts
          link: attributes['emailmoreinfourl'],
          more_info: attributes['emailmoreinfo']
        }].map { |email_address_attributes|
-         contact_record.email_addresses.new(email_address_attributes)
+         contact_record.email_addresses.build(email_address_attributes)
        }
     end
   end

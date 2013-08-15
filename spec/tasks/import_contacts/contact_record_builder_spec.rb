@@ -100,6 +100,25 @@ describe ImportContacts::ContactRecordBuilder do
           ).to be_present
         end
       end
+
+      context 'with invalid website records' do
+        let(:input_attributes) {
+          {
+            'ogtitle1' => nil,
+            'ogurl1' => site_link
+          }
+        }
+
+        it 'does not build invalid records' do
+          contact_record = described_class.build(input_attributes)
+
+          expect(
+            contact_record.websites.detect { |website|
+              website.link == site_link
+            }
+          ).to be_blank
+        end
+      end
     end
 
     context 'with post address association' do
@@ -148,7 +167,7 @@ describe ImportContacts::ContactRecordBuilder do
         end
       end
 
-      context 'with third email record' do
+      context 'with third post address record' do
         let(:input_attributes) {
           {
             'postaddresstag3' => postaddress_desc,
@@ -156,7 +175,7 @@ describe ImportContacts::ContactRecordBuilder do
           }
         }
 
-        it 'builds third email record' do
+        it 'builds third post address record' do
           contact_record = described_class.build(input_attributes)
 
           expect(
@@ -183,6 +202,25 @@ describe ImportContacts::ContactRecordBuilder do
 
         it 'builds third email record' do
           pending
+        end
+      end
+
+      context 'with invalid post address records' do
+        let(:input_attributes) {
+          {
+            'postaddresstag3' => postaddress_desc,
+            'postaddress3' => nil
+          }
+        }
+
+        it 'does not build invalid record' do
+          contact_record = described_class.build(input_attributes)
+
+          expect(
+            contact_record.post_addresses.detect { |post_address|
+              post_address.description == postaddress_desc
+            }
+          ).to be_blank
         end
       end
     end
@@ -255,6 +293,27 @@ describe ImportContacts::ContactRecordBuilder do
 
         it 'builds third email record' do
           pending
+        end
+      end
+
+      context 'with invalid email address records' do
+        let(:input_attributes) {
+          {
+            'emailtitle2' => email_title,
+            'emailtag2' => email_desc,
+            'emailurl2' => email_link,
+            'emailaddress2' => nil
+          }
+        }
+
+        it 'does not build invalid record' do
+          contact_record = described_class.build(input_attributes)
+
+          expect(
+            contact_record.email_addresses.detect { |email_address|
+              email_address.description == email_desc
+            }
+          ).to be_blank
         end
       end
     end

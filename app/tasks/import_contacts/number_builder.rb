@@ -12,7 +12,7 @@ class ImportContacts
          open_hours: attributes['phoneopenhours2'],
          number: attributes['telephone2']
       }].map { |number_attributes|
-        contact_record.numbers.new(number_attributes)
+        contact_record.numbers.build(number_attributes)
       }
     end
   end

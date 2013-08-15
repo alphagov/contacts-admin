@@ -22,10 +22,10 @@ class ImportContacts
     end
 
     def build
-      WebsiteBuilder.build(@contact_record, attributes)
-      EmailAddressBuilder.build(@contact_record, attributes)
-      PostAddressBuilder.build(@contact_record, attributes)
-      NumberBuilder.build(@contact_record, attributes)
+      @contact_record.websites = WebsiteBuilder.build(@contact_record, attributes).select(&:valid?)
+      @contact_record.email_addresses = EmailAddressBuilder.build(@contact_record, attributes).select(&:valid?)
+      @contact_record.post_addresses = PostAddressBuilder.build(@contact_record, attributes).select(&:valid?)
+      @contact_record.numbers = NumberBuilder.build(@contact_record, attributes).select(&:valid?)
 
       @contact_record
     end
