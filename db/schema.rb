@@ -23,16 +23,16 @@ ActiveRecord::Schema.define(version: 20130815064821) do
   end
 
   create_table "contacts", force: true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title"
     t.integer  "contact_record_id"
   end
 
   add_index "contacts", ["contact_record_id"], name: "index_contacts_on_contact_record_id", using: :btree
 
   create_table "email_addresses", force: true do |t|
-    t.integer  "contact_id"
+    t.integer  "contact_record_id"
     t.string   "title"
     t.text     "description"
     t.string   "email"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20130815064821) do
   end
 
   create_table "numbers", force: true do |t|
-    t.integer  "contact_id"
+    t.integer  "contact_record_id"
     t.string   "title"
     t.string   "number"
     t.string   "international_number"
@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(version: 20130815064821) do
     t.datetime "updated_at"
   end
 
-  add_index "numbers", ["contact_id"], name: "index_numbers_on_contact_id", using: :btree
+  add_index "numbers", ["contact_record_id"], name: "index_numbers_on_contact_record_id", using: :btree
 
   create_table "post_addresses", force: true do |t|
-    t.integer  "contact_id"
+    t.integer  "contact_record_id"
     t.string   "title"
     t.text     "description"
     t.text     "address"
@@ -66,10 +66,10 @@ ActiveRecord::Schema.define(version: 20130815064821) do
     t.datetime "updated_at"
   end
 
-  add_index "post_addresses", ["contact_id"], name: "index_post_addresses_on_contact_id", using: :btree
+  add_index "post_addresses", ["contact_record_id"], name: "index_post_addresses_on_contact_record_id", using: :btree
 
   create_table "websites", force: true do |t|
-    t.integer  "contact_id"
+    t.integer  "contact_record_id"
     t.string   "title"
     t.text     "description"
     t.string   "link"
@@ -78,6 +78,6 @@ ActiveRecord::Schema.define(version: 20130815064821) do
     t.datetime "updated_at"
   end
 
-  add_index "websites", ["contact_id"], name: "index_websites_on_contact_id", using: :btree
+  add_index "websites", ["contact_record_id"], name: "index_websites_on_contact_record_id", using: :btree
 
 end
