@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130815064821) do
+ActiveRecord::Schema.define(version: 20130815070220) do
 
   create_table "contact_records", force: true do |t|
     t.integer  "contact_type_id"
