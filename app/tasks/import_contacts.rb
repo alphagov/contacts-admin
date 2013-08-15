@@ -51,9 +51,24 @@ class ImportContacts
        }]
     end
 
+    def post_address_attributes
+      [{
+         description: attributes['postaddresstag1'],
+         address: attributes['postaddress1']
+       },{
+         description: attributes['postaddresstag2'],
+         address: attributes['postaddress2']
+       },{
+         description: attributes['postaddresstag3'],
+         address: attributes['postaddress3']
+       },{
+       }]
+    end
+
     def build
       @contact_record.websites.build(website_attributes)
       @contact_record.email_addresses.build(email_address_attributes)
+      @contact_record.post_addresses.build(post_address_attributes)
 
       @contact_record
     end
