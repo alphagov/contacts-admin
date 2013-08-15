@@ -2,7 +2,7 @@ require 'csv'
 
 class ImportContacts
   class WebsiteRecordBuilder
-    def self.build(attributes)
+    def self.build(contact_record, attributes)
       [{
          title: attributes['ogtitle1'],
          description: attributes['ogtag1'],
@@ -17,13 +17,13 @@ class ImportContacts
          link: attributes['ogmoreinfourl'],
          more_info: attributes['ogmoreinfo']
        }].map { |website_attributes|
-         Website.new(website_attributes)
+         contact_record.websites.build(website_attributes)
        }
     end
   end
 
   class NumberBuilder
-    def self.build(attributes)
+    def self.build(contact_record, attributes)
       [{
          title: attributes['telephonename'],
          description: attributes['phonetexthead'],
@@ -35,13 +35,13 @@ class ImportContacts
          open_hours: attributes['phoneopenhours2'],
          number: attributes['telephone2']
       }].map { |number_attributes|
-        Number.new(number_attributes)
+        contact_record.numbers.new(number_attributes)
       }
     end
   end
 
   class PostAddressBuilder
-    def self.build(attributes)
+    def self.build(contact_record, attributes)
       [{
          description: attributes['postaddresstag1'],
          address: attributes['postaddress1']
@@ -52,13 +52,13 @@ class ImportContacts
          description: attributes['postaddresstag3'],
          address: attributes['postaddress3']
        }].map { |post_address_attributes|
-         PostAddress.new(post_address_attributes)
+         contact_record.post_addresses.new(post_address_attributes)
        }
     end
   end
 
   class EmailAddressBuilder
-    def self.build(attributes)
+    def self.build(contact_record, attributes)
       [{
          title: attributes['emailtitle1'],
          description: attributes['emailtag1'],
@@ -75,7 +75,7 @@ class ImportContacts
          link: attributes['emailmoreinfourl'],
          more_info: attributes['emailmoreinfo']
        }].map { |email_address_attributes|
-         EmailAddress.new(email_address_attributes)
+         contact_record.email_addresses.new(email_address_attributes)
        }
     end
   end
@@ -103,10 +103,10 @@ class ImportContacts
     end
 
     def build
-      @contact_record.websites = WebsiteRecordBuilder.build(attributes)
-      @contact_record.email_addresses = EmailAddressBuilder.build(attributes)
-      @contact_record.post_addresses = PostAddressBuilder.build(attributes)
-      @contact_record.numbers = NumberBuilder.build(attributes)
+      WebsiteRecordBuilder.build(@contact_record, attributes)
+      EmailAddressBuilder.build(@contact_record, attributes)
+      PostAddressBuilder.build(@contact_record, attributes)
+      NumberBuilder.build(@contact_record, attributes)
 
       @contact_record
     end
