@@ -18,7 +18,8 @@ class ImportContacts
     def contact_attributes
       {
         description: attributes['description'],
-        keywords: attributes.fetch('keywords', '').split(",")
+        keywords: attributes.fetch('keywords', '').split(","),
+        contact_type: ContactType.find_by_title(attributes['clustergroup'])
       }
     end
 

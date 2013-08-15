@@ -20,6 +20,13 @@ describe ImportContacts::ContactRecordBuilder do
       expect(described_class.build(attributes).keywords).to eq ['kw1', 'kw2']
     end
 
+    it 'assigns contact type' do
+      contact_type = 'See also'
+      attributes = {'clustergroup' => contact_type}
+
+      expect(described_class.build(attributes).contact_type).to eq ContactType.find_by_title(contact_type)
+    end
+
     context 'with website association' do
       let(:site_title) { 'website title' }
       let(:site_desc)  { 'website description' }
