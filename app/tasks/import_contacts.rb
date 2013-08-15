@@ -32,8 +32,28 @@ class ImportContacts
        }]
     end
 
+    def email_address_attributes
+      [{
+         title: attributes['emailtitle1'],
+         description: attributes['emailtag1'],
+         link: attributes['emailurl1'],
+         email: attributes['emailaddress1']
+       },{
+         title: attributes['emailtitle2'],
+         description: attributes['emailtag2'],
+         link: attributes['emailurl2'],
+         email: attributes['emailaddress2']
+       },{
+         title: attributes['emailmoreinfourltitle'],
+         description: attributes['emailmoreinfourltag'],
+         link: attributes['emailmoreinfourl'],
+         more_info: attributes['emailmoreinfo']
+       }]
+    end
+
     def build
       @contact_record.websites.build(website_attributes)
+      @contact_record.email_addresses.build(email_address_attributes)
 
       @contact_record
     end
