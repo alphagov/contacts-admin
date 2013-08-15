@@ -11,19 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130814110403) do
+ActiveRecord::Schema.define(version: 20130815064821) do
 
-  create_table "contacts", force: true do |t|
-    t.string   "title"
-    t.integer  "contact_type_id",  null: false
+  create_table "contact_records", force: true do |t|
+    t.integer  "contact_type_id"
     t.text     "description"
     t.text     "keywords"
+    t.text     "contact_form_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "contact_form_url"
   end
 
-  add_index "contacts", ["contact_type_id"], name: "index_contacts_on_contact_type_id", using: :btree
+  create_table "contacts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.integer  "contact_record_id"
+  end
+
+  add_index "contacts", ["contact_record_id"], name: "index_contacts_on_contact_record_id", using: :btree
 
   create_table "email_addresses", force: true do |t|
     t.integer  "contact_id"
