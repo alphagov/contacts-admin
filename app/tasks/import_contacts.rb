@@ -8,31 +8,34 @@ class ImportContacts
 
     def initialize(attributes = {})
       @attributes = attributes
+      @contact_record = ContactRecord.new
     end
 
     def attributes
       @attributes || {}
     end
 
+    def website_attributes
+      [{
+         title: attributes['ogtitle1'],
+         description: attributes['ogtag1'],
+         link: attributes['ogurl1']
+       },{
+         title: attributes['ogtitle2'],
+         description: attributes['ogtag2'],
+         link: attributes['ogurl2']
+       },{
+         title: attributes['ogmoreinfourltitle'],
+         description: attributes['ogmoreinfourltag'],
+         link: attributes['ogmoreinfourl'],
+         more_info: attributes['ogmoreinfo']
+       }]
+    end
+
     def build
-      contact_record = ContactRecord.new
-      contact_record.websites.build(
-        title: attributes['ogtitle1'],
-        description: attributes['ogtag1'],
-        link: attributes['ogurl1']
-      )
-      contact_record.websites.build(
-        title: attributes['ogtitle2'],
-        description: attributes['ogtag2'],
-        link: attributes['ogurl2']
-      )
-      contact_record.websites.build(
-        title: attributes['ogmoreinfourltitle'],
-        description: attributes['ogmoreinfourltag'],
-        link: attributes['ogmoreinfourl'],
-        more_info: attributes['ogmoreinfo']
-      )
-      contact_record
+      @contact_record.websites.build(website_attributes)
+
+      @contact_record
     end
   end
 
