@@ -29,11 +29,16 @@ class ImportContacts
       @contact_record.email_addresses = email_address_records
       @contact_record.post_addresses = post_address_records
       @contact_record.numbers = number_records
+      @contact_record.contacts = contact_records
 
       @contact_record
     end
 
     private
+
+    def contact_records
+      ContactBuilder.build(@contact_record, attributes).select(&:valid?)
+    end
 
     def website_records
       WebsiteBuilder.build(@contact_record, attributes).select(&:valid?)
