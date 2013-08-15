@@ -233,22 +233,68 @@ describe ImportContacts::ContactRecordBuilder do
         }
 
         it 'builds third email record' do
-          contact_record = described_class.build(input_attributes)
-
-          expect(
-            contact_record.email_addresses.detect { |email|
-              email.title == email_title &&
-              email.description == email_desc &&
-              email.link == email_link &&
-              email.more_info == email_more_info
-            }
-          ).to be_present
+          pending
         end
       end
     end
 
     context 'with phone number association' do
-      pending
+      let(:number_title)      { 'webnumber title' }
+      let(:number_head)       { 'phone number head' }
+      let(:number_hours)      { 'phone hours' }
+      let(:number_telephone)  { '555-111-55551' }
+
+      context 'with primary webnumber record' do
+        let(:input_attributes) {
+          {
+            'telephonename' => number_title,
+            'phonetexthead' => number_head,
+            'phoneopenhours' => number_hours,
+            'telephone' => number_telephone
+          }
+        }
+
+        it 'builds number record' do
+          contact_record = described_class.build(input_attributes)
+
+          expect(
+            contact_record.numbers.detect { |number|
+              number.title == number_title &&
+              number.number == number_telephone &&
+              number.open_hours == number_hours &&
+              number.description == number_head
+            }
+          ).to be_present
+        end
+      end
+
+      context 'with secondary phone number record' do
+        let(:input_attributes) {
+          {
+            'telephonename2' => number_title,
+            'phonetexthead2' => number_head,
+            'phoneopenhours2' => number_hours,
+            'telephone2' => number_telephone
+          }
+        }
+
+        it 'builds number record' do
+          contact_record = described_class.build(input_attributes)
+
+          expect(
+            contact_record.numbers.detect { |number|
+              number.title == number_title &&
+              number.number == number_telephone &&
+              number.open_hours == number_hours &&
+              number.description == number_head
+            }
+          ).to be_present
+        end
+      end
+
+      context 'with third phone number record' do
+        pending
+      end
     end
   end
 end

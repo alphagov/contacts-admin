@@ -65,10 +65,26 @@ class ImportContacts
        }]
     end
 
+    def number_attributes
+      [{
+         title: attributes['telephonename'],
+         description: attributes['phonetexthead'],
+         open_hours: attributes['phoneopenhours'],
+         number: attributes['telephone']
+      },{
+         title: attributes['telephonename2'],
+         description: attributes['phonetexthead2'],
+         open_hours: attributes['phoneopenhours2'],
+         number: attributes['telephone2']
+      },
+      ]
+    end
+
     def build
       @contact_record.websites.build(website_attributes)
       @contact_record.email_addresses.build(email_address_attributes)
       @contact_record.post_addresses.build(post_address_attributes)
+      @contact_record.numbers.build(number_attributes)
 
       @contact_record
     end
