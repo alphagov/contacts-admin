@@ -3,5 +3,5 @@ class EmailAddress < ActiveRecord::Base
 
   validates :contact_record, presence: true
   validates :title, presence: true
-  validates :email, presence: { if: ->(o) { o.more_info.blank? } }
+  validates :email, presence: true
 end

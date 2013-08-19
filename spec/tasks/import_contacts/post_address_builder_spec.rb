@@ -67,23 +67,5 @@ describe ImportContacts::PostAddressBuilder do
         ).to be_present
       end
     end
-
-    context 'with more info post record' do
-      let(:postaddress_more_info) { 'more info' }
-      let(:postaddress_url) { 'http://www.example.com' }
-
-      let(:input_attributes) {
-        {
-          'postmoreinfo' => postaddress_more_info,
-          'postmoreinfourltitle' => postaddress_desc,
-          'postmoreinfourltag' => postaddress,
-          'postmoreinfourl' => postaddress_url
-        }
-      }
-
-      it 'builds third post address record' do
-        pending
-      end
-    end
   end
 end

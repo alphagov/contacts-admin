@@ -55,33 +55,5 @@ describe ImportContacts::EmailAddressBuilder do
         ).to be_present
       end
     end
-
-    context 'with third email record' do
-      let(:email_more_info) { 'more info' }
-      let(:input_attributes) {
-        {
-          'emailmoreinfo' => email_more_info,
-          'emailmoreinfourl' => email_link,
-          'emailmoreinfourltitle' => email_title,
-          'emailmoreinfourltag' => email_desc,
-          'emailaddress2' => email_address
-        }
-      }
-
-      it 'builds third email record' do
-        pending
-      end
-    end
-
-    context 'with invalid email address records' do
-      let(:input_attributes) {
-        {
-          'emailtitle2' => email_title,
-          'emailtag2' => email_desc,
-          'emailurl2' => email_link,
-          'emailaddress2' => nil
-        }
-      }
-    end
   end
 end

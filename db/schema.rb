@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130815141843) do
+ActiveRecord::Schema.define(version: 20130819074159) do
 
   create_table "contact_records", force: true do |t|
     t.integer  "contact_type_id"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20130815141843) do
     t.string   "alt_meta_title"
     t.string   "alt_meta_description"
     t.string   "alt_meta_keywords"
+    t.string   "textphone"
+    t.string   "international_phone"
   end
 
   create_table "contacts", force: true do |t|
@@ -40,7 +42,6 @@ ActiveRecord::Schema.define(version: 20130815141843) do
     t.text     "description"
     t.string   "email"
     t.string   "link"
-    t.text     "more_info"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -66,7 +67,6 @@ ActiveRecord::Schema.define(version: 20130815141843) do
     t.string   "international_number"
     t.text     "description"
     t.text     "open_hours"
-    t.text     "more_info"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 20130815141843) do
     t.string   "title"
     t.text     "description"
     t.text     "address"
-    t.text     "more_info"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,7 +89,6 @@ ActiveRecord::Schema.define(version: 20130815141843) do
     t.string   "title"
     t.text     "description"
     t.string   "link"
-    t.text     "more_info"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

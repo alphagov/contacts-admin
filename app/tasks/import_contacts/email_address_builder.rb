@@ -11,11 +11,6 @@ class ImportContacts
          description: attributes['emailtag2'],
          link: attributes['emailurl2'],
          email: attributes['emailaddress2']
-       },{
-         title: attributes['emailmoreinfourltitle'],
-         description: attributes['emailmoreinfourltag'],
-         link: attributes['emailmoreinfourl'],
-         more_info: attributes['emailmoreinfo']
        }].map { |email_address_attributes|
          contact_record.email_addresses.build(email_address_attributes)
        }
