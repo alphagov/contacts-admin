@@ -54,5 +54,26 @@ describe ImportContacts::ContactRecordBuilder do
 
       expect(described_class.build(attributes).contact_form_url).to eq contact_form_url
     end
+
+    it 'assigns textphone' do
+      textphone = '0845 302 1408'
+      attributes = {'textphone' => textphone}
+
+      expect(described_class.build(attributes).textphone).to eq textphone
+    end
+
+    it 'assigns international phone' do
+      international = '+44 135 535 9022'
+      attributes = {'international' => international}
+
+      expect(described_class.build(attributes).international_phone).to eq international
+    end
+
+    it 'assigns fax phone' do
+      fax = '+44 1274 204198'
+      attributes = {'fax' => fax}
+
+      expect(described_class.build(attributes).fax).to eq fax
+    end
   end
 end

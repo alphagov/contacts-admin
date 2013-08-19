@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20130819074159) do
     t.string   "alt_meta_keywords"
     t.string   "textphone"
     t.string   "international_phone"
+    t.string   "fax"
   end
 
   create_table "contacts", force: true do |t|
