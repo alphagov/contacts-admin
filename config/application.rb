@@ -12,6 +12,8 @@ module HmrcContacts
 
     config.autoload_paths += %W(#{config.root}/app/models/more_info_record)
 
+    config.assets.precompile += %w( admin.css admin.js )
+
     # Generators
     config.generators do |g|
       g.orm                 :active_record
