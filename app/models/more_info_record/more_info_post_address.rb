@@ -1,0 +1,2 @@
+class MoreInfoPostAddress < MoreInfoRecord
+end

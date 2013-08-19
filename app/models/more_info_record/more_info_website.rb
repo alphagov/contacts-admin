@@ -1,0 +1,2 @@
+class MoreInfoWebsite < MoreInfoRecord
+end

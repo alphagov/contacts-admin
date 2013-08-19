@@ -1,0 +1,2 @@
+class MoreInfoNumber < MoreInfoRecord
+end
