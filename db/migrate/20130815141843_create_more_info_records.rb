@@ -3,9 +3,9 @@ class CreateMoreInfoRecords < ActiveRecord::Migration
     create_table :more_info_records do |t|
       t.references :contact_record
       t.string :type
-      t.text   :heading
-      t.text   :title
       t.text   :description
+      t.text   :url_title
+      t.text   :url_description
       t.text   :url
       t.timestamps
     end

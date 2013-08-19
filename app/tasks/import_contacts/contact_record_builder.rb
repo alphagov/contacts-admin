@@ -30,6 +30,7 @@ class ImportContacts
       @contact_record.post_addresses = post_address_records
       @contact_record.numbers = number_records
       @contact_record.contacts = contact_records
+      @contact_record.more_info_website = more_info_website_record
 
       @contact_record
     end
@@ -54,6 +55,10 @@ class ImportContacts
 
     def number_records
       NumberBuilder.build(@contact_record, attributes).select(&:valid?)
+    end
+
+    def more_info_website_record
+      MoreInfoWebsiteBuilder.build(@contact_record, attributes)
     end
   end
 end

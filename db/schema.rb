@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 20130815141843) do
   create_table "more_info_records", force: true do |t|
     t.integer  "contact_record_id"
     t.string   "type"
-    t.text     "heading"
-    t.text     "title"
     t.text     "description"
+    t.text     "url_title"
+    t.text     "url_description"
     t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
