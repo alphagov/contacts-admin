@@ -25,15 +25,17 @@ class ImportContacts
     end
 
     def build
-      @contact_record.websites = website_records
-      @contact_record.email_addresses = email_address_records
-      @contact_record.post_addresses = post_address_records
-      @contact_record.numbers = number_records
-      @contact_record.contacts = contact_records
-      @contact_record.more_info_website = more_info_website_record
-      @contact_record.more_info_email_address = more_info_email_address_record
-      @contact_record.more_info_post_address = more_info_post_address_record
-      @contact_record.more_info_number = more_info_number_record
+      @contact_record.assign_attributes({
+        websites: website_records,
+        email_addresses: email_address_records,
+        post_addresses: post_address_records,
+        numbers: number_records,
+        contacts: contact_records,
+        more_info_website: more_info_website_record,
+        more_info_email_address: more_info_email_address_record,
+        more_info_post_address: more_info_post_address_record,
+        more_info_number: more_info_number_record
+      })
 
       @contact_record
     end
