@@ -7,6 +7,8 @@ gem 'active_hash'
 gem 'mysql2'
 gem 'unicorn'
 
+gem "gds-sso", github: "alphagov/gds-sso", branch: "master", ref: "bf4b6d13a1"
+
 gem 'aws-ses', require: 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
 
