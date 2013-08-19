@@ -30,5 +30,15 @@ describe ImportContacts::ContactBuilder do
         }
       ).to be_present
     end
+
+    it 'assigns contact to HMRC (by default)' do
+      contacts = described_class.build(contact_record, input_attributes)
+
+      expect(
+        contacts.all? { |contact|
+          contact.department == Department.hmrc
+        }
+      ).to be_true
+    end
   end
 end
