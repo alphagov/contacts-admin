@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HMRC Contacts</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <title>HMRC Contacts: Admin Interface</title>
+  <%= stylesheet_link_tag    "admin", media: "all" %>
+  <%= javascript_include_tag "admin" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -13,6 +13,7 @@
     <div class="container">
       <ul class="nav">
         <li><%= link_to 'Home', admin_root_path  %></li>
+        <li><%= link_to 'Contact Records', admin_contact_records_path  %></li>
       </ul>
     </div>
   </div>

@@ -1,0 +1,30 @@
+<div class='page-header'>
+  <h2>
+    Contact Records
+    <small>(<%= @contact_records.count %>)</small>
+  </h2>
+ </div>
+
+<% if @contact_records.any? %>
+  <table class='table table-bordered table-striped table-hover'>
+    <thead>
+      <tr>
+        <th>Contacts</th>
+        <th>Contact Type</th>
+        <th>Keywords</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @contact_records %>
+    </tbody>
+  </table>
+<% else %>
+  <div class='alert alert-block alert-info'>
+    <h4>No contact records foudn</h4>
+    <p>
+      We have found no contact records. Add one?
+      <%= link_to "Add one?", new_admin_contact_record_path, class: 'btn btn-small' %>
+    </p>
+  </div>
+<% end %>

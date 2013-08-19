@@ -5,4 +5,8 @@ class Contact < ActiveRecord::Base
   validates :title, presence: true
   validates :contact_record, presence: true
   validates :department, presence: true
+
+  def to_s
+    title
+  end
 end

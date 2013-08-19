@@ -1,0 +1,14 @@
+<tr>
+  <td>
+    <ul>
+      <% contact_record.contacts.each do |contact| %>
+        <li><%= contact %></li>
+      <% end %>
+    </ul>
+  </td>
+  <td><%= contact_record.contact_type %></td>
+  <td>
+    <%= render_contact_keywords(contact_record.keywords) %>
+  </td>
+  <td></td>
+</tr>
