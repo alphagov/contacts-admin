@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130819082936) do
+ActiveRecord::Schema.define(version: 20130819121127) do
 
   create_table "contact_records", force: true do |t|
     t.integer  "contact_type_id"
@@ -89,6 +89,17 @@ ActiveRecord::Schema.define(version: 20130819082936) do
   end
 
   add_index "post_addresses", ["contact_record_id"], name: "index_post_addresses_on_contact_record_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "uid"
+    t.integer  "version"
+    t.text     "permissions"
+    t.boolean  "remotely_signed_out", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "websites", force: true do |t|
     t.integer  "contact_record_id"
