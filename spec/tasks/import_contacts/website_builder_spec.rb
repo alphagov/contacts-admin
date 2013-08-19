@@ -50,30 +50,5 @@ describe ImportContacts::WebsiteBuilder do
         ).to be_present
       end
     end
-
-    context 'with third website record' do
-      let(:site_more_info) { 'more info' }
-      let(:input_attributes) {
-        {
-          'ogmoreinfo' => site_more_info,
-          'ogmoreinfourltitle' => site_title,
-          'ogmoreinfourltag' => site_desc,
-          'ogmoreinfourl' => site_link
-        }
-      }
-
-      it 'builds third website record' do
-        websites = described_class.build(contact_record, input_attributes)
-
-        expect(
-          websites.detect { |website|
-            website.title == site_title &&
-            website.description == site_desc &&
-            website.link == site_link
-            website.more_info == site_more_info
-          }
-        ).to be_present
-      end
-    end
   end
 end
