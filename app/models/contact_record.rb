@@ -10,10 +10,10 @@ class ContactRecord < ActiveRecord::Base
   has_many :email_addresses, inverse_of: :contact_record, dependent: :destroy
   has_many :post_addresses, inverse_of: :contact_record, dependent: :destroy
 
-  has_one  :more_info_website, class_name: 'MoreInfoRecord'
-  has_one  :more_info_email_address, class_name: 'MoreInfoRecord'
-  has_one  :more_info_post_address, class_name: 'MoreInfoRecord'
-  has_one  :more_info_number, class_name: 'MoreInfoRecord'
+  has_one  :more_info_website
+  has_one  :more_info_email_address
+  has_one  :more_info_post_address
+  has_one  :more_info_number
 
   serialize :keywords, Array
 end

@@ -32,6 +32,7 @@ class ImportContacts
       @contact_record.contacts = contact_records
       @contact_record.more_info_website = more_info_website_record
       @contact_record.more_info_email_address = more_info_email_address_record
+      @contact_record.more_info_post_address = more_info_post_address_record
 
       @contact_record
     end
@@ -64,6 +65,10 @@ class ImportContacts
 
     def more_info_email_address_record
       MoreInfoEmailAddressBuilder.build(@contact_record, attributes)
+    end
+
+    def more_info_post_address_record
+      MoreInfoPostAddressBuilder.build(@contact_record, attributes)
     end
   end
 end
