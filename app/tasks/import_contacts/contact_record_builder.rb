@@ -25,7 +25,9 @@ class ImportContacts
         textphone: attributes['textphone'],
         international_phone: attributes['international'],
         fax: attributes['fax'],
-        email_text_head: attributes['emailtexthead']
+        email_text_head: attributes['emailtexthead'],
+        post_name: attributes['post_name'],
+        post_text_head: attributes['posttexthead']
       }
     end
 
