@@ -6,6 +6,8 @@ require 'import_contacts/post_address_builder'
 require 'import_contacts/email_address_builder'
 require 'import_contacts/contact_record_builder'
 require 'import_contacts/more_info_website_builder'
+require 'import_contacts/more_info_post_address_builder'
+require 'import_contacts/more_info_number_builder'
 
 class ImportContacts
   def initialize(file_path)
