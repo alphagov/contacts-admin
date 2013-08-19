@@ -75,5 +75,12 @@ describe ImportContacts::ContactRecordBuilder do
 
       expect(described_class.build(attributes).fax).to eq fax
     end
+
+    it 'assigns email text head' do
+      email_text_head = 'email text head'
+      attributes = {'emailtexthead' => email_text_head}
+
+      expect(described_class.build(attributes).email_text_head).to eq email_text_head
+    end
   end
 end

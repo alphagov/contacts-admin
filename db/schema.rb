@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130819074159) do
+ActiveRecord::Schema.define(version: 20130819075136) do
 
   create_table "contact_records", force: true do |t|
     t.integer  "contact_type_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20130819074159) do
     t.string   "textphone"
     t.string   "international_phone"
     t.string   "fax"
+    t.text     "email_text_head"
   end
 
   create_table "contacts", force: true do |t|

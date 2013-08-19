@@ -24,7 +24,8 @@ class ImportContacts
         alt_meta_keywords: attributes['alt_meta_keywords'],
         textphone: attributes['textphone'],
         international_phone: attributes['international'],
-        fax: attributes['fax']
+        fax: attributes['fax'],
+        email_text_head: attributes['emailtexthead']
       }
     end
 
