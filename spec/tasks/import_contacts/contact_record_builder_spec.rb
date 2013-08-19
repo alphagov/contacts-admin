@@ -47,5 +47,12 @@ describe ImportContacts::ContactRecordBuilder do
 
       expect(described_class.build(attributes).alt_meta_keywords).to eq meta_keywords
     end
+
+    it 'assigns contact_form_url' do
+      contact_form_url = 'http://www.example.com'
+      attributes = {'overrideurl' => contact_form_url}
+
+      expect(described_class.build(attributes).contact_form_url).to eq contact_form_url
+    end
   end
 end
