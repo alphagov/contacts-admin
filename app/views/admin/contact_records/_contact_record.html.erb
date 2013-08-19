@@ -8,7 +8,13 @@
   </td>
   <td><%= contact_record.contact_type %></td>
   <td>
+    <%= contact_record.description %>
+  </td>
+  <td>
     <%= render_contact_keywords(contact_record.keywords) %>
   </td>
-  <td></td>
+  <td><%= contact_record.websites.size %></td>
+  <td><%= contact_record.email_addresses.size %></td>
+  <td><%= contact_record.post_addresses.size %></td>
+  <td><%= contact_record.numbers.size %></td>
 </tr>
