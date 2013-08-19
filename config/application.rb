@@ -10,6 +10,8 @@ module HmrcContacts
   class Application < Rails::Application
     require 'hmrc_contacts'
 
+    config.autoload_paths += %W(#{config.root}/app/models/more_info_record)
+
     # Generators
     config.generators do |g|
       g.orm                 :active_record

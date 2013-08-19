@@ -1,0 +1,2 @@
+class MoreInfoEmailAddress < MoreInfoRecord
+end

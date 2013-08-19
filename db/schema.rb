@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130815070220) do
+ActiveRecord::Schema.define(version: 20130819075414) do
 
   create_table "contact_records", force: true do |t|
     t.integer  "contact_type_id"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20130815070220) do
     t.text     "contact_form_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "alt_meta_title"
+    t.string   "alt_meta_description"
+    t.string   "alt_meta_keywords"
+    t.string   "textphone"
+    t.string   "international_phone"
+    t.string   "fax"
+    t.text     "email_text_head"
+    t.string   "post_name"
+    t.text     "post_text_head"
   end
 
   create_table "contacts", force: true do |t|
@@ -37,10 +46,23 @@ ActiveRecord::Schema.define(version: 20130815070220) do
     t.text     "description"
     t.string   "email"
     t.string   "link"
-    t.text     "more_info"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "more_info_records", force: true do |t|
+    t.integer  "contact_record_id"
+    t.string   "type"
+    t.text     "description"
+    t.text     "url_title"
+    t.text     "url_description"
+    t.text     "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "more_info_records", ["contact_record_id"], name: "index_more_info_records_on_contact_record_id", using: :btree
+  add_index "more_info_records", ["type"], name: "index_more_info_records_on_type", using: :btree
 
   create_table "numbers", force: true do |t|
     t.integer  "contact_record_id"
@@ -49,7 +71,6 @@ ActiveRecord::Schema.define(version: 20130815070220) do
     t.string   "international_number"
     t.text     "description"
     t.text     "open_hours"
-    t.text     "more_info"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -61,7 +82,6 @@ ActiveRecord::Schema.define(version: 20130815070220) do
     t.string   "title"
     t.text     "description"
     t.text     "address"
-    t.text     "more_info"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -73,7 +93,6 @@ ActiveRecord::Schema.define(version: 20130815070220) do
     t.string   "title"
     t.text     "description"
     t.string   "link"
-    t.text     "more_info"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
