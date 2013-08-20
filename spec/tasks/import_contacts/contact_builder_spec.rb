@@ -4,6 +4,7 @@ describe ImportContacts::ContactBuilder do
   describe '.build' do
     let(:contact_record) { build :contact_record }
     let(:titles)    { "title1\ntitle2" }
+    let!(:department) { create :department, title: 'HMRC', id: 1 }
 
     let(:input_attributes) {
       {
