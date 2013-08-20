@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 gem 'active_hash'
 gem 'bootstrap-sass'
+gem 'decent_exposure'
 gem 'mysql2'
 gem 'simple_form', github: 'plataformatec/simple_form', ref: '359606f'
 gem 'slimmer', '>= 3.0.0'

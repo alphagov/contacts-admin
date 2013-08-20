@@ -17,6 +17,10 @@ class ContactRecord < ActiveRecord::Base
 
   serialize :keywords, Array
 
+  scope :with_more_info_records, -> {
+    includes(:more_info_website, :more_info_email_address, :more_info_post_address, :more_info_number)
+  }
+
   def to_s
     description
   end
