@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :contact_record do
-    contact_type { ContactType.all.sample }
+    contact_type
   end
 end
