@@ -40,7 +40,7 @@ module Admin
 
       yield if block_given?
 
-      click_button 'Create contact_record'
+      click_button 'Create Contact record'
     end
 
     def contact_record_updated(contact_record, details = {})
