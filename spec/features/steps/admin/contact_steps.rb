@@ -28,7 +28,11 @@ module Admin
 
       yield if block_given?
 
+<<<<<<< HEAD
       find('#contact-submit').click
+=======
+      click_button 'Update Contact'
+>>>>>>> Allow creation and and updates for Contact records
     end
 
     def create_contact(details = {})
