@@ -12,9 +12,18 @@
 
 ## Running
 
-````
-./startup.sh
-````
+1. Load database structure
+
+    ```
+    bundle exec rake db:schema:load
+    bundle exec rake db:seed
+    ```
+
+2. Start the application
+
+   ````
+   ./startup.sh
+   ````
 
 ## Development notes
 
