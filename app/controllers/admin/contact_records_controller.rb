@@ -23,6 +23,7 @@ module Admin
     def contact_record_params
       params.require(:contact_record).permit(
         :contact_type_id,
+        {contact_ids: []},
         :description,
         :contact_form_url,
         :alt_meta_title,

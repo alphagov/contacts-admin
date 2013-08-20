@@ -6,6 +6,7 @@
   <fieldset>
     <legend>General details</legend>
     <%= f.association :contact_type, collection: ContactType.all, include_blank: false %>
+    <%= f.association :contacts, input_html: { multiple: true } %>
     <%= f.input :description %>
     <%= f.input :contact_form_url %>
     <%= f.input :alt_meta_title %>
