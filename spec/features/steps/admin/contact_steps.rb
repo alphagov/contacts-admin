@@ -54,5 +54,13 @@ module Admin
     def contacts_table_selector
       "table.contact-table"
     end
+
+    def associated_to_department(contact, department)
+      contact.reload.department == department
+    end
+
+    def associated_to_contact_record(contact, contact_record)
+      contact.reload.contact_record == contact_record
+    end
   end
 end

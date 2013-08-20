@@ -19,14 +19,4 @@ describe 'Contact editing', auth: :user do
     verify associated_to_department(contact, department)
     verify associated_to_contact_record(contact, contact_record)
   end
-
-  private
-
-  def associated_to_department(contact, department)
-    contact.reload.department == department
-  end
-
-  def associated_to_contact_record(contact, contact_record)
-    contact.reload.contact_record == contact_record
-  end
 end

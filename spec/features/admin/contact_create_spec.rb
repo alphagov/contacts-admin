@@ -21,14 +21,4 @@ describe 'Contact creation', auth: :user do
 
     verify contact_exists(contact)
   end
-
-  private
-
-  def associated_to_department(contact, department)
-    contact.reload.department == department
-  end
-
-  def associated_to_contact_record(contact, contact_record)
-    contact.reload.contact_record == contact_record
-  end
 end

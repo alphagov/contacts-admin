@@ -21,16 +21,4 @@ describe 'Contact Record editing', auth: :user do
     verify associated_to_contact_type(contact_record, contact_type)
     verify associated_to_contacts(contact_record, contact1, contact2)
   end
-
-  private
-
-  def associated_to_contact_type(contact_record, contact_type)
-    contact_record.reload.contact_type == contact_type
-  end
-
-  def associated_to_contacts(contact_record, *contacts)
-    contacts.all? { |contact|
-      contact_record.reload.contacts.include?(contact)
-    }
-  end
 end

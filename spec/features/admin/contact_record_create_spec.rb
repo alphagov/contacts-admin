@@ -23,16 +23,4 @@ describe 'Contact Record creation', auth: :user do
 
     verify contact_record_exists(contact_record)
   end
-
-  private
-
-  def associated_to_contact_type(contact_record, contact_type)
-    contact_record.reload.contact_type == contact_type
-  end
-
-  def associated_to_contacts(contact_record, *contacts)
-    contacts.all? { |contact|
-      contact_record.reload.contacts.include?(contact)
-    }
-  end
 end
