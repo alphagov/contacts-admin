@@ -17,4 +17,7 @@
   <td><%= contact_record.email_addresses.size %></td>
   <td><%= contact_record.post_addresses.size %></td>
   <td><%= contact_record.numbers.size %></td>
+  <td>
+    <%= link_to "Edit", edit_admin_contact_record_path(contact_record), class: 'btn btn-small' %>
+  </td>
 </tr>

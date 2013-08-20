@@ -6,9 +6,10 @@ gem 'rails', '4.0.0'
 gem 'active_hash'
 gem 'bootstrap-sass'
 gem 'mysql2'
+gem 'simple_form', github: 'plataformatec/simple_form', ref: '359606f'
 gem 'unicorn', "~> 4.6.3"
 
-gem 'gds-sso', github: "alphagov/gds-sso", branch: "master", ref: "bf4b6d13a1"
+gem 'gds-sso', github: "alphagov/gds-sso", branch: "master", ref: 'bf4b6d13a1'
 gem "plek", ">= 1.0.0"
 
 gem 'aws-ses', require: 'aws/ses' # Needed by exception_notification
@@ -38,4 +39,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'fakefs', require: "fakefs/safe"
+  gem 'capybara'
 end
