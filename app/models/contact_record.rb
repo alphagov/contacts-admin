@@ -3,7 +3,7 @@ class ContactRecord < ActiveRecord::Base
 
   belongs_to_active_hash :contact_type
 
-  has_many :contacts, dependent: :destroy
+  has_many :contacts, dependent: :destroy, inverse_of: :contact_record
 
   has_many :websites, inverse_of: :contact_record, dependent: :destroy
   has_many :numbers, inverse_of: :contact_record, dependent: :destroy
