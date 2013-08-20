@@ -40,5 +40,11 @@ describe ImportContacts::ContactBuilder do
         }
       ).to be_true
     end
+
+    specify 'assigned contacts are valid' do
+      contacts = described_class.build(contact_record, input_attributes)
+
+      expect(contacts.all?(&:valid?)).to be_true
+    end
   end
 end
