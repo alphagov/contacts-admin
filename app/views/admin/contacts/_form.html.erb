@@ -1,0 +1,11 @@
+<%= simple_form_for [:admin, contact] do |f| %>
+  <fieldset>
+    <%= f.input :title %>
+    <%= f.association :contact_record, include_blank: false %>
+    <%= f.association :department, collection: Department.all, include_blank: false %>
+  </fieldset>
+
+  <div class='form-actions'>
+    <%= f.submit class: 'btn btn-primary', data: { disable_with: 'Working' } %>
+  </div>
+<% end %>

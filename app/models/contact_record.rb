@@ -16,4 +16,8 @@ class ContactRecord < ActiveRecord::Base
   has_one  :more_info_number
 
   serialize :keywords, Array
+
+  def to_s
+    description
+  end
 end
