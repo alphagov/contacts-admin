@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130819121127) do
+ActiveRecord::Schema.define(version: 20130819134233) do
 
   create_table "contact_records", force: true do |t|
     t.integer  "contact_type_id"
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(version: 20130819121127) do
     t.text     "email_text_head"
     t.string   "post_name"
     t.text     "post_text_head"
+    t.integer  "websites_count",        default: 0
+    t.integer  "numbers_count",         default: 0
+    t.integer  "email_addresses_count", default: 0
+    t.integer  "post_addresses_count",  default: 0
   end
 
   create_table "contacts", force: true do |t|
