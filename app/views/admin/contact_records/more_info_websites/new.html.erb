@@ -2,4 +2,6 @@
   <h2>New More Info Website Record</h2>
 </div>
 
-<%= render partial: 'form', locals: { contact_record: contact_record, more_info_website: @more_info_record } %>
+<%= simple_form_for @more_info_record, url: admin_contact_record_more_info_website_path(contact_record) do |more_info_record_form| %>
+  <%= render partial: 'fields', locals: { more_info_record_form: more_info_record_form } %>
+<% end %>
