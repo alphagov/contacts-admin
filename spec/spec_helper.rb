@@ -19,4 +19,9 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include FeaturesHelpers, type: :feature
   config.include FileCreationHelper
+
+  config.before(:each) do
+    # ActiveHash clean slate for testing
+    [ContactType,Department].each(&:delete_all)
+  end
 end

@@ -5,8 +5,8 @@ FactoryGirl.define do
 
   factory :contact do
     contact_record
+    department
 
     title { generate(:contact_title)  }
-    department { Department.all.sample }
   end
 end

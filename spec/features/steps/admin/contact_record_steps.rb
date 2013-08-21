@@ -28,7 +28,7 @@ module Admin
 
       yield if block_given?
 
-      click_button 'Update Contact record'
+      find('#contact-record-submit').click
     end
 
     def create_contact_record(details = {})
@@ -40,7 +40,7 @@ module Admin
 
       yield if block_given?
 
-      click_button 'Create contact_record'
+      find('#contact-record-submit').click
     end
 
     def contact_record_updated(contact_record, details = {})
@@ -53,6 +53,16 @@ module Admin
 
     def contact_records_table_selector
       "table.contact-records-table"
+    end
+
+    def associated_to_contact_type(contact_record, contact_type)
+      contact_record.reload.contact_type == contact_type
+    end
+
+    def associated_to_contacts(contact_record, *contacts)
+      contacts.all? { |contact|
+        contact_record.reload.contacts.include?(contact)
+      }
     end
   end
 end
