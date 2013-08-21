@@ -28,7 +28,7 @@ module Admin
 
       yield if block_given?
 
-      click_button 'Update Contact record'
+      find('#contact-record-submit').click
     end
 
     def create_contact_record(details = {})
@@ -40,7 +40,7 @@ module Admin
 
       yield if block_given?
 
-      click_button 'Create Contact record'
+      find('#contact-record-submit').click
     end
 
     def contact_record_updated(contact_record, details = {})
