@@ -6,4 +6,6 @@ FactoryGirl.define do
   factory :more_info_record do
     url { generate(:more_info_url) }
   end
+
+  factory :more_info_website, parent: :more_info_record
 end
