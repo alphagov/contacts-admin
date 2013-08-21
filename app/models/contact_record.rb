@@ -10,12 +10,16 @@ class ContactRecord < ActiveRecord::Base
   has_many :email_addresses, inverse_of: :contact_record, dependent: :destroy
   has_many :post_addresses, inverse_of: :contact_record, dependent: :destroy
 
-  has_one  :more_info_website
-  has_one  :more_info_email_address
-  has_one  :more_info_post_address
-  has_one  :more_info_number
+  has_one  :more_info_website, inverse_of: :contact_record
+  has_one  :more_info_email_address, inverse_of: :contact_record
+  has_one  :more_info_post_address, inverse_of: :contact_record
+  has_one  :more_info_number, inverse_of: :contact_record
 
   serialize :keywords, Array
+
+  scope :with_more_info_records, -> {
+    includes(:more_info_website, :more_info_email_address, :more_info_post_address, :more_info_number)
+  }
 
   def to_s
     description

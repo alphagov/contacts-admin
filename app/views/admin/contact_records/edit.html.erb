@@ -2,4 +2,46 @@
   <h2>Edit Contact Record</h2>
 </div>
 
+<ul class='nav nav-tabs'>
+  <li class='active'>
+    <%= link_to 'Edit Contact Record', edit_admin_contact_record_path(@contact_record) %>
+  </li>
+  <li class='dropdown'>
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      More Info Records
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+      <li>
+        <%=
+          link_to_if(@contact_record.more_info_website.present?, 'Edit Website More Info Record', [:edit, :admin, @contact_record, :more_info_website], class: 'edit-more-info-website') {
+            link_to 'New Website More Info', new_admin_contact_record_more_info_website_path(@contact_record), class: 'new-more-info-website'
+          }
+        %>
+      </li>
+      <li>
+        <%=
+          link_to_if(@contact_record.more_info_email_address.present?, 'Edit Email Address More Info Record', [:edit, :admin, @contact_record, :more_info_email_address], class: 'edit-more-info-email-address') {
+            link_to 'New Email Address More Info', new_admin_contact_record_more_info_email_address_path(@contact_record), class: 'new-more-info-email-address'
+          }
+        %>
+      </li>
+      <li>
+        <%=
+          link_to_if(@contact_record.more_info_post_address.present?, 'Edit Email Address More Info Record', [:edit, :admin, @contact_record, :more_info_post_address], class: 'edit-more-info-post-address') {
+            link_to 'New Post Address More Info', new_admin_contact_record_more_info_post_address_path(@contact_record), class: 'new-more-info-post-address'
+          }
+        %>
+      </li>
+      <li>
+        <%=
+          link_to_if(@contact_record.more_info_number.present?, 'Edit Number More Info Record', [:edit, :admin, @contact_record, :more_info_number], class: 'edit-more-info-number') {
+            link_to 'New Number More Info', new_admin_contact_record_more_info_number_path(@contact_record), class: 'new-more-info-number'
+          }
+        %>
+      </li>
+    </ul>
+  </li>
+</ul>
+
 <%= render partial: 'form', locals: { contact_record: @contact_record } %>

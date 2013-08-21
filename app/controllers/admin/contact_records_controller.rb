@@ -5,7 +5,7 @@ module Admin
     end
 
     def edit
-      @contact_record = ContactRecord.find(params[:id])
+      @contact_record = ContactRecord.with_more_info_records.find(params[:id])
     end
 
     def new
