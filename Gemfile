@@ -27,6 +27,7 @@ gem 'jquery-rails'
 # development
 group :development do
   gem 'capistrano'
+  gem 'railroady'
 end
 
 group :development, :test do
