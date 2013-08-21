@@ -1,4 +1,7 @@
 /*
  *= require_self
- *= require_tree .
+ *= require ./frontend/base
+ *= require ./frontend/base-ie8
+ *= require ./frontend/base-ie7
+ *= require ./frontend/base-ie6
  */

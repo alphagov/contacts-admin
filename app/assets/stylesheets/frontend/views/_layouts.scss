@@ -1,0 +1,38 @@
+// Styles for Layouts view
+
+
+.inner-block {
+  padding: 0 $gutter-half;
+
+  @include media(tablet){
+    padding: 0 $gutter;
+  }
+
+  &.floated-children {
+    @extend %contain-floats;
+
+    padding: 0;
+
+    @include media(tablet){
+      padding: 0 $gutter-half;
+    }
+  }
+}
+
+p.report-a-problem-toggle {
+  clear: both;
+  margin: $gutter-half;
+  direction: ltr;
+  @include media(tablet){
+    margin: $gutter;
+  }
+
+  a {
+    color: $secondary-text-colour;
+    text-decoration: underline;
+  }
+}
+
+.report-a-problem-container {
+  max-width: 33em;
+}

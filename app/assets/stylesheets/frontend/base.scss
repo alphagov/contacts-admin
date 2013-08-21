@@ -1,0 +1,69 @@
+// BASE STYLESHEET COMPILER
+
+
+
+// STYLEGUIDE
+// Mixins to be shared across gov.uk sites. Anything set in these
+// files can be used in the view files.
+
+// From the https://github.com/alphagov/govuk_frontend_toolkit
+@import "_colours.scss";
+@import "_conditionals.scss";
+@import "_typography.scss";
+@import "_shims.scss";
+@import "_css3.scss";
+@import "_device-pixels.scss";
+
+@import "styleguide/_dimensions.scss";
+@import "styleguide/_font-stacks.scss";
+@import "styleguide/_typography.scss";
+@import "styleguide/_colours.scss";
+@import "styleguide/_button.scss";
+@import "styleguide/_float-fix.scss";
+@import "styleguide/_hidpi.scss";
+@import "styleguide/_right-to-left.scss";
+
+/* conversion functions */
+
+  @function em($target-px, $current-px) {
+    @return $target-px * (1 / $current-px) * 1em;
+  }
+
+  @function px($value) {
+    @return $value * 1px;
+  }
+
+/* end conversion functions */
+
+
+// RESET
+// Flatten exising styles
+
+@import "reset/_govuk-overrides.scss";
+// overrides to the gov.uk header and footer
+@import "reset/_reset.scss";
+// reset styles applied to .hmrc-contacts-body & .hmrc-contacts-body *
+// so as to override global styles being set by gov.uk chrome. When
+// gov.uk styles are scoped, will want to change these selectors to
+// body and *
+
+// HELPERS
+// Styles for comment page elements
+.hmrc-contacts-body {
+  
+}
+
+
+
+// VIEWS
+// Styles scoped to each template in /views
+
+.hmrc-contacts-body {
+  @import "views/_layouts.scss";
+}
+
+
+
+// LAYOUTS
+// Styles scoped to a layout. Be careful.
+@import "layouts/_main.scss";

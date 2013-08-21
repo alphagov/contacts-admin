@@ -6,10 +6,14 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="hmrc-contacts-body">
 
-<div id="wrapper" class="hmrc-contacts">
-  <%= yield %>
+<div id="wrapper">
+  <div class="hmrc-contacts-content">
+    <div id="page" class="<%= content_for?(:page_class) ? yield(:page_class) : '' %>" >
+      <%= yield %>
+    </div>
+  </div>
 </div>
 
 </body>
