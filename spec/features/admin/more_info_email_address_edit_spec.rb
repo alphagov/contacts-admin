@@ -8,7 +8,7 @@ describe 'More Info email_address editing', auth: :user do
   let(:new_url)               { 'http://www.example.com/new_url' }
 
   before {
-    verify more_info_email_address_exists(contact_record)
+    verify more_info_record_exists(contact_record)
   }
 
   specify 'it can be updated' do

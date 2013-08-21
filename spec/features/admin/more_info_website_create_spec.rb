@@ -7,7 +7,7 @@ describe 'More Info Website record creation', auth: :user do
   let(:more_info_website) { build :more_info_website, contact_record: contact_record }
 
   before {
-    verify !more_info_website_exists(contact_record)
+    verify !more_info_record_exists(contact_record)
   }
 
   specify 'it can be created' do
@@ -15,6 +15,6 @@ describe 'More Info Website record creation', auth: :user do
       url: more_info_website.url
     })
 
-    verify more_info_website_exists(contact_record)
+    verify more_info_record_exists(contact_record)
   end
 end
