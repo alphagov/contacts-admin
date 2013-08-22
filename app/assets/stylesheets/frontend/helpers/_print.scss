@@ -1,0 +1,121 @@
+h1 {
+  @include heading-27;
+  margin: $gutter 0;
+}
+h2 {
+  @include heading-24;
+  margin: $gutter 0 0;
+}
+h3,
+h4,
+h5 {
+  @include copy-19;
+  margin: $gutter 0 0;
+}
+h4 {
+  margin: $gutter-half 0 0;
+}
+h5 {
+  margin: 0;
+}
+p {
+  @include copy-14;
+  margin: $gutter-half 0;
+}
+ol {
+  list-style: decimal;
+  list-style-position: outside;
+}
+ul {
+  list-style: disc;
+  list-style-position: outside;
+}
+li {
+  @include copy-14;
+  margin-left: $gutter*1.2;
+  
+  li {
+    margin-left: $gutter;
+  }
+}
+strong, b {
+  font-family: $NTA-Bold;
+}
+em, i {
+  font-style: italic;
+}
+blockquote p {
+  text-indent: -0.45em;
+  padding-left: $gutter;
+  
+}
+hr {
+  margin-top: $gutter - 1px;
+  border-top: 1px solid #ccc;
+  margin-bottom: $gutter;
+}
+figure {
+  width: 100%;
+  clear: both;
+  overflow: hidden;
+  padding: $gutter-one-third 0 0;
+  
+  img {
+    display: inline;
+    text-align: center;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+  }
+  figcaption {
+    @include copy-14;
+  }
+}
+.player-container {
+  display: none;
+}
+
+aside.meta {
+  dt {
+    float: left;
+    clear: both;
+    min-width: 100px;
+  }
+  dd p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.document-filter-page {
+  .filter-form {
+    display: none;
+  }
+  .filtered-results {
+    .inner-block {
+      a {
+        text-decoration: none;
+      }
+      .feeds {
+        display: none;
+      }
+      ol, ul {
+        padding: 0;
+        margin: 0;
+        li {
+          list-style: none;
+          float: left;
+          padding: 0;
+          margin: 0 30px 0 0;
+          h3 {
+            font-weight: bold;
+            padding-bottom: 0;
+          }
+          abbr[class="public_timestamp"]:after {
+            content: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,67 @@
-<div class="block content-block">
+<% page_class 'landing-page' %>
+
+<div class="block-1">
   <div class="inner-block">
-    <p>Home page placeholder</p>
+    <%= render 'layouts/hmrc_logo' %>
+  </div>
+</div>
+
+<div class="block-2">
+  <div class="inner-block">
+    <div class="landing-search">
+      <h1 class="main">
+        Search for relevant HMRC contact information
+      </h1>
+      <p>
+        Please enter a question you want to ask HMRC or type what you would like to do.
+      </p>
+      <form>
+        <div class="searchfield">
+          <fieldset class="search-input">
+            <input type="search" name="q" value="" id="search-main">
+          </fieldset>
+          <fieldset class="search-submit">
+            <button type="submit" class="button">Search</button>
+          </fieldset>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="block" id="commonly-asked-questions">
+  <div class="inner-block">
+    <h2 class="section-divider">
+      Browse by most commonly asked questions about
+    </h2>
+
+    <ul>
+      <li>
+        <%= link_to "I have made a new Tax Credit claim, when will I get my first payment?", "#" %>
+      </li>
+      <li>
+        <%= link_to "How do I renew my Tax Credit claim?", "#" %>
+      </li>
+      <li>
+        <%= link_to "How do I find out my next tax credits payment dates?", "#" %>
+      </li>
+      <li>
+        <%= link_to "Do I get Child Tax Credit when my child turns 16?", "#" %>
+      </li>
+      <li>
+        <%= link_to "Can you tell me why you have overpaid me?", "#" %>
+      </li>
+      <li>
+        <%= link_to "Am I eligible for tax credits?", "#" %>
+      </li>
+      <li>
+        <%= link_to "How do I let the Tax Credit Office know about a change of circumstances?", "#" %>
+      </li>
+      <li class="search-more">
+        <%= link_to "Or search by tax area", "#" %>
+      </li>
+    </ul>
   </div>
 </div>

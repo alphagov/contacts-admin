@@ -1,0 +1,98 @@
+#page .previous-next-navigation {
+  position: relative;
+  overflow: hidden;
+  margin-top: $gutter*2;
+  width: 100%;
+
+  li {
+    @include ig-core-27;
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 45%;
+    float: left;
+
+    &.next {
+      float: right;
+      text-align: right;
+
+      a {
+        padding: $gutter-half $gutter-half+30px $gutter-half 0;
+      }
+      a:before {
+        background: transparent image-url("arrow-sprite-2B8CC4.png") no-repeat -102px -11px;
+        margin: -4px -32px 0 0;
+        display: block;
+        float: right;
+        width: 30px;
+        height: 38px;
+        content: " ";
+      }
+    }
+    &.previous {
+      a {
+          padding: $gutter-half 0 $gutter-half $gutter-half+30px;
+      }
+      a:before {
+        background: transparent image-url("arrow-sprite-2B8CC4.png") no-repeat -20px -11px;
+        margin: -4px 0 0 -32px;
+        display: block;
+        float: left;
+        width: 30px;
+        height: 38px;
+        content: " ";
+      }
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+
+      span {
+        display: block;
+        @include ig-core-14;
+      }
+      &:focus span,
+      &:hover span {
+        text-decoration: underline;
+      }
+      &:hover {
+        background: $grey-4;
+      }
+      &:active {
+        background: $grey-3;
+      }
+    }
+    @media (max-width: 768px) {
+      width: 100%;
+      float: none;
+      &.next {
+        float: none;
+        a {
+          padding: $gutter-half $gutter-half+30px;
+        }
+      }
+      &.previous {
+        a {
+          padding: $gutter-half 0 $gutter-half $gutter-half+30px;
+        }
+      }
+    }
+  }
+  &.infinite {
+    background: transparent;
+    li {
+      text-align: left;
+      float: none;
+      padding-left: 40px;
+      margin: 0 auto;
+      width: 240px;
+      a {
+        padding: 15px 0;
+      }
+    }
+    &.loading li {
+      background: transparent image-url("loading-2b2c2d.gif") no-repeat 0 50%;
+    }
+  }
+}

@@ -22,8 +22,13 @@ body.js-enabled {
   }
   form#search input.submit {
     background-color: $inside-gov-secondary;
+    
     &:hover {
       background-color: lighten($inside-gov-secondary, 5%);
     }
   }
+}
+
+#global-breadcrumb ol {
+  border-color: $inside-gov-secondary;
 }

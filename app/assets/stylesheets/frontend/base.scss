@@ -50,7 +50,40 @@
 // HELPERS
 // Styles for comment page elements
 .hmrc-contacts-body {
-  
+  @import "helpers/_activity-nav.scss";
+  @import "helpers/_attachment.scss";
+  @import "helpers/_browse.scss";
+  @import "helpers/_change-notes.scss";
+  @import "helpers/_collection_list.scss";
+  @import "helpers/_contextual-info.scss";
+  @import "helpers/_corporate-information.scss";
+  @import "helpers/_dash-list.scss";
+  @import "helpers/_document.scss";
+  @import "helpers/_document_footer_meta.scss";
+  @import "helpers/_document_list.scss";
+  @import "helpers/_documents-grid.scss";
+  @import "helpers/_headings.scss";
+  @import "helpers/_featured_news.scss";
+  @import "helpers/_feed.scss";
+  @import "helpers/_filter.scss";
+  @import "helpers/_govspeak.scss";
+  @import "helpers/_heading-block.scss";
+  @import "helpers/_historic-people-list.scss";
+  @import "helpers/_holding.scss";
+  @import "helpers/_index-list.scss";
+  @import "helpers/_js-list-items.scss";
+  @import "helpers/_lead-image.scss";
+  @import "helpers/_organisations.scss";
+  @import "helpers/_organisation-news.scss";
+  @import "helpers/_page-header.scss";
+  @import "helpers/_pagination.scss";
+  @import "helpers/_person.scss";
+  @import "helpers/_recently_updated.scss";
+  @import "helpers/_simple-alphabetical-list.scss";
+  @import "helpers/_social-media-accounts.scss";
+  @import "helpers/_stick_at_top_when_scrolling.scss";
+  @import "helpers/_sub-navigation.scss";
+  @import "helpers/_worldwide-organisation-header.scss";
 }
 
 
@@ -59,7 +92,9 @@
 // Styles scoped to each template in /views
 
 .hmrc-contacts-body {
+  @import "views/_landing.scss";
   @import "views/_layouts.scss";
+  @import "views/_organisations.scss";
 }
 
 
