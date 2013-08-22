@@ -36,6 +36,12 @@
 /* end conversion functions */
 
 
+// VENDOR
+// Vendor specific styles
+.hmrc-contacts-body {
+  @import "vendor/_chosen.min.scss";
+}
+
 // RESET
 // Flatten exising styles
 

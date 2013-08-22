@@ -35,9 +35,69 @@
   <div class="inner-block">
     <h2 class="section-divider">
       Browse by most commonly asked questions about
+
+      <select class="js-chosen-select">
+        <optgroup label="Most popular">
+          <option value="#commonly-asked-<%= 'Change of details'.parameterize %>">
+            Change of details
+          </option>
+          <option value="#commonly-asked-<%= 'Tax Credits'.parameterize %>">
+            Tax Credits
+          </option>
+          <option>
+            VAT
+          </option>
+          <option>
+            Employers
+          </option>
+          <option>
+            Income Tax
+          </option>
+          <option>
+            Self Assessment
+          </option>
+        <optgroup label="For individuals">
+          <option>
+            National Insurance
+          </option>
+          <option>
+            Child Benefit
+          </option>
+          <option>
+            Corporation Tax
+          </option>
+          <option>
+            Construction Industry Scheme (CIS)
+          </option>
+          <option>
+            Self Employed
+          </option>
+          <option>
+            Charities &amp; clubs
+          </option>
+          <option>
+            Bereavement
+          </option>
+        </optgroup>
+      </select>
     </h2>
 
-    <ul>
+    <ul class="common-sections common-sections-active" id="commonly-asked-change-of-details">
+      <li>
+        <%= link_to "I have made a new Tax Credit claim, when will I get my first payment?", "#" %>
+      </li>
+      <li>
+        <%= link_to "How do I renew my Tax Credit claim?", "#" %>
+      </li>
+      <li>
+        <%= link_to "How do I let the Tax Credit Office know about a change of circumstances?", "#" %>
+      </li>
+      <li class="search-more">
+        <%= link_to "Or search by tax area", "#" %>
+      </li>
+    </ul>
+
+    <ul class="common-sections" id="commonly-asked-tax-credits">
       <li>
         <%= link_to "I have made a new Tax Credit claim, when will I get my first payment?", "#" %>
       </li>
