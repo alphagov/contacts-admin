@@ -1,0 +1,57 @@
+.contact_list-page {
+  .hmrc-search {
+    margin-bottom: $gutter;
+  }
+
+  .organisations-index .page-header {
+    width: auto;
+
+    .label input {
+      width: 50%;
+    }
+  }
+
+  .heading-block {
+    clear: both;
+    margin-bottom: $gutter*2;
+
+    .type-heading h1 {
+      padding-top: 17px;
+      width: 80%;
+    }
+
+    .content {
+      @include media(tablet) {
+        width: 64.6%;
+      }
+
+      h2 {
+        a {
+          font-size: 18px;
+          line-height: 1.11111111111;
+          padding: 3px 0 2px 0;
+        }
+      }
+
+      p {
+        @include copy-16;
+        clear: both;
+        float: left;
+        min-width: 18em;
+      }
+
+      a {
+        color: $hm-revenue-customs-websafe;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .most-popular .heading-block .content h2 a {
+    color: $black;
+  }
+}

@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def search
   end
+
+  def contact_list
+  end
 end
