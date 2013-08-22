@@ -9,6 +9,11 @@ HmrcContacts::Application.routes.draw do
         resource :more_info_email_address
         resource :more_info_post_address
         resource :more_info_number
+
+        resources :websites
+        resources :email_addresses
+        resources :post_addresses
+        resources :numbers
       end
     end
   end
