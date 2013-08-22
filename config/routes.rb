@@ -6,5 +6,6 @@ HmrcContacts::Application.routes.draw do
     resources :contact_records
   end
 
+  get 'search', to: 'pages#search'
   root to: 'pages#home', via: :get
 end

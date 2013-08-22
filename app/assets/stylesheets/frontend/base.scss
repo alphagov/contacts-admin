@@ -98,9 +98,11 @@
 // Styles scoped to each template in /views
 
 .hmrc-contacts-body {
+  @import "views/_common.scss";
   @import "views/_landing.scss";
   @import "views/_layouts.scss";
   @import "views/_organisations.scss";
+  @import "views/_search.scss";
 }
 
 
