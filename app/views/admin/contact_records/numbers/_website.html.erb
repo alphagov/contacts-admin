@@ -1,0 +1,9 @@
+<tr>
+  <td><%= website.title %></td>
+  <td><%= website.description %></td>
+  <td><%= link_to website.link, website.link %></td>
+  <td>
+    <%= link_to 'Edit', edit_admin_contact_record_website_path(contact_record, website), class: 'btn btn-small' %>
+    <%= link_to 'Remove', admin_contact_record_website_path(contact_record, website), method: :delete, data: { confirm: 'Are you sure?' }, data: { disable: 'Working' }, class: 'btn btn-small btn-danger' %>
+  </td>
+</tr>
