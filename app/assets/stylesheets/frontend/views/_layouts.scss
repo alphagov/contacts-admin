@@ -1,5 +1,19 @@
 // Styles for Layouts view
 
+.clear {
+  clear: both;
+}
+
+@include media(desktop){
+  .block-1 {
+    width: 33.33%;
+    float: left;
+  }
+  .block-2 {
+    width: 66.66%;
+    float: right;
+  }
+}
 
 .inner-block {
   padding: 0 $gutter-half;

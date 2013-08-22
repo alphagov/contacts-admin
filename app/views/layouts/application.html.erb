@@ -9,8 +9,8 @@
 <body class="hmrc-contacts-body">
 
 <div id="wrapper">
-  <div class="hmrc-contacts-content organisation hm-revenue-customs">
-    <div id="page" class="organisation-page <%= content_for?(:page_class) ? yield(:page_class) : '' %>" >
+  <div class="hmrc-contacts-content">
+    <div id="page" class="<%= content_for?(:page_class) ? yield(:page_class) : '' %>" >
       <%= yield %>
     </div>
   </div>
