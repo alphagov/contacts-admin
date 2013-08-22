@@ -1,0 +1,11 @@
+<tr>
+  <td><%= number.title %></td>
+  <td><%= number.description %></td>
+  <td><%= number.number %></td>
+  <td><%= number.description %></td>
+  <td><%= number.open_hours %></td>
+  <td>
+    <%= link_to 'Edit', edit_admin_contact_record_number_path(contact_record, number), class: 'btn btn-small' %>
+    <%= link_to 'Remove', admin_contact_record_number_path(contact_record, number), method: :delete, data: { confirm: 'Are you sure?' }, data: { disable: 'Working' }, class: 'btn btn-small btn-danger' %>
+  </td>
+</tr>

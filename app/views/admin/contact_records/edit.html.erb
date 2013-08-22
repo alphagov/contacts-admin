@@ -8,6 +8,26 @@
   </li>
   <li class='dropdown'>
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      Associated Records
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+      <li>
+        <%= link_to "Websites (#{@contact_record.websites.count})", admin_contact_record_websites_path(@contact_record) %>
+      </li>
+      <li>
+        <%= link_to "Email Addresses (#{@contact_record.email_addresses.count})", admin_contact_record_email_addresses_path(@contact_record) %>
+      </li>
+      <li>
+        <%= link_to "Post Addresses (#{@contact_record.post_addresses.count})", admin_contact_record_post_addresses_path(@contact_record) %>
+      </li>
+      <li>
+        <%= link_to "Numbers (#{@contact_record.numbers.count})", admin_contact_record_numbers_path(@contact_record) %>
+      </li>
+    </ul>
+  </li>
+  <li class='dropdown'>
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
       More Info Records
       <b class="caret"></b>
     </a>
