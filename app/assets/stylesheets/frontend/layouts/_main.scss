@@ -24,6 +24,11 @@
     @extend %contain-floats;
   }
 
+  .organisation-logo:link, 
+  .organisation-logo:visited {
+    border-color: $hm-revenue-customs-websafe;
+  }
+
   #page {
     @include right-to-left {
       direction: rtl;
