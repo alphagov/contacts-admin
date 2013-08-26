@@ -8,7 +8,7 @@ class ContactRecord < ActiveRecord::Base
   has_many :related_content_links, inverse_of: :contact_record, dependent: :destroy
   has_many :contact_form_links, inverse_of: :contact_record
 
-  has_many :numbers, inverse_of: :contact_record, dependent: :destroy
+  has_many :phone_numbers, inverse_of: :contact_record, dependent: :destroy
   has_many :email_addresses, inverse_of: :contact_record, dependent: :destroy
   has_many :post_addresses, inverse_of: :contact_record, dependent: :destroy
 
