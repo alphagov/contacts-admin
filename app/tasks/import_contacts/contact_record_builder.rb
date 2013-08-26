@@ -18,16 +18,8 @@ class ImportContacts
         description: attributes['description'],
         keywords: attributes.fetch('keywords', '').to_s.split(","),
         contact_type: ContactType.find_by_title(attributes['clustergroup']),
-        contact_form_url: attributes['overrideurl'],
-        alt_meta_title: attributes['alt_meta_title'],
-        alt_meta_description: attributes['alt_meta_description'],
-        alt_meta_keywords: attributes['alt_meta_keywords'],
-        textphone: attributes['textphone'],
-        international_phone: attributes['international'],
-        fax: attributes['fax'],
-        email_text_head: attributes['emailtexthead'],
-        post_name: attributes['post_name'],
-        post_text_head: attributes['posttexthead']
+        meta_title: attributes['alt_meta_title'],
+        meta_description: attributes['alt_meta_description']
       }
     end
 

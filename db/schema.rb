@@ -11,24 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130826101403) do
+ActiveRecord::Schema.define(version: 20130826115301) do
 
   create_table "contact_records", force: true do |t|
     t.integer  "contact_type_id"
     t.text     "description"
     t.text     "keywords"
-    t.text     "contact_form_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "alt_meta_title"
-    t.string   "alt_meta_description"
-    t.string   "alt_meta_keywords"
-    t.string   "textphone"
-    t.string   "international_phone"
-    t.string   "fax"
-    t.text     "email_text_head"
-    t.string   "post_name"
-    t.text     "post_text_head"
+    t.string   "meta_title"
+    t.string   "meta_description"
     t.integer  "contact_form_links_count",    default: 0
     t.integer  "phone_numbers_count",         default: 0
     t.integer  "email_addresses_count",       default: 0
@@ -75,11 +67,13 @@ ActiveRecord::Schema.define(version: 20130826101403) do
     t.integer  "contact_record_id"
     t.string   "title"
     t.string   "number"
-    t.string   "international_number"
     t.text     "description"
     t.text     "open_hours"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "textphone"
+    t.string   "international_phone"
+    t.string   "fax"
   end
 
   add_index "phone_numbers", ["contact_record_id"], name: "index_phone_numbers_on_contact_record_id", using: :btree
