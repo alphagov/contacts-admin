@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130819134233) do
+ActiveRecord::Schema.define(version: 20130826083942) do
 
   create_table "contact_records", force: true do |t|
     t.integer  "contact_type_id"
@@ -112,8 +112,10 @@ ActiveRecord::Schema.define(version: 20130819134233) do
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
   end
 
   add_index "websites", ["contact_record_id"], name: "index_websites_on_contact_record_id", using: :btree
+  add_index "websites", ["type"], name: "index_websites_on_type", using: :btree
 
 end
