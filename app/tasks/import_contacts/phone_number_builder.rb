@@ -5,7 +5,10 @@ class ImportContacts
          title: attributes['telephonename'],
          description: attributes['phonetexthead'],
          open_hours: attributes['phoneopenhours'],
-         number: attributes['telephone']
+         number: attributes['telephone'],
+         textphone: attributes['textphone'],
+         international_phone: attributes['international'],
+         fax: attributes['fax']
       },{
          title: attributes['telephonename2'],
          description: attributes['phonetexthead2'],
