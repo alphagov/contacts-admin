@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130826114037) do
+ActiveRecord::Schema.define(version: 20130826114943) do
 
   create_table "contact_records", force: true do |t|
     t.integer  "contact_type_id"
     t.text     "description"
     t.text     "keywords"
-    t.text     "contact_form_url"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "meta_title"
