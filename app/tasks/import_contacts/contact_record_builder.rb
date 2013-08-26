@@ -21,9 +21,6 @@ class ImportContacts
         contact_form_url: attributes['overrideurl'],
         meta_title: attributes['alt_meta_title'],
         meta_description: attributes['alt_meta_description'],
-        textphone: attributes['textphone'],
-        international_phone: attributes['international'],
-        fax: attributes['fax'],
         email_text_head: attributes['emailtexthead'],
         post_name: attributes['post_name'],
         post_text_head: attributes['posttexthead']
