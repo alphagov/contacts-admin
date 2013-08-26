@@ -27,25 +27,18 @@ describe ImportContacts::ContactRecordBuilder do
       expect(described_class.build(attributes).contact_type).to eq ContactType.find_by_title(contact_type)
     end
 
-    it 'assigns alt_meta_title' do
+    it 'assigns meta_title' do
       meta_title = 'meta title'
       attributes = {'alt_meta_title' => meta_title}
 
-      expect(described_class.build(attributes).alt_meta_title).to eq meta_title
+      expect(described_class.build(attributes).meta_title).to eq meta_title
     end
 
-    it 'assigns alt_meta_description' do
+    it 'assigns meta_description' do
       meta_description = 'meta description'
       attributes = {'alt_meta_description' => meta_description}
 
-      expect(described_class.build(attributes).alt_meta_description).to eq meta_description
-    end
-
-    it 'assigns alt_meta_keywords' do
-      meta_keywords = 'meta keywords'
-      attributes = {'alt_meta_keywords' => meta_keywords}
-
-      expect(described_class.build(attributes).alt_meta_keywords).to eq meta_keywords
+      expect(described_class.build(attributes).meta_description).to eq meta_description
     end
 
     it 'assigns contact_form_url' do
