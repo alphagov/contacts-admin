@@ -47,26 +47,5 @@ describe ImportContacts::ContactRecordBuilder do
 
       expect(described_class.build(attributes).contact_form_url).to eq contact_form_url
     end
-
-    it 'assigns email text head' do
-      email_text_head = 'email text head'
-      attributes = {'emailtexthead' => email_text_head}
-
-      expect(described_class.build(attributes).email_text_head).to eq email_text_head
-    end
-
-    it 'assigns post text head' do
-      post_text_head = 'post text head'
-      attributes = {'posttexthead' => post_text_head}
-
-      expect(described_class.build(attributes).post_text_head).to eq post_text_head
-    end
-
-    it 'assigns post name' do
-      post_name = 'post name'
-      attributes = {'post_name' => post_name}
-
-      expect(described_class.build(attributes).post_name).to eq post_name
-    end
   end
 end
