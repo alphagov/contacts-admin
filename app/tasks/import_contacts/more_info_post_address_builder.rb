@@ -1,11 +1,13 @@
 class ImportContacts
   class MoreInfoPostAddressBuilder
-    def self.build(contact_record, attributes)
-      contact_record.build_more_info_post_address(
-        description: attributes['postmoreinfo'],
-        url_title: attributes['postmoreinfourltitle'],
-        url_description: attributes['postmoreinfourltag'],
-        url: attributes['postmoreinfourl']
+    def self.build(attributes)
+      MoreInfoRecord.new(
+        more_info_url: MoreInfoUrl.new({
+          title: attributes['postmoreinfourltitle'],
+          description: attributes['postmoreinfourltag'],
+          url: attributes['postmoreinfourl']
+        }),
+        content: attributes['postmoreinfo']
       )
     end
   end

@@ -1,18 +1,18 @@
 require 'spec_helper'
 
-describe ImportContacts::MoreInfoEmailAddressBuilder do
+describe ImportContacts::MoreInfoPhoneNumberBuilder do
   describe '.build' do
-    let(:content)             { 'description paragraph' }
-    let(:email_address_title) { 'email_address title' }
-    let(:email_address_desc)  { 'email_address description' }
-    let(:email_address_link)  { 'http://www.example.com' }
+    let(:content)        { 'description paragraph' }
+    let(:number_title)   { 'number title' }
+    let(:number_desc)    { 'number description' }
+    let(:number_link)    { 'http://www.example.com' }
 
     let(:input_attributes) {
       {
-        'emailmoreinfo' => content,
-        'emailmoreinfourltitle' => email_address_title,
-        'emailmoreinfourltag' => email_address_desc,
-        'emailmoreinfourl' => email_address_link
+        'phonemoreinfo' => content,
+        'phonemoreinfourltitle' => number_title,
+        'phonemoreinfourltag' => number_desc,
+        'phonemoreinfourl' => number_link
       }
     }
 
@@ -25,19 +25,19 @@ describe ImportContacts::MoreInfoEmailAddressBuilder do
     it 'assigns url' do
       more_info_record = described_class.build(input_attributes)
 
-      expect(more_info_record.more_info_url.url).to eq email_address_link
+      expect(more_info_record.more_info_url.url).to eq number_link
     end
 
     it 'assigns url title' do
       more_info_record = described_class.build(input_attributes)
 
-      expect(more_info_record.more_info_url.title).to eq email_address_title
+      expect(more_info_record.more_info_url.title).to eq number_title
     end
 
     it 'assigns url description' do
       more_info_record = described_class.build(input_attributes)
 
-      expect(more_info_record.more_info_url.description).to eq email_address_desc
+      expect(more_info_record.more_info_url.description).to eq number_desc
     end
 
     it 'assigns additional content' do
