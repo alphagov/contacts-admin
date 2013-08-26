@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ImportContacts::NumberBuilder do
+describe ImportContacts::PhoneNumberBuilder do
   describe '.build' do
     let(:contact_record) { build :contact_record }
     let(:number_title)      { 'webnumber title' }

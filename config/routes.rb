@@ -13,7 +13,7 @@ HmrcContacts::Application.routes.draw do
         resources :contact_form_links
         resources :email_addresses
         resources :post_addresses
-        resources :numbers
+        resources :phone_numbers
       end
     end
   end

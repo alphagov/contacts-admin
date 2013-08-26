@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130826090836) do
+ActiveRecord::Schema.define(version: 20130826101403) do
 
   create_table "contact_records", force: true do |t|
     t.integer  "contact_type_id"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20130826090836) do
     t.string   "post_name"
     t.text     "post_text_head"
     t.integer  "contact_form_links_count",    default: 0
-    t.integer  "numbers_count",               default: 0
+    t.integer  "phone_numbers_count",         default: 0
     t.integer  "email_addresses_count",       default: 0
     t.integer  "post_addresses_count",        default: 0
     t.integer  "related_content_links_count", default: 0
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20130826090836) do
   add_index "more_info_records", ["contact_record_id"], name: "index_more_info_records_on_contact_record_id", using: :btree
   add_index "more_info_records", ["type"], name: "index_more_info_records_on_type", using: :btree
 
-  create_table "numbers", force: true do |t|
+  create_table "phone_numbers", force: true do |t|
     t.integer  "contact_record_id"
     t.string   "title"
     t.string   "number"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20130826090836) do
     t.datetime "updated_at"
   end
 
-  add_index "numbers", ["contact_record_id"], name: "index_numbers_on_contact_record_id", using: :btree
+  add_index "phone_numbers", ["contact_record_id"], name: "index_phone_numbers_on_contact_record_id", using: :btree
 
   create_table "post_addresses", force: true do |t|
     t.integer  "contact_record_id"

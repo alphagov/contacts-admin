@@ -4,7 +4,7 @@ FactoryGirl.define do
   sequence(:number_title) { |n| "post address title #{n}" }
   sequence(:phone_number) { |n| "555-#{n}#{n}#{n}-#{n}#{n}#{n}#{n}#{n}" }
 
-  factory :number do
+  factory :phone_number do
     contact_record
 
     title  { generate(:number_title) }

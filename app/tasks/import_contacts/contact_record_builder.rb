@@ -36,7 +36,7 @@ class ImportContacts
         contact_form_links: contact_form_link_records,
         email_addresses: email_address_records,
         post_addresses: post_address_records,
-        numbers: number_records,
+        phone_numbers: phone_number_records,
         contacts: contact_records,
         more_info_website: more_info_website_record,
         more_info_email_address: more_info_email_address_record,
@@ -65,8 +65,8 @@ class ImportContacts
       PostAddressBuilder.build(@contact_record, attributes).select(&:valid?)
     end
 
-    def number_records
-      NumberBuilder.build(@contact_record, attributes).select(&:valid?)
+    def phone_number_records
+      PhoneNumberBuilder.build(@contact_record, attributes).select(&:valid?)
     end
 
     def more_info_website_record

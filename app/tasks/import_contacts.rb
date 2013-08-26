@@ -1,7 +1,7 @@
 require 'csv'
 
 require 'import_contacts/contact_form_link_builder'
-require 'import_contacts/number_builder'
+require 'import_contacts/phone_number_builder'
 require 'import_contacts/post_address_builder'
 require 'import_contacts/email_address_builder'
 require 'import_contacts/contact_record_builder'
