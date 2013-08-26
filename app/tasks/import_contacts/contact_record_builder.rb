@@ -33,7 +33,7 @@ class ImportContacts
 
     def build
       @contact_record.assign_attributes({
-        websites: website_records,
+        contact_form_links: contact_form_link_records,
         email_addresses: email_address_records,
         post_addresses: post_address_records,
         numbers: number_records,
@@ -53,8 +53,8 @@ class ImportContacts
       ContactBuilder.build(@contact_record, attributes).select(&:valid?)
     end
 
-    def website_records
-      WebsiteBuilder.build(@contact_record, attributes).select(&:valid?)
+    def contact_form_link_records
+      ContactFormLinkBuilder.build(@contact_record, attributes).select(&:valid?)
     end
 
     def email_address_records

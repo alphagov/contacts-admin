@@ -1,0 +1,32 @@
+<div class='page-header'>
+  <h2>
+    Contact Form Links
+    <small>(<%= contact_form_links.count %>)</small>
+  </h2>
+ </div>
+
+<% if contact_form_links.any? %>
+  <table class='table table-bordered table-striped table-hover contact-form-links-table'>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Link</th>
+        <th>
+          <%= link_to "New Contact Form Links", new_admin_contact_record_contact_form_link_path(contact_record), class: 'btn btn-small' %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render contact_form_links %>
+    </tbody>
+  </table>
+<% else %>
+  <div class='alert alert-block alert-info'>
+    <h4>No contact links found</h4>
+    <p>
+      We have found no contact links.
+      <%= link_to "Add one?", new_admin_contact_record_contact_link_path(contact_record), class: 'btn btn-small' %>
+    </p>
+  </div>
+<% end %>

@@ -13,7 +13,7 @@
     </a>
     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
       <li>
-        <%= link_to "Websites (#{@contact_record.websites.count})", admin_contact_record_websites_path(@contact_record) %>
+        <%= link_to "Contact Form Links (#{@contact_record.contact_form_links.count})", admin_contact_record_contact_form_links_path(@contact_record) %>
       </li>
       <li>
         <%= link_to "Email Addresses (#{@contact_record.email_addresses.count})", admin_contact_record_email_addresses_path(@contact_record) %>
