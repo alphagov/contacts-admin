@@ -5,9 +5,19 @@ FactoryGirl.define do
   sequence(:website_link)  { |n| "http://www.example.com/#{n}" }
 
   factory :website do
-    contact_record
-
     title { generate(:website_title) }
     link  { generate(:website_link) }
+  end
+
+  factory :contact_form_link, parent: :website, class: ContactFormLink do
+    contact_record
+
+    type { 'ContactFormLink' }
+  end
+
+  factory :related_content_link, parent: :website, class: RelatedContentLink do
+    contact_record
+
+    type { 'RelatedContentLink' }
   end
 end
