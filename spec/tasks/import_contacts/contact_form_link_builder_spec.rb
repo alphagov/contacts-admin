@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ImportContacts::WebsiteBuilder do
+describe ImportContacts::ContactFormLinkBuilder do
   describe '.build' do
     let(:contact_record)    { build :contact_record }
     let(:site_title) { 'website title' }

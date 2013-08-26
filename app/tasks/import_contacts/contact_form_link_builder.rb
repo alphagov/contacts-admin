@@ -1,5 +1,5 @@
 class ImportContacts
-  class WebsiteBuilder
+  class ContactFormLinkBuilder
     def self.build(contact_record, attributes)
       [{
          title: attributes['ogtitle1'],
@@ -10,7 +10,7 @@ class ImportContacts
          description: attributes['ogtag2'],
          link: attributes['ogurl2']
        }].map { |website_attributes|
-         contact_record.websites.build(website_attributes)
+         contact_record.contact_form_links.build(website_attributes)
        }
     end
   end
