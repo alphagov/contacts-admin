@@ -1,9 +1,0 @@
-<%= simple_form_for [:admin, contact_record, website] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :link %>
-
-  <div class='form-actions'>
-    <%= f.submit id: 'website-submit', class: 'btn btn-primary', data: { disable_with: 'Working' } %>
-  </div>
-<% end %>

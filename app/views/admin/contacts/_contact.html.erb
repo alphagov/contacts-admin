@@ -1,0 +1,23 @@
+<tr>
+  <td>
+    <ul>
+      <% contact.offices.each do |office| %>
+        <li><%= office %></li>
+      <% end %>
+    </ul>
+  </td>
+  <td><%= contact.contact_type %></td>
+  <td>
+    <%= contact.description %>
+  </td>
+  <td>
+    <%= render_contact_keywords(contact.keywords) %>
+  </td>
+  <td><%= contact.contact_form_links.size %></td>
+  <td><%= contact.email_addresses.size %></td>
+  <td><%= contact.post_addresses.size %></td>
+  <td><%= contact.phone_numbers.size %></td>
+  <td>
+    <%= link_to "Edit", edit_admin_contact_path(contact), class: 'btn btn-small' %>
+  </td>
+</tr>

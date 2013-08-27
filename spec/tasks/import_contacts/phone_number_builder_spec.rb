@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ImportContacts::PhoneNumberBuilder do
   describe '.build' do
-    let(:contact_record) { build :contact_record }
+    let(:contact) { build :contact }
     let(:number_title)      { 'webnumber title' }
     let(:number_head)       { 'phone number head' }
     let(:number_hours)      { 'phone hours' }
@@ -25,7 +25,7 @@ describe ImportContacts::PhoneNumberBuilder do
       }
 
       it 'builds number record' do
-        numbers = described_class.build(contact_record, input_attributes)
+        numbers = described_class.build(contact, input_attributes)
 
         expect(
           numbers.detect { |number|
@@ -38,7 +38,7 @@ describe ImportContacts::PhoneNumberBuilder do
       end
 
       it 'assigns fax, international and textphone numbers to first PhoneNumber record' do
-        numbers = described_class.build(contact_record, input_attributes)
+        numbers = described_class.build(contact, input_attributes)
 
         expect(
           numbers.detect { |number|
@@ -61,7 +61,7 @@ describe ImportContacts::PhoneNumberBuilder do
       }
 
       it 'builds number record' do
-        numbers = described_class.build(contact_record, input_attributes)
+        numbers = described_class.build(contact, input_attributes)
 
         expect(
           numbers.detect { |number|

@@ -1,6 +1,6 @@
 class ImportContacts
   class EmailAddressBuilder
-    def self.build(contact_record, attributes)
+    def self.build(contact, attributes)
       [{
          title: attributes['emailtitle1'],
          description: attributes['emailtag1'],
@@ -12,7 +12,7 @@ class ImportContacts
          link: attributes['emailurl2'],
          email: attributes['emailaddress2']
        }].map { |email_address_attributes|
-         contact_record.email_addresses.build(email_address_attributes)
+         contact.email_addresses.build(email_address_attributes)
        }
     end
   end

@@ -3,10 +3,10 @@ class Office < ActiveRecord::Base
 
   belongs_to_active_hash :department
 
-  belongs_to :contact_record, inverse_of: :offices
+  belongs_to :contact, inverse_of: :offices
 
   validates :title, presence: true
-  validates :contact_record, presence: true
+  validates :contact, presence: true
   validates :department, presence: true
 
   def to_s

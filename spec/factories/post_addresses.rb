@@ -5,7 +5,7 @@ FactoryGirl.define do
   sequence(:post_address)       { |n| "post address #{n}" }
 
   factory :post_address do
-    contact_record
+    contact
 
     title   { generate(:post_address_title) }
     address { generate(:post_address) }

@@ -1,6 +1,6 @@
 class ImportContacts
   class PhoneNumberBuilder
-    def self.build(contact_record, attributes)
+    def self.build(contact, attributes)
       [{
          title: attributes['telephonename'],
          description: attributes['phonetexthead'],
@@ -15,7 +15,7 @@ class ImportContacts
          open_hours: attributes['phoneopenhours2'],
          number: attributes['telephone2']
       }].map { |number_attributes|
-        contact_record.phone_numbers.build(number_attributes)
+        contact.phone_numbers.build(number_attributes)
       }
     end
   end

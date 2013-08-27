@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ImportContacts::ContactFormLinkBuilder do
   describe '.build' do
-    let(:contact_record)    { build :contact_record }
+    let(:contact)    { build :contact }
     let(:site_title) { 'website title' }
     let(:site_desc)  { 'website description' }
     let(:site_link)  { 'http://www.url.com' }
@@ -17,7 +17,7 @@ describe ImportContacts::ContactFormLinkBuilder do
       }
 
       it 'builds website record' do
-        websites = described_class.build(contact_record, input_attributes)
+        websites = described_class.build(contact, input_attributes)
 
         expect(
           websites.detect { |website|
@@ -39,7 +39,7 @@ describe ImportContacts::ContactFormLinkBuilder do
       }
 
       it 'builds secondary website record' do
-        websites = described_class.build(contact_record, input_attributes)
+        websites = described_class.build(contact, input_attributes)
 
         expect(
           websites.detect { |website|

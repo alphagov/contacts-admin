@@ -59,8 +59,8 @@ module Admin
       office.reload.department == department
     end
 
-    def associated_to_contact_record(office, contact_record)
-      office.reload.contact_record == contact_record
+    def associated_to_contact(office, contact)
+      office.reload.contact == contact
     end
   end
 end

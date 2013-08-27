@@ -1,0 +1,9 @@
+<%= simple_form_for [:admin, contact, email_address] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :email %>
+
+  <div class='form-actions'>
+    <%= f.submit id: 'email-address-submit', class: 'btn btn-primary', data: { disable_with: 'Working' } %>
+  </div>
+<% end %>

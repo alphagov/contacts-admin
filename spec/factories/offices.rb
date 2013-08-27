@@ -4,7 +4,7 @@ FactoryGirl.define do
   sequence(:contact_title) { |n| "contact title #{n}" }
 
   factory :office do
-    contact_record
+    contact
     department
 
     title { generate(:contact_title)  }

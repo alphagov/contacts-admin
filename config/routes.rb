@@ -3,8 +3,8 @@ HmrcContacts::Application.routes.draw do
     root to: 'dashboards#show', via: :get
 
     resources :offices
-    resources :contact_records do
-      scope module: 'contact_records' do
+    resources :contacts do
+      scope module: 'contacts' do
         resources :contact_form_links
         resources :email_addresses
         resources :post_addresses
