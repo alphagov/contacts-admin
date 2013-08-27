@@ -1,11 +1,13 @@
 class ImportContacts
   class MoreInfoWebsiteBuilder
-    def self.build(contact_record, attributes)
-      contact_record.build_more_info_website(
-        description: attributes['ogmoreinfo'],
-        url_title: attributes['ogmoreinfourltitle'],
-        url_description: attributes['ogmoreinfourltag'],
-        url: attributes['ogmoreinfourl']
+    def self.build(attributes)
+      MoreInfoRecord.new(
+        more_info_url: MoreInfoUrl.new({
+          url: attributes['ogmoreinfourl'],
+          title: attributes['ogmoreinfourltitle'],
+          description: attributes['ogmoreinfourltag']
+        }),
+        content: attributes['ogmoreinfo']
       )
     end
   end

@@ -14,7 +14,8 @@ describe 'Contact Record creation', auth: :user do
 
   specify 'it can be created' do
     create_contact_record({
-      description: contact_record.description
+      description: contact_record.description,
+      contact_information: contact_record.contact_information
     }) do
       select contact_type, from: 'contact_record_contact_type_id'
       select contact1.title, from: 'contact_record_contact_ids'
