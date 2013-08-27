@@ -9,6 +9,16 @@
     <%= f.input :meta_description %>
   </fieldset>
 
+  <fieldset>
+    <legend>More info details</legend>
+    <p>These appear below each contact type list (website, phone number, email address, post address)</p>
+
+    <%= f.input :more_info_website, label: 'More info for Website contacts' %>
+    <%= f.input :more_info_email_address, label: 'More info for Email Address contacts' %>
+    <%= f.input :more_info_post_address, label: 'More info for Post Address contacts' %>
+    <%= f.input :more_info_phone_number, label: 'More info for Phone Number contacts' %>
+  </fieldset>
+
   <div class='form-actions'>
     <%= f.submit id: 'contact-record-submit', class: 'btn btn-primary', data: { disable_with: 'Working' } %>
   </div>

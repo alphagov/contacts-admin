@@ -42,6 +42,10 @@ module Admin
         :contact_information,
         :meta_title,
         :meta_description,
+        :more_info_website,
+        :more_info_email_address,
+        :more_info_post_address,
+        :more_info_phone_number
       )
     end
   end
