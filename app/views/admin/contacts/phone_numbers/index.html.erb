@@ -1,0 +1,32 @@
+<div class='page-header'>
+  <h2>
+    Phone numbers
+    <small>(<%= phone_numbers.count %>)</small>
+  </h2>
+ </div>
+
+<% if phone_numbers.any? %>
+  <table class='table table-bordered table-striped table-hover phone-numbers-table'>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Link</th>
+        <th>
+          <%= link_to "New phone number", new_admin_contact_phone_number_path(contact), class: 'btn btn-small' %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render phone_numbers %>
+    </tbody>
+  </table>
+<% else %>
+  <div class='alert alert-block alert-info'>
+    <h4>No phone numbers found</h4>
+    <p>
+      We have found no phone numbers.
+      <%= link_to "Add one?", new_admin_contact_phone_number_path(contact), class: 'btn btn-small' %>
+    </p>
+  </div>
+<% end %>

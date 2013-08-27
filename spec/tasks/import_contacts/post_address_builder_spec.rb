@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ImportContacts::PostAddressBuilder do
   describe '.build' do
-    let(:contact_record)    { build :contact_record }
+    let(:contact)    { build :contact }
     let(:posttitle)         { 'post title' }
     let(:postaddress_desc)  { 'post description' }
     let(:postaddress)       { 'some address' }
@@ -17,7 +17,7 @@ describe ImportContacts::PostAddressBuilder do
       }
 
       it 'builds post address record' do
-        post_addresses = described_class.build(contact_record, input_attributes)
+        post_addresses = described_class.build(contact, input_attributes)
 
         expect(
           post_addresses.detect { |pa|
@@ -37,7 +37,7 @@ describe ImportContacts::PostAddressBuilder do
       }
 
       it 'builds secondary post address record' do
-        post_addresses = described_class.build(contact_record, input_attributes)
+        post_addresses = described_class.build(contact, input_attributes)
 
         expect(
           post_addresses.detect { |pa|
@@ -57,7 +57,7 @@ describe ImportContacts::PostAddressBuilder do
       }
 
       it 'builds third post address record' do
-        post_addresses = described_class.build(contact_record, input_attributes)
+        post_addresses = described_class.build(contact, input_attributes)
 
         expect(
           post_addresses.detect { |pa|

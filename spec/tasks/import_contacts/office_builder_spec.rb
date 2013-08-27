@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ImportContacts::OfficeBuilder do
   describe '.build' do
-    let(:contact_record) { build :contact_record }
+    let(:contact) { build :contact }
     let(:titles)         { "title1\ntitle2" }
     let!(:department)    { create :department, title: 'HMRC', id: 1 }
 
@@ -13,7 +13,7 @@ describe ImportContacts::OfficeBuilder do
     }
 
     it 'builds contact record: title1' do
-      offices = described_class.build(contact_record, input_attributes)
+      offices = described_class.build(contact, input_attributes)
 
       expect(
         offices.detect { |office|
@@ -23,7 +23,7 @@ describe ImportContacts::OfficeBuilder do
     end
 
     it 'builds contact record: title2' do
-      offices = described_class.build(contact_record, input_attributes)
+      offices = described_class.build(contact, input_attributes)
 
       expect(
         offices.detect { |office|
@@ -33,7 +33,7 @@ describe ImportContacts::OfficeBuilder do
     end
 
     it 'assigns contact to HMRC (by default)' do
-      offices = described_class.build(contact_record, input_attributes)
+      offices = described_class.build(contact, input_attributes)
 
       expect(
         offices.all? { |office|
@@ -43,7 +43,7 @@ describe ImportContacts::OfficeBuilder do
     end
 
     specify 'assigned contacts are valid' do
-      offices = described_class.build(contact_record, input_attributes)
+      offices = described_class.build(contact, input_attributes)
 
       expect(offices.all?(&:valid?)).to be_true
     end

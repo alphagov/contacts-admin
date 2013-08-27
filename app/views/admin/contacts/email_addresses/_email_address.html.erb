@@ -1,0 +1,9 @@
+<tr>
+  <td><%= email_address.title %></td>
+  <td><%= email_address.description %></td>
+  <td><%= mail_to email_address.email %></td>
+  <td>
+    <%= link_to 'Edit', edit_admin_contact_email_address_path(contact, email_address), class: 'btn btn-small' %>
+    <%= link_to 'Remove', admin_contact_email_address_path(contact, email_address), method: :delete, data: { confirm: 'Are you sure?' }, data: { disable: 'Working' }, class: 'btn btn-small btn-danger' %>
+  </td>
+</tr>

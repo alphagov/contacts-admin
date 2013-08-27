@@ -1,6 +1,6 @@
 module Admin
   class OfficesController < AdminController
-    expose(:offices) { Office.includes(:contact_record) }
+    expose(:offices) { Office.includes(:contact) }
     expose(:office, attributes: :office_params)
 
     def index
@@ -34,7 +34,7 @@ module Admin
       params.require(:office).permit(
         :title,
         :department_id,
-        :contact_record_id
+        :contact_id
       )
     end
   end
