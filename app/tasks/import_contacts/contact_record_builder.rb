@@ -62,7 +62,7 @@ class ImportContacts
     end
 
     def more_info_text_for(record_type)
-      more_info_record_for(record_type).to_markdown
+      more_info_record_for(record_type).to_markdown.squish
     end
 
     def more_info_record_for(record_type)
