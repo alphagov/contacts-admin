@@ -1,7 +1,7 @@
 module Admin
   class ContactRecordsController < AdminController
     def index
-      @contact_records = ContactRecord.includes(:contacts)
+      @contact_records = ContactRecord.includes(:offices)
     end
 
     def edit
@@ -37,7 +37,7 @@ module Admin
     def contact_record_params
       params.require(:contact_record).permit(
         :contact_type_id,
-        {contact_ids: []},
+        {office_ids: []},
         :description,
         :contact_information,
         :meta_title,

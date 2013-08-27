@@ -59,9 +59,9 @@ module Admin
       contact_record.reload.contact_type == contact_type
     end
 
-    def associated_to_contacts(contact_record, *contacts)
-      contacts.all? { |contact|
-        contact_record.reload.contacts.include?(contact)
+    def associated_to_offices(contact_record, *offices)
+      offices.all? { |office|
+        contact_record.reload.offices.include?(office)
       }
     end
   end
