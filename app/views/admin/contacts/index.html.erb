@@ -1,0 +1,37 @@
+<div class='page-header'>
+  <h2>
+    Contacts
+    <small>(<%= contacts.count %>)</small>
+  </h2>
+ </div>
+
+<% if contacts.any? %>
+  <table class='table table-bordered table-striped table-hover contacts-table'>
+    <thead>
+      <tr>
+        <th>Offices</th>
+        <th>Contact Type</th>
+        <th>Description</th>
+        <th>Keywords</th>
+        <th>Contact form link count</th>
+        <th>Email address count</th>
+        <th>Post address count</th>
+        <th>Phone number count</th>
+        <th>
+          <%= link_to "New Contact", new_admin_contact_path, class: 'btn btn-small' %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render contacts %>
+    </tbody>
+  </table>
+<% else %>
+  <div class='alert alert-block alert-info'>
+    <h4>No contacts found</h4>
+    <p>
+      We have found no contacts. Add one?
+      <%= link_to "Add one?", new_admin_contact_path, class: 'btn btn-small' %>
+    </p>
+  </div>
+<% end %>

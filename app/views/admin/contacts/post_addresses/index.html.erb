@@ -1,0 +1,32 @@
+<div class='page-header'>
+  <h2>
+    Post Addresses for Contacts
+    <small>(<%= post_addresses.count %>)</small>
+  </h2>
+ </div>
+
+<% if post_addresses.any? %>
+  <table class='table table-bordered table-striped table-hover post-addresses-table'>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Link</th>
+        <th>
+          <%= link_to "New Post Address", new_admin_contact_post_address_path(contact), class: 'btn btn-small' %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render post_addresses %>
+    </tbody>
+  </table>
+<% else %>
+  <div class='alert alert-block alert-info'>
+    <h4>No post addresses found</h4>
+    <p>
+      We have found no post addresses.
+      <%= link_to "Add one?", new_admin_contact_post_address_path(contact), class: 'btn btn-small' %>
+    </p>
+  </div>
+<% end %>

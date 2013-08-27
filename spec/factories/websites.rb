@@ -10,13 +10,13 @@ FactoryGirl.define do
   end
 
   factory :contact_form_link, parent: :website, class: ContactFormLink do
-    contact_record
+    contact
 
     type { 'ContactFormLink' }
   end
 
   factory :related_content_link, parent: :website, class: RelatedContentLink do
-    contact_record
+    contact
 
     type { 'RelatedContentLink' }
   end

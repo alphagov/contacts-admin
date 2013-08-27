@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ImportContacts::EmailAddressBuilder do
   describe '.build' do
-    let(:contact_record) { build :contact_record }
+    let(:contact) { build :contact }
     let(:email_title)    { 'email title' }
     let(:email_desc)     { 'email description' }
     let(:email_address)  { 'email@example.com' }
@@ -19,7 +19,7 @@ describe ImportContacts::EmailAddressBuilder do
       }
 
       it 'builds email record' do
-        email_addresses = described_class.build(contact_record, input_attributes)
+        email_addresses = described_class.build(contact, input_attributes)
 
         expect(
           email_addresses.detect { |email|
@@ -43,7 +43,7 @@ describe ImportContacts::EmailAddressBuilder do
       }
 
       it 'builds secondary email record' do
-        email_addresses = described_class.build(contact_record, input_attributes)
+        email_addresses = described_class.build(contact, input_attributes)
 
         expect(
           email_addresses.detect { |email|

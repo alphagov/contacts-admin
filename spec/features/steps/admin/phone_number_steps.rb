@@ -2,8 +2,8 @@ module Admin
   module PhoneNumberSteps
     include ::CommonSteps
 
-    def phone_number_exists(contact_record, number)
-      ensure_on admin_contact_record_phone_numbers_path(contact_record)
+    def phone_number_exists(contact, number)
+      ensure_on admin_contact_phone_numbers_path(contact)
 
       has_selector?(phone_numbers_table_selector) &&
         within(phone_numbers_table_selector) do
@@ -12,8 +12,8 @@ module Admin
     end
 
     def delete_phone_number(number)
-      ensure_on admin_contact_record_phone_numbers_path(
-        number.contact_record,
+      ensure_on admin_contact_phone_numbers_path(
+        number.contact,
         number
       )
 
@@ -23,8 +23,8 @@ module Admin
     end
 
     def update_phone_number(number, new_details = {})
-      ensure_on edit_admin_contact_record_phone_number_path(
-        number.contact_record,
+      ensure_on edit_admin_contact_phone_number_path(
+        number.contact,
         number
       )
 
@@ -37,8 +37,8 @@ module Admin
       find('#phone-number-submit').click
     end
 
-    def create_phone_number(contact_record, details = {})
-      ensure_on new_admin_contact_record_phone_number_path(contact_record)
+    def create_phone_number(contact, details = {})
+      ensure_on new_admin_contact_phone_number_path(contact)
 
       details.each do |field, value|
         fill_in "phone_number_#{field}", with: value
@@ -50,8 +50,8 @@ module Admin
     end
 
     def phone_number_updated(number, details = {})
-      ensure_on edit_admin_contact_record_phone_number_path(
-        number.contact_record,
+      ensure_on edit_admin_contact_phone_number_path(
+        number.contact,
         number
       )
 

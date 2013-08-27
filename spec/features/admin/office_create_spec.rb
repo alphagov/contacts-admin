@@ -4,7 +4,7 @@ describe 'Office creation', auth: :user do
   include Admin::OfficeSteps
 
   let!(:department)     { Department.create(title: 'example department') }
-  let!(:contact_record) { create :contact_record }
+  let!(:contact) { create :contact }
   let(:office)          { build :office  }
 
   before {
@@ -16,7 +16,7 @@ describe 'Office creation', auth: :user do
       title: office.title
     }) do
       select department, from: 'office_department_id'
-      select contact_record, from: 'office_contact_record_id'
+      select contact, from: 'office_contact_id'
     end
 
     verify office_exists(office)

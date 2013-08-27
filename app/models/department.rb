@@ -3,7 +3,7 @@ class Department < ActiveYaml::Base
 
   field :title
 
-  has_many :contacts
+  has_many :offices
 
   def self.hmrc
     find(1)
