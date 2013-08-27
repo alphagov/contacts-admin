@@ -30,10 +30,10 @@ class ImportContacts
         post_addresses: post_address_records,
         phone_numbers: phone_number_records,
         contacts: contact_records,
-        more_info_website: more_info_website_record,
-        more_info_email_address: more_info_email_address_record,
-        more_info_post_address: more_info_post_address_record,
-        more_info_number: more_info_number_record
+        more_info_website: more_info_text_for(:website),
+        more_info_email_address: more_info_text_for(:email_address),
+        more_info_post_address: more_info_text_for(:post_address),
+        more_info_phone_number: more_info_text_for(:phone_number)
       })
 
       @contact_record
@@ -61,20 +61,12 @@ class ImportContacts
       PhoneNumberBuilder.build(@contact_record, attributes).select(&:valid?)
     end
 
-    def more_info_website_record
-      MoreInfoWebsiteBuilder.build(@contact_record, attributes)
+    def more_info_text_for(record_type)
+      more_info_record_for(record_type).to_markdown.squish
     end
 
-    def more_info_email_address_record
-      MoreInfoEmailAddressBuilder.build(@contact_record, attributes)
-    end
-
-    def more_info_post_address_record
-      MoreInfoPostAddressBuilder.build(@contact_record, attributes)
-    end
-
-    def more_info_number_record
-      MoreInfoNumberBuilder.build(@contact_record, attributes)
+    def more_info_record_for(record_type)
+      "ImportContacts::MoreInfo#{record_type.to_s.classify}Builder".constantize.build(attributes)
     end
   end
 end

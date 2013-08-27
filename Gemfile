@@ -10,6 +10,7 @@ gem 'mysql2'
 gem 'simple_form', github: 'plataformatec/simple_form', ref: '359606f'
 gem 'slimmer', '>= 3.0.0'
 gem 'unicorn', "~> 4.6.3"
+gem 'virtus'
 
 gem 'gds-sso', github: "alphagov/gds-sso", branch: "master", ref: 'bf4b6d13a1'
 gem "plek", ">= 1.0.0"
