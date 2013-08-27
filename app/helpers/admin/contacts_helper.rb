@@ -1,5 +1,5 @@
 module Admin
-  module ContactRecordsHelper
+  module ContactsHelper
     def render_contact_keywords(keywords = [])
       keywords.select(&:present?).map { |keyword|
         content_tag(:span, keyword, class: 'label label-info')

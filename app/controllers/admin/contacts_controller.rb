@@ -16,7 +16,7 @@ module Admin
       @contact = Contact.find(params[:id])
 
       if @contact.update_attributes(contact_params)
-        redirect_to admin_contacts_path, notice: 'Contact Record successfully updated'
+        redirect_to admin_contacts_path, notice: 'Contact successfully updated'
       else
         render :edit
       end
@@ -26,7 +26,7 @@ module Admin
       @contact = Contact.new(contact_params)
 
       if @contact.save
-        redirect_to admin_contacts_path, notice: 'Contact Record successfully created'
+        redirect_to admin_contacts_path, notice: 'Contact successfully created'
       else
         render :new
       end
