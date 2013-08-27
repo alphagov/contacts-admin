@@ -3,10 +3,10 @@ require 'spec_helper'
 describe 'Contact Record editing', auth: :user do
   include Admin::ContactRecordSteps
 
-  let!(:contact_type)   { ContactType.create(title: 'new contact type') }
-  let!(:contact1)       { create :contact  }
-  let!(:contact2)       { create :contact  }
-  let(:contact_record)  { create :contact_record  }
+  let!(:contact_type)  { ContactType.create(title: 'new contact type') }
+  let!(:office1)       { create :office  }
+  let!(:office2)       { create :office  }
+  let(:contact_record) { create :contact_record  }
 
   before { verify contact_record_exists(contact_record) }
 
@@ -18,8 +18,8 @@ describe 'Contact Record editing', auth: :user do
       more_info_phone_number: 'more info phone number entry'
     ) do
       select contact_type, from: 'contact_record_contact_type_id'
-      select contact1.title, from: 'contact_record_contact_ids'
-      select contact2.title, from: 'contact_record_contact_ids'
+      select office1.title, from: 'contact_record_office_ids'
+      select office2.title, from: 'contact_record_office_ids'
     end
 
     verify contact_record_updated(
@@ -29,6 +29,6 @@ describe 'Contact Record editing', auth: :user do
       more_info_phone_number: 'more info phone number entry'
     )
     verify associated_to_contact_type(contact_record, contact_type)
-    verify associated_to_contacts(contact_record, contact1, contact2)
+    verify associated_to_offices(contact_record, office1, office2)
   end
 end

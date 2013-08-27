@@ -29,7 +29,7 @@ class ImportContacts
         email_addresses: email_address_records,
         post_addresses: post_address_records,
         phone_numbers: phone_number_records,
-        contacts: contact_records,
+        offices: office_records,
         more_info_website: more_info_text_for(:website),
         more_info_email_address: more_info_text_for(:email_address),
         more_info_post_address: more_info_text_for(:post_address),
@@ -41,8 +41,8 @@ class ImportContacts
 
     private
 
-    def contact_records
-      ContactBuilder.build(@contact_record, attributes).select(&:valid?)
+    def office_records
+      OfficeBuilder.build(@contact_record, attributes).select(&:valid?)
     end
 
     def contact_form_link_records

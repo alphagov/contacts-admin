@@ -3,7 +3,7 @@
 FactoryGirl.define do
   sequence(:contact_title) { |n| "contact title #{n}" }
 
-  factory :contact do
+  factory :office do
     contact_record
     department
 

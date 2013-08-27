@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, contact] do |f| %>
+<%= simple_form_for [:admin, office] do |f| %>
   <fieldset>
     <%= f.input :title %>
     <%= f.association :contact_record, include_blank: false %>
@@ -6,6 +6,6 @@
   </fieldset>
 
   <div class='form-actions'>
-    <%= f.submit id: 'contact-submit', class: 'btn btn-primary', data: { disable_with: 'Working' } %>
+    <%= f.submit id: 'office-submit', class: 'btn btn-primary', data: { disable_with: 'Working' } %>
   </div>
 <% end %>
