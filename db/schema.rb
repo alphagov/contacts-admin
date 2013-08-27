@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130826122605) do
+ActiveRecord::Schema.define(version: 20130827115908) do
 
   create_table "contact_records", force: true do |t|
     t.integer  "contact_type_id"
@@ -33,17 +33,6 @@ ActiveRecord::Schema.define(version: 20130826122605) do
     t.text     "more_info_phone_number"
   end
 
-  create_table "contacts", force: true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "contact_record_id"
-    t.integer  "department_id"
-  end
-
-  add_index "contacts", ["contact_record_id"], name: "index_contacts_on_contact_record_id", using: :btree
-  add_index "contacts", ["department_id"], name: "index_contacts_on_department_id", using: :btree
-
   create_table "email_addresses", force: true do |t|
     t.integer  "contact_record_id"
     t.string   "title"
@@ -53,6 +42,17 @@ ActiveRecord::Schema.define(version: 20130826122605) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "offices", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "contact_record_id"
+    t.integer  "department_id"
+  end
+
+  add_index "offices", ["contact_record_id"], name: "index_offices_on_contact_record_id", using: :btree
+  add_index "offices", ["department_id"], name: "index_offices_on_department_id", using: :btree
 
   create_table "phone_numbers", force: true do |t|
     t.integer  "contact_record_id"
