@@ -1,11 +1,11 @@
 <div class='page-header'>
   <h2>
     Contacts
-    <small>(<%= @contacts.count %>)</small>
+    <small>(<%= contacts.count %>)</small>
   </h2>
  </div>
 
-<% if @contacts.any? %>
+<% if contacts.any? %>
   <table class='table table-bordered table-striped table-hover contacts-table'>
     <thead>
       <tr>
@@ -23,7 +23,7 @@
       </tr>
     </thead>
     <tbody>
-      <%= render @contacts %>
+      <%= render contacts %>
     </tbody>
   </table>
 <% else %>
