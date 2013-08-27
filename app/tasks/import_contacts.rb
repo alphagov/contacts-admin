@@ -1,13 +1,12 @@
 require 'csv'
 
-require 'import_contacts/website_builder'
-require 'import_contacts/number_builder'
+require 'import_contacts/more_info_url'
+require 'import_contacts/more_info_record'
+require 'import_contacts/contact_form_link_builder'
+require 'import_contacts/phone_number_builder'
 require 'import_contacts/post_address_builder'
 require 'import_contacts/email_address_builder'
 require 'import_contacts/contact_record_builder'
-require 'import_contacts/more_info_website_builder'
-require 'import_contacts/more_info_post_address_builder'
-require 'import_contacts/more_info_number_builder'
 
 class ImportContacts
   def initialize(file_path)

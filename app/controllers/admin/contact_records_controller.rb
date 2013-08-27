@@ -39,15 +39,13 @@ module Admin
         :contact_type_id,
         {contact_ids: []},
         :description,
-        :contact_form_url,
-        :alt_meta_title,
-        :alt_meta_description,
-        :textphone,
-        :international_phone,
-        :fax,
-        :email_text_head,
-        :post_name,
-        :post_text_head
+        :contact_information,
+        :meta_title,
+        :meta_description,
+        :more_info_website,
+        :more_info_email_address,
+        :more_info_post_address,
+        :more_info_phone_number
       )
     end
   end

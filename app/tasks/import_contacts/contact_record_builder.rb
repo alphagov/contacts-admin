@@ -18,30 +18,22 @@ class ImportContacts
         description: attributes['description'],
         keywords: attributes.fetch('keywords', '').to_s.split(","),
         contact_type: ContactType.find_by_title(attributes['clustergroup']),
-        contact_form_url: attributes['overrideurl'],
-        alt_meta_title: attributes['alt_meta_title'],
-        alt_meta_description: attributes['alt_meta_description'],
-        alt_meta_keywords: attributes['alt_meta_keywords'],
-        textphone: attributes['textphone'],
-        international_phone: attributes['international'],
-        fax: attributes['fax'],
-        email_text_head: attributes['emailtexthead'],
-        post_name: attributes['post_name'],
-        post_text_head: attributes['posttexthead']
+        meta_title: attributes['alt_meta_title'],
+        meta_description: attributes['alt_meta_description']
       }
     end
 
     def build
       @contact_record.assign_attributes({
-        websites: website_records,
+        contact_form_links: contact_form_link_records,
         email_addresses: email_address_records,
         post_addresses: post_address_records,
-        numbers: number_records,
+        phone_numbers: phone_number_records,
         contacts: contact_records,
-        more_info_website: more_info_website_record,
-        more_info_email_address: more_info_email_address_record,
-        more_info_post_address: more_info_post_address_record,
-        more_info_number: more_info_number_record
+        more_info_website: more_info_text_for(:website),
+        more_info_email_address: more_info_text_for(:email_address),
+        more_info_post_address: more_info_text_for(:post_address),
+        more_info_phone_number: more_info_text_for(:phone_number)
       })
 
       @contact_record
@@ -53,8 +45,8 @@ class ImportContacts
       ContactBuilder.build(@contact_record, attributes).select(&:valid?)
     end
 
-    def website_records
-      WebsiteBuilder.build(@contact_record, attributes).select(&:valid?)
+    def contact_form_link_records
+      ContactFormLinkBuilder.build(@contact_record, attributes).select(&:valid?)
     end
 
     def email_address_records
@@ -65,24 +57,16 @@ class ImportContacts
       PostAddressBuilder.build(@contact_record, attributes).select(&:valid?)
     end
 
-    def number_records
-      NumberBuilder.build(@contact_record, attributes).select(&:valid?)
+    def phone_number_records
+      PhoneNumberBuilder.build(@contact_record, attributes).select(&:valid?)
     end
 
-    def more_info_website_record
-      MoreInfoWebsiteBuilder.build(@contact_record, attributes)
+    def more_info_text_for(record_type)
+      more_info_record_for(record_type).to_markdown.squish
     end
 
-    def more_info_email_address_record
-      MoreInfoEmailAddressBuilder.build(@contact_record, attributes)
-    end
-
-    def more_info_post_address_record
-      MoreInfoPostAddressBuilder.build(@contact_record, attributes)
-    end
-
-    def more_info_number_record
-      MoreInfoNumberBuilder.build(@contact_record, attributes)
+    def more_info_record_for(record_type)
+      "ImportContacts::MoreInfo#{record_type.to_s.classify}Builder".constantize.build(attributes)
     end
   end
 end

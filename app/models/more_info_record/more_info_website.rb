@@ -1,2 +1,0 @@
-class MoreInfoWebsite < MoreInfoRecord
-end

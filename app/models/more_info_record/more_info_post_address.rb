@@ -1,2 +1,0 @@
-class MoreInfoPostAddress < MoreInfoRecord
-end
