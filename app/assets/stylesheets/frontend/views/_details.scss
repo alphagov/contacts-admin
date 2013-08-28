@@ -8,12 +8,33 @@
     padding-bottom: $gutter-half;
     margin-bottom: $gutter*1.5;
 
+    @media (max-width: 641px) {
+      border-bottom: none;
+      margin-bottom: $gutter;
+    }
+
+    aside {
+      @media (max-width: 641px) {
+        margin-left: -15px;
+        margin-right: -15px;
+      }
+    }
+
     .header-div {
       padding-bottom: $gutter*1.5;
+
+      @media (max-width: 641px) {
+        padding-top: $gutter-half;
+        padding-bottom: $gutter-half;
+      }
     }
 
     h1 {
       padding-bottom: $gutter;
+
+      @media (max-width: 641px) {
+        padding-bottom: $gutter-half;
+      }
     }
 
     p {
@@ -75,11 +96,16 @@
 
           .contact-detail-inner {
             margin-left: 38px;
+
+            @media (max-width: 641px) {
+              margin-left: 10px;
+              margin-right: 10px;
+            }
           }
 
           h3 {
             @include heading-24;
-            margin-bottom: $gutter;
+            margin-bottom: $gutter-half;
             padding-top: 13px;
             padding-bottom: 9px;
             padding-left: 14px;
@@ -87,7 +113,8 @@
             background: $grey-3;
             cursor: pointer;
 
-            @media (min-width: 641px) {
+            @media (min-width: 640px) {
+              margin-bottom: $gutter;
               padding-top: 13px;
               padding-bottom: 9px;
             }
@@ -127,6 +154,7 @@
             display: inline-block;
             background: $grey-3;
             min-width: 15px;
+            margin: 5px 0;
             margin-left: 5px;
             padding: 4px 6px;
             padding-bottom: 3px;
@@ -134,6 +162,11 @@
             font-weight: bold;
             text-align: center;
             @include border-radius(1000px);
+
+            @media (max-width: 641px) {
+              min-width: 12px;
+              font-size: 13px;
+            }
           }
 
           .address {
