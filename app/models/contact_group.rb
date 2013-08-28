@@ -1,9 +1,11 @@
-class ContactGroup < ActiveYaml::Base
-  include ActiveHash::Associations
+class ContactGroup < ActiveRecord::Base
+  extend ActiveHash::Associations::ActiveRecordExtensions
 
-  field :title
+  has_many :contacts
+  belongs_to :contact_group_type
 
-  has_many :offices
+  validates :contact_group_type, presence: true
+  validates :title, presence: true
 
   def to_s
     title
