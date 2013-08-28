@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130827133745) do
+ActiveRecord::Schema.define(version: 20130828090915) do
 
   create_table "contacts", force: true do |t|
-    t.integer  "contact_type_id"
+    t.integer  "contact_group_id"
     t.text     "description"
     t.text     "keywords"
     t.datetime "created_at"

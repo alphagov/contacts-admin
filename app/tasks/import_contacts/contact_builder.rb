@@ -17,7 +17,7 @@ class ImportContacts
       {
         description: attributes['description'],
         keywords: attributes.fetch('keywords', '').to_s.split(","),
-        contact_type: ContactType.find_by_title(attributes['clustergroup']),
+        contact_group: ContactGroup.find_by_title(attributes['clustergroup']),
         meta_title: attributes['alt_meta_title'],
         meta_description: attributes['alt_meta_description']
       }

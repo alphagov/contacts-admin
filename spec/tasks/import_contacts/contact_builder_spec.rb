@@ -21,10 +21,10 @@ describe ImportContacts::ContactBuilder do
     end
 
     it 'assigns contact type' do
-      contact_type = 'See also'
-      attributes = {'clustergroup' => contact_type}
+      contact_group = 'See also'
+      attributes = {'clustergroup' => contact_group}
 
-      expect(described_class.build(attributes).contact_type).to eq ContactType.find_by_title(contact_type)
+      expect(described_class.build(attributes).contact_group).to eq ContactGroup.find_by_title(contact_group)
     end
 
     it 'assigns meta_title' do

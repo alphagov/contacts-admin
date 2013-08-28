@@ -55,8 +55,8 @@ module Admin
       "table.contacts-table"
     end
 
-    def associated_to_contact_type(contact, contact_type)
-      contact.reload.contact_type == contact_type
+    def associated_to_contact_group(contact, contact_group)
+      contact.reload.contact_group == contact_group
     end
 
     def associated_to_offices(contact, *offices)

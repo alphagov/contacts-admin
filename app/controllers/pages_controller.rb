@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @contact_type_form = ContactTypeForm.new
+    @contact_group_form = ContactGroupForm.new
   end
 
   def search

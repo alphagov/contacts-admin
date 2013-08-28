@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Contact creation', auth: :user do
   include Admin::ContactSteps
 
-  let!(:contact_type)  { ContactType.create(title: 'new contact type') }
+  let!(:contact_group)  { ContactGroup.create(title: 'new contact type') }
   let!(:office1)       { create :office  }
   let!(:office2)       { create :office  }
   let(:contact)        { build :contact  }
@@ -17,7 +17,7 @@ describe 'Contact creation', auth: :user do
       description: contact.description,
       contact_information: contact.contact_information
     }) do
-      select contact_type, from: 'contact_contact_type_id'
+      select contact_group, from: 'contact_contact_group_id'
       select office1.title, from: 'contact_office_ids'
       select office2.title, from: 'contact_office_ids'
     end

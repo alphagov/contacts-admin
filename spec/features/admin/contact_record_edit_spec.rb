@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Contact editing', auth: :user do
   include Admin::ContactSteps
 
-  let!(:contact_type)  { ContactType.create(title: 'new contact type') }
+  let!(:contact_group)  { ContactGroup.create(title: 'new contact type') }
   let!(:office1)       { create :office  }
   let!(:office2)       { create :office  }
   let(:contact) { create :contact  }
@@ -17,7 +17,7 @@ describe 'Contact editing', auth: :user do
       more_info_website: 'more info website entry',
       more_info_phone_number: 'more info phone number entry'
     ) do
-      select contact_type, from: 'contact_contact_type_id'
+      select contact_group, from: 'contact_contact_group_id'
       select office1.title, from: 'contact_office_ids'
       select office2.title, from: 'contact_office_ids'
     end
@@ -28,7 +28,7 @@ describe 'Contact editing', auth: :user do
       more_info_website: 'more info website entry',
       more_info_phone_number: 'more info phone number entry'
     )
-    verify associated_to_contact_type(contact, contact_type)
+    verify associated_to_contact_group(contact, contact_group)
     verify associated_to_offices(contact, office1, office2)
   end
 end

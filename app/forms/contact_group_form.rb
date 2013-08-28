@@ -1,9 +1,9 @@
-class ContactTypeForm
+class ContactGroupForm
   include Virtus
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attribute :contact_type_id
+  attribute :contact_group_id
 
   def persisted?
     false
