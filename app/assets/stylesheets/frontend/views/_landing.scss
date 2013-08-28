@@ -108,7 +108,7 @@
 
     .chosen-container-active .chosen-single {
       border: 1px solid #AAA;
-      outline: solid 3px #ffbf47;
+      outline: solid 3px $yellow;
       border-bottom-color: #fff;
       @include border-radius(0);
     }

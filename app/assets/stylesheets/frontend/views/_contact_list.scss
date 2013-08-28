@@ -49,6 +49,30 @@
         }
       }
     }
+
+    .organisations-box {
+      h3 {
+        @include copy-16;
+        border-bottom: none;
+      }
+
+      p {
+        float: none;
+        @include copy-14;
+      }
+
+      li {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $grey-2;
+
+        &:last-child {
+          margin-bottom: 0;
+          padding-bottom: 0;
+          border: none;
+        }
+      }
+    }
   }
 
   .most-popular .heading-block .content h2 a {

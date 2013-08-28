@@ -31,7 +31,7 @@
 <div class="index-list-page organisations-index">
   <div class="block most-popular">
     <div class="inner-block">
-      <div class="heading-block js-filter-block">
+      <div class="heading-block js-filter-block js-hide-department-children">
         <header class="type-heading">
           <h1>
             Most popular HMRC contacts
@@ -47,6 +47,37 @@
                 Get an estimate of how much tax you may need.
               </p>
               <%= link_to "view all", "#", class: "view-all" %>
+
+              <div class="organisations-box">
+                <div class="organisations-box-inner">
+                  <ul>
+                    <li>
+                      <h3>
+                        <%= link_to "Customs Hotline - reporting Customs, Excise and VAT fraud" %>
+                      </h3>
+                      <p>
+                        Contact the Customs Hotline to report all types of smuggling, customs, excise and VAT fraud.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>
+                        <%= link_to "Customs, Excise and VAT fraud reporting" %>
+                      </h3>
+                      <p>
+                        Contact the Customs Hotline to report all types of smuggling, customs, excise and VAT fraud.
+                      </p>
+                    </li>
+                    <li>
+                      <h3>
+                        <%= link_to "Customs, International Trade & Excise enquiries" %>
+                      </h3>
+                      <p>
+                        For enquiries relating to importing, exporting and Customs Relief.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </li>
             <li class="department">
               <h2>
@@ -74,7 +105,7 @@
 
   <div class="block">
     <div class="inner-block">
-      <div class="heading-block js-filter-block">
+      <div class="heading-block js-filter-block js-hide-department-children">
         <header class="type-heading">
           <h1>
             HMRC contacts by group
