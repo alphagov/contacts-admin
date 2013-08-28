@@ -158,14 +158,14 @@
             margin-left: 5px;
             padding: 4px 6px;
             padding-bottom: 3px;
-            font-size: 15px;
+            font-size: em(15, 16);
             font-weight: bold;
             text-align: center;
             @include border-radius(1000px);
 
             @media (max-width: 641px) {
               min-width: 12px;
-              font-size: 13px;
+              font-size: em(13, 16);
             }
           }
 

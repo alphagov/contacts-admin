@@ -1,6 +1,6 @@
 .page-header h1 {
   @media (max-width: 641px) {
-    font-size: 32px;
+    font-size: em(32, 16);
     line-height: 1.09375;
   }
 }
