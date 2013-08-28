@@ -21,6 +21,22 @@
             Help and advice for Child Benefit customers
           </p>
         </div>
+
+        <aside>
+          <%= link_to "Show all parts of this guide", "#", class:"show-all-parts" %>
+          <nav role="navigation" class="page-navigation page-navigation-closed" aria-label="parts to this guide">
+            <ol>
+              <li>
+                <span class="part-number">1.</span>
+                <%= link_to "Before you contact us", "#", title:"1. Before you contact us" %>
+              </li>
+              <li class="active">
+                <span class="part-number">2.</span>
+                <span>Information you will need</span>
+              </li>
+            </ol>
+          </nav>
+        </aside>
         <div class="clear"></div>
       </div>
 
@@ -28,38 +44,33 @@
         <article role="article" class="group">
           <header>
             <h1>
-              1. Before you contact us
+              2. Information you will need
             </h1>
           </header>
-          <div class="application-notice info-notice waiting-times">
-            <p>
-              Call waiting times
-              <br>
-              <strong>
-                15 minutes
-              </strong>
-              <br>
-              at peak times
-            </p>
-          </div>
-          <p>
-            There is a lot of information on this website that might help resolve your inquiry. Please read the recommended guidance before contacting HMRC.
-          </p>
-          <ul class="useful-links">
+          <ul class="">
             <li>
-              <h3>
-                <%= link_to "How to claim Child Benefit?", "#" %>
-              </h3>
               <p>
-                Find out how to claim Child Benefits.
+                Your partner's and your child's date of birth
               </p>
             </li>
             <li>
-              <h3>
-                <%= link_to "High Income Child Benefit charge", "#" %>
-              </h3>
               <p>
-                Find out how your tax could be affected if you or a partner have an income of more than £50,000 and get Child Benefit, and what you need to do.
+                Your and your partner's National Insurance Number
+              </p>
+            </li>
+            <li>
+              <p>
+                Your and your partner's Child Benefit number (if you've previously claimed for any child)
+              </p>
+            </li>
+            <li>
+              <p>
+                Child birth or adoption certificate
+              </p>
+            </li>
+            <li>
+              <p>
+                Your bank details
               </p>
             </li>
           </ul>
@@ -69,7 +80,7 @@
                 <li class="next">
                   <a href="#" rel="next" title="Navigate to next part">
                   <span class="pagination-label">Next</span> 
-                  <span class="pagination-part-title">Information you will need</span>
+                  <span class="pagination-part-title">Contact details</span>
                   </a>
                 </li>
               </ul>

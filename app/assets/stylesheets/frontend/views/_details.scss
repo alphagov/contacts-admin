@@ -38,23 +38,124 @@
       line-height: 1.5;
     }
 
-    ul.useful-links {
-      list-style: none;
-      margin-left: 0;
-      padding-left: 0;
-
+    ul {
       li {
+        margin-bottom: $gutter-one-third;
+      }
+
+      &.useful-links {
         margin-left: 0;
         padding-left: 0;
+
+        li {
+          list-style: none;
+          margin-left: 0;
+          padding-left: 0;
+        }
+
+        h3 {
+          font-weight: normal;
+          margin-bottom: 0;
+        }
+
+        p {
+          @include copy-16;
+        }
       }
 
-      h3 {
-        font-weight: normal;
-        margin-bottom: 0;
-      }
+      &.contact-details-list {
+        margin-top: 0;
+        padding-left: 0;
 
-      p {
-        @include copy-16;
+        > li {
+          list-style: none;
+          margin-left: 0;
+          margin-bottom: $gutter*1.5;
+          padding-left: 0;
+
+          .contact-detail-inner {
+            margin-left: 38px;
+          }
+
+          h3 {
+            @include heading-24;
+            padding-top: 13px;
+            padding-bottom: 9px;
+            padding-left: 14px;
+            font-weight: bold;
+            background: $grey-3;
+            cursor: pointer;
+
+            @media (min-width: 641px) {
+              padding-top: 13px;
+              padding-bottom: 9px;
+            }
+
+            &:before {
+              display: inline-block;
+              font-size: 13px;
+              height: 16px;
+              padding-right: 5px;
+              vertical-align: middle;
+              content: " \25B2";
+            }
+          }
+
+          p {
+            margin-bottom: $gutter-half;
+          }
+
+          strong {
+            font-weight: bold;
+          }
+
+          .useful-links {
+            margin: $gutter 0;
+
+            .sub-link {
+              margin-top: $gutter;
+              @include copy-16;
+
+              a {
+                color: $black;
+              }
+            }
+          }
+
+          .badge {
+            display: inline-block;
+            background: $grey-3;
+            min-width: 15px;
+            margin-left: 5px;
+            padding: 4px 6px;
+            padding-bottom: 3px;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+            @include border-radius(1000px);
+          }
+
+          .address {
+            padding: 0;
+            background: transparent;
+          }
+            
+          &.js-hidden {
+            margin-bottom: $gutter-half;
+
+            h3 {
+              margin: 0;
+
+              &:before {
+                content: " \25BC";
+              }
+            }
+
+            .contact-detail-inner {
+              display: none;
+            }
+          }
+        }
       }
     }
   }
