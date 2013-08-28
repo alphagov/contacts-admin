@@ -79,6 +79,7 @@
 
           h3 {
             @include heading-24;
+            margin-bottom: $gutter;
             padding-top: 13px;
             padding-bottom: 9px;
             padding-left: 14px;
@@ -143,12 +144,8 @@
           &.js-hidden {
             margin-bottom: $gutter-half;
 
-            h3 {
-              margin: 0;
-
-              &:before {
-                content: " \25BC";
-              }
+            h3:before {
+              content: " \25BC";
             }
 
             .contact-detail-inner {
