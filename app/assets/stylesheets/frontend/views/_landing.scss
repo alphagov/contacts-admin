@@ -73,6 +73,12 @@
       display: block;
     }
 
+    select {
+      width: auto;
+      max-width: 100%;
+      margin: $gutter-one-third 0;
+    }
+
     .chosen-container {
       width: auto !important;
       min-width: 280px;
