@@ -1,51 +1,44 @@
 require 'spec_helper'
 
 describe ImportContacts::ContactBuilder do
-  describe '.build' do
-    let(:contact_record) { build :contact_record }
-    let(:titles)    { "title1\ntitle2" }
-    let!(:department) { create :department, title: 'HMRC', id: 1 }
-
-    let(:input_attributes) {
-      {
-        'title' => titles
-      }
-    }
-
-    it 'builds contact record: title1' do
-      contacts = described_class.build(contact_record, input_attributes)
-
-      expect(
-        contacts.detect { |contact|
-          contact.title == 'title1'
-        }
-      ).to be_present
+  describe 'build' do
+    it 'returns instance of Contact' do
+      expect(described_class.build({})).to be_kind_of Contact
     end
 
-    it 'builds contact record: title2' do
-      contacts = described_class.build(contact_record, input_attributes)
+    it 'assigns description to contact record' do
+      description = 'some description'
+      attributes = {'description' => description}
 
-      expect(
-        contacts.detect { |contact|
-          contact.title == 'title2'
-        }
-      ).to be_present
+      expect(described_class.build(attributes).description).to eq description
     end
 
-    it 'assigns contact to HMRC (by default)' do
-      contacts = described_class.build(contact_record, input_attributes)
+    it 'assigns keywords to contact record' do
+      keywords = 'kw1,kw2'
+      attributes = {'keywords' => keywords}
 
-      expect(
-        contacts.all? { |contact|
-          contact.department == Department.hmrc
-        }
-      ).to be_true
+      expect(described_class.build(attributes).keywords).to eq ['kw1', 'kw2']
     end
 
-    specify 'assigned contacts are valid' do
-      contacts = described_class.build(contact_record, input_attributes)
+    it 'assigns contact type' do
+      contact_type = 'See also'
+      attributes = {'clustergroup' => contact_type}
 
-      expect(contacts.all?(&:valid?)).to be_true
+      expect(described_class.build(attributes).contact_type).to eq ContactType.find_by_title(contact_type)
+    end
+
+    it 'assigns meta_title' do
+      meta_title = 'meta title'
+      attributes = {'alt_meta_title' => meta_title}
+
+      expect(described_class.build(attributes).meta_title).to eq meta_title
+    end
+
+    it 'assigns meta_description' do
+      meta_description = 'meta description'
+      attributes = {'alt_meta_description' => meta_description}
+
+      expect(described_class.build(attributes).meta_description).to eq meta_description
     end
   end
 end

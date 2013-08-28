@@ -3,7 +3,7 @@ class ContactType < ActiveYaml::Base
 
   field :title
 
-  has_many :contacts
+  has_many :offices
 
   def to_s
     title

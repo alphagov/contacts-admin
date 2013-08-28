@@ -1,6 +1,6 @@
 class ImportContacts
   class PostAddressBuilder
-    def self.build(contact_record, attributes)
+    def self.build(contact, attributes)
       [{
          description: attributes['postaddresstag1'],
          address: attributes['postaddress1']
@@ -11,7 +11,7 @@ class ImportContacts
          description: attributes['postaddresstag3'],
          address: attributes['postaddress3']
        }].map { |post_address_attributes|
-         contact_record.post_addresses.build(post_address_attributes)
+         contact.post_addresses.build(post_address_attributes)
        }
     end
   end

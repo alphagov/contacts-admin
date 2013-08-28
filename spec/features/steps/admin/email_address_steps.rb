@@ -2,8 +2,8 @@ module Admin
   module EmailAddressSteps
     include ::CommonSteps
 
-    def email_address_exists(contact_record, email_address)
-      ensure_on admin_contact_record_email_addresses_path(contact_record)
+    def email_address_exists(contact, email_address)
+      ensure_on admin_contact_email_addresses_path(contact)
 
       has_selector?(email_addresses_table_selector) &&
         within(email_addresses_table_selector) do
@@ -12,8 +12,8 @@ module Admin
     end
 
     def delete_email_address(email_address)
-      ensure_on admin_contact_record_email_addresses_path(
-        email_address.contact_record,
+      ensure_on admin_contact_email_addresses_path(
+        email_address.contact,
         email_address
       )
 
@@ -23,8 +23,8 @@ module Admin
     end
 
     def update_email_address(email_address, new_details = {})
-      ensure_on edit_admin_contact_record_email_address_path(
-        email_address.contact_record,
+      ensure_on edit_admin_contact_email_address_path(
+        email_address.contact,
         email_address
       )
 
@@ -37,8 +37,8 @@ module Admin
       find('#email-address-submit').click
     end
 
-    def create_email_address(contact_record, details = {})
-      ensure_on new_admin_contact_record_email_address_path(contact_record)
+    def create_email_address(contact, details = {})
+      ensure_on new_admin_contact_email_address_path(contact)
 
       details.each do |field, value|
         fill_in "email_address_#{field}", with: value
@@ -50,8 +50,8 @@ module Admin
     end
 
     def email_address_updated(email_address, details = {})
-      ensure_on edit_admin_contact_record_email_address_path(
-        email_address.contact_record,
+      ensure_on edit_admin_contact_email_address_path(
+        email_address.contact,
         email_address
       )
 

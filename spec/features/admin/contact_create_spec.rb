@@ -3,9 +3,10 @@ require 'spec_helper'
 describe 'Contact creation', auth: :user do
   include Admin::ContactSteps
 
-  let!(:department)     { Department.create(title: 'example department') }
-  let!(:contact_record) { create :contact_record }
-  let(:contact)         { build :contact  }
+  let!(:contact_type)  { ContactType.create(title: 'new contact type') }
+  let!(:office1)       { create :office  }
+  let!(:office2)       { create :office  }
+  let(:contact)        { build :contact  }
 
   before {
     verify !contact_exists(contact)
@@ -13,10 +14,12 @@ describe 'Contact creation', auth: :user do
 
   specify 'it can be created' do
     create_contact({
-      title: contact.title
+      description: contact.description,
+      contact_information: contact.contact_information
     }) do
-      select department, from: 'contact_department_id'
-      select contact_record, from: 'contact_contact_record_id'
+      select contact_type, from: 'contact_contact_type_id'
+      select office1.title, from: 'contact_office_ids'
+      select office2.title, from: 'contact_office_ids'
     end
 
     verify contact_exists(contact)

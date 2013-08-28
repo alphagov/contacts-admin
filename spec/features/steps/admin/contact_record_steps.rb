@@ -1,67 +1,67 @@
 module Admin
-  module ContactRecordSteps
+  module ContactSteps
     include ::CommonSteps
 
-    def contact_record_exists(contact_record)
-      ensure_on admin_contact_records_path
+    def contact_exists(contact)
+      ensure_on admin_contacts_path
 
-      has_selector?(contact_records_table_selector) &&
-        within(contact_records_table_selector) do
-          has_content? contact_record.description
+      has_selector?(contacts_table_selector) &&
+        within(contacts_table_selector) do
+          has_content? contact.description
         end
     end
 
-    def delete_contact_record(contact_record)
-      ensure_on admin_contact_records_path
+    def delete_contact(contact)
+      ensure_on admin_contacts_path
 
-      within(contact_records_table_selector) do
+      within(contacts_table_selector) do
         click_link 'Remove'
       end
     end
 
-    def update_contact_record(contact_record, new_details = {})
-      ensure_on edit_admin_contact_record_path(contact_record)
+    def update_contact(contact, new_details = {})
+      ensure_on edit_admin_contact_path(contact)
 
       new_details.each do |field, value|
-        fill_in "contact_record_#{field}", with: value
+        fill_in "contact_#{field}", with: value
       end
 
       yield if block_given?
 
-      find('#contact-record-submit').click
+      find('#contact-submit').click
     end
 
-    def create_contact_record(details = {})
-      ensure_on new_admin_contact_record_path
+    def create_contact(details = {})
+      ensure_on new_admin_contact_path
 
       details.each do |field, value|
-        fill_in "contact_record_#{field}", with: value
+        fill_in "contact_#{field}", with: value
       end
 
       yield if block_given?
 
-      find('#contact-record-submit').click
+      find('#contact-submit').click
     end
 
-    def contact_record_updated(contact_record, details = {})
-      ensure_on edit_admin_contact_record_path(contact_record)
+    def contact_updated(contact, details = {})
+      ensure_on edit_admin_contact_path(contact)
 
       details.all? { |field, value|
-        has_field?("contact_record_#{field}", with: value)
+        has_field?("contact_#{field}", with: value)
       }
     end
 
-    def contact_records_table_selector
-      "table.contact-records-table"
+    def contacts_table_selector
+      "table.contacts-table"
     end
 
-    def associated_to_contact_type(contact_record, contact_type)
-      contact_record.reload.contact_type == contact_type
+    def associated_to_contact_type(contact, contact_type)
+      contact.reload.contact_type == contact_type
     end
 
-    def associated_to_contacts(contact_record, *contacts)
-      contacts.all? { |contact|
-        contact_record.reload.contacts.include?(contact)
+    def associated_to_offices(contact, *offices)
+      offices.all? { |office|
+        contact.reload.offices.include?(office)
       }
     end
   end

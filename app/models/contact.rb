@@ -1,15 +1,20 @@
 class Contact < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
 
-  belongs_to_active_hash :department
+  belongs_to_active_hash :contact_type
 
-  belongs_to :contact_record, inverse_of: :contacts
+  has_many :offices, dependent: :destroy, inverse_of: :contact
 
-  validates :title, presence: true
-  validates :contact_record, presence: true
-  validates :department, presence: true
+  has_many :related_content_links, inverse_of: :contact, dependent: :destroy
+  has_many :contact_form_links, inverse_of: :contact
+
+  has_many :phone_numbers, inverse_of: :contact, dependent: :destroy
+  has_many :email_addresses, inverse_of: :contact, dependent: :destroy
+  has_many :post_addresses, inverse_of: :contact, dependent: :destroy
+
+  serialize :keywords, Array
 
   def to_s
-    title
+    description
   end
 end

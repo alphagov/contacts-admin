@@ -1,0 +1,32 @@
+<div class='page-header'>
+  <h2>
+    Offices
+    <small>(<%= offices.count %>)</small>
+  </h2>
+ </div>
+
+<% if offices.any? %>
+  <table class='table table-bordered table-striped table-hover office-table'>
+    <thead>
+      <tr>
+        <th>Office</th>
+        <th>Department</th>
+        <th>Contact</th>
+        <th>
+          <%= link_to "New Office", new_admin_office_path, class: 'btn btn-small' %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render offices %>
+    </tbody>
+  </table>
+<% else %>
+  <div class='alert alert-block alert-info'>
+    <h4>No office found</h4>
+    <p>
+      We have found no offices. Add one?
+      <%= link_to "Add one?", new_admin_office_path, class: 'btn btn-small' %>
+    </p>
+  </div>
+<% end %>

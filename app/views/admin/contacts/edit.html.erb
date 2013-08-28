@@ -2,4 +2,30 @@
   <h2>Edit Contact</h2>
 </div>
 
-<%= render partial: 'form', locals: { contact: @contact } %>
+<ul class='nav nav-tabs'>
+  <li class='active'>
+    <%= link_to 'Edit Contact', edit_admin_contact_path(contact) %>
+  </li>
+  <li class='dropdown'>
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      Associated Records
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+      <li>
+        <%= link_to "Contact Form Links (#{contact.contact_form_links.count})", admin_contact_contact_form_links_path(contact) %>
+      </li>
+      <li>
+        <%= link_to "Email Addresses (#{contact.email_addresses.count})", admin_contact_email_addresses_path(contact) %>
+      </li>
+      <li>
+        <%= link_to "Post Addresses (#{contact.post_addresses.count})", admin_contact_post_addresses_path(contact) %>
+      </li>
+      <li>
+        <%= link_to "Phone Numbers (#{contact.phone_numbers.count})", admin_contact_phone_numbers_path(contact) %>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<%= render partial: 'form', locals: { contact: contact } %>
