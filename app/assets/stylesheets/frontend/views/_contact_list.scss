@@ -1,6 +1,9 @@
 .contact_list-page {
   .hmrc-search {
     margin-bottom: $gutter;
+    form {
+    display: block !important;
+    }
   }
 
   .organisations-index .page-header {

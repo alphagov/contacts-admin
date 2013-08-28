@@ -60,6 +60,8 @@
     }
 
     .chosen-container {
+      width: auto !important;
+      min-width: 280px;
       .chosen-search input {
         background: #fff;
 
@@ -109,12 +111,12 @@
     .chosen-container-active .chosen-single {
       border: 1px solid #AAA;
       outline: solid 3px $yellow;
-      border-bottom-color: #fff;
       @include border-radius(0);
     }
 
     .chosen-with-drop .chosen-single {
       @include gradient(#e5e5e5, #fff);
+      border-bottom-color: #fff;
 
       div b {
         background-position: 0px -33px;

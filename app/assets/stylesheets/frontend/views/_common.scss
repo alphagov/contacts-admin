@@ -32,6 +32,8 @@
       border-color: $border-colour;
       border-right: none;
       line-height: 48px!important;
+      -webkit-appearance: none;
+      @include border-radius(0);
 
       &::-webkit-search-cancel-button {
         -webkit-appearance: none;
