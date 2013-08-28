@@ -1,10 +1,45 @@
 - id: 1
   title: See also
+  group: Most popular
 - id: 2
   title: Tax
+  group: Most popular
 - id: 3
   title: Tax credits and other benefits
+  group: Most popular
 - id: 4
   title: VAT, Customs, Excise duties
+  group: Most popular
 - id: 5
   title: National Insurance
+  group: Most popular
+- id: 6
+  title: Employers
+  group: Most popular
+- id: 7
+  title: Income Tax
+  group: Most popular
+- id: 8
+  title: Self Assessment
+  group: Most popular
+- id: 9
+  title: National Insurance
+  group: For individuals
+- id: 10
+  title: Child Benefit
+  group: For individuals
+- id: 11
+  title: Corporation Tax
+  group: For individuals
+- id: 12
+  title: Construction Industry Scheme (CIS)
+  group: For individuals
+- id: 13
+  title: Self Employed
+  group: For individuals
+- id: 14
+  title: Charities & clubs
+  group: For individuals
+- id: 15
+  title: Bereavement
+  group: For individuals
