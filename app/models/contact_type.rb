@@ -1,4 +1,6 @@
 class ContactType < ActiveYaml::Base
+  ContactTypeGroup = Struct.new(:name)
+
   include ActiveHash::Associations
 
   field :title

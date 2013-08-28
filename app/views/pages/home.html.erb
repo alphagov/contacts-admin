@@ -38,50 +38,9 @@
     <h2 class="section-divider">
       Browse by most commonly asked questions about
 
-      <select class="js-chosen-select">
-        <optgroup label="Most popular">
-          <option value="#commonly-asked-<%= 'Change of details'.parameterize %>">
-            Change of details
-          </option>
-          <option value="#commonly-asked-<%= 'Tax Credits'.parameterize %>">
-            Tax Credits
-          </option>
-          <option>
-            VAT
-          </option>
-          <option>
-            Employers
-          </option>
-          <option>
-            Income Tax
-          </option>
-          <option>
-            Self Assessment
-          </option>
-        <optgroup label="For individuals">
-          <option>
-            National Insurance
-          </option>
-          <option>
-            Child Benefit
-          </option>
-          <option>
-            Corporation Tax
-          </option>
-          <option>
-            Construction Industry Scheme (CIS)
-          </option>
-          <option>
-            Self Employed
-          </option>
-          <option>
-            Charities &amp; clubs
-          </option>
-          <option>
-            Bereavement
-          </option>
-        </optgroup>
-      </select>
+      <%= simple_form_for @contact_type_form, url: show_contact_group_path do |form| %>
+        <%= form.input :contact_type_id, label: false, collection: ContactTypeGroup.all, as: :grouped_select, group_method: :contact_types, include_blank: false, input_html: { class: 'js-chosen-select' } %>
+     <% end %>
     </h2>
 
     <ul class="common-sections common-sections-active" id="commonly-asked-change-of-details">
