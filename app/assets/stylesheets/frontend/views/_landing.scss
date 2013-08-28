@@ -1,7 +1,15 @@
 .landing-page {
   .hmrc-search {
+    .page-header {
+      @media (max-width: 641px) {
+        margin-top: $gutter-half;
+      }
+    }
+
     .main {
-      padding-bottom: $gutter;
+      @media (min-width: 769px) {
+        padding-bottom: $gutter;
+      }
     }
 
     p {
@@ -17,6 +25,12 @@
       border-color: $black;
       border-top-width: 5px;
       border-top-style: solid;
+
+      @media (max-width: 641px) {
+        margin-top: $gutter*1.5;
+        margin-bottom: $gutter-one-third;
+        padding-top: $gutter;
+      }
     }
 
     h2 {
@@ -62,6 +76,8 @@
     .chosen-container {
       width: auto !important;
       min-width: 280px;
+      margin: $gutter-one-third 0;
+
       .chosen-search input {
         background: #fff;
 
@@ -91,19 +107,33 @@
       }
 
       .chosen-single {
-        height: 36px;
+        height: 28px;
         padding-left: 12px;
         @include box-shadow(none);
         @include gradient(#fff, #e5e5e5);
 
         span {
-          padding-top: 10px;
+          padding-top: 7px;
           font-weight: bold;
         }
 
         div b {
+          margin-top: -4px;
           background-image: image-url("chosen-arrows.png");
           background-position: 0px 17px;
+        }
+
+
+        @media (min-width: 640px) {
+          height: 36px;
+
+          span {
+            padding-top: 10px;
+          }
+
+          div b{
+            margin-top: 0px;
+          }
         }
       }
     }
