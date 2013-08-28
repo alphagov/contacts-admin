@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20130828110832) do
     t.integer  "contact_group_type_id"
     t.string   "title"
     t.string   "description"
+    t.integer  "contacts_count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

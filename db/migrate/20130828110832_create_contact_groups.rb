@@ -4,6 +4,7 @@ class CreateContactGroups < ActiveRecord::Migration
       t.integer :contact_group_type_id
       t.string :title
       t.string :description
+      t.integer :contacts_count
       t.timestamps
     end
 

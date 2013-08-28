@@ -1,5 +1,5 @@
 class Contact < ActiveRecord::Base
-  belongs_to :contact_group
+  belongs_to :contact_group, counter_cache: true
 
   has_many :offices, dependent: :destroy, inverse_of: :contact
 
