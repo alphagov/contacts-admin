@@ -3,6 +3,7 @@ HmrcContacts::Application.routes.draw do
     root to: 'dashboards#show', via: :get
 
     resources :offices
+    resources :contact_groups
     resources :contacts do
       scope module: 'contacts' do
         resources :contact_form_links

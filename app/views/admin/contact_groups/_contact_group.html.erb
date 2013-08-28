@@ -1,0 +1,8 @@
+<tr>
+  <td><%= contact_group.title %></td>
+  <td><%= contact_group.description %></td>
+  <td><%= contact_group.contacts.size %></td>
+  <td>
+    <%= link_to "Edit", edit_admin_contact_group_path(contact_group), class: 'btn btn-small' %>
+  </td>
+</tr>

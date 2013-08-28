@@ -1,0 +1,8 @@
+<%= simple_form_for [:admin, contact_group] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+
+  <div class='form-actions'>
+    <%= f.submit id: 'contact-group-submit', class: 'btn btn-primary', data: { disable_with: 'Working' } %>
+  </div>
+<% end %>

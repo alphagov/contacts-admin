@@ -5,6 +5,7 @@ class ContactGroup < ActiveRecord::Base
   belongs_to :contact_group_type
 
   validates :title, presence: true
+  validates :description, presence: true
 
   def to_s
     title
