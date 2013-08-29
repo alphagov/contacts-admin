@@ -185,6 +185,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.11.0)
     rake (10.1.0)
+    redcarpet (3.0.0)
     ref (1.0.5)
     request_store (1.0.5)
     rspec-core (2.14.5)
@@ -275,6 +276,7 @@ DEPENDENCIES
   pry-rails
   railroady
   rails (= 4.0.0)
+  redcarpet
   rspec-rails (~> 2.14)
   sass-rails (~> 4.0.0)
   shoulda-matchers
