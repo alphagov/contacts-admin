@@ -5,6 +5,8 @@ class ContactGroup < ActiveRecord::Base
   has_many :offices, through: :contacts
   belongs_to :contact_group_type
 
+  acts_as_url :title, url_attribute: :slug, sync_url: true
+
   validates :title, presence: true
   validates :description, presence: true
 

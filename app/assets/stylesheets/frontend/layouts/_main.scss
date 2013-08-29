@@ -24,7 +24,7 @@
     @extend %contain-floats;
   }
 
-  .organisation-logo:link, 
+  .organisation-logo:link,
   .organisation-logo:visited {
     border-color: $hm-revenue-customs-websafe;
   }
@@ -34,6 +34,9 @@
       direction: rtl;
     }
   }
+
 }
 
-
+.js-enabled .js-hidden {
+  display: none;
+}

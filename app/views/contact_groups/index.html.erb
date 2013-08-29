@@ -47,9 +47,9 @@
                 <p>
                   <%= contact_group.description %>
                 </p>
-                <%= link_to "view all", "#", class: "view-all" %>
+                <%= link_to 'Hide', "##{contact_group.slug}", class: "js-showhide" %>
 
-                <div class="organisations-box">
+                <div class="organisations-box" id="<%= contact_group.slug %>">
                   <div class="organisations-box-inner">
                     <ul>
                       <% contact_group.offices.each do |office| %>
