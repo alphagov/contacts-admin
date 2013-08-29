@@ -1,4 +1,6 @@
 HmrcContacts::Application.routes.draw do
+  SLUG_FORMAT = /[A-Za-z0-9\-_]+/
+
   namespace :admin do
     root to: 'dashboards#show', via: :get
 
@@ -15,6 +17,7 @@ HmrcContacts::Application.routes.draw do
   end
 
   resources :contact_groups
+  resources :offices, constraints: { id: SLUG_FORMAT }
 
   get 'search',          to: 'pages#search'
   get 'details_1',       to: 'pages#details_1'
