@@ -11,11 +11,10 @@ module HmrcContacts
     require 'hmrc_contacts'
 
     config.autoload_paths += %W(
-      #{config.root}/app/models/more_info_record
       #{config.root}/app/models/website
     )
 
-    config.assets.precompile += %w( admin.css admin.js )
+    config.assets.precompile += %w( admin.css admin.js frontend.css frontend.js )
 
     # Generators
     config.generators do |g|
