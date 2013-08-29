@@ -63,6 +63,8 @@
                 <ul class="useful-links">
                   <%= render contact.contact_form_links %>
 
+                  <%= markdown contact.more_info_website.to_s %>
+
                   <li class='sub-link'>
                     <%= link_to "Show contact form privacy & security Information", "#" %>
                   </li>
@@ -89,6 +91,8 @@
                   Consider using alternative communication method.
                 </p>
                 <%= render contact.phone_numbers %>
+
+                <%= markdown contact.more_info_phone_number.to_s %>
               </div>
             </li>
             <li class="contact-detail js-hide-container js-hide">
@@ -97,6 +101,8 @@
               </h3>
               <div class="contact-detail-inner">
                 <%= render contact.email_addresses %>
+
+                <%= markdown contact.more_info_email_address.to_s %>
               </div>
             </li>
             <li class="contact-detail js-hide-container js-hide">
