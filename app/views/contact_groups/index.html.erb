@@ -39,38 +39,6 @@
         </header>
         <div class="content">
           <ol>
-            <li class="department js-hide-container js-hide">
-              <h2>
-                <%= link_to "contact_group", "#" %>
-              </h2>
-              <p>
-                contact_group
-              </p>
-              <%= link_to 'view all', "#", class: "js-hide-link view-all" %>
-
-              <div class="organisations-box" id="#">
-                <div class="organisations-box-inner">
-                  <ul>
-                    <li>
-                      <h3>
-                        <%= link_to "Office", "#" %>
-                      </h3>
-                      <p>
-                        OFFICE DESCRIPTION
-                      </p>
-                    </li>
-                    <li>
-                      <h3>
-                        <%= link_to "Office", "#" %>
-                      </h3>
-                      <p>
-                        OFFICE DESCRIPTION
-                      </p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
             <% most_popular_contact_groups.each do |contact_group| %>
               <li class="department js-hide-container js-hide">
                 <h2>
