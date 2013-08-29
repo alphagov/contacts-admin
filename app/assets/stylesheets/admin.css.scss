@@ -49,6 +49,7 @@ $hover-yellow: #fff8dd;
   padding: 0;
 
   li, a {
+    font-size: em(13, 14);
     max-width: 250px;
     white-space: nowrap;
     overflow: hidden;
@@ -166,6 +167,10 @@ fieldset {
   margin-bottom: 30px;
 
   &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  legend {
     margin-bottom: 0;
   }
 }
