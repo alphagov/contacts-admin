@@ -6,9 +6,6 @@ class PagesController < ApplicationController
   def search
   end
 
-  def contact_list
-  end
-
   def details_1
   end
 

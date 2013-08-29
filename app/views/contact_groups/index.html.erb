@@ -1,0 +1,118 @@
+<% page_class 'contact_list-page' %>
+
+<div class="block-1">
+  <div class="inner-block">
+    <%= render 'layouts/hmrc_logo' %>
+  </div>
+</div>
+
+<div class="block-2 index-list-page organisations-index">
+  <div class="inner-block">
+    <div class="hmrc-search">
+      <header class="page-header js-filter-list">
+        <h1 class="title">
+          HMRC Contacts
+        </h1>
+
+        <form class="js-filter-form">
+          <label for="who-are-you-looking-for" class="label">
+            What are contact details
+            <br>
+            for
+            <input name="who-are-you-looking-for" placeholder="Example: Appeals">
+            ?
+          </label>
+        </form>
+      </header>
+    </div>
+  </div>
+</div>
+
+<div class="index-list-page organisations-index">
+  <div class="block most-popular">
+    <div class="inner-block">
+      <div class="heading-block js-filter-block js-hide-department-children">
+        <header class="type-heading">
+          <h1>
+            Most popular HMRC contacts
+          </h1>
+        </header>
+        <div class="content">
+          <ol>
+            <% most_popular_contact_groups.each do |contact_group| %>
+              <li class="department">
+                <h2>
+                  <%= link_to contact_group, "#" %>
+                </h2>
+                <p>
+                  <%= contact_group.description %>
+                </p>
+                <%= link_to "view all", "#", class: "view-all" %>
+
+                <div class="organisations-box">
+                  <div class="organisations-box-inner">
+                    <ul>
+                      <% contact_group.offices.each do |office| %>
+                        <li>
+                          <h3>
+                            <%= link_to office, "#" %>
+                          </h3>
+                          <p>
+                            <%= office.contact.description %>
+                          </p>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="inner-block">
+      <div class="heading-block js-filter-block js-hide-department-children">
+        <header class="type-heading">
+          <h1>
+            HMRC contacts by group
+          </h1>
+        </header>
+        <div class="content">
+          <ol>
+            <% contact_groups.each do |contact_group| %>
+              <li class="department">
+                <h2>
+                  <%= link_to contact_group, "#" %>
+                </h2>
+                <p>
+                  <%= contact_group.description %>
+                </p>
+                <%= link_to "view all", "#", class: "view-all" %>
+
+                <div class="organisations-box">
+                  <div class="organisations-box-inner">
+                    <ul>
+                      <% contact_group.offices.each do |office| %>
+                        <li>
+                          <h3>
+                            <%= link_to office, "#" %>
+                          </h3>
+                          <p>
+                            <%= office.contact.description %>
+                          </p>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
