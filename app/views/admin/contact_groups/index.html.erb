@@ -1,19 +1,18 @@
-<div class='page-header'>
-  <h2>
-    Contact Groups
-    <small>(<%= contact_groups.count %>)</small>
-  </h2>
- </div>
-
 <% if contact_groups.any? %>
-  <table class='table table-bordered table-striped table-hover contact-groups-table'>
+  <table class='table table-striped table-hover contact-groups-table'>
+    <colgroup>
+      <col width="*"></col>
+      <col width="*"></col>
+      <col width="150"></col>
+      <col width="200"></col>
+    </colgroup>
     <thead>
       <tr>
         <th>Title</th>
         <th>Description</th>
         <th>Contacts count</th>
         <th>
-          <%= link_to "New contact group", new_admin_contact_group_path, class: 'btn btn-small' %>
+          <%= link_to "+ Add contact group", new_admin_contact_group_path, class: 'btn btn-small pull-right' %>
         </th>
       </tr>
     </thead>
@@ -22,11 +21,8 @@
     </tbody>
   </table>
 <% else %>
-  <div class='alert alert-block alert-info'>
-    <h4>No contact groups found</h4>
-    <p>
-      We have found no contact groups. Add one?
-      <%= link_to "Add one?", new_admin_contact_group_path, class: 'btn btn-small' %>
-    </p>
-  </div>
+  <h4>No contact groups found</h4>
+  <p>
+    We have found no contact groups. <%= link_to "You should add one.", new_admin_contact_group_path %>
+  </p>
 <% end %>
