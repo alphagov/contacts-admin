@@ -78,12 +78,30 @@ GOVUK.hmrc_contacts = {
       }
   },
   /**
+    @name GOVUK.hmrc_contacts.contactDetailList
+    @object
+    @description the list that includes email addresses, phone numbers etc
+  */
+  contactDetailList : {
+    initialize: function () {
+      var $contactDetailList = $('.contact-detail'),
+          $groupHideLinks = $contactDetailList.find('.js-hide-link');
+
+      $groupHideLinks.on('click', function(event){
+        $(this).closest(".js-hide-container").toggleClass("js-hide");
+
+        return false;
+      });
+    }
+  },
+  /**
     @name onLoad
     @function
     @description behaviour init point
   */
   onLoad : function () {
     this.contactGroupList.initialize();
+    this.contactDetailList.initialize();
     this.chosenSelect.initialize();
   }
 };
