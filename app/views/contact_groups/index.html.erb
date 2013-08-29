@@ -39,34 +39,7 @@
         </header>
         <div class="content">
           <ol>
-            <% most_popular_contact_groups.each do |contact_group| %>
-              <li class="department">
-                <h2 id="<%= contact_group.slug %>">
-                  <%= link_to contact_group, "#" %>
-                </h2>
-                <p>
-                  <%= contact_group.description %>
-                </p>
-                <%= link_to 'view all', "##{contact_group.slug}", class: "view-all", 'data-expand' => "#{contact_group.slug}-elements" %>
-
-                <div class="organisations-box" id="<%= contact_group.slug %>-elements">
-                  <div class="organisations-box-inner">
-                    <ul>
-                      <% contact_group.offices.each do |office| %>
-                        <li>
-                          <h3>
-                            <%= link_to office, "#" %>
-                          </h3>
-                          <p>
-                            <%= office.contact.description %>
-                          </p>
-                        </li>
-                      <% end %>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-            <% end %>
+            <%= render most_popular_contact_groups %>
           </ol>
         </div>
       </div>
@@ -83,34 +56,7 @@
         </header>
         <div class="content">
           <ol>
-            <% contact_groups.each do |contact_group| %>
-              <li class="department">
-                <h2 id="<%= contact_group.slug %>">
-                  <%= link_to contact_group, "#" %>
-                </h2>
-                <p>
-                  <%= contact_group.description %>
-                </p>
-                <%= link_to 'view all', "##{contact_group.slug}", class: "view-all", 'data-expand' => "#{contact_group.slug}-elements" %>
-
-                <div class="organisations-box" id="<%= contact_group.slug %>-element">
-                  <div class="organisations-box-inner">
-                    <ul>
-                      <% contact_group.offices.each do |office| %>
-                        <li>
-                          <h3>
-                            <%= link_to office, "#" %>
-                          </h3>
-                          <p>
-                            <%= office.contact.description %>
-                          </p>
-                        </li>
-                      <% end %>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-            <% end %>
+            <%= render contact_groups %>
           </ol>
         </div>
       </div>

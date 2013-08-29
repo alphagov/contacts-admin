@@ -47,40 +47,14 @@
               2. Information you will need
             </h1>
           </header>
-          <ul class="">
-            <li>
-              <p>
-                Your partner's and your child's date of birth
-              </p>
-            </li>
-            <li>
-              <p>
-                Your and your partner's National Insurance Number
-              </p>
-            </li>
-            <li>
-              <p>
-                Your and your partner's Child Benefit number (if you've previously claimed for any child)
-              </p>
-            </li>
-            <li>
-              <p>
-                Child birth or adoption certificate
-              </p>
-            </li>
-            <li>
-              <p>
-                Your bank details
-              </p>
-            </li>
-          </ul>
+          <%= markdown contact.contact_information.to_s %>
           <footer>
             <nav class="pagination" role="navigation" aria-label="Pagination">
               <ul class="group">
                 <li class="next">
-                  <a href="#" rel="next" title="Navigate to next part">
-                  <span class="pagination-label">Next</span> 
-                  <span class="pagination-part-title">Contact details</span>
+                  <a href="<%= office_contact_details_path(office) %>" rel="next" title="Navigate to next part">
+                    <span class="pagination-label">Next</span>
+                    <span class="pagination-part-title">Contact details</span>
                   </a>
                 </li>
               </ul>

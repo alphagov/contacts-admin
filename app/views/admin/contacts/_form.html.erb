@@ -4,7 +4,16 @@
     <%= f.association :contact_group, collection: ContactGroup.all, include_blank: false %>
     <%= f.association :offices, input_html: { multiple: true } %>
     <%= f.input :description %>
-    <%= f.input :contact_information %>
+    <div class='row'>
+      <div class='span6'>
+        <%= f.input :contact_information, input_html: { rows: 8 }  %>
+      </div>
+      <div class='span6'>
+        <%= f.label :preview, required: false %>
+        <div class='well' data-preview='markdown' data-preview-for='#contact_contact_information'>
+        </div>
+      </div>
+    </div>
     <%= f.input :meta_title %>
     <%= f.input :meta_description %>
   </fieldset>
