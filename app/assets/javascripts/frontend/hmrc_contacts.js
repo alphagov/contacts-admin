@@ -13,15 +13,15 @@
 var GOVUK = GOVUK || {};
 
 /**
-  @name GOVUK.hmrc_contacts
+  @name GOVUK.HmrcContacts
   @memberOf GOVUK
   @namespace
   @description A set of methods for handling behaviours with HMRC Contacts app functionality
   @requires jquery 1.6.2
 */
-GOVUK.hmrc_contacts = {
+GOVUK.HmrcContacts = {
   /**
-    @name GOVUK.hmrc_contacts.contactGroupList
+    @name GOVUK.HmrcContacts.contactGroupList
     @object
     @description container for contact group list behaviour
   */
@@ -31,13 +31,13 @@ GOVUK.hmrc_contacts = {
     }
   },
   /**
-    @name GOVUK.hmrc_contacts.contactGroupList
+    @name GOVUK.HmrcContacts.contactGroupList
     @object
     @description container for contact group list behaviour
   */
   contactGroupList : {
       /**
-        @name GOVUK.hmrc_contacts.toggledControl.initialize
+        @name GOVUK.HmrcContacts.toggledControl.initialize
         @function
         @description initializes namespace
       */
@@ -78,7 +78,7 @@ GOVUK.hmrc_contacts = {
       }
   },
   /**
-    @name GOVUK.hmrc_contacts.contactDetailList
+    @name GOVUK.HmrcContacts.contactDetailList
     @object
     @description the list that includes email addresses, phone numbers etc
   */

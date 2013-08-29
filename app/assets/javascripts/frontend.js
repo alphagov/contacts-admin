@@ -3,5 +3,5 @@
 //= require_tree ./frontend
 
 $(function(){
-  GOVUK.hmrc_contacts.onLoad();
+  GOVUK.HmrcContacts.onLoad();
 });
