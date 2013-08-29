@@ -52,67 +52,78 @@
             </h1>
           </header>
           <ul class="contact-details-list">
-            <li class="contact-detail js-hide-container">
-              <h3 class="js-hide-link">
-                Online contact forms
-              </h3>
-              <div class="contact-detail-inner">
-                <p>
-                  The easiest way to contact us is by filling in the appropriate online contact form:
-                </p>
-                <ul class="useful-links">
-                  <%= render contact.contact_form_links %>
-
-                  <%= markdown contact.more_info_website.to_s %>
-
-                  <li class='sub-link'>
-                    <%= link_to "Show contact form privacy & security Information", "#" %>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="contact-detail js-hide-container js-hide">
-              <h3 class="js-hide-link">
-                Phone numbers
-              </h3>
-              <div class="contact-detail-inner">
-                <div class="application-notice info-notice waiting-times">
+            <% if contact.contact_form_links.any? %>
+              <li class="contact-detail js-hide-container">
+                <h3 class="js-hide-link">
+                  Online contact forms
+                </h3>
+                <div class="contact-detail-inner">
                   <p>
-                    Call waiting times
-                    <br>
-                    <strong>
-                      15 minutes
-                    </strong>
-                    <br>
-                    at peak times
+                    The easiest way to contact us is by filling in the appropriate online contact form:
                   </p>
+                  <ul class="useful-links">
+                    <%= render contact.contact_form_links %>
+
+                    <%= markdown contact.more_info_website.to_s %>
+
+                    <li class='sub-link'>
+                      <%= link_to "Show contact form privacy & security Information", "#" %>
+                    </li>
+                  </ul>
                 </div>
-                <p>
-                  Consider using alternative communication method.
-                </p>
-                <%= render contact.phone_numbers %>
+              </li>
+            <% end %>
 
-                <%= markdown contact.more_info_phone_number.to_s %>
-              </div>
-            </li>
-            <li class="contact-detail js-hide-container js-hide">
-              <h3 class="js-hide-link">
-                Email
-              </h3>
-              <div class="contact-detail-inner">
-                <%= render contact.email_addresses %>
+            <% if contact.phone_numbers.any? %>
+              <li class="contact-detail js-hide-container js-hide">
+                <h3 class="js-hide-link">
+                  Phone numbers
+                </h3>
+                <div class="contact-detail-inner">
+                  <div class="application-notice info-notice waiting-times">
+                    <p>
+                      Call waiting times
+                      <br>
+                      <strong>
+                        15 minutes
+                      </strong>
+                      <br>
+                      at peak times
+                    </p>
+                  </div>
+                  <p>
+                    Consider using alternative communication method.
+                  </p>
+                  <%= render contact.phone_numbers %>
 
-                <%= markdown contact.more_info_email_address.to_s %>
-              </div>
-            </li>
-            <li class="contact-detail js-hide-container js-hide">
-              <h3 class="js-hide-link">
-                Postal address
-              </h3>
-              <div class="contact-detail-inner">
-                <%= render contact.post_addresses %>
-              </div>
-            </li>
+                  <%= markdown contact.more_info_phone_number.to_s %>
+                </div>
+              </li>
+            <% end %>
+
+            <% if contact.email_addresses.any? %>
+              <li class="contact-detail js-hide-container js-hide">
+                <h3 class="js-hide-link">
+                  Email
+                </h3>
+                <div class="contact-detail-inner">
+                  <%= render contact.email_addresses %>
+
+                  <%= markdown contact.more_info_email_address.to_s %>
+                </div>
+              </li>
+            <% end %>
+
+            <% if contact.post_addresses.any? %>
+              <li class="contact-detail js-hide-container js-hide">
+                <h3 class="js-hide-link">
+                  Postal address
+                </h3>
+                <div class="contact-detail-inner">
+                  <%= render contact.post_addresses %>
+                </div>
+              </li>
+            <% end %>
           </ul>
         </article>
       </div>
