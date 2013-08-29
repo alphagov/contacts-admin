@@ -1,7 +1,5 @@
 class Contact < ActiveRecord::Base
-  extend ActiveHash::Associations::ActiveRecordExtensions
-
-  belongs_to_active_hash :contact_group
+  belongs_to :contact_group, counter_cache: true
 
   has_many :offices, dependent: :destroy, inverse_of: :contact
 

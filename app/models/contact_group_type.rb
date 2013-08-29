@@ -1,19 +1,15 @@
-class ContactGroupType
-  attr_reader :title, :contact_groups
+class ContactGroupType < ActiveYaml::Base
+  include ActiveHash::Associations
 
-  def initialize(title, contact_groups)
-    @title = title
-    @contact_groups = contact_groups
+  field :title
+
+  has_many :contact_groups
+
+  def self.most_popular
+    find(1)
   end
 
-  def self.all
-    ContactGroup.all.map(&:contact_group_type).uniq.map { |contact_group_type_name|
-      new(
-        contact_group_type_name,
-        ContactGroup.all.select { |contact_group|
-          contact_group.contact_group_type == contact_group_type_name
-        }
-      )
-    }
+  def self.for_individuals
+    find(2)
   end
 end

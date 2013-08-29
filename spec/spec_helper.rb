@@ -23,6 +23,6 @@ RSpec.configure do |config|
 
   config.before(:each) do
     # ActiveHash clean slate for testing
-    [ContactGroup, Department].each(&:delete_all)
+    [Department].each(&:delete_all)
   end
 end
