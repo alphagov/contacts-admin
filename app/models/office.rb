@@ -10,4 +10,8 @@ class Office < ActiveRecord::Base
   validates :title, presence: true
   validates :contact, presence: true
   validates :department, presence: true
+
+  def to_s
+    title
+  end
 end

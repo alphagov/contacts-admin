@@ -19,4 +19,8 @@ class ContactGroup < ActiveRecord::Base
   scope :with_contacts, -> { includes(:contacts) }
   scope :with_offices, -> { with_contacts.includes(:offices) }
   scope :by_title, -> { order("title ASC") }
+
+  def to_s
+    title
+  end
 end
