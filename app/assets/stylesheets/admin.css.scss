@@ -44,6 +44,18 @@ $hover-yellow: #fff8dd;
   }
 }
 
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+
+  li, a {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 a {
   text-decoration: underline;
 }
