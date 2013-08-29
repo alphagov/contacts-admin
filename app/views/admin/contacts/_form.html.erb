@@ -1,8 +1,8 @@
 <%= simple_form_for [:admin, contact] do |f| %>
   <fieldset>
     <legend>General details</legend>
-    <%= f.association :contact_group, collection: ContactGroup.all, include_blank: false %>
-    <%= f.association :offices, input_html: { multiple: true } %>
+    <%= f.association :contact_group, collection: ContactGroup.all, include_blank: false, input_html: { class: 'js-chosen-select' } %>
+    <%= f.association :offices, input_html: { multiple: true, class: 'js-chosen-select' } %>
     <%= f.input :description %>
     <div class='row'>
       <div class='span6'>

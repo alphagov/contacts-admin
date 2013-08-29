@@ -6,6 +6,7 @@
 @import "_css3.scss";
 @import "_device-pixels.scss";
 @import "frontend/styleguide/_colours.scss";
+@import "frontend/vendor/_chosen.min.scss";
 
 /* variables */
 $hover-yellow: #fff8dd;
@@ -157,4 +158,28 @@ fieldset {
   background: transparent;
   border: none;
   padding-left: 0;
+}
+
+.chosen-container-multi .chosen-choices {
+  padding-right: 5px;
+  
+  li.search-choice {
+    color: #fff;
+    border: none;
+    background: #00a19c;
+    @include box-shadow(none);
+    font-weight: bold;
+
+    .search-choice-close {
+      background-position: -42px -49px;
+
+      &:hover {
+        background-position: -42px -60px;
+      }
+    }
+  }
+}
+
+.chosen-container .chosen-results li.highlighted {
+  background: #00a19c;
 }
