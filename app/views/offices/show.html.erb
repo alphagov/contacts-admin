@@ -13,12 +13,12 @@
         <div class="header-div">
           <header class="page-header group">
             <h1>
-              Child Benefit contact details
+              <%= office %> contact details
             </h1>
           </header>
 
           <p>
-            Help and advice for Child Benefit customers
+            Help and advice for <%= office %> customers
           </p>
         </div>
         <div class="clear"></div>
@@ -42,34 +42,30 @@
               at peak times
             </p>
           </div>
-          <p>
-            There is a lot of information on this website that might help resolve your inquiry. Please read the recommended guidance before contacting HMRC.
-          </p>
-          <ul class="useful-links">
-            <li>
-              <h3>
-                <%= link_to "How to claim Child Benefit?", "#" %>
-              </h3>
-              <p>
-                Find out how to claim Child Benefits.
-              </p>
-            </li>
-            <li>
-              <h3>
-                <%= link_to "High Income Child Benefit charge", "#" %>
-              </h3>
-              <p>
-                Find out how your tax could be affected if you or a partner have an income of more than £50,000 and get Child Benefit, and what you need to do.
-              </p>
-            </li>
-          </ul>
+          <% if contact.related_content_links.any? %>
+            <p>
+              There is a lot of information on this website that might help resolve your inquiry. Please read the recommended guidance before contacting HMRC.
+            </p>
+            <ul class="useful-links">
+              <% contact.related_content_links.each do |related_content_link| %>
+                <li>
+                  <h3>
+                    <%= link_to related_content_link.title, related_content_link.link %>
+                  </h3>
+                  <p>
+                    <%= related_content_link.description %>
+                  </p>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
           <footer>
             <nav class="pagination" role="navigation" aria-label="Pagination">
               <ul class="group">
                 <li class="next">
-                  <a href="#" rel="next" title="Navigate to next part">
-                  <span class="pagination-label">Next</span> 
-                  <span class="pagination-part-title">Information you will need</span>
+                  <a href="<%= office_information_you_will_need_path(office) %>" rel="next" title="Navigate to next part">
+                    <span class="pagination-label">Next</span>
+                    <span class="pagination-part-title">Information you will need</span>
                   </a>
                 </li>
               </ul>

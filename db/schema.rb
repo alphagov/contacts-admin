@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130829074746) do
+ActiveRecord::Schema.define(version: 20130829131742) do
 
   create_table "contact_groups", force: true do |t|
     t.integer  "contact_group_type_id"
@@ -62,10 +62,12 @@ ActiveRecord::Schema.define(version: 20130829074746) do
     t.datetime "updated_at"
     t.integer  "contact_id"
     t.integer  "department_id"
+    t.string   "slug"
   end
 
   add_index "offices", ["contact_id"], name: "index_offices_on_contact_id", using: :btree
   add_index "offices", ["department_id"], name: "index_offices_on_department_id", using: :btree
+  add_index "offices", ["slug"], name: "index_offices_on_slug", using: :btree
 
   create_table "phone_numbers", force: true do |t|
     t.integer  "contact_id"
@@ -78,6 +80,8 @@ ActiveRecord::Schema.define(version: 20130829074746) do
     t.string   "textphone"
     t.string   "international_phone"
     t.string   "fax"
+    t.string   "number_options_path"
+    t.string   "international_number_options_path"
   end
 
   add_index "phone_numbers", ["contact_id"], name: "index_phone_numbers_on_contact_id", using: :btree

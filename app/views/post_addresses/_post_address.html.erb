@@ -1,0 +1,15 @@
+<div class="address">
+  <div class="adr org fn">
+    <% if post_address.title.present? %>
+      <p>
+        <strong><%= post_address.title %></strong>
+      </p>
+    <% end %>
+
+    <%= simple_format h(post_address.address) %>
+
+    <% if post_address.description.present? %>
+      <%= simple_format h(post_address.description) %>
+    <% end %>
+  </div>
+</div>

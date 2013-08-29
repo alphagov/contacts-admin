@@ -1,0 +1,26 @@
+<li class="department">
+  <h2 id="<%= contact_group.slug %>">
+    <%= link_to contact_group, "#" %>
+  </h2>
+  <p>
+    <%= contact_group.description %>
+  </p>
+  <%= link_to 'view all', "##{contact_group.slug}", class: "view-all", 'data-expand' => "#{contact_group.slug}-elements" %>
+
+  <div class="organisations-box" id="<%= contact_group.slug %>-elements">
+    <div class="organisations-box-inner">
+      <ul>
+        <% contact_group.offices.each do |office| %>
+          <li>
+            <h3>
+              <%= link_to office, office_path(office) %>
+            </h3>
+            <p>
+              <%= office.contact.description %>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</li>

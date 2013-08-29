@@ -1,0 +1,40 @@
+<div class="contact">
+  <p>
+    <strong>
+      <%= phone_number.title %>
+    </strong>
+    <br>
+    Telephone: <%= phone_number.number %>
+
+    <% if phone_number.number_options_path.any? %>
+      , option
+      <% phone_number.number_options_path.each do |option| %>
+        <span class="badge"><%= option %></span>
+      <% end %>
+    <% end %>
+  </p>
+
+  <% if phone_number.international_phone.present? %>
+    <p>
+      From outside the UK: <%= phone_number.international_phone %>
+      <% if phone_number.international_number_options_path.any? %>
+        , option
+        <% phone_number.international_number_options_path.each do |option| %>
+          <span class="badge"><%= option %></span>
+        <% end %>
+      <% end %>
+    </p>
+  <% end %>
+
+  <% if phone_number.textphone.present? %>
+    <p>
+      Textphone: <%= phone_number.textphone %>
+    </p>
+  <% end %>
+
+  <%= simple_format h(phone_number.open_hours) %>
+
+  <p>
+    <%= link_to "Find out about call charges", "#" %>
+  </p>
+</div>
