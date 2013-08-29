@@ -7,7 +7,6 @@
   });
 
   update_common_questions = function(section){
-    console.log(section)
     $(".common-sections-active").removeClass("common-sections-active");
     $(section).addClass("common-sections-active");
   }

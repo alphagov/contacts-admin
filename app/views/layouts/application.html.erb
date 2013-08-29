@@ -2,8 +2,7 @@
 <html>
 <head>
   <title>HmrcContacts</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "frontend", media: "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body class="hmrc-contacts-body">
@@ -16,5 +15,6 @@
   </div>
 </div>
 
+<%= javascript_include_tag "frontend" %>
 </body>
 </html>
