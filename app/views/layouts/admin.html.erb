@@ -11,11 +11,18 @@
 <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
+      <%= link_to 'HMRC Contacts', admin_root_path, class: 'brand'  %>
+
       <ul class="nav">
-        <li><%= link_to 'Home', admin_root_path  %></li>
-        <li><%= link_to 'Offices', admin_offices_path  %></li>
-        <li><%= link_to 'Contact Groups', admin_contact_groups_path  %></li>
-        <li><%= link_to 'Contacts', admin_contacts_path  %></li>
+        <li class="<%= 'active' if params[:controller] == 'admin/offices' %>">
+          <%= link_to 'Offices', admin_offices_path  %>
+        </li>
+        <li class="<%= 'active' if params[:controller] == 'admin/contact_groups' %>">
+          <%= link_to 'Contact Groups', admin_contact_groups_path  %>
+        </li>
+        <li class="<%= 'active' if params[:controller] == 'admin/contacts' %>">
+          <%= link_to 'Contacts', admin_contacts_path  %>
+        </li>
       </ul>
     </div>
   </div>
