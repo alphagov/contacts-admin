@@ -1,9 +1,15 @@
 <%= simple_form_for [:admin, contact, post_address] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :address %>
+  <fieldset class="form-horizontal">
+    <%= f.input :title, input_html: { class: 'span6' } %>
+    <%= f.input :description, input_html: { rows: 8, class: 'span6' } %>
+    <%= f.input :address, input_html: { rows: 5, class: 'span6' } %>
+  </fieldset>
 
-  <div class='form-actions'>
-    <%= f.submit id: 'post-address-submit', class: 'btn btn-small btn-primary', data: { disable_with: 'Working' } %>
+  <div class='form-actions form-horizontal'>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit id: 'post-address-submit', class: 'btn btn-small btn-primary', data: { disable_with: 'Working' } %>
+      </div>
+    </div>
   </div>
 <% end %>
