@@ -54,6 +54,7 @@ $hover-yellow: #fff8dd;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-decoration: none;
   }
 }
 
@@ -177,6 +178,16 @@ fieldset {
 
 .control-label {
   font-weight: bold;
+}
+
+.span-preview {
+  .control-label {
+    width: 100px;
+  }
+  .controls {
+    margin-left: 120px;
+    margin-right: 20px;
+  }
 }
 
 .form-actions {
