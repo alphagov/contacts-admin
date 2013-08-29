@@ -13,8 +13,12 @@ class ContactGroup < ActiveRecord::Base
   scope :most_popular, -> {
     where(contact_group_type_id: ContactGroupType.most_popular.id)
   }
+  scope :except_most_popular, -> {
+    where("contact_group_type_id != ?", ContactGroupType.most_popular.id)
+  }
   scope :with_contacts, -> { includes(:contacts) }
   scope :with_offices, -> { with_contacts.includes(:offices) }
+  scope :by_title, -> { order("title ASC") }
 
   def to_s
     title
