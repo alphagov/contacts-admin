@@ -43,7 +43,12 @@ module Admin
           :title,
           :description,
           :number,
-          :open_hours
+          :open_hours,
+          :international_phone,
+          :number_options_path,
+          :international_number_options_path,
+          :textphone,
+          :fax
         )
       end
     end

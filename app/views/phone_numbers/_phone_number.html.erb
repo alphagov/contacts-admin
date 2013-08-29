@@ -4,26 +4,25 @@
       <%= phone_number.title %>
     </strong>
     <br>
-    Telephone: <%= phone_number.number %>, option
+    Telephone: <%= phone_number.number %>
 
-    <span class="badge">
-      1
-    </span>
-    <span class="badge">
-      3
-    </span>
+    <% if phone_number.number_options_path.any? %>
+      , option
+      <% phone_number.number_options_path.each do |option| %>
+        <span class="badge"><%= option %></span>
+      <% end %>
+    <% end %>
   </p>
 
   <% if phone_number.international_phone.present? %>
     <p>
-      From outside the UK: <%= phone_number.international_phone %>, option
-
-      <span class="badge">
-        1
-      </span>
-      <span class="badge">
-        3
-      </span>
+      From outside the UK: <%= phone_number.international_phone %>
+      <% if phone_number.international_number_options_path.any? %>
+        , option
+        <% phone_number.international_number_options_path.each do |option| %>
+          <span class="badge"><%= option %></span>
+        <% end %>
+      <% end %>
     </p>
   <% end %>
 

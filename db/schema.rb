@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130829120010) do
+ActiveRecord::Schema.define(version: 20130829131742) do
 
   create_table "contact_groups", force: true do |t|
     t.integer  "contact_group_type_id"
@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(version: 20130829120010) do
     t.string   "textphone"
     t.string   "international_phone"
     t.string   "fax"
+    t.string   "number_options_path"
+    t.string   "international_number_options_path"
   end
 
   add_index "phone_numbers", ["contact_id"], name: "index_phone_numbers_on_contact_id", using: :btree
