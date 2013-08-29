@@ -6,10 +6,10 @@
       </p>
     <% end %>
 
-    <%= simple_format post_address.address %>
+    <%= simple_format h(post_address.address) %>
 
     <% if post_address.description.present? %>
-      <%= simple_format post_address.description %>
+      <%= simple_format h(post_address.description) %>
     <% end %>
   </div>
 </div>

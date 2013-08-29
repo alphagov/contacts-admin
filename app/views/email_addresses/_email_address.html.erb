@@ -6,5 +6,5 @@
 </p>
 
 <% if email_address.description.present? %>
-  <%= simple_format email_address.description %>
+  <%= simple_format h(email_address.description) %>
 <% end %>

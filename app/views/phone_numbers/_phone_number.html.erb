@@ -33,7 +33,7 @@
     </p>
   <% end %>
 
-  <%= simple_format phone_number.open_hours %>
+  <%= simple_format h(phone_number.open_hours) %>
 
   <p>
     <%= link_to "Find out about call charges", "#" %>
