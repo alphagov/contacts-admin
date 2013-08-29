@@ -25,6 +25,16 @@ GOVUK.hmrc_contacts = {
     @object
     @description container for contact group list behaviour
   */
+  chosenSelect : {
+    initialize: function () {
+      $(".js-chosen-select").chosen();
+    }
+  },
+  /**
+    @name GOVUK.hmrc_contacts.contactGroupList
+    @object
+    @description container for contact group list behaviour
+  */
   contactGroupList : {
       /**
         @name GOVUK.hmrc_contacts.toggledControl.initialize
@@ -74,5 +84,6 @@ GOVUK.hmrc_contacts = {
   */
   onLoad : function () {
     this.contactGroupList.initialize();
+    this.chosenSelect.initialize();
   }
 };
