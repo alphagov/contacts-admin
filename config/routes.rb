@@ -17,7 +17,19 @@ HmrcContacts::Application.routes.draw do
   end
 
   resources :contact_groups
-  resources :offices, constraints: { id: SLUG_FORMAT }
+  resources :offices, constraints: { id: SLUG_FORMAT } do
+    match 'information-you-will-need', {
+      via: :get,
+      to: 'offices#information_you_will_need',
+      as: :information_you_will_need
+    }
+
+    match 'contact-details', {
+      via: :get,
+      to: 'offices#contact_details',
+      as: :contact_details
+    }
+  end
 
   get 'search',          to: 'pages#search'
   get 'details_1',       to: 'pages#details_1'

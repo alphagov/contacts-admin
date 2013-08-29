@@ -13,7 +13,7 @@
         <% contact_group.offices.each do |office| %>
           <li>
             <h3>
-              <%= link_to office, "#" %>
+              <%= link_to office, office_path(office) %>
             </h3>
             <p>
               <%= office.contact.description %>

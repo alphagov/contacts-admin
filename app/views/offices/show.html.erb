@@ -1,0 +1,78 @@
+<% page_class 'details-page' %>
+
+<div class="details-page-1">
+  <div class="block-1">
+    <div class="inner-block">
+      <%= render 'layouts/hmrc_logo' %>
+    </div>
+  </div>
+
+  <div class="block-2">
+    <div class="inner-block">
+      <div class="article-header">
+        <div class="header-div">
+          <header class="page-header group">
+            <h1>
+              <%= office %> contact details
+            </h1>
+          </header>
+
+          <p>
+            Help and advice for <%= office %> customers
+          </p>
+        </div>
+        <div class="clear"></div>
+      </div>
+
+      <div class="article-container group">
+        <article role="article" class="group">
+          <header>
+            <h1>
+              1. Before you contact us
+            </h1>
+          </header>
+          <div class="application-notice info-notice waiting-times">
+            <p>
+              Call waiting times
+              <br>
+              <strong>
+                15 minutes
+              </strong>
+              <br>
+              at peak times
+            </p>
+          </div>
+          <% if contact.related_content_links.any? %>
+            <p>
+              There is a lot of information on this website that might help resolve your inquiry. Please read the recommended guidance before contacting HMRC.
+            </p>
+            <ul class="useful-links">
+              <% contact.related_content_links.each do |related_content_link| %>
+                <li>
+                  <h3>
+                    <%= link_to related_content_link.title, related_content_link.link %>
+                  </h3>
+                  <p>
+                    <%= related_content_link.description %>
+                  </p>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+          <footer>
+            <nav class="pagination" role="navigation" aria-label="Pagination">
+              <ul class="group">
+                <li class="next">
+                  <a href="<%= office_information_you_will_need_path(office) %>" rel="next" title="Navigate to next part">
+                    <span class="pagination-label">Next</span>
+                    <span class="pagination-part-title">Information you will need</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

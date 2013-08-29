@@ -1,0 +1,41 @@
+<div class="contact">
+  <p>
+    <strong>
+      <%= phone_number.title %>
+    </strong>
+    <br>
+    Telephone: <%= phone_number.number %>, option
+
+    <span class="badge">
+      1
+    </span>
+    <span class="badge">
+      3
+    </span>
+  </p>
+
+  <% if phone_number.international_phone.present? %>
+    <p>
+      From outside the UK: <%= phone_number.international_phone %>, option
+
+      <span class="badge">
+        1
+      </span>
+      <span class="badge">
+        3
+      </span>
+    </p>
+  <% end %>
+
+  <% if phone_number.textphone.present? %>
+    <p>
+      Textphone: <%= phone_number.textphone %>
+    </p>
+  <% end %>
+
+  <%= simple_format phone_number.open_hours %>
+
+  <p>
+    <%= link_to "Find out about call charges", "#" %>
+  </p>
+</div>

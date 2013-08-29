@@ -1,0 +1,10 @@
+<p>
+  <strong>
+    <%= email_address.title %>
+  </strong>
+  <%= mail_to email_address.email %>
+</p>
+
+<% if email_address.description.present? %>
+  <%= simple_format email_address.description %>
+<% end %>
