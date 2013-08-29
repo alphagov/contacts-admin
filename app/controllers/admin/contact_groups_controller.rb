@@ -28,6 +28,16 @@ module Admin
       end
     end
 
+    def destroy
+      if Admin::DestroyContactGroup.new(contact_group).destroy
+        flash.notice = 'Contact Group successfully removed'
+      else
+        flash.alert = 'Cannot removed contact group'
+      end
+
+      redirect_to admin_contact_groups_path
+    end
+
     private
 
     def contact_group_params

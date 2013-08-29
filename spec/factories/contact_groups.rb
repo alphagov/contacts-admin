@@ -9,5 +9,11 @@ FactoryGirl.define do
 
     title  { generate(:contact_group_title) }
     description { generate(:contact_group_description) }
+
+    trait :with_contacts do
+      after(:create) do |contact_group, evaluator|
+        FactoryGirl.create_list(:contact, 1, contact_group: contact_group)
+      end
+    end
   end
 end
