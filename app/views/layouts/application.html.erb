@@ -3,6 +3,15 @@
 <head>
   <title>HmrcContacts</title>
   <%= stylesheet_link_tag    "frontend", media: "all" %>
+  <!--[if IE 6]>
+    <%= stylesheet_link_tag "frontend/#{local_assigns[:stylesheet] || "base"}-ie6.css" %><script>var ieVersion = 6;</script>
+  <![endif]-->
+  <!--[if IE 7]>
+    <%= stylesheet_link_tag "frontend/#{local_assigns[:stylesheet] || "base"}-ie7.css" %><script>var ieVersion = 7;</script>
+  <![endif]-->
+  <!--[if IE 8]>
+    <%= stylesheet_link_tag "frontend/#{local_assigns[:stylesheet] || "base"}-ie8.css" %><script>var ieVersion = 8;</script>
+  <![endif]-->
   <%= csrf_meta_tags %>
 </head>
 <body class="hmrc-contacts-body">

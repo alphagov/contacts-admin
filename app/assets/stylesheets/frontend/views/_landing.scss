@@ -20,15 +20,21 @@
 
   #commonly-asked-questions {
     .section-divider {
-      margin-top: $gutter*2;
-      padding-top: $gutter*1.5;
-      border-color: $black;
-      border-top-width: 5px;
-      border-top-style: solid;
+      h2 {
+        margin-top: $gutter*2;
+        padding-top: $gutter*1.5;
+        border-color: $black;
+        border-top-width: 5px;
+        border-top-style: solid;
 
-      @media (max-width: 641px) {
-        margin-top: $gutter*1.5;
-        margin-bottom: $gutter-one-third;
+        @media (max-width: 641px) {
+          margin-top: $gutter*1.5;
+          margin-bottom: $gutter-one-third;
+          padding-top: $gutter;
+        }
+      }
+
+      @include ie-lte(8){
         padding-top: $gutter;
       }
 
