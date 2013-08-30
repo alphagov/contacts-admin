@@ -2,7 +2,9 @@
   <td>
     <ul>
       <% contact.offices.each do |office| %>
-        <li><%= office %></li>
+        <li>
+          <%= link_to office.title, edit_admin_office_path(office), class: 'no-underline' %>
+        </li>
       <% end %>
     </ul>
   </td>
@@ -17,7 +19,9 @@
   <td><%= contact.email_addresses.size %></td>
   <td><%= contact.post_addresses.size %></td>
   <td><%= contact.phone_numbers.size %></td>
-  <td>
-    <%= link_to "Edit", edit_admin_contact_path(contact), class: 'btn btn-small' %>
+  <td class='text-right'>
+    <small>
+      <%= link_to "Edit", edit_admin_contact_path(contact) %>
+    </small>
   </td>
 </tr>

@@ -1,19 +1,18 @@
 <div class='page-header'>
   <h2>
     Email Addresses for Contacts
-    <small>(<%= email_addresses.count %>)</small>
   </h2>
  </div>
 
 <% if email_addresses.any? %>
-  <table class='table table-bordered table-striped table-hover email-addresses-table'>
+  <table class='table table-striped table-hover email-addresses-table'>
     <thead>
       <tr>
         <th>Title</th>
         <th>Description</th>
         <th>Email</th>
         <th>
-          <%= link_to "New Email Address", new_admin_contact_email_address_path(contact), class: 'btn btn-small' %>
+          <%= link_to "+ Add Email Address", new_admin_contact_email_address_path(contact), class: 'btn btn-small pull-right' %>
         </th>
       </tr>
     </thead>
@@ -22,11 +21,8 @@
     </tbody>
   </table>
 <% else %>
-  <div class='alert alert-block alert-info'>
-    <h4>No email address found</h4>
-    <p>
-      We have found no email addresses.
-      <%= link_to "Add one?", new_admin_contact_email_address_path(contact), class: 'btn btn-small' %>
-    </p>
-  </div>
+  <h4>No email address found</h4>
+  <p>
+    We have found no email addresses. <%= link_to "You should add one.", new_admin_contact_email_address_path(contact) %>
+  </p>
 <% end %>

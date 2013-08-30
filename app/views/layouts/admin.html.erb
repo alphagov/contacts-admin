@@ -8,19 +8,16 @@
 </head>
 <body>
 
-<div class="navbar">
+<div class="navbar navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
       <%= link_to 'HMRC Contacts', admin_root_path, class: 'brand'  %>
-
+      
       <ul class="nav">
-        <li class="<%= 'active' if params[:controller] == 'admin/offices' %>">
-          <%= link_to 'Offices', admin_offices_path  %>
-        </li>
         <li class="<%= 'active' if params[:controller] == 'admin/contact_groups' %>">
           <%= link_to 'Contact Groups', admin_contact_groups_path  %>
         </li>
-        <li class="<%= 'active' if params[:controller] == 'admin/contacts' %>">
+        <li class="<%= 'active' if params[:controller] == 'admin/contacts' || params[:controller] == 'admin/contacts/contact_form_links' || params[:controller] == 'admin/contacts/email_addresses' || params[:controller] == 'admin/contacts/phone_numbers' || params[:controller] == 'admin/contacts/post_addresses' %>">
           <%= link_to 'Contacts', admin_contacts_path  %>
         </li>
         <li class="<%= 'active' if params[:controller] == 'admin/questions' %>">
@@ -32,6 +29,7 @@
 </div>
 
 <div class="container-fluid">
+  <%= ariane.render(BreadcrumbList) %>
   <%= render 'flashes' %>
 
   <%= yield %>

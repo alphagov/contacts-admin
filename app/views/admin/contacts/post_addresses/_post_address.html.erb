@@ -1,9 +1,12 @@
 <tr>
-  <td><%= post_address.title %></td>
+  <td>
+    <%= link_to post_address.title, edit_admin_contact_post_address_path(contact, post_address) %>
+  </td>
   <td><%= post_address.description %></td>
   <td><%= post_address.address %></td>
-  <td>
-    <%= link_to 'Edit', edit_admin_contact_post_address_path(contact, post_address), class: 'btn btn-small' %>
-    <%= link_to 'Remove', admin_contact_post_address_path(contact, post_address), method: :delete, data: { confirm: 'Are you sure?' }, data: { disable: 'Working' }, class: 'btn btn-small btn-danger' %>
+  <td class="text-right">
+    <small>
+      <%= link_to 'Edit', edit_admin_contact_post_address_path(contact, post_address) %>
+    </small>
   </td>
 </tr>
