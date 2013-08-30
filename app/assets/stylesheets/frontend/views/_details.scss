@@ -96,6 +96,8 @@
 
           .contact-detail-inner {
             margin-left: 38px;
+            margin-right: 19px;
+            word-wrap: break-word;
 
             @media (max-width: 641px) {
               margin-left: 10px;
