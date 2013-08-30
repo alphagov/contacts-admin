@@ -4,6 +4,8 @@ FactoryGirl.define do
   sequence(:question_title) { |n| "question title #{n}" }
 
   factory :question do
+    office
+
     title { generate(:question_title) }
   end
 end

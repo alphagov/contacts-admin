@@ -14,6 +14,7 @@ HmrcContacts::Application.routes.draw do
         resources :phone_numbers
       end
     end
+    resources :questions
   end
 
   resources :contact_groups

@@ -1,0 +1,31 @@
+<div class='page-header'>
+  <h2>
+    Questions
+    <small>(<%= questions.count %>)</small>
+  </h2>
+ </div>
+
+<% if questions.any? %>
+  <table class='table table-bordered table-striped table-hover questions-table'>
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Office</th>
+        <th>
+          <%= link_to "New Question", new_admin_question_path, class: 'btn btn-small' %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render questions %>
+    </tbody>
+  </table>
+<% else %>
+  <div class='alert alert-block alert-info'>
+    <h4>No question found</h4>
+    <p>
+      We have found no questions. Add one?
+      <%= link_to "Add one?", new_admin_question_path, class: 'btn btn-small' %>
+    </p>
+  </div>
+<% end %>
