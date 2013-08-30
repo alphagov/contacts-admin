@@ -3,6 +3,7 @@ class ContactGroup < ActiveRecord::Base
 
   has_many :contacts
   has_many :offices, through: :contacts
+  has_many :questions, through: :offices
   belongs_to :contact_group_type
 
   acts_as_url :title, url_attribute: :slug, sync_url: true

@@ -1,0 +1,10 @@
+<%= simple_form_for [:admin, question] do |f| %>
+  <fieldset>
+    <%= f.association :office, include_blank: false %>
+    <%= f.input :title %>
+  </fieldset>
+
+  <div class='form-actions'>
+    <%= f.submit id: 'question-submit', class: 'btn btn-primary', data: { disable_with: 'Working' } %>
+  </div>
+<% end %>
