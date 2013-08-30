@@ -12,14 +12,12 @@ module Admin
     end
 
     def delete_email_address(email_address)
-      ensure_on admin_contact_email_addresses_path(
+      ensure_on edit_admin_contact_email_address_path(
         email_address.contact,
         email_address
       )
 
-      within(email_addresses_table_selector) do
-        click_link 'Remove'
-      end
+      click_link 'Delete'
     end
 
     def update_email_address(email_address, new_details = {})

@@ -12,14 +12,12 @@ module Admin
     end
 
     def delete_phone_number(number)
-      ensure_on admin_contact_phone_numbers_path(
+      ensure_on edit_admin_contact_phone_number_path(
         number.contact,
         number
       )
 
-      within(phone_numbers_table_selector) do
-        click_link 'Remove'
-      end
+      click_link 'Delete'
     end
 
     def update_phone_number(number, new_details = {})
