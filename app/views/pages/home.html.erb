@@ -39,50 +39,18 @@
       <h2 class="section-divider">
         <span>Browse by most commonly asked questions about</span>
 
-        <%= form.input :contact_group_id, label: false, collection: ContactGroupType.all, as: :grouped_select, group_method: :contact_groups, include_blank: false, input_html: { class: 'js-chosen-select' } %>
+        <%= form.input :contact_group_id, label: false, collection: ContactGroupType.all, as: :grouped_select, group_method: :contact_groups, value_method: :slug, include_blank: false, input_html: { class: 'js-chosen-select' } %>
       </h2>
     <% end %>
 
-    <ul class="common-sections common-sections-active" id="commonly-asked-change-of-details">
-      <li>
-        <%= link_to "I have made a new Tax Credit claim, when will I get my first payment?", "#" %>
-      </li>
-      <li>
-        <%= link_to "How do I renew my Tax Credit claim?", "#" %>
-      </li>
-      <li>
-        <%= link_to "How do I let the Tax Credit Office know about a change of circumstances?", "#" %>
-      </li>
-      <li class="search-more">
-        <%= link_to "Or search by tax area", contact_groups_path %>
-      </li>
-    </ul>
-
-    <ul class="common-sections" id="commonly-asked-tax-credits">
-      <li>
-        <%= link_to "I have made a new Tax Credit claim, when will I get my first payment?", "#" %>
-      </li>
-      <li>
-        <%= link_to "How do I renew my Tax Credit claim?", "#" %>
-      </li>
-      <li>
-        <%= link_to "How do I find out my next tax credits payment dates?", "#" %>
-      </li>
-      <li>
-        <%= link_to "Do I get Child Tax Credit when my child turns 16?", "#" %>
-      </li>
-      <li>
-        <%= link_to "Can you tell me why you have overpaid me?", "#" %>
-      </li>
-      <li>
-        <%= link_to "Am I eligible for tax credits?", "#" %>
-      </li>
-      <li>
-        <%= link_to "How do I let the Tax Credit Office know about a change of circumstances?", "#" %>
-      </li>
-      <li class="search-more">
-        <%= link_to "Or search by tax area", contact_groups_path %>
-      </li>
-    </ul>
+    <% @contact_groups.each do |contact_group| %>
+      <ul class="common-sections" id="section-<%= contact_group.slug %>">
+        <% contact_group.questions.limit(3).decorate.each do |question| %>
+          <li>
+            <%= link_to question, office_path(question.office) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>

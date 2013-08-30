@@ -31,6 +31,30 @@ GOVUK.HmrcContacts = {
     }
   },
   /**
+    @name GOVUK.HmrcContacts.commonQuestionsSelect
+    @object
+    @description common questions select functionality in landing page
+  */
+  commonQuestionsSelect : {
+    initialize: function () {
+      var $select = $("#commonly-asked-questions .js-chosen-select"),
+          namespace = this;
+
+      $select.chosen().change(function(){
+        namespace.hideAllSections();
+        namespace.showSection($(this).val());
+      });
+    },
+
+    hideAllSections : function () {
+      $(".common-sections-active").removeClass("common-sections-active");
+    },
+
+    showSection : function (sectionIdentifier) {
+      $('#section-' + sectionIdentifier).addClass("common-sections-active");
+    }
+  },
+  /**
     @name GOVUK.HmrcContacts.contactGroupList
     @object
     @description container for contact group list behaviour
@@ -103,5 +127,6 @@ GOVUK.HmrcContacts = {
     this.contactGroupList.initialize();
     this.contactDetailList.initialize();
     this.chosenSelect.initialize();
+    this.commonQuestionsSelect.initialize();
   }
 };
