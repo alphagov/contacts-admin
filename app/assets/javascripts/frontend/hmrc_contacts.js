@@ -40,6 +40,9 @@ GOVUK.HmrcContacts = {
       var $select = $("#commonly-asked-questions .js-chosen-select"),
           namespace = this;
 
+      this.hideAllSections();
+      this.showSection($select.chosen().val());
+
       $select.chosen().change(function(){
         namespace.hideAllSections();
         namespace.showSection($(this).val());
@@ -47,11 +50,11 @@ GOVUK.HmrcContacts = {
     },
 
     hideAllSections : function () {
-      $(".common-sections-active").removeClass("common-sections-active");
+      $(".common-sections").addClass("common-sections-hidden");
     },
 
     showSection : function (sectionIdentifier) {
-      $('#section-' + sectionIdentifier).addClass("common-sections-active");
+      $('#section-' + sectionIdentifier).removeClass("common-sections-hidden");
     }
   },
   /**

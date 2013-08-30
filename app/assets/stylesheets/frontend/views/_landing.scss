@@ -56,7 +56,6 @@
     }
 
     ul.common-sections {
-      display: none;
       list-style: none;
       @include copy-19;
 
@@ -77,8 +76,8 @@
       }
     }
 
-    ul.common-sections-active {
-      display: block;
+    ul.common-sections-hidden {
+      display: none;
     }
 
     select {
