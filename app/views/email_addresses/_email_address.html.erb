@@ -2,9 +2,11 @@
   <strong>
     <%= email_address.title %>
   </strong>
+  <br>
   <%= mail_to email_address.email %>
-</p>
 
-<% if email_address.description.present? %>
-  <%= simple_format h(email_address.description) %>
+  <% if email_address.description.present? %>
+    <br>
+    <%= simple_format(h(email_address.description), {}, wrapper_tag: 'small') %>
 <% end %>
+</p>
