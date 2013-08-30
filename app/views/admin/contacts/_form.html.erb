@@ -1,22 +1,23 @@
-<div class="span12">
+<div class="span12 contact-details">
   <%= simple_form_for [:admin, contact] do |f| %>
     <fieldset class="form-horizontal">
       <legend>General details</legend>
-      <%= f.association :contact_group, collection: ContactGroup.all, include_blank: false, input_html: { class: 'span6 js-chosen-select' } %>
-      <%= f.association :offices, input_html: { multiple: true, class: 'span6 js-chosen-select' } %>
-      <%= f.input :description, as: :text, input_html: { rows: 8, class: 'span6' } %>
+      <%= f.association :contact_group, collection: ContactGroup.all, include_blank: false, input_html: { class: 'span9 js-chosen-select' } %>
+      <%= f.association :offices, input_html: { multiple: true, class: 'span9 js-chosen-select' } %>
+      <%= f.input :description, as: :text, input_html: { rows: 8, class: 'span9' } %>
       <div class='row'>
         <div class='span6'>
-          <%= f.input :contact_information, as: :text, input_html: { rows: 5, class: 'span6' } %>
+          <%= f.input :contact_information, as: :text, input_html: { rows: 5, class: 'span4' } %>
         </div>
-        <div class='span6'>
+        <div class='span6 span-preview'>
           <%= f.label :preview, required: false %>
-          <div class='well' data-preview='markdown' data-preview-for='#contact_contact_information'>
+          <div class="controls">
+            <div class='well well-small' data-preview='markdown' data-preview-for='#contact_contact_information'></div>
           </div>
         </div>
       </div>
-      <%= f.input :meta_title, input_html: { class: 'span6' } %>
-      <%= f.input :meta_description, input_html: { class: 'span6' } %>
+      <%= f.input :meta_title, input_html: { class: 'span4' } %>
+      <%= f.input :meta_description, input_html: { class: 'span4' } %>
     </fieldset>
 
     <fieldset class="form-horizontal">

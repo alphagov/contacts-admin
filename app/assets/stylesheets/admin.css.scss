@@ -219,3 +219,11 @@ fieldset {
 .chosen-container .chosen-results li.highlighted {
   background: #00a19c;
 }
+
+.contact-details input.span9,
+.contact-details textarea.span9 {
+  width: 726px;
+}
+.contact-details select.span9 {
+  width: 739px;
+}
