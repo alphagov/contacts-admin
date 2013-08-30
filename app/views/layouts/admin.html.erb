@@ -23,6 +23,9 @@
         <li class="<%= 'active' if params[:controller] == 'admin/contacts' %>">
           <%= link_to 'Contacts', admin_contacts_path  %>
         </li>
+        <li class="<%= 'active' if params[:controller] == 'admin/questions' %>">
+          <%= link_to 'Questions', admin_questions_path  %>
+        </li>
       </ul>
     </div>
   </div>
