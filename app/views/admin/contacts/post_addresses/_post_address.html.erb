@@ -1,9 +1,9 @@
 <tr>
+  <td><%= post_address.address %></td>
   <td>
     <%= link_to post_address.title, edit_admin_contact_post_address_path(contact, post_address) %>
   </td>
   <td><%= post_address.description %></td>
-  <td><%= post_address.address %></td>
   <td class="text-right">
     <small>
       <%= link_to 'Edit', edit_admin_contact_post_address_path(contact, post_address) %>

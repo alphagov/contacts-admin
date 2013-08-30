@@ -6,11 +6,17 @@
 
 <% if post_addresses.any? %>
   <table class='table table-striped table-hover post-addresses-table'>
+    <colgroup>
+      <col width="300"></col>
+      <col width="300"></col>
+      <col width="*"></col>
+      <col width="200"></col>
+    </colgroup>
     <thead>
       <tr>
+        <th>Address</th>
         <th>Title</th>
         <th>Description</th>
-        <th>Address</th>
         <th>
           <%= link_to "+ Add Post Address", new_admin_contact_post_address_path(contact), class: 'btn btn-small pull-right' %>
         </th>
