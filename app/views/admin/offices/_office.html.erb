@@ -3,7 +3,9 @@
     <%= link_to office.title, edit_admin_office_path(office) %>
   </td>
   <td><%= office.department %></td>
-  <td><%= office.contact %></td>
+  <td>
+    <%= link_to office.contact, edit_admin_contact_path(office.contact) %>
+  </td>
   <td class='text-right'>
     <small>
       <%= link_to "Edit", edit_admin_office_path(office) %>
