@@ -1,6 +1,6 @@
 <li class="department">
   <h2 id="<%= contact_group.slug %>">
-    <%= link_to contact_group, "#" %>
+    <%= link_to contact_group, "##{contact_group.slug}", 'data-expand' => "#{contact_group.slug}-elements" %>
   </h2>
   <p>
     <%= contact_group.description %>

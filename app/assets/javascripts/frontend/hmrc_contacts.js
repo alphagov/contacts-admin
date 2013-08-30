@@ -54,9 +54,13 @@ GOVUK.HmrcContacts = {
           }
 
           $control.on('click', function (e) {
-            var isOpen = $control.text().indexOf("view") != -1;
+            var isOpen = $container.hasClass("js-hiding-children");
 
-            $control.text((isOpen) ? 'hide all' : 'view all');
+            if ($control.hasClass("view-all")) {
+              $control.text((isOpen) ? 'hide all' : 'view all'); 
+            } else {
+              $container.find(".view-all").text((isOpen) ? 'hide all' : 'view all'); 
+            }
 
             $controlledElement.toggleClass('js-hidden');
             $container.toggleClass('js-hiding-children');
