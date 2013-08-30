@@ -50,6 +50,10 @@
             <%= link_to question, office_path(question.office) %>
           </li>
         <% end %>
+
+        <li class="search-more">
+          <%= link_to "Or search by tax area", contact_groups_path(anchor: contact_group.slug) %>
+        </li>
       </ul>
     <% end %>
   </div>
