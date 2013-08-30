@@ -12,14 +12,12 @@ module Admin
     end
 
     def delete_contact_form_link(contact_form_link)
-      ensure_on admin_contact_contact_form_links_path(
+      ensure_on edit_admin_contact_contact_form_link_path(
         contact_form_link.contact,
         contact_form_link
       )
 
-      within(contact_form_links_table_selector) do
-        click_link 'Remove'
-      end
+      click_link 'Delete'
     end
 
     def update_contact_form_link(contact_form_link, new_details = {})
