@@ -197,4 +197,22 @@
   .pagination li a:before {
     background-image: image-url('arrow-sprite-hmrc.png');
   }
+
+  .privacy-security-info {
+    a {
+      display: none;
+    }
+
+    &.js-hidden {
+      display: block;
+        
+      a {
+        display: block;
+      }
+
+      .application-notice { 
+        display: none;
+      }
+    }
+  }
 }
