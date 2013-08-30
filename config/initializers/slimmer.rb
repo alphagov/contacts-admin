@@ -6,6 +6,6 @@ HmrcContacts::Application.configure do
   end
 
   if Rails.env.development?
-    config.slimmer.asset_host = ENV["STATIC_DEV"] || "http://static.dev.gov.uk"
+    config.slimmer.asset_host = ENV["STATIC_DEV"] || "https://static.preview.alphagov.co.uk"
   end
 end
