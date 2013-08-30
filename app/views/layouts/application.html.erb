@@ -6,7 +6,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="hmrc-contacts-body">
-
+<% unless local_assigns[:show_breadcrumbs] %><div id="global-breadcrumb" class="header-context group"><ol><!-- deliberately empty --></ol></div><% end %>
 <div id="wrapper">
   <div class="hmrc-contacts-content">
     <div id="page" class="<%= content_for?(:page_class) ? yield(:page_class) : '' %>" >
