@@ -42,6 +42,8 @@ needs of other departments overlap with HMRC.
    ./startup.sh
    ````
 
+To run against a local version of static you need to set `STATIC_DEV` to "http://static.dev.gov.uk"
+
 ## Development notes
 
 * ```app/tasks``` - contains one-off tasks that can be run via console or a rake task.
