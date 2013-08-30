@@ -64,8 +64,6 @@
                   <ul class="useful-links">
                     <%= render contact.contact_form_links %>
 
-                    <%= markdown contact.more_info_website.to_s %>
-
                     <li class='sub-link privacy-security-info'>
                       <%= link_to "Show contact form privacy & security Information", "#" %>
                       <div class="application-notice info-notice">
@@ -82,6 +80,8 @@
                       </div>
                     </li>
                   </ul>
+
+                  <%= markdown contact.more_info_website.to_s %>
                 </div>
               </li>
             <% end %>
@@ -133,6 +133,8 @@
                 </h3>
                 <div class="contact-detail-inner">
                   <%= render contact.post_addresses %>
+
+                  <%= markdown contact.more_info_post_address.to_s %>
                 </div>
               </li>
             <% end %>
