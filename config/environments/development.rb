@@ -26,10 +26,4 @@ HmrcContacts::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
-  config.after_initialize do
-    HmrcContacts.search_client = GdsApi::Rummager.new(
-      HmrcContacts.rummager_host + HmrcContacts.search_index_path
-    )
-  end
 end
