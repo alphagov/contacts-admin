@@ -1,5 +1,12 @@
-<div class='page-header'>
-  <h2>Edit Phone Number</h2>
-</div>
+<div class="row">
+  <div class="span12">
+    <div class='page-header'>
+      <h2>
+        Edit Phone Number
+        <%= link_to 'Delete', admin_contact_phone_number_path(contact, phone_number), method: :delete, data: { confirm: 'Are you sure?' }, data: { disable: 'Working' }, class: 'btn btn-small text-red pull-right' %>
+      </h2>
+    </div>
 
-<%= render partial: 'form', locals: { contact: contact, phone_number: phone_number } %>
+    <%= render partial: 'form', locals: { contact: contact, phone_number: phone_number } %>
+  </div>
+</div>

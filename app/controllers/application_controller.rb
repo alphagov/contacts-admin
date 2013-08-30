@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   after_filter :skip_slimmer
+  before_filter :set_ariane
 
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
@@ -12,5 +13,9 @@ class ApplicationController < ActionController::Base
 
   def skip_slimmer
     response.headers[Slimmer::Headers::SKIP_HEADER] = "true" if params[:skip_slimmer]
+  end
+
+  def set_ariane
+    ariane.add ''
   end
 end

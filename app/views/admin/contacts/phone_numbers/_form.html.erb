@@ -1,15 +1,21 @@
 <%= simple_form_for [:admin, contact, phone_number] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :number %>
-  <%= f.input :number_options_path, label: 'Call Options (separate with commas)' %>
-  <%= f.input :open_hours %>
-  <%= f.input :international_phone %>
-  <%= f.input :international_number_options_path, label: 'International Call Options (separate with commas)' %>
-  <%= f.input :fax %>
-  <%= f.input :textphone %>
+  <fieldset class="form-horizontal">
+    <%= f.input :title, input_html: { class: 'span6' } %>
+    <%= f.input :description, input_html: { rows: 8, class: 'span6' } %>
+    <%= f.input :number, input_html: { class: 'span6' } %>
+    <%= f.input :number_options_path, label: 'Call Options (separate with commas)' %>
+    <%= f.input :open_hours, input_html: { rows: 5, class: 'span6' } %>
+    <%= f.input :international_phone %>
+    <%= f.input :international_number_options_path, label: 'International Call Options (separate with commas)' %>
+    <%= f.input :fax %>
+    <%= f.input :textphone %>
+  </fieldset>
 
-  <div class='form-actions'>
-    <%= f.submit id: 'phone-number-submit', class: 'btn btn-primary', data: { disable_with: 'Working' } %>
+  <div class='form-actions form-horizontal'>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit id: 'phone-number-submit', class: 'btn btn-small btn-primary', data: { disable_with: 'Working' } %>
+      </div>
+    </div>
   </div>
 <% end %>

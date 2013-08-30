@@ -1,11 +1,13 @@
 <tr>
-  <td><%= phone_number.title %></td>
+  <td>
+    <%= link_to phone_number.title, edit_admin_contact_phone_number_path(contact, phone_number) %>
+  </td>
   <td><%= phone_number.description %></td>
   <td><%= phone_number.number %></td>
-  <td><%= phone_number.description %></td>
   <td><%= phone_number.open_hours %></td>
-  <td>
-    <%= link_to 'Edit', edit_admin_contact_phone_number_path(contact, phone_number), class: 'btn btn-small' %>
-    <%= link_to 'Remove', admin_contact_phone_number_path(contact, phone_number), method: :delete, data: { confirm: 'Are you sure?' }, data: { disable: 'Working' }, class: 'btn btn-small btn-danger' %>
+  <td class="text-right">
+    <small>
+      <%= link_to 'Edit', edit_admin_contact_phone_number_path(contact, phone_number) %>
+    </small>
   </td>
 </tr>

@@ -3,16 +3,22 @@ module Admin
     expose(:contacts) { Contact.includes(:offices) }
     expose(:contact, attributes: :contact_params)
 
+    before_filter :set_ariane
+
     def index
     end
 
     def edit
+      ariane.add "Editing #{contact}"
     end
 
     def new
+      ariane.add "New Contact"
     end
 
     def update
+      ariane.add "Editing #{contact}"
+      
       if contact.update_attributes(contact_params)
         redirect_to admin_contacts_path, notice: 'Contact successfully updated'
       else
@@ -21,6 +27,8 @@ module Admin
     end
 
     def create
+      ariane.add "New Contact"
+
       if contact.save
         redirect_to admin_contacts_path, notice: 'Contact successfully created'
       else
@@ -43,6 +51,10 @@ module Admin
         :more_info_post_address,
         :more_info_phone_number
       )
+    end
+
+    def set_ariane
+      ariane.add 'Contacts', admin_contacts_path
     end
   end
 end

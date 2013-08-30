@@ -1,11 +1,12 @@
 <tr>
-  <td><%= contact_group.title %></td>
+  <td>
+    <%= link_to contact_group.title, edit_admin_contact_group_path(contact_group) %>
+  </td>
   <td><%= contact_group.description %></td>
   <td><%= contact_group.contacts.size %></td>
-  <td>
-    <%= link_to "Edit", edit_admin_contact_group_path(contact_group), class: 'btn btn-small' %>
-    <% if contact_group.contacts.none? %>
-      <%= link_to 'Remove', admin_contact_group_path(contact_group), method: :delete, data: { confirm: 'Are you sure?' }, data: { disable: 'Working' }, class: 'btn btn-small btn-danger' %>
-    <% end %>
+  <td class='text-right'>
+    <small>
+      <%= link_to "Edit", edit_admin_contact_group_path(contact_group) %>
+    </small>
   </td>
 </tr>
