@@ -17,6 +17,11 @@
       @include ie(7) {
         padding-right: 62px;
       }
+
+      @include ie(6) {
+        border: 1px solid #BFC1C3;
+        border-right: none;
+      }
     }
 
     .search-submit {
@@ -26,6 +31,11 @@
       height: 50px;
       width: 50px;
       overflow: visible;
+
+      @include ie(6) {
+        top: 0;
+        right: $gutter*1.5;
+      }
     }
 
     input {
@@ -49,6 +59,10 @@
       @include ie-lte(7) {
         height: 48px;
         margin-bottom: -1px;
+      }
+
+      @include ie(6) {
+        border: none;
       }
     }
 

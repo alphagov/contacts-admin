@@ -22,6 +22,10 @@
     max-width: $max-site-width + $gutter*2;
 
     @extend %contain-floats;
+
+    @include ie-lte(6){
+      width: $max-site-width + $gutter*2;
+    }
   }
 
   .organisation-logo:link,
