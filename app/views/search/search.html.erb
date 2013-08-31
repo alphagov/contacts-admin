@@ -15,16 +15,16 @@
         </h1>
       </header>
 
-      <form>
+      <%= simple_form_for @search_form, url: search_path do |search_form| %>
         <div class="searchfield">
           <fieldset class="search-input">
-            <input type="search" name="q" value="" id="search-main">
+            <%= search_form.input :q, label: false, input_html: { id: 'search-main' } %>
           </fieldset>
           <fieldset class="search-submit">
             <button type="submit" class="button">Search</button>
           </fieldset>
         </div>
-      </form>
+      <% end %>
     </div>
 
     <ul class="results-list">
