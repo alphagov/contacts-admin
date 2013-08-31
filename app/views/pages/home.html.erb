@@ -47,7 +47,7 @@
 
     <% @contact_groups.each do |contact_group| %>
       <ul class="common-sections" id="section-<%= contact_group.slug %>">
-        <% contact_group.questions.limit(3).decorate.each do |question| %>
+        <% contact_group.questions.limit(7).decorate.each do |question| %>
           <li>
             <%= link_to question, office_path(question.office) %>
           </li>
