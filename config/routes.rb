@@ -34,7 +34,5 @@ HmrcContacts::Application.routes.draw do
 
   post 'search', to: 'search#search'
 
-  # post 'show_contact_group', to: 'pages#search', as: :show_contact_group
-
   root to: 'pages#home', via: :get
 end
