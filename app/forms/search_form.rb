@@ -20,7 +20,7 @@ class SearchForm
 
   # Return search results as Array of Hashes
   def find(query)
-    search_client.search(query, section: 'tax').results.map(&:marshal_dump)
+    search_client.search(query).results.map(&:marshal_dump)
   end
 
   def search_client
