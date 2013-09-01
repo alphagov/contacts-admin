@@ -39,9 +39,8 @@
       <h2 class="section-divider">
         <span>Browse by most commonly asked questions about</span>
 
-          <%= form.input :contact_group_id, label: false, collection: ContactGroupType.all, as: :grouped_select, group_method: :contact_groups, value_method: :slug, include_blank: false, input_html: { class: 'js-chosen-select' } %>
-        </h2>
-      </div>
+        <%= form.input :contact_group_id, label: false, collection: ContactGroupType.all, as: :grouped_select, group_method: :contact_groups, value_method: :slug, include_blank: false, input_html: { class: 'js-chosen-select' } %>
+      </h2>
     <% end %>
 
     <% @contact_groups.each do |contact_group| %>
