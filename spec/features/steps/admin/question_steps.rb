@@ -12,11 +12,9 @@ module Admin
     end
 
     def delete_question(question)
-      ensure_on admin_questions_path
+      ensure_on edit_admin_question_path(question)
 
-      within(questions_table_selector) do
-        click_link 'Remove'
-      end
+      click_link 'Delete'
     end
 
     def update_question(question, new_details = {})

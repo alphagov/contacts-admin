@@ -17,16 +17,16 @@
       <p>
         Please enter a question you want to ask HMRC or type what you would like to do.
       </p>
-      <form>
+      <%= simple_form_for @search_form, url: search_path do |search_form| %>
         <div class="searchfield">
           <fieldset class="search-input">
-            <input type="search" name="q" value="" id="search-main">
+            <%= search_form.input :q, label: false, input_html: { id: 'search-main' } %>
           </fieldset>
           <fieldset class="search-submit">
             <button type="submit" class="button">Search</button>
           </fieldset>
         </div>
-      </form>
+      <% end %>
     </div>
   </div>
 </div>
@@ -35,14 +35,12 @@
 
 <div class="block" id="commonly-asked-questions">
   <div class="inner-block">
-    <%= simple_form_for @contact_group_form, url: show_contact_group_path do |form| %>
-      <div class="section-divider">
-        <h2>
-          <span>Browse by most commonly asked questions about</span>
+    <%= simple_form_for @contact_group_form, url: '#' do |form| %>
+      <h2 class="section-divider">
+        <span>Browse by most commonly asked questions about</span>
 
-          <%= form.input :contact_group_id, label: false, collection: ContactGroupType.all, as: :grouped_select, group_method: :contact_groups, value_method: :slug, include_blank: false, input_html: { class: 'js-chosen-select' } %>
-        </h2>
-      </div>
+        <%= form.input :contact_group_id, label: false, collection: ContactGroupType.all, as: :grouped_select, group_method: :contact_groups, value_method: :slug, include_blank: false, input_html: { class: 'js-chosen-select' } %>
+      </h2>
     <% end %>
 
     <% @contact_groups.each do |contact_group| %>
