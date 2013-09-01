@@ -31,7 +31,7 @@
       <li>
         <% @search_results.each do |search_result| %>
           <h3>
-            <%= link_to search_result.title, search_result.link %>
+            <%= link_to search_result.title, search_result.govuk_link %>
           </h3>
           <p>
             <%= search_result.description %>
