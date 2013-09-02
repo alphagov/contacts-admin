@@ -28,8 +28,11 @@
     </div>
 
     <ul class="results-list">
-      <% @search_results.each do |search_result| %>
-        <li>
+      <% @search_results.each_with_index do |search_result, index| %>
+        <li class="<%= 'contact' if index == 0 %>">
+          <% if index == 0 %>
+            <span class="contact-indicator">Contact details</span>
+          <% end %>
           <h3>
             <%= link_to search_result.title, search_result.govuk_link %>
           </h3>

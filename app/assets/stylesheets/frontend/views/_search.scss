@@ -1,6 +1,8 @@
 .search-page {
   .hmrc-search {
     .page-header {
+      margin-top: $gutter-two-thirds;
+
       @media (max-width: 640px) {
         margin-top: $gutter-half;
       }
