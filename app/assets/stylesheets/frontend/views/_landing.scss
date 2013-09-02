@@ -90,6 +90,10 @@
       width: auto;
       max-width: 100%;
       margin: $gutter-one-third 0;
+
+      @media (max-width: 320px) {
+        max-width: 290px;
+      }
     }
 
     .chosen-container {
