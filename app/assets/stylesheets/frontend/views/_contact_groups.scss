@@ -11,6 +11,7 @@
 
   .organisations-index .page-header {
     width: auto;
+    padding-top: $gutter-half;
 
     .label input {
       width: 50%;
@@ -27,6 +28,21 @@
   .heading-block {
     clear: both;
     margin-bottom: $gutter*2;
+
+    @include ie(6) {
+      .type-heading,
+      .content {
+        float: left;
+      }
+
+      .type-heading {
+        width: 33.3%;
+      }
+
+      .content {
+        width: 64.6%;
+      }
+    }
 
     .type-heading h1 {
       padding-top: 17px;
@@ -80,6 +96,12 @@
     }
 
     .organisations-box {
+      @include ie(6) {
+        .organisations-box-inner {
+          padding-top: 0;
+        }
+      }
+
       h3 {
         @include copy-16;
         border-bottom: none;
@@ -99,6 +121,11 @@
         margin-bottom: 10px;
         padding-bottom: 10px;
         border-bottom: 1px solid $grey-2;
+
+        @include ie(6) {
+          margin-left: $gutter-half;
+          margin-right: $gutter-half;
+        }
 
         &:last-child {
           margin-bottom: 0;

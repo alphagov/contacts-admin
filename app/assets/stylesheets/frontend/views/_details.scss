@@ -90,7 +90,7 @@
         margin-top: 0;
         padding-left: 0;
 
-        > li {
+        li {
           list-style: none;
           list-style-image: none;
           margin-left: 0;
@@ -117,6 +117,7 @@
             font-weight: bold;
             background: $grey-3;
             cursor: pointer;
+            zoom: 100%;
 
             @media (min-width: 640px) {
               margin-bottom: $gutter;

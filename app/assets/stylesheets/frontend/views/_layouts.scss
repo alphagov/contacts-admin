@@ -23,6 +23,7 @@
   .block-2 {
     width: 66.66%;
     float: right;
+    overflow-x: hidden;
   }
 }
 
@@ -34,7 +35,7 @@
   }
 
   @include ie-lte(6){
-    padding: 0 $gutter*1.5;
+    padding: 0 $gutter;
   }
 
   &.floated-children {

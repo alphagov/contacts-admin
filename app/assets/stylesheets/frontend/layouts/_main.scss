@@ -25,6 +25,17 @@
 
     @include ie-lte(6){
       width: $max-site-width + $gutter*2;
+      padding-top: $gutter;
+    }
+  }
+
+  @include ie(6) {
+    #global-header .header-wrapper {
+      width: 990px;
+    }
+
+    #global-breadcrumb ol {
+      width: 930px;
     }
   }
 

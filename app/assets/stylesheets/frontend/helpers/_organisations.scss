@@ -911,6 +911,12 @@
     line-height: 30px;
     padding: 5px 0 5px 0;
   }
+
+  @include ie-lte(6) {
+    font-size: 27px;
+    line-height: 30px;
+    padding: 5px 0 5px 0;
+  }
 }
 .organisation-logo-identity-large {
   @extend .organisation-logo-no-identity-large;
@@ -1262,6 +1268,13 @@
 .organisation-logo-stacked-hmrc-large {
   @extend .organisation-logo-identity-large;
   @include media(tablet){
+    padding: 40px 0 0 10px;
+    background-image: image-url("crests/hmrc_crest_27px.png");
+    background-position: 9px top;
+    background-size: auto 40px;
+  }
+  
+  @include ie-lte(6){
     padding: 40px 0 0 10px;
     background-image: image-url("crests/hmrc_crest_27px.png");
     background-position: 9px top;

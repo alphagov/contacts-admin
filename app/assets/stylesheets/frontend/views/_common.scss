@@ -21,6 +21,7 @@
       @include ie(6) {
         border: 1px solid #BFC1C3;
         border-right: none;
+        margin-right: $gutter-one-third;
       }
     }
 
@@ -34,7 +35,7 @@
 
       @include ie(6) {
         top: 0;
-        right: $gutter*1.5;
+        right: $gutter;
       }
     }
 
