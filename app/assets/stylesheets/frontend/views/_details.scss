@@ -133,6 +133,11 @@
               vertical-align: middle;
               content: " \25B2";
             }
+
+            @include ie-lte(7) {
+              padding-left: 40px;
+              background: $grey-3 image-url('hmrc-contact-details-arrows.png') no-repeat left 24px;
+            }
           }
 
           p {
@@ -187,6 +192,12 @@
               content: " \25BC";
             }
 
+            @include ie-lte(7) {
+              h3 {
+                background-position: left -26px;
+              }
+            }
+
             .contact-detail-inner {
               display: none;
             }
@@ -200,8 +211,14 @@
     border: none;
   }
 
-  .pagination li a:before {
-    background-image: image-url('arrow-sprite-hmrc.png');
+  .pagination li a {
+    &:before {
+      background-image: image-url('arrow-sprite-hmrc.png');
+    }
+
+    @include ie-lte(7) {
+      background: image-url('arrow-sprite-hmrc.png') no-repeat right top;
+    }
   }
 
   .privacy-security-info {
