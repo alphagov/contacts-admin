@@ -19,10 +19,8 @@
     </tbody>
   </table>
 <% else %>
-  <div class='alert alert-block alert-info'>
-    <h4>No question found</h4>
-    <p>
-      We have found no questions. <%= link_to "You should add one.", new_admin_question_path %>
-    </p>
-  </div>
+  <h4>No question found</h4>
+  <p>
+    We have found no questions. <%= link_to "You should add one.", new_admin_question_path %>
+  </p>
 <% end %>
