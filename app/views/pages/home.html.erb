@@ -36,11 +36,13 @@
 <div class="block" id="commonly-asked-questions">
   <div class="inner-block">
     <%= simple_form_for @contact_group_form, url: '#' do |form| %>
-      <h2 class="section-divider">
-        <span>Browse by most commonly asked questions about</span>
+      <div class="section-divider">
+        <h2>
+          <span>Browse by most commonly asked questions about</span>
 
-        <%= form.input :contact_group_id, label: false, collection: ContactGroupType.all, as: :grouped_select, group_method: :contact_groups, value_method: :slug, include_blank: false, input_html: { class: 'js-chosen-select' } %>
-      </h2>
+          <%= form.input :contact_group_id, label: false, collection: ContactGroupType.all, as: :grouped_select, group_method: :contact_groups, value_method: :slug, include_blank: false, input_html: { class: 'js-chosen-select' } %>
+        </h2>
+      </div>
     <% end %>
 
     <% @contact_groups.each do |contact_group| %>

@@ -28,16 +28,16 @@
     </div>
 
     <ul class="results-list">
-      <li>
-        <% @search_results.each do |search_result| %>
+      <% @search_results.each do |search_result| %>
+        <li>
           <h3>
             <%= link_to search_result.title, search_result.govuk_link %>
           </h3>
           <p>
             <%= search_result.description %>
           </p>
-        <% end %>
-      </li>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>
