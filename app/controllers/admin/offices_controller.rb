@@ -36,6 +36,12 @@ module Admin
       end
     end
 
+    def destroy
+      office.destroy
+
+      redirect_to admin_offices_path, notice: 'Office was successfully removed'
+    end
+
     private
 
     def office_params
