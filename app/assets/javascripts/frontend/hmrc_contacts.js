@@ -126,6 +126,24 @@ GOVUK.HmrcContacts = {
     }
   },
   /**
+    @name GOVUK.HmrcContacts.contactDetailPrivacyInfoShow
+    @object
+    @description the list that includes email addresses, phone numbers etc
+  */
+  contactDetailPrivacyInfoShow : {
+    initialize: function () {
+      var privacySecurityInfo = $(".privacy-security-info");
+      if (privacySecurityInfo.size() > 0){
+        privacySecurityInfo.addClass("js-hidden");
+
+        privacySecurityInfo.find("a").click(function(e){
+          e.preventDefault();
+          $(this).closest(".privacy-security-info").removeClass("js-hidden");
+        });
+      }
+    }
+  },
+  /**
     @name onLoad
     @function
     @description behaviour init point
@@ -133,6 +151,7 @@ GOVUK.HmrcContacts = {
   onLoad : function () {
     this.contactGroupList.initialize();
     this.contactDetailList.initialize();
+    this.contactDetailPrivacyInfoShow.initialize();
     this.chosenSelect.initialize();
     this.commonQuestionsSelect.initialize();
   }

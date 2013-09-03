@@ -227,7 +227,7 @@
     }
 
     &.js-hidden {
-      display: block;
+      display: block !important;
         
       a {
         display: block;
