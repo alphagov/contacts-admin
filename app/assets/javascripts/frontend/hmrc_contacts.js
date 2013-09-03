@@ -78,6 +78,8 @@ GOVUK.HmrcContacts = {
           if (window.location.hash != $control.attr('href')) {
             $controlledElement.addClass('js-hidden');
             $container.addClass('js-hiding-children');
+          }else{
+            $container.find(".view-all").text('hide all'); 
           }
 
           $control.on('click', function (e) {
