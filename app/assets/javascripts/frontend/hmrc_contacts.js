@@ -128,7 +128,7 @@ GOVUK.HmrcContacts = {
   /**
     @name GOVUK.HmrcContacts.contactDetailPrivacyInfoShow
     @object
-    @description the list that includes email addresses, phone numbers etc
+    @description show the email privacy info for contact details
   */
   contactDetailPrivacyInfoShow : {
     initialize: function () {
@@ -144,6 +144,28 @@ GOVUK.HmrcContacts = {
     }
   },
   /**
+    @name GOVUK.HmrcContacts.contactDetailPrivacyInfoShow
+    @object
+    @description show the contact details navigation when viewed with slim browsers
+  */
+  contactDetailNavigationShow : {
+    initialize: function () {
+      var navigationShowLink = $(".show-all-parts");
+
+      navigationShowLink.click(function(e){
+        e.preventDefault();
+        $(this).toggleClass("show-all-parts-open");
+        $(this).parent().find(".page-navigation").toggleClass("page-navigation-closed").toggleClass("page-navigation-open");
+
+        if ($(this).hasClass("show-all-parts-open")){
+          $(this).text("Hide all parts of this guide");
+        }else{
+          $(this).text("Show all parts of this guide");
+        }
+      });
+    }
+  },
+  /**
     @name onLoad
     @function
     @description behaviour init point
@@ -152,6 +174,7 @@ GOVUK.HmrcContacts = {
     this.contactGroupList.initialize();
     this.contactDetailList.initialize();
     this.contactDetailPrivacyInfoShow.initialize();
+    this.contactDetailNavigationShow.initialize();
     this.chosenSelect.initialize();
     this.commonQuestionsSelect.initialize();
   }
