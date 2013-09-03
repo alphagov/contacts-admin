@@ -63,7 +63,7 @@ module Admin
       def set_ariane
         ariane.add 'Contacts', admin_contacts_path
         ariane.add 'Edit Contact', edit_admin_contact_path(contact)
-        ariane.add 'Phone Numbers'
+        ariane.add 'Phone Numbers', admin_contact_phone_numbers_path(contact)
       end
     end
   end
