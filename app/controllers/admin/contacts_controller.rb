@@ -36,6 +36,12 @@ module Admin
       end
     end
 
+    def destroy
+      contact.destroy
+
+      redirect_to admin_contacts_path, notice: 'Contact was successfully removed'
+    end
+
     private
 
     def contact_params
