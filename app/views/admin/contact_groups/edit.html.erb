@@ -4,7 +4,7 @@
       <h2>
         Edit Contact Group
         <% if contact_group.contacts.none? %>
-          <%= link_to 'Delete', admin_contact_group_path(contact_group), method: :delete, data: { confirm: 'Are you sure?' }, data: { disable: 'Working' }, class: 'btn btn-small text-red pull-right' %>
+          <%= link_to 'Delete', admin_contact_group_path(contact_group), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
         <% end %>
       </h2>
     </div>
