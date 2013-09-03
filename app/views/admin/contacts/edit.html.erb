@@ -24,6 +24,8 @@
             </li>
           </ul>
         </small>
+
+        <%= link_to 'Delete', admin_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
       </h2>
     </div>
 

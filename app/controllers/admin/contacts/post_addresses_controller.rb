@@ -41,7 +41,7 @@ module Admin
       def destroy
         post_address.destroy
 
-        redirect_to [:admin, contact, :post_addresses], notice: 'Post Address successfully removed'
+        redirect_to [:admin, contact, :post_addresses], notice: 'Post Address successfully deleted'
       end
 
       private
@@ -53,7 +53,7 @@ module Admin
       def set_ariane
         ariane.add 'Contacts', admin_contacts_path
         ariane.add 'Edit Contact', edit_admin_contact_path(contact)
-        ariane.add 'Postal Addresses'
+        ariane.add 'Postal Addresses', admin_contact_post_addresses_path(contact)
       end
     end
   end

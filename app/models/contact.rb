@@ -9,6 +9,8 @@ class Contact < ActiveRecord::Base
   has_many :phone_numbers, inverse_of: :contact, dependent: :destroy
   has_many :email_addresses, inverse_of: :contact, dependent: :destroy
   has_many :post_addresses, inverse_of: :contact, dependent: :destroy
+  
+  validates :description, presence: true
 
   serialize :keywords, Array
 
