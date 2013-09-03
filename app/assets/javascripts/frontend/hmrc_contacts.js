@@ -146,7 +146,7 @@ GOVUK.HmrcContacts = {
     }
   },
   /**
-    @name GOVUK.HmrcContacts.contactDetailPrivacyInfoShow
+    @name GOVUK.HmrcContacts.contactDetailNavigationShow
     @object
     @description show the contact details navigation when viewed with slim browsers
   */
