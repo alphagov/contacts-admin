@@ -39,7 +39,7 @@ module Admin
     def destroy
       question.destroy
 
-      redirect_to admin_questions_path, notice: 'Question was successfully removed'
+      redirect_to admin_questions_path, notice: 'Question was successfully deleted'
     end
 
     private
