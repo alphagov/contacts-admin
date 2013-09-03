@@ -39,7 +39,7 @@ module Admin
     def destroy
       contact.destroy
 
-      redirect_to admin_contacts_path, notice: 'Contact was successfully removed'
+      redirect_to admin_contacts_path, notice: 'Contact was successfully deleted'
     end
 
     private

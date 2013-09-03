@@ -39,7 +39,7 @@ module Admin
     def destroy
       office.destroy
 
-      redirect_to admin_offices_path, notice: 'Office was successfully removed'
+      redirect_to admin_offices_path, notice: 'Office was successfully deleted'
     end
 
     private

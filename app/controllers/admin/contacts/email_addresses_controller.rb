@@ -41,7 +41,7 @@ module Admin
       def destroy
         email_address.destroy
 
-        redirect_to [:admin, contact, :email_addresses], notice: 'Email Address successfully removed'
+        redirect_to [:admin, contact, :email_addresses], notice: 'Email Address successfully deleted'
       end
 
       private

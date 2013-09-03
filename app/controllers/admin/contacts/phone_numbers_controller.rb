@@ -22,7 +22,7 @@ module Admin
         ariane.add 'New Phone Number'
 
         if phone_number.save
-          redirect_to [:admin, contact, :phone_numbers], notice: 'phone_number successfully created'
+          redirect_to [:admin, contact, :phone_numbers], notice: 'Phone Number successfully created'
         else
           render :new
         end
@@ -32,7 +32,7 @@ module Admin
         ariane.add "Editing #{phone_number.title}"
 
         if phone_number.update_attributes(phone_number_params)
-          redirect_to [:admin, contact, :phone_numbers], notice: 'phone_number successfully updated'
+          redirect_to [:admin, contact, :phone_numbers], notice: 'Phone Number successfully updated'
         else
           render :edit
         end
@@ -41,7 +41,7 @@ module Admin
       def destroy
         phone_number.destroy
 
-        redirect_to [:admin, contact, :phone_numbers], notice: 'phone_number successfully removed'
+        redirect_to [:admin, contact, :phone_numbers], notice: 'Phone Number successfully deleted'
       end
 
       private
