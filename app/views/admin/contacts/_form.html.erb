@@ -1,4 +1,4 @@
-<div class="span12 contact-details">
+<div class="span12 first-child contact-details">
   <%= simple_form_for [:admin, contact] do |f| %>
     <fieldset class="form-horizontal">
       <legend>General details</legend>
@@ -6,7 +6,7 @@
       <%= f.association :offices, input_html: { multiple: true, class: 'span9 js-chosen-select' } %>
       <%= f.input :description, as: :text, input_html: { rows: 8, class: 'span9' } %>
       <div class='row'>
-        <div class='span6'>
+        <div class='span6 first-child'>
           <%= f.input :contact_information, as: :text, label: 'Information you will need', input_html: { rows: 5, class: 'span4' } %>
         </div>
         <div class='span6 span-preview'>
@@ -27,7 +27,7 @@
       <br>
 
       <div class='row'>
-        <div class='span6'>
+        <div class='span6 first-child'>
           <%= f.input :more_info_website, label: 'More info for Website contacts', input_html: { rows: 8, class: 'span4' } %>
         </div>
         <div class='span6 span-preview'>
@@ -39,7 +39,7 @@
       </div>
 
       <div class='row'>
-        <div class='span6'>
+        <div class='span6 first-child'>
           <%= f.input :more_info_email_address, label: 'More info for Email Address contacts', input_html: { rows: 8, class: 'span4' }  %>
         </div>
         <div class='span6 span-preview'>
@@ -51,7 +51,7 @@
       </div>
 
       <div class='row'>
-        <div class='span6'>
+        <div class='span6 first-child'>
           <%= f.input :more_info_post_address, label: 'More info for Post Address contacts', input_html: { rows: 8, class: 'span4' }  %>
         </div>
         <div class='span6 span-preview'>
@@ -63,7 +63,7 @@
       </div>
 
       <div class='row'>
-        <div class='span6'>
+        <div class='span6 first-child'>
           <%= f.input :more_info_phone_number, label: 'More info for Phone Number contacts', input_html: { rows: 8, class: 'span4' }  %>
         </div>
         <div class='span6 span-preview'>

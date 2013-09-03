@@ -1,10 +1,14 @@
 <%= simple_form_for [:admin, question] do |f| %>
-  <fieldset>
+  <fieldset class="form-horizontal">
     <%= f.input :title, label: 'Question', input_html: { class: 'span6' } %>
     <%= f.association :office, include_blank: false, input_html: { class: 'span6 js-chosen-select' } %>
   </fieldset>
 
-  <div class='form-actions'>
-    <%= f.submit id: 'question-submit', class: 'btn btn-small btn-primary', data: { disable_with: 'Working' } %>
+  <div class='form-actions form-horizontal'>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit id: 'question-submit', class: 'btn btn-small btn-primary', data: { disable_with: 'Working' } %>
+      </div>
+    </div>
   </div>
 <% end %>
