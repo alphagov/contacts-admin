@@ -8,7 +8,11 @@
       <% end %>
     </ul>
   </td>
-  <td><%= contact.contact_group %></td>
+  <td>
+    <% if contact.contact_group %>
+      <%= link_to contact.contact_group, edit_admin_contact_group_path(contact.contact_group) %>
+    <% end %>
+  </td>
   <td>
     <%= contact.description %>
   </td>
