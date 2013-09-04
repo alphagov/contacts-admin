@@ -15,6 +15,7 @@
 
     .label input {
       width: 50%;
+      margin: 7px 10px 3px;
 
       @include ie-lte(7) {
         position: relative;
