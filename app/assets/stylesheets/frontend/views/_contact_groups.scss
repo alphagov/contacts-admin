@@ -101,7 +101,7 @@
     }
 
     .organisations-box {
-      @include ie(6) {
+      @include ie-lte(7) {
         .organisations-box-inner {
           padding-top: 0;
         }
@@ -132,10 +132,19 @@
           margin-right: $gutter-half;
         }
 
-        &:last-child {
+        &:last-child,
+        &.last-child {
           margin-bottom: 0;
           padding-bottom: 0;
           border: none;
+        }
+
+        &.last-child {
+          @include ie(8) {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border: none;
+          }
         }
       }
     }

@@ -12,7 +12,7 @@
       <div class="organisations-box-inner">
         <ul>
           <% contact_group.offices.each do |office| %>
-            <li>
+            <li class="<%= 'last-child' if office == contact_group.offices.last %>">
               <h3>
                 <%= link_to office, office_path(office) %>
               </h3>
