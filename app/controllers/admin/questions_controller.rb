@@ -6,6 +6,7 @@ module Admin
     before_filter :set_ariane
 
     def index
+      @contact_groups = ContactGroup.all
     end
 
     def edit
