@@ -25,6 +25,7 @@ $hover-yellow: #fff8dd;
 
 .clear {
   clear: both;
+  zoom: 100%;
 }
 
 @include ie-lte(6) {
