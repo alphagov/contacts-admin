@@ -17,6 +17,10 @@
       width: 50%;
       margin: 7px 10px 3px;
 
+      @include media(mobile) {
+        width: auto;
+      }
+
       @include ie-lte(7) {
         position: relative;
         top: 5px;
