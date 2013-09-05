@@ -53,8 +53,8 @@ module Admin
       "table.questions-table"
     end
 
-    def associated_to_office(question, office)
-      question.reload.office == office
+    def associated_to_contact(question, contact)
+      question.reload.contact == contact
     end
   end
 end

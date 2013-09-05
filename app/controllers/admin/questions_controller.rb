@@ -1,6 +1,6 @@
 module Admin
   class QuestionsController < AdminController
-    expose(:questions) { Question.includes(:office) }
+    expose(:questions) { Question.includes(:contact) }
     expose(:question, attributes: :question_params)
 
     before_filter :set_ariane
@@ -29,7 +29,7 @@ module Admin
 
     def create
       ariane.add 'New Question'
-      
+
       if question.save
         redirect_to admin_questions_path, notice: 'Question was successfully created'
       else
@@ -47,7 +47,7 @@ module Admin
 
     def question_params
       params.require(:question).permit(
-        :office_id,
+        :contact_id,
         :title
       )
     end

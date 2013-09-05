@@ -4,6 +4,6 @@ FactoryGirl.define do
   sequence(:department_title) { |n| "department #{n}" }
 
   factory :department do
-    title  { generate(:department_title) }
+    title { generate(:department_title) }
   end
 end

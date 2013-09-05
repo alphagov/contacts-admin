@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
-  belongs_to :office, inverse_of: :questions
+  belongs_to :contact, inverse_of: :questions
 
   validates :title, presence: true
-  validates :office, presence: true
+  validates :contact, presence: true
 end

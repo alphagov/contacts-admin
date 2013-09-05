@@ -49,7 +49,7 @@
       <ul class="common-sections" id="section-<%= contact_group.slug %>">
         <% contact_group.questions.limit(7).decorate.each do |question| %>
           <li>
-            <%= link_to question, office_path(question.office) %>
+            <%= link_to question, contact_path(question.contact) %>
           </li>
         <% end %>
 

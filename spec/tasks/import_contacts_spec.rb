@@ -46,7 +46,7 @@ describe ImportContacts, with_fakefs: true do
     it 'persists contact entry' do
       ImportContacts.new(file_name).import(contact_builder)
 
-      expect(contact).to         have_received(:save)
+      expect(contact).to have_received(:save)
     end
   end
 end

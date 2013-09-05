@@ -22,72 +22,72 @@ class SeedDatabase
     {
       contact_group_type: ContactGroupType.most_popular,
       title: 'Change of details',
-      description:'Get an estimate of how much tax you may need'
+      description: 'Contact HMRC about a change in your details'
     },
     {
       contact_group_type: ContactGroupType.most_popular,
       title: 'Tax',
-      description: 'Get an estimate of how much tax you may need'
+      description: 'General Tax enquiries for individuals, employees and self-employed'
     },
     {
       contact_group_type: ContactGroupType.most_popular,
       title: 'Tax credits and other benefits',
-      description: 'Get an estimate of how much tax you may need'
+      description: 'Tax credits enquiries'
     },
     {
       contact_group_type: ContactGroupType.most_popular,
       title: 'VAT, Customs, Excise duties',
-      description: 'Get an estimate of how much tax you may need'
+      description: 'Customs, International Trade & Excise enquiries'
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: 'National Insurance',
-      description: 'Get an estimate of how much tax you may need'
+      description: 'National Insurance enquiries for employees and individuals'
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: 'Employers',
-      description: 'Get an estimate of how much tax you may need'
+      description: 'HMRC contacts for Employers'
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: 'Income Tax',
-      description: 'Get an estimate of how much tax you may need'
+      description: 'Income Tax enquiries for individuals, pensioners and employees'
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: 'Self Assessment',
-      description: 'Get an estimate of how much tax you may need'
+      description: 'Help and advice for customers completing their tax return and supplementary pages, or who need general advice about Self Assessment'
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: 'Child Benefit',
-      description: 'Get an estimate of how much tax you may need'
+      description: 'Child Benefit helpline'
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: 'Corporation Tax',
-      description: 'Get an estimate of how much tax you may need'
+      description: 'Help with Corporation Tax'
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: 'Construction Industry Scheme (CIS)',
-      description: 'Get an estimate of how much tax you may need'
+      description: 'Help and advice for subcontractors and contractors within the Construction Industry Scheme'
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: 'Self Employed',
-      description: 'Get an estimate of how much tax you may need'
+      description: 'HMRC contacts for self-employed'
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: 'Charities & clubs',
-      description: 'Get an estimate of how much tax you may need'
+      description: 'Information for charities and CASCs about Gift Aid, Payroll Giving, tax reliefs, VAT, how to complete a Company or Self Assessment tax return, and forms that can be downloaded'
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: 'Bereavement',
-      description: 'Get an estimate of how much tax you may need'
+      description: 'What to do about Tax after a death'
     }
   ]
 
@@ -97,7 +97,8 @@ class SeedDatabase
       ContactGroup.find_or_create_by(
         contact_group_type_id: contact_group[:contact_group_type].id,
         title: contact_group[:title],
-        description: contact_group[:description]
+        description: contact_group[:description],
+        department_id: Department.hmrc.id
       )
     end
   end

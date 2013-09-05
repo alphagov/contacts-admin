@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130830063323) do
+ActiveRecord::Schema.define(version: 20130906104254) do
 
   create_table "contact_groups", force: true do |t|
     t.integer  "contact_group_type_id"
@@ -21,9 +21,11 @@ ActiveRecord::Schema.define(version: 20130830063323) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.integer  "department_id"
   end
 
   add_index "contact_groups", ["contact_group_type_id"], name: "index_contact_groups_on_contact_group_type_id", using: :btree
+  add_index "contact_groups", ["department_id"], name: "index_contact_groups_on_department_id", using: :btree
   add_index "contact_groups", ["slug"], name: "index_contact_groups_on_slug", using: :btree
 
   create_table "contacts", force: true do |t|
@@ -44,7 +46,13 @@ ActiveRecord::Schema.define(version: 20130830063323) do
     t.text     "more_info_email_address"
     t.text     "more_info_post_address"
     t.text     "more_info_phone_number"
+    t.string   "slug"
+    t.string   "title"
+    t.integer  "department_id"
   end
+
+  add_index "contacts", ["department_id"], name: "index_contacts_on_department_id", using: :btree
+  add_index "contacts", ["slug"], name: "index_contacts_on_slug", using: :btree
 
   create_table "email_addresses", force: true do |t|
     t.integer  "contact_id"
@@ -55,19 +63,6 @@ ActiveRecord::Schema.define(version: 20130830063323) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "offices", force: true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "contact_id"
-    t.integer  "department_id"
-    t.string   "slug"
-  end
-
-  add_index "offices", ["contact_id"], name: "index_offices_on_contact_id", using: :btree
-  add_index "offices", ["department_id"], name: "index_offices_on_department_id", using: :btree
-  add_index "offices", ["slug"], name: "index_offices_on_slug", using: :btree
 
   create_table "phone_numbers", force: true do |t|
     t.integer  "contact_id"
@@ -98,13 +93,13 @@ ActiveRecord::Schema.define(version: 20130830063323) do
   add_index "post_addresses", ["contact_id"], name: "index_post_addresses_on_contact_id", using: :btree
 
   create_table "questions", force: true do |t|
-    t.integer  "office_id"
+    t.integer  "contact_id"
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "questions", ["office_id"], name: "index_questions_on_office_id", using: :btree
+  add_index "questions", ["contact_id"], name: "index_questions_on_contact_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"

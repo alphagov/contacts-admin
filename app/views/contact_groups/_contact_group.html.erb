@@ -1,4 +1,4 @@
-<% if contact_group.offices.any? %>
+<% if contact_group.contacts.any? %>
   <li class="department">
     <h2 id="<%= contact_group.slug %>">
       <%= link_to contact_group, "##{contact_group.slug}", 'data-expand' => "#{contact_group.slug}-elements" %>
@@ -11,13 +11,13 @@
     <div class="organisations-box" id="<%= contact_group.slug %>-elements">
       <div class="organisations-box-inner">
         <ul>
-          <% contact_group.offices.each do |office| %>
-            <li class="<%= 'last-child' if office == contact_group.offices.last %>">
+          <% contact_group.contacts.each do |contact| %>
+            <li class="<%= 'last-child' if contact == contact_group.contacts.last %>">
               <h3>
-                <%= link_to office, office_path(office) %>
+                <%= link_to contact, contact_path(contact) %>
               </h3>
               <p>
-                <%= office.contact.description %>
+                <%= contact.description %>
               </p>
             </li>
           <% end %>
