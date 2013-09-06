@@ -8,7 +8,7 @@
     <% end %>
   </td>
   <td>
-    <%= contact.description %>
+    <%= truncate(contact.description, length: 100) %>
   </td>
   <td><%= contact.contact_form_links.size %></td>
   <td><%= contact.email_addresses.size %></td>
