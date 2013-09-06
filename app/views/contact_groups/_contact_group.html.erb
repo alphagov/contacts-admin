@@ -1,5 +1,5 @@
 <% if contact_group.contacts.any? %>
-  <li class="department">
+  <li class="department js-filter-item" data-filter-terms="<%= filter_terms_for_group(contact_group) %>" >
     <h2 id="<%= contact_group.slug %>">
       <%= link_to contact_group, "##{contact_group.slug}", 'data-expand' => "#{contact_group.slug}-elements" %>
     </h2>

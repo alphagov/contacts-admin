@@ -79,16 +79,16 @@ GOVUK.HmrcContacts = {
             $controlledElement.addClass('js-hidden');
             $container.addClass('js-hiding-children');
           }else{
-            $container.find(".view-all").text('hide all'); 
+            $container.find(".view-all").text('hide all');
           }
 
           $control.on('click', function (e) {
             var isOpen = $container.hasClass("js-hiding-children");
 
             if ($control.hasClass("view-all")) {
-              $control.text((isOpen) ? 'hide all' : 'view all'); 
+              $control.text((isOpen) ? 'hide all' : 'view all');
             } else {
-              $container.find(".view-all").text((isOpen) ? 'hide all' : 'view all'); 
+              $container.find(".view-all").text((isOpen) ? 'hide all' : 'view all');
             }
 
             $controlledElement.toggleClass('js-hidden');
@@ -179,5 +179,6 @@ GOVUK.HmrcContacts = {
     this.contactDetailNavigationShow.initialize();
     this.chosenSelect.initialize();
     this.commonQuestionsSelect.initialize();
+    GOVUK.filterListItems.init();
   }
 };
