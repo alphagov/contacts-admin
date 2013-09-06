@@ -18,6 +18,11 @@ class Contact < ActiveRecord::Base
   validates :title, presence: true
   validates :description, presence: true
 
+  scope :by_title, -> { order("title ASC") }
+  scope :ungrouped, -> {
+    where(contact_group_id: nil)
+  }
+
   def to_s
     title
   end

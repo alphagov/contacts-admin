@@ -1,4 +1,7 @@
 class ContactGroupsController < ApplicationController
+  expose(:ungrouped_contacts) {
+    Contact.ungrouped.by_title.decorate
+  }
   expose(:contact_groups) {
     ContactGroup.with_contacts.except_most_popular.by_title.decorate
   }
