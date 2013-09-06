@@ -17,8 +17,6 @@ class ImportContacts
       {
         description: attributes['description'],
         contact_group: ContactGroup.find_by_title(attributes['clustergroup']),
-        meta_title: attributes['alt_meta_title'],
-        meta_description: attributes['alt_meta_description']
       }
     end
 

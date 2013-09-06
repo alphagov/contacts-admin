@@ -26,19 +26,5 @@ describe ImportContacts::ContactBuilder do
 
       expect(described_class.build(attributes).contact_group).to eq ContactGroup.find_by_title(contact_group)
     end
-
-    it 'assigns meta_title' do
-      meta_title = 'meta title'
-      attributes = {'alt_meta_title' => meta_title}
-
-      expect(described_class.build(attributes).meta_title).to eq meta_title
-    end
-
-    it 'assigns meta_description' do
-      meta_description = 'meta description'
-      attributes = {'alt_meta_description' => meta_description}
-
-      expect(described_class.build(attributes).meta_description).to eq meta_description
-    end
   end
 end

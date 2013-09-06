@@ -51,8 +51,6 @@ module Admin
         :description,
         :contact_information,
         :title,
-        :meta_title,
-        :meta_description,
         :more_info_website,
         :more_info_email_address,
         :more_info_post_address,
