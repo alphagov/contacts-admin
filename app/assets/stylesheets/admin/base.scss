@@ -126,9 +126,9 @@ $hover-yellow: #fff8dd;
 
   .ie6-select-iframe {
     display: none;
-    position: absolute; 
-    left: 12px; 
-    top: 32px; 
+    position: absolute;
+    left: 12px;
+    top: 32px;
     border: none;
   }
 
@@ -139,33 +139,8 @@ $hover-yellow: #fff8dd;
 
 .navbar .navbar-inner {
   @include border-radius(0);
-  @include gradient(#008b8a, #00605f);
-
-  .nav > li > a {
-    color: #dde9eb;
-  }
-
-  .brand,
-  .nav > li.active > a,
-  .nav > li:hover > a {
-    color: $white;
-  }
-
-  .nav > li.active > a {
-    background: #005150;
-  }
 
   @include ie-lte(6) {
-    .nav li a {
-      color: #dde9eb;
-    }
-
-    .brand,
-    .nav li.active a,
-    .nav li:hover a {
-      color: $white;
-    }
-
     .nav li{
       float: left;
 
@@ -227,22 +202,22 @@ abbr[title], abbr[data-original-title] {
   @include gradient(#007a78, #006e6f);
   background-color: #006e6f;
 
-  &:hover, 
-  &:focus, 
-  &:active, 
-  &.active, 
-  &.disabled, 
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &.disabled,
   &[disabled] {
     background-color: #006e6f;
   }
 }
 
 .label-info,
-.dropdown-menu > li > a:hover, 
-.dropdown-menu > li > a:focus, 
-.dropdown-submenu:hover > a, 
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-submenu:hover > a,
 .dropdown-submenu:focus > a {
-  background: #00a19c; 
+  background: #00a19c;
 }
 
 .text-red {
@@ -369,7 +344,7 @@ fieldset {
 
 .chosen-container-multi .chosen-choices {
   padding-right: 5px;
-  
+
   li.search-choice {
     color: #fff;
     border: none;

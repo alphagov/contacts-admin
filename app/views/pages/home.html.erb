@@ -49,12 +49,12 @@
       <ul class="common-sections" id="section-<%= contact_group.slug %>">
         <% contact_group.questions.limit(7).decorate.each do |question| %>
           <li>
-            <%= link_to question, contact_path(question.contact) %>
+            <%= link_to question, contact_path(department, question.contact) %>
           </li>
         <% end %>
 
         <li class="search-more">
-          <%= link_to "Or search by tax area", contact_groups_path(anchor: contact_group.slug) %>
+          <%= link_to "Or search by tax area", contact_groups_path(department, anchor: contact_group.slug) %>
         </li>
       </ul>
     <% end %>

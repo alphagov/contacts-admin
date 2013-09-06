@@ -1,9 +1,7 @@
 class Contact < ActiveRecord::Base
-  extend ActiveHash::Associations::ActiveRecordExtensions
-
   acts_as_url :title, url_attribute: :slug, sync_url: true
 
-  belongs_to_active_hash :department
+  belongs_to :department
   belongs_to :contact_group, counter_cache: true
 
   has_many :questions, inverse_of: :contact

@@ -1,6 +1,6 @@
 <li class="department js-filter-item" data-filter-terms="<%= contact %>">
   <h2 id="<%= contact.slug %>">
-    <%= link_to contact, contact_path(contact) %>
+    <%= link_to contact, contact_path(department, contact) %>
   </h2>
   <p>
     <%= contact.description %>

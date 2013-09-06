@@ -4,8 +4,13 @@ class SeedDatabase
   include Singleton
 
   def run
+    create_hmrc
     create_users
     create_contact_groups
+  end
+
+  def create_hmrc
+    Department.create(title: "HMRC")
   end
 
   def create_users

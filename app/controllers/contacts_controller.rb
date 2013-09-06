@@ -1,6 +1,10 @@
 class ContactsController < ApplicationController
-  expose_decorated :contact, finder: :find_by_slug, collection: false
-  # expose(:contact)
+  expose(:department) {
+    Department.find_by_slug!(params[:department_id])
+  }
+  expose(:contact) {
+    department.contacts.find_by_slug!(params[:id]).decorate
+  }
 
   def show
   end

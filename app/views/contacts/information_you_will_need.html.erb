@@ -28,7 +28,7 @@
             <ol>
               <li>
                 <span class="part-number">1.</span>
-                <%= link_to "Before you contact us", contact_path(contact), title:"1. Before you contact us" %>
+                <%= link_to "Before you contact us", contact_path(department, contact), title:"1. Before you contact us" %>
               </li>
               <li class="active">
                 <span class="part-number">2.</span>
@@ -52,7 +52,7 @@
             <nav class="pagination" role="navigation" aria-label="Pagination">
               <ul class="group">
                 <li class="next">
-                  <a href="<%= contact_contact_details_path(contact) %>" rel="next" title="Navigate to next part">
+                  <a href="<%= contact_details_contact_path(department, contact) %>" rel="next" title="Navigate to next part">
                     <span class="pagination-label">Next</span>
                     <span class="pagination-part-title">Contact details</span>
                   </a>

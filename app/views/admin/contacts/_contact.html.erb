@@ -1,6 +1,7 @@
 <tr>
+  <td><%= contact.department %></td>
   <td>
-    <%= link_to contact.title, contact_path(contact.slug), class: 'no-underline' %>
+    <%= link_to contact.title, contact_path(contact.department, contact.slug), class: 'no-underline' %>
   </td>
   <td>
     <% if contact.contact_group %>

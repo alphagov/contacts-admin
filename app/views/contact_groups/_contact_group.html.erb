@@ -14,7 +14,7 @@
           <% contact_group.contacts.each do |contact| %>
             <li class="<%= 'last-child' if contact == contact_group.contacts.last %>">
               <h3>
-                <%= link_to contact, contact_path(contact) %>
+                <%= link_to contact, contact_path(department, contact) %>
               </h3>
               <p>
                 <%= contact.description %>

@@ -16,22 +16,23 @@ HmrcContacts::Application.routes.draw do
     resources :questions
   end
 
-  resources :contact_groups
-  resources :contacts, constraints: { id: SLUG_FORMAT } do
-    match 'information-you-will-need', {
-      via: :get,
-      to: 'contacts#information_you_will_need',
-      as: :information_you_will_need
-    }
-
-    match 'contact-details', {
-      via: :get,
-      to: 'contacts#contact_details',
-      as: :contact_details
-    }
+  scope ':department_id' do
+    resources :contact_groups
+    resources :contacts, constraints: { id: SLUG_FORMAT } do
+      get 'information-you-will-need',
+          on: :member,
+          action: :information_you_will_need,
+          as: :information_you_will_need
+      get 'contact-details',
+          on: :member,
+          action: :contact_details,
+          as: :contact_details
+    end
   end
 
   post 'search', to: 'search#search'
 
-  root to: 'pages#home', via: :get
+  match ':department_id/contact_us', via: :get, to: 'pages#home'
+
+  root to: 'pages#hmrc', via: :get
 end

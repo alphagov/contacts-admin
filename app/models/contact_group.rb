@@ -7,7 +7,7 @@ class ContactGroup < ActiveRecord::Base
   has_many :questions, through: :contacts
 
   belongs_to_active_hash :contact_group_type
-  belongs_to_active_hash :department
+  belongs_to :department
 
   validates :title, presence: true
   validates :description, presence: true

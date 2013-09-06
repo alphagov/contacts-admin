@@ -1,12 +1,15 @@
 class ContactGroupsController < ApplicationController
-  expose(:ungrouped_contacts) {
-    Contact.ungrouped.by_title.decorate
-  }
-  expose(:contact_groups) {
-    ContactGroup.with_contacts.except_most_popular.by_title.decorate
+  expose(:department) {
+    Department.find_by_slug!(params[:department_id])
   }
   expose(:most_popular_contact_groups) {
-    ContactGroup.most_popular.with_contacts.by_title.decorate
+    department.contact_groups.most_popular.with_contacts.by_title.decorate
+  }
+  expose(:ungrouped_contacts) {
+    department.contacts.ungrouped.by_title.decorate
+  }
+  expose(:contact_groups) {
+    department.contact_groups.with_contacts.except_most_popular.by_title.decorate
   }
 
   def index

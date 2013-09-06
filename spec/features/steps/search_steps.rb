@@ -4,7 +4,8 @@ module SearchSteps
   include CommonSteps
 
   def search_for(query)
-    ensure_on root_path
+    create(:department, title: "HMRC")
+    ensure_on "/hmrc/contact_us"
 
     within(dom_id_selector(SearchForm.new)) do
       fill_in 'search-main', with: query
