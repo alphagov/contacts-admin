@@ -4,7 +4,7 @@ describe 'Phone Number creation', auth: :user do
   include Admin::PhoneNumberSteps
 
   let(:contact) { create :contact }
-  let(:number)         { build :phone_number, contact: contact }
+  let(:number)  { build :phone_number, contact: contact }
 
   before {
     verify !phone_number_exists(contact, number)

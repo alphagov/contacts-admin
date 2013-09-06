@@ -3,6 +3,8 @@ require 'spec_helper'
 describe SeedDatabase do
   describe '#run' do
 
+    let!(:department)     { Department.create(title: 'example department') }
+
     before { described_class.instance.run }
 
     it 'creates mock user' do

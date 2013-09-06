@@ -1,4 +1,4 @@
-class OfficeDecorator < Draper::Decorator
+class ContactDecorator < Draper::Decorator
   delegate_all
 
   def to_s

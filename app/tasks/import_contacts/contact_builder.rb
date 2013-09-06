@@ -29,11 +29,11 @@ class ImportContacts
         email_addresses: email_address_records,
         post_addresses: post_address_records,
         phone_numbers: phone_number_records,
-        offices: office_records,
         more_info_website: more_info_text_for(:website),
         more_info_email_address: more_info_text_for(:email_address),
         more_info_post_address: more_info_text_for(:post_address),
-        more_info_phone_number: more_info_text_for(:phone_number)
+        more_info_phone_number: more_info_text_for(:phone_number),
+        title: title
       })
 
       @contact
@@ -41,8 +41,11 @@ class ImportContacts
 
     private
 
-    def office_records
-      OfficeBuilder.build(@contact, attributes).select(&:valid?)
+    # In the CSV we have many offices, we will just pick the first one
+    # it seems offices are like alias to help people search for contacts
+    # we can do this by improving search and having better descriptions
+    def title
+      attributes.fetch('title', '').split(/\n/).map(&:strip).first
     end
 
     def contact_form_link_records

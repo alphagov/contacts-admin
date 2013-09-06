@@ -3,8 +3,8 @@ require 'spec_helper'
 describe 'Post Address removal', auth: :user do
   include Admin::PostAddressSteps
 
-  let!(:contact) { create :contact }
-  let!(:post_address)        { create :post_address, contact: contact  }
+  let!(:contact)      { create :contact }
+  let!(:post_address) { create :post_address, contact: contact  }
 
   before { verify post_address_exists(contact, post_address) }
 

@@ -1,6 +1,6 @@
 module Admin
   class ContactsController < AdminController
-    expose(:contacts) { Contact.includes(:offices) }
+    expose(:contacts)
     expose(:contact, attributes: :contact_params)
 
     before_filter :set_ariane
@@ -18,7 +18,7 @@ module Admin
 
     def update
       ariane.add "Editing #{contact}"
-      
+
       if contact.update_attributes(contact_params)
         redirect_to admin_contacts_path, notice: 'Contact successfully updated'
       else
@@ -47,9 +47,10 @@ module Admin
     def contact_params
       params.require(:contact).permit(
         :contact_group_id,
-        {office_ids: []},
+        :department_id,
         :description,
         :contact_information,
+        :title,
         :meta_title,
         :meta_description,
         :more_info_website,
