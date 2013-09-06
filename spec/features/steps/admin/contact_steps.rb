@@ -58,11 +58,5 @@ module Admin
     def associated_to_contact_group(contact, contact_group)
       contact.reload.contact_group == contact_group
     end
-
-    def associated_to_offices(contact, *offices)
-      offices.all? { |office|
-        contact.reload.offices.include?(office)
-      }
-    end
   end
 end

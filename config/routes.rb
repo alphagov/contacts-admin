@@ -4,7 +4,6 @@ HmrcContacts::Application.routes.draw do
   namespace :admin do
     root to: 'dashboards#show', via: :get
 
-    resources :offices
     resources :contact_groups
     resources :contacts do
       scope module: 'contacts' do
@@ -18,16 +17,16 @@ HmrcContacts::Application.routes.draw do
   end
 
   resources :contact_groups
-  resources :offices, constraints: { id: SLUG_FORMAT } do
+  resources :contacts, constraints: { id: SLUG_FORMAT } do
     match 'information-you-will-need', {
       via: :get,
-      to: 'offices#information_you_will_need',
+      to: 'contacts#information_you_will_need',
       as: :information_you_will_need
     }
 
     match 'contact-details', {
       via: :get,
-      to: 'offices#contact_details',
+      to: 'contacts#contact_details',
       as: :contact_details
     }
   end

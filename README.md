@@ -29,11 +29,12 @@ needs of other departments overlap with HMRC.
 
 ## Running
 
-1. Load database structure
+1. Load database structure & seed data
 
     ```
     bundle exec rake db:schema:load
     bundle exec rake db:seed
+    bundle exec rake hmrc_contacts:import DATA_FILE=db/contact-records.csv
     ```
 
 2. Start the application
@@ -47,3 +48,10 @@ To run against a local version of static you need to set `STATIC_DEV` to "http:/
 ## Development notes
 
 * ```app/tasks``` - contains one-off tasks that can be run via console or a rake task.
+
+## Tests
+
+    ```
+    bundle exec rake db:migrate RAILS_ENV=test
+    bundle exec rspec .
+    ```

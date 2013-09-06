@@ -3,8 +3,8 @@ require 'spec_helper'
 describe 'Question creation', auth: :user do
   include Admin::QuestionSteps
 
-  let!(:office)   { create :office }
-  let(:question)  { build :question }
+  let!(:contact) { create :contact }
+  let(:question) { build :question }
 
   before {
     verify !question_exists(question)
@@ -14,10 +14,10 @@ describe 'Question creation', auth: :user do
     create_question({
       title: question.title
     }) do
-      select office, from: 'question_office_id'
+      select contact, from: 'question_contact_id'
     end
 
     verify question_exists(question)
-    verify associated_to_office(Question.first, office)
+    verify associated_to_contact(Question.first, contact)
   end
 end

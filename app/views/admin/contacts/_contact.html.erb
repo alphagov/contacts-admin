@@ -1,12 +1,6 @@
 <tr>
   <td>
-    <ul>
-      <% contact.offices.each do |office| %>
-        <li>
-          <%= link_to office.title, edit_admin_office_path(office), class: 'no-underline' %>
-        </li>
-      <% end %>
-    </ul>
+    <%= link_to contact.title, contact_path(contact.slug), class: 'no-underline' %>
   </td>
   <td>
     <% if contact.contact_group %>
