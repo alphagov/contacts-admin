@@ -20,13 +20,6 @@ describe ImportContacts::ContactBuilder do
       expect(described_class.build(attributes).description).to eq description
     end
 
-    it 'assigns keywords to contact record' do
-      keywords = 'kw1,kw2'
-      attributes = {'keywords' => keywords}
-
-      expect(described_class.build(attributes).keywords).to eq ['kw1', 'kw2']
-    end
-
     it 'assigns contact type' do
       contact_group = 'See also'
       attributes = {'clustergroup' => contact_group}
