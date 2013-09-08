@@ -34,7 +34,7 @@ needs of other departments overlap with HMRC.
     ```
     bundle exec rake db:schema:load
     bundle exec rake db:seed
-    bundle exec rake hmrc_contacts:import DATA_FILE=db/contact-records.csv
+    bundle exec rake contacts:import_hmrc DATA_FILE=db/contact-records.csv
     ```
 
 2. Start the application
@@ -43,7 +43,8 @@ needs of other departments overlap with HMRC.
    ./startup.sh
    ````
 
-To run against a local version of static you need to set `STATIC_DEV` to "http://static.dev.gov.uk"
+To run against a local version of static you need to set `STATIC_DEV` to "http://static.dev.gov.uk".
+To index content the application expects rummager to be running, the rake task is contacts:index
 
 ## Development notes
 

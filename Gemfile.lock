@@ -11,6 +11,16 @@ GIT
       warden (~> 1.2)
 
 GIT
+  remote: git://github.com/alphagov/rummageable.git
+  revision: be35fc5f820dfc74357d7a8d21f227dd9dc736d6
+  branch: master
+  specs:
+    rummageable (1.0.0)
+      multi_json
+      null_logger
+      rest-client
+
+GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 359606f222fa0972a4a14ec70140ac00f7c80839
   ref: 359606f
@@ -291,6 +301,7 @@ DEPENDENCIES
   rails (= 4.0.0)
   redcarpet
   rspec-rails (~> 2.14)
+  rummageable!
   sass-rails (~> 4.0.0)
   shoulda-matchers
   simple_form!

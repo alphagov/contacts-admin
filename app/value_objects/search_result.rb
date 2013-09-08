@@ -9,7 +9,13 @@ class SearchResult
   attribute :indexable_content, String
   attribute :es_score, Float
 
+  def contact?
+    format == "contact"
+  end
+
   def govuk_link
-    ["https://www.gov.uk", link].join
+    # FIXME: Only for development
+    root = contact? ? "" : "https://www.gov.uk"
+    [root, link].join
   end
 end

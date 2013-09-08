@@ -5,8 +5,4 @@ module HmrcContacts
   mattr_accessor :contacts_search_client
 
   module_function
-
-  def search_index_path
-    '/hmrc-contacts'
-  end
 end

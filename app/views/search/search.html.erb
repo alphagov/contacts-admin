@@ -29,8 +29,8 @@
 
     <ul class="results-list">
       <% @search_results.each_with_index do |search_result, index| %>
-        <li class="<%= 'contact' if index == 0 %>">
-          <% if index == 0 %>
+        <li class="<%= 'contact' if search_result.contact? %>">
+          <% if search_result.contact? %>
             <span class="contact-indicator">Contact details</span>
           <% end %>
           <h3>

@@ -19,6 +19,7 @@ gem 'ariane'
 
 gem 'gds-sso', github: 'alphagov/gds-sso', branch: 'master', ref: 'bf4b6d13a1'
 gem 'gds-api-adapters'
+gem 'rummageable', github: 'alphagov/rummageable', branch: 'master'
 gem 'plek', '>= 1.0.0'
 
 gem 'aws-ses', require: 'aws/ses' # Needed by exception_notification
