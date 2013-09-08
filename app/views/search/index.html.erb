@@ -17,7 +17,7 @@
       <p>
         Please enter a question you want to ask HMRC or type what you would like to do.
       </p>
-      <%= simple_form_for @search_form, url: search_path do |search_form| %>
+      <%= simple_form_for @search_form, url: search_path(department) do |search_form| %>
         <div class="searchfield">
           <fieldset class="search-input">
             <%= search_form.input :q, label: false, input_html: { id: 'search-main' } %>

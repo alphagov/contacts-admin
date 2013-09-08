@@ -5,7 +5,7 @@ module SearchSteps
 
   def search_for(query)
     create(:department, title: "HMRC")
-    ensure_on "/hmrc/contact_us"
+    ensure_on "/contacts/hmrc/search"
 
     within(dom_id_selector(SearchForm.new)) do
       fill_in 'search-main', with: query

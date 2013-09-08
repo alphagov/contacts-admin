@@ -1,38 +1,41 @@
 HmrcContacts::Application.routes.draw do
-  SLUG_FORMAT = /[A-Za-z0-9\-_]+/
+  scope :path => "#{APP_SLUG}" do
+    namespace :admin do
+      root to: 'dashboards#show', via: :get
 
-  namespace :admin do
-    root to: 'dashboards#show', via: :get
+      resources :contact_groups
+      resources :contacts do
+        scope module: 'contacts' do
+          resources :contact_form_links
+          resources :email_addresses
+          resources :post_addresses
+          resources :phone_numbers
+        end
+      end
+      resources :questions
+    end
 
-    resources :contact_groups
-    resources :contacts do
-      scope module: 'contacts' do
-        resources :contact_form_links
-        resources :email_addresses
-        resources :post_addresses
-        resources :phone_numbers
+    scope ':department_id' do
+      get "/", to: "contact_groups#index", as: :contact_groups
+
+      get 'search', to: 'search#index'
+      post 'search', to: 'search#search'
+
+
+      resources :contacts, constraints: { id: SLUG_FORMAT }, path: '/' do
+        get 'information-you-will-need',
+            on: :member,
+            action: :information_you_will_need,
+            as: :information_you_will_need
+        get 'contact-details',
+            on: :member,
+            action: :contact_details,
+            as: :contact_details
       end
     end
-    resources :questions
+    # DEFAULT TO HMRC
+    get "/", to: redirect("/#{APP_SLUG}/hmrc/search", status: 302)
   end
 
-  scope ':department_id' do
-    resources :contact_groups
-    resources :contacts, constraints: { id: SLUG_FORMAT } do
-      get 'information-you-will-need',
-          on: :member,
-          action: :information_you_will_need,
-          as: :information_you_will_need
-      get 'contact-details',
-          on: :member,
-          action: :contact_details,
-          as: :contact_details
-    end
-  end
-
-  post 'search', to: 'search#search'
-
-  match ':department_id/contact_us', via: :get, to: 'pages#home'
-
-  root to: 'pages#hmrc', via: :get
+  root to: redirect("/#{APP_SLUG}", status: 302)
 end

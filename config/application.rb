@@ -6,6 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+APP_SLUG = 'contacts'
+SLUG_FORMAT = /[A-Za-z0-9\-_]+/
+
 module HmrcContacts
   class Application < Rails::Application
     require 'hmrc_contacts'
