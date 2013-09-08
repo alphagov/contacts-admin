@@ -3,7 +3,7 @@
 <div class="details-page-1">
   <div class="block-1">
     <div class="inner-block">
-      <%= render 'layouts/hmrc_logo' %>
+      <%= render 'layouts/department_logo' %>
     </div>
   </div>
 
@@ -43,7 +43,7 @@
             </p>
           </div>
           <p>
-            There is a lot of information on this website that might help resolve your inquiry. Please read the recommended guidance before contacting HMRC.
+            There is a lot of information on this website that might help resolve your inquiry. Please read the recommended guidance before contacting <%= department.title %>.
           </p>
           <% if contact.related_content_links.any? %>
             <ul class="useful-links">

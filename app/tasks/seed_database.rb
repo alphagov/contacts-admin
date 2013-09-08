@@ -10,7 +10,7 @@ class SeedDatabase
   end
 
   def create_hmrc
-    Department.create(title: "HMRC")
+    Department.create(title: "HMRC", logo_name: "HM Revenue<br>&amp; Customs")
   end
 
   def create_users
