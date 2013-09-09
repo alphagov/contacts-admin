@@ -28,6 +28,10 @@ $hover-yellow: #fff8dd;
   zoom: 100%;
 }
 
+.span12 .span12 {
+  margin-left: 0;
+}
+
 @include ie-lte(6) {
   .alert {
     padding-top: 4px;
