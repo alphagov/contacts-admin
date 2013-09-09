@@ -11,11 +11,11 @@
     <div class="hmrc-search">
       <header class="page-header">
         <h1 class="main">
-          Search for relevant <%= department.title %> contact information
+          Search for <%= department.title %> contact information
         </h1>
       </header>
       <p>
-        Please enter a question you want to ask <%= department.title %> or type what you would like to do.
+        Please enter the name of the contact detail you are looking for or type what you would like to do.
       </p>
       <%= simple_form_for @search_form, url: search_path(department) do |search_form| %>
         <div class="searchfield">
