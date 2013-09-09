@@ -1,12 +1,16 @@
 <div class="address <%= 'last-child' if post_address == contact.post_addresses.last %>">
   <div class="adr org fn">
-    <% if post_address.title.present? %>
-      <h4>
-        <%= post_address.title %>
-      </h4>
-    <% end %>
+    <span class="vcard">
+      <% if post_address.title.present? %>
+        <h4 class="fn">
+          <%= post_address.title %>
+        </h4>
+      <% end %>
 
-    <%= simple_format h(post_address.address) %>
+      <span class="adr">
+        <%= simple_format h(post_address.address) %>
+      </span>
+    </span>
 
     <% if post_address.description.present? %>
       <%= simple_format h(post_address.description) %>

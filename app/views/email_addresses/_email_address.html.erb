@@ -1,9 +1,11 @@
-<p>
-  <strong>
+<p class="vcard">
+  <strong class="fn">
     <%= email_address.title %>
   </strong>
   <br>
-  <%= mail_to email_address.email %>
+  <span class="email">
+    <%= mail_to email_address.email %>
+  </span>
 
   <% if email_address.description.present? %>
     <br>
