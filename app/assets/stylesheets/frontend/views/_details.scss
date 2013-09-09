@@ -126,6 +126,10 @@
 
           p {
             margin-bottom: $gutter-half;
+
+            small {
+              font-size: em(16, 19)
+            }
           }
 
           strong {

@@ -46,7 +46,19 @@
     </p>
   <% end %>
 
-  <span class="note"><%= simple_format h(phone_number.open_hours) %></span>
+  <% if phone_number.open_hours.present? %>
+    <span class="note">
+      <%= simple_format h(phone_number.open_hours) %>
+    </span>
+  <% end %>
+
+
+  
+  <% if phone_number.description.present? %>
+    <p class="note">
+      <%= simple_format(h(phone_number.description), {}, wrapper_tag: 'span') %>
+    </p>
+  <% end %>
 
   <p>
     <%= link_to "Find out about call charges", "https://www.gov.uk/call-charges" %>
