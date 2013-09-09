@@ -178,6 +178,15 @@
               padding-bottom: 0;
               border: 0;
             }
+
+
+            &.last-child {
+              @include ie(8) {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border: none;
+              }
+            }
           }
             
           &.js-hide {
