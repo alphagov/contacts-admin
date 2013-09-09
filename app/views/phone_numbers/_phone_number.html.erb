@@ -39,6 +39,13 @@
     </p>
   <% end %>
 
+  <% if phone_number.fax.present? %>
+    <p class="tel">
+      <span class="type">Fax: </span>
+      <span class="value"><%= phone_number.fax %></span>
+    </p>
+  <% end %>
+
   <span class="note"><%= simple_format h(phone_number.open_hours) %></span>
 
   <p>
