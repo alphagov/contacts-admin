@@ -13,7 +13,7 @@ describe 'Contact editing', auth: :user do
       contact,
       title: 'new title',
       description: 'new description',
-      more_info_website: 'more info website entry',
+      more_info_contact_form: 'more info contact form entry',
       more_info_phone_number: 'more info phone number entry'
     ) do
       select contact_group, from: 'contact_contact_group_id'
@@ -23,7 +23,7 @@ describe 'Contact editing', auth: :user do
       contact,
       title: 'new title',
       description: 'new description',
-      more_info_website: 'more info website entry',
+      more_info_contact_form: 'more info contact form entry',
       more_info_phone_number: 'more info phone number entry'
     )
     verify associated_to_contact_group(contact, contact_group)
