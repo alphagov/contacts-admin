@@ -445,7 +445,7 @@ fieldset {
 
 .question-page {
   .js-expand-list {
-    margin-bottom: 10px;
+    margin-bottom: 50px;
   }
 
   .expand-header {
@@ -454,7 +454,7 @@ fieldset {
     padding-left: 40px;
     font-size: em(18, 14);
     line-height: 1;
-    background: #f0f0f0 image-url('hmrc-contact-details-arrows.png') no-repeat left 16px;
+    background: #f0f0f0 image-url('hmrc-contact-details-arrows.png') no-repeat left -36px;
     cursor: pointer;
 
     &:hover {
@@ -469,7 +469,6 @@ fieldset {
   }
 
   .expand-content {
-    display: none;
     margin: 5px 10px 0;
 
     .empty-content {
@@ -483,15 +482,15 @@ fieldset {
     }
   }
 
-  .js-expanded {
-    margin-bottom: 50px;
+  .js-hidden {
+    margin-bottom: 10px;
 
     .expand-header {
-      background-position: left -36px;
+      background-position: left 16px;
     }
 
     .expand-content {
-      display: block;
+      display: none;
     }
   }
 }
