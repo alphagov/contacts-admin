@@ -85,7 +85,6 @@
 
       p {
         @include copy-16;
-        clear: both;
         float: left;
         min-width: 18em;
       }
@@ -154,8 +153,13 @@
     color: $black;
   }
 
-  .organisations-index .department .view-all:after {
-    content: " \25B2";
+  .organisations-index .department .view-all {
+    margin-right: 0;
+    float: right;
+
+    &:after {
+      content: " \25B2";
+    }
   }
 
   .organisations-index .js-hide {
