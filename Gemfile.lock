@@ -61,9 +61,6 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     arel (4.0.0)
-    ariane (0.0.3)
-      actionpack (>= 2.3.0)
-      activesupport (>= 2.3.0)
     atomic (1.1.13)
     aws-ses (0.5.0)
       builder
@@ -277,7 +274,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash
-  ariane
   aws-ses
   bootstrap-sass
   capistrano
