@@ -15,7 +15,6 @@ gem 'slimmer', '>= 3.0.0'
 gem 'stringex'
 gem 'unicorn', '~> 4.6.3'
 gem 'virtus'
-gem 'ariane'
 
 gem 'gds-sso', github: 'alphagov/gds-sso', branch: 'master', ref: 'bf4b6d13a1'
 gem 'gds-api-adapters'
