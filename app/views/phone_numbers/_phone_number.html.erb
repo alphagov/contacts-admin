@@ -1,10 +1,13 @@
-<div class="contact">
+<div class="contact vcard">
   <p>
-    <strong>
+    <strong class="fn">
       <%= phone_number.title %>
     </strong>
     <br>
-    Telephone: <%= phone_number.number %>
+    <span class="tel">
+      <span class="type">Telephone: </span>
+      <span class="value"><%= phone_number.number %></span>
+    </span>
 
     <% if phone_number.number_options_path.any? %>
       , option
@@ -16,7 +19,10 @@
 
   <% if phone_number.international_phone.present? %>
     <p>
-      From outside the UK: <%= phone_number.international_phone %>
+      <span class="tel">
+        <span class="type">From outside the UK: </span>
+        <span class="value"><%= phone_number.international_phone %></span>
+      </span>
       <% if phone_number.international_number_options_path.any? %>
         , option
         <% phone_number.international_number_options_path.each do |option| %>
@@ -27,12 +33,13 @@
   <% end %>
 
   <% if phone_number.textphone.present? %>
-    <p>
-      Textphone: <%= phone_number.textphone %>
+    <p class="tel">
+      <span class="type">Textphone: </span>
+      <span class="value"><%= phone_number.textphone %></span>
     </p>
   <% end %>
 
-  <%= simple_format h(phone_number.open_hours) %>
+  <span class="note"><%= simple_format h(phone_number.open_hours) %></span>
 
   <p>
     <%= link_to "Find out about call charges", "https://www.gov.uk/call-charges" %>
