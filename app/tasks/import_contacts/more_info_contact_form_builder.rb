@@ -1,5 +1,5 @@
 class ImportContacts
-  class MoreInfoWebsiteBuilder
+  class MoreInfoContactFormBuilder
     def self.build(attributes)
       MoreInfoRecord.new(
         more_info_url: MoreInfoUrl.new({
