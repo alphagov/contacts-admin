@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ImportContacts::MoreInfoWebsiteBuilder do
+describe ImportContacts::MoreInfoContactFormBuilder do
   describe '.build' do
     let(:content)          { 'description paragraph' }
     let(:website_title)    { 'website title' }

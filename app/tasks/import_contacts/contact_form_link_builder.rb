@@ -9,8 +9,8 @@ class ImportContacts
          title: attributes['ogtitle2'],
          description: attributes['ogtag2'],
          link: attributes['ogurl2']
-       }].map { |website_attributes|
-         contact.contact_form_links.build(website_attributes)
+       }].map { |contact_form_attributes|
+         contact.contact_form_links.build(contact_form_attributes)
        }
     end
   end
