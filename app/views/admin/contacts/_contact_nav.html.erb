@@ -10,19 +10,19 @@
   </li>
   <li class="<%= 'active' if params[:controller] == 'admin/contacts/email_addresses' %>">
     <a href="<%= admin_contact_email_addresses_path(contact) %>">
-      Contact Form Links 
+      Email Addresses
       <span class="badge <%= 'badge-info' if contact.email_addresses.count > 0 %>"><%= contact.email_addresses.count %></span>
     </a>
   </li>
   <li class="<%= 'active' if params[:controller] == 'admin/contacts/post_addresses' %>">
     <a href="<%= admin_contact_post_addresses_path(contact) %>">
-      Contact Form Links 
+      Postal Address
       <span class="badge <%= 'badge-info' if contact.post_addresses.count > 0 %>"><%= contact.post_addresses.count %></span>
     </a>
   </li>
   <li class="<%= 'active' if params[:controller] == 'admin/contacts/phone_numbers' %>">
     <a href="<%= admin_contact_phone_numbers_path(contact) %>">
-      Contact Form Links 
+      Phone Numbers
       <span class="badge <%= 'badge-info' if contact.phone_numbers.count > 0 %>"><%= contact.phone_numbers.count %></span>
     </a>
   </li>

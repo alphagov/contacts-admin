@@ -230,6 +230,10 @@ textarea {
 
 .table {
   th, td {
+    &.break-link a {
+      word-break: break-all;
+    }
+
     &.text-right {
       text-align: right;
     }
