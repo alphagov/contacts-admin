@@ -2,9 +2,11 @@
   <div class="span12 first-child">
     <div class='page-header'>
       <h2>
-        Edit Phone Number
+        Edit Phone Number for <%= contact %>
         <%= link_to 'Delete', admin_contact_phone_number_path(contact, phone_number), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
       </h2>
+
+      <%= render partial: 'admin/contacts/contact_nav' %>
     </div>
 
     <%= render partial: 'form', locals: { contact: contact, phone_number: phone_number } %>

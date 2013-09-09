@@ -189,6 +189,8 @@ $hover-yellow: #fff8dd;
 }
 
 .nav-tabs {
+  margin-bottom: 30px;
+
   @include ie-lte(6) {
     border-bottom: 1px solid #ddd;
     zoom: 1;

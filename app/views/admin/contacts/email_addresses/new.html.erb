@@ -1,7 +1,9 @@
 <div class="row">
   <div class="span12 first-child">
     <div class='page-header'>
-      <h2>New Email Address for Contact</h2>
+      <h2>New Email Address for <%= contact %></h2>
+
+      <%= render partial: 'admin/contacts/contact_nav' %>
     </div>
 
     <%= render partial: 'form', locals: { contact: contact, email_address: email_address } %>

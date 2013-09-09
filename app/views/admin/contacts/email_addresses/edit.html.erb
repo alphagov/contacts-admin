@@ -2,9 +2,11 @@
   <div class="span12 first-child">
     <div class='page-header'>
       <h2>
-        Edit Email Address for Contact
+        Edit Email Address for <%= contact %>
         <%= link_to 'Delete', admin_contact_email_address_path(contact, email_address), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
       </h2>
+
+      <%= render partial: 'admin/contacts/contact_nav' %>
     </div>
 
     <%= render partial: 'form', locals: { contact: contact, email_address: email_address } %>

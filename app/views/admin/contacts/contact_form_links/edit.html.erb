@@ -2,10 +2,12 @@
   <div class="span12 first-child">
     <div class='page-header'>
       <h2>
-        Edit Contact Form Link
+        Edit Contact Form Link for <%= contact %>
         
         <%= link_to 'Delete', admin_contact_contact_form_link_path(contact, contact_form_link), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
       </h2>
+
+      <%= render partial: 'admin/contacts/contact_nav' %>
     </div>
 
     <%= render partial: 'form', locals: { contact: contact, contact_form_link: contact_form_link } %>
