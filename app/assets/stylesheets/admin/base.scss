@@ -198,20 +198,6 @@ abbr[title], abbr[data-original-title] {
   text-decoration: none;
 }
 
-.btn-primary {
-  @include gradient(#007a78, #006e6f);
-  background-color: #006e6f;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.active,
-  &.disabled,
-  &[disabled] {
-    background-color: #006e6f;
-  }
-}
-
 .label-info,
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus,
