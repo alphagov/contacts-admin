@@ -186,6 +186,16 @@ $hover-yellow: #fff8dd;
   }
 }
 
+.nav-tabs {
+  .badge{
+    margin-left: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    min-width: 8px;
+    text-align: center;
+  }
+}
+
 a {
   text-decoration: underline;
 }
