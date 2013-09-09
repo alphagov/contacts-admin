@@ -1,14 +1,14 @@
 <%= simple_form_for [:admin, contact, phone_number] do |f| %>
   <fieldset class="form-horizontal">
     <%= f.input :title, input_html: { class: 'span6' } %>
-    <%= f.input :description, input_html: { rows: 8, class: 'span6' } %>
     <%= f.input :number, input_html: { class: 'span6' } %>
     <%= f.input :number_options_path, label: 'Call Options (separate with commas)' %>
-    <%= f.input :open_hours, input_html: { rows: 5, class: 'span6' } %>
     <%= f.input :international_phone %>
     <%= f.input :international_number_options_path, label: 'International Call Options (separate with commas)' %>
-    <%= f.input :fax %>
     <%= f.input :textphone %>
+    <%= f.input :fax %>
+    <%= f.input :open_hours, input_html: { rows: 5, class: 'span6' } %>
+    <%= f.input :description, input_html: { rows: 8, class: 'span6' } %>
   </fieldset>
 
   <div class='form-actions form-horizontal'>

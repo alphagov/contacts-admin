@@ -1,8 +1,8 @@
 <%= simple_form_for [:admin, contact, contact_form_link] do |f| %>
   <fieldset class="form-horizontal">
     <%= f.input :title, input_html: { class: 'span6' } %>
-    <%= f.input :description, input_html: { rows: 8, class: 'span6' } %>
     <%= f.input :link, input_html: { class: 'span6' } %>
+    <%= f.input :description, input_html: { rows: 8, class: 'span6' } %>
   </fieldset>
 
   <div class='form-actions form-horizontal'>
