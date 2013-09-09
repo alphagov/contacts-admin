@@ -21,6 +21,7 @@ needs of other departments overlap with HMRC.
 
 * Ruby 1.9.3 or higher
 * MySQL
+* Rummager
 
 ## Setup
 
@@ -43,8 +44,15 @@ needs of other departments overlap with HMRC.
    ./startup.sh
    ````
 
+3. Indexing the data
+
+    ````
+    Ensure rummager is running
+    bundle exec rake contacts:index
+
+    ````
+
 To run against a local version of static you need to set `STATIC_DEV` to "http://static.dev.gov.uk".
-To index content the application expects rummager to be running, the rake task is contacts:index
 
 ## Development notes
 
