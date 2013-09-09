@@ -20,6 +20,17 @@ class Contact < ActiveRecord::Base
   scope :ungrouped, -> {
     where(contact_group_id: nil)
   }
+  scope :for_listing, -> {
+    where(
+      arel_table[:phone_numbers_count].gt(0).or(
+        arel_table[:post_addresses_count].gt(0)
+      ).or(
+        arel_table[:email_addresses_count].gt(0)
+      ).or(
+        arel_table[:contact_form_links_count].gt(0)
+      )
+    ).order("title ASC")
+  }
 
   def to_s
     title
