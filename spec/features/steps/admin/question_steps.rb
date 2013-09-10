@@ -50,7 +50,7 @@ module Admin
     end
 
     def questions_table_selector
-      "table.questions-table"
+      "div.question-page"
     end
 
     def associated_to_contact(question, contact)

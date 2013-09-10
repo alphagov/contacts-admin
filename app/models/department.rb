@@ -6,7 +6,7 @@ class Department < ActiveRecord::Base
   has_many :contact_groups
 
   def self.hmrc
-    find_by_slug('hmrc')
+    find_by(slug: 'hmrc')
   end
 
   def to_s
