@@ -1,5 +1,7 @@
 HmrcContacts::Application.routes.draw do
   scope :path => "#{APP_SLUG}" do
+    get "healthcheck" => "healthcheck#check"
+
     namespace :admin do
       root to: 'dashboards#show', via: :get
 
