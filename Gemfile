@@ -36,6 +36,7 @@ gem 'jquery-rails'
 group :development do
   gem 'capistrano'
   gem 'railroady'
+  gem 'rack-mini-profiler'
 end
 
 group :development, :test do
