@@ -23,7 +23,7 @@ class Contact < ActiveRecord::Base
   scope :for_listing, -> {
     where(
       "`contacts`.`phone_numbers_count` > 0 OR `contacts`.`post_addresses_count` > 0 OR `contacts`.`email_addresses_count` > 0 OR `contacts`.`contact_form_links_count` > 0"
-    ).order("title ASC")
+    ).order("contacts.title ASC")
   }
 
   def to_s

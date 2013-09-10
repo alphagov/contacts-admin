@@ -12,6 +12,7 @@ class ContactsController < ApplicationController
     contact_groups.
     most_popular.
     with_contacts.
+    merge(Contact.for_listing).
     by_title.
     decorate
   }
@@ -30,6 +31,7 @@ class ContactsController < ApplicationController
     with_contacts.
     except_most_popular.
     by_title.
+    merge(Contact.for_listing).
     decorate
   }
 
