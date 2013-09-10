@@ -16,7 +16,8 @@ class ImportContacts
     def contact_attributes
       {
         description: attributes['description'],
-        contact_group: ContactGroup.find_by_title(attributes['clustergroup']),
+        contact_group: ContactGroup.find_by(title: attributes['clustergroup']),
+        department: Department.hmrc
       }
     end
 

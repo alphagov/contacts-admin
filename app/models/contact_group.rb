@@ -19,7 +19,7 @@ class ContactGroup < ActiveRecord::Base
     where("contact_group_type_id != ?", ContactGroupType.most_popular.id)
   }
   scope :with_contacts, -> { includes(:contacts) }
-  scope :by_title, -> { order("title ASC") }
+  scope :by_title, -> { order("contact_groups.title ASC") }
 
   def to_s
     title

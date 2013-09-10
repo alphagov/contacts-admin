@@ -24,7 +24,21 @@ describe ImportContacts::ContactBuilder do
       contact_group = 'See also'
       attributes = {'clustergroup' => contact_group}
 
-      expect(described_class.build(attributes).contact_group).to eq ContactGroup.find_by_title(contact_group)
+      expect(described_class.build(attributes).contact_group).to eq ContactGroup.find_by(title: contact_group)
+    end
+
+    context 'HMRC department present' do
+      let!(:department) { create :department, title: 'HMRC' }
+
+      it 'assigns HMRC department contact' do
+        expect(described_class.build({}).department).to eq Department.hmrc
+      end
+    end
+
+    context 'HMRC department missing' do
+      it 'does not assign HMRC department to contact' do
+        expect(described_class.build({}).department).to be_blank
+      end
     end
   end
 end
