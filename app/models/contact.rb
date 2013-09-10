@@ -22,13 +22,7 @@ class Contact < ActiveRecord::Base
   }
   scope :for_listing, -> {
     where(
-      arel_table[:phone_numbers_count].gt(0).or(
-        arel_table[:post_addresses_count].gt(0)
-      ).or(
-        arel_table[:email_addresses_count].gt(0)
-      ).or(
-        arel_table[:contact_form_links_count].gt(0)
-      )
+      "`contacts`.`phone_numbers_count` > 0 OR `contacts`.`post_addresses_count` > 0 OR `contacts`.`email_addresses_count` > 0 OR `contacts`.`contact_form_links_count` > 0"
     ).order("title ASC")
   }
 
