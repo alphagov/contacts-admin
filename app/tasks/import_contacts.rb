@@ -17,13 +17,13 @@ class ImportContacts
 
   def import(builder = ContactBuilder)
     csv_opts = { skip_blanks: true, encoding: 'windows-1252:utf-8', headers: true }
+
     logger.info "Importing: Import_id, title"
+
     CSV.foreach(@file_path, csv_opts)  do |entry_row|
       hash = entry_row.to_hash
       contact = builder.build(hash)
-      if Department.hmrc
-        contact.department = Department.hmrc
-      end
+
       if contact.save
         logger.info "#{hash.fetch(['contactid'], nil)}, #{hash.fetch(['title'], '').split(/\n/).map(&:strip).first}"
       end

@@ -1,5 +1,7 @@
 HmrcContacts::Application.routes.draw do
   scope :path => "#{APP_SLUG}" do
+    get "healthcheck" => "healthcheck#check"
+
     namespace :admin do
       root to: 'dashboards#show', via: :get
 
@@ -16,7 +18,7 @@ HmrcContacts::Application.routes.draw do
     end
 
     scope ':department_id' do
-      get "/", to: "contact_groups#index", as: :contact_groups
+      get "/", to: "contacts#index", as: :contacts
 
       get 'search', to: 'search#index'
       post 'search', to: 'search#search'
@@ -33,6 +35,7 @@ HmrcContacts::Application.routes.draw do
             as: :contact_details
       end
     end
+
     # DEFAULT TO HMRC
     get "/", to: redirect("/#{APP_SLUG}/hmrc/search", status: 302)
   end
