@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   expose(:department) {
-    Department.find_by_slug!(params[:department_id])
+    Department.find_by!(slug: params[:department_id])
   }
 
   def index

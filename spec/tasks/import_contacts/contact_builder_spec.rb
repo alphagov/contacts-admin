@@ -24,7 +24,7 @@ describe ImportContacts::ContactBuilder do
       contact_group = 'See also'
       attributes = {'clustergroup' => contact_group}
 
-      expect(described_class.build(attributes).contact_group).to eq ContactGroup.find_by_title(contact_group)
+      expect(described_class.build(attributes).contact_group).to eq ContactGroup.find_by(title: contact_group)
     end
 
     context 'HMRC department present' do
