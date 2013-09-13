@@ -1,4 +1,4 @@
-HmrcContacts::Application.configure do
+Contacts::Application.configure do
   config.slimmer.logger = Rails.logger
 
   if Rails.env.production?

@@ -1,4 +1,4 @@
-module HmrcContacts
+module Contacts
   module Interactor
     def self.included(base)
       base.extend(ClassMethods)
