@@ -58,4 +58,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'fakefs', require: 'fakefs/safe'
   gem 'capybara'
+  gem "simplecov"
+  gem "simplecov-rcov"
 end
