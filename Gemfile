@@ -1,3 +1,9 @@
+# Error on CI with simple_form gem install
+if RUBY_VERSION =~ /1.9/
+  Encoding.default_external = Encoding::UTF_8
+  Encoding.default_internal = Encoding::UTF_8
+end
+
 source 'https://rubygems.org'
 source 'https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/'
 
