@@ -15,7 +15,7 @@ require 'slimmer/test'
 require 'fakefs/spec_helpers'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
-Dir[Rails.root.join("spec/features/steps/**/*.rb")].sort.reverse.each {|f| puts f; require f}
+Dir[Rails.root.join("spec/features/steps/**/*.rb")].sort.reverse.each {|f| require f}
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
