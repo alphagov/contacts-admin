@@ -5,4 +5,4 @@ require File.expand_path('../config/application', __FILE__)
 
 require 'ci/reporter/rake/rspec' if Rails.env.development? or Rails.env.test?
 
-HmrcContacts::Application.load_tasks
+Contacts::Application.load_tasks

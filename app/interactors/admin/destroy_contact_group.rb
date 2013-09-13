@@ -1,6 +1,6 @@
 module Admin
   class DestroyContactGroup
-    include HmrcContacts::Interactor
+    include Contacts::Interactor
 
     takes(:contact_group)
 

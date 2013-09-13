@@ -1,12 +1,12 @@
 development:
   encoding: utf8
   adapter: mysql2
-  database: hmrc_contacts_development
-  username: hmrc_contacts
-  password: hmrc_contacts
+  database: contacts_development
+  username: contacts
+  password: contacts
 test:
   encoding: utf8
   adapter: mysql2
-  database: hmrc_contacts_test
-  username: hmrc_contacts
-  password: hmrc_contacts
+  database: contacts_test
+  username: contacts
+  password: contacts

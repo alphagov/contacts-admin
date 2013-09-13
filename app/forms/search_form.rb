@@ -24,6 +24,6 @@ class SearchForm
   end
 
   def search_client
-    HmrcContacts.mainstream_search_client
+    Contacts.mainstream_search_client
   end
 end

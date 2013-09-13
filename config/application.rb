@@ -9,9 +9,9 @@ Bundler.require(:default, Rails.env)
 APP_SLUG = 'contacts'
 SLUG_FORMAT = /[A-Za-z0-9\-_]+/
 
-module HmrcContacts
+module Contacts
   class Application < Rails::Application
-    require 'hmrc_contacts'
+    require 'contacts'
 
     config.autoload_paths += %W(
       #{config.root}/app/models/website

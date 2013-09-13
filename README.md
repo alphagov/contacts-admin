@@ -1,4 +1,4 @@
-# HMRC Contacts app
+# Contacts app
 
 This is an alpha for the replacement of the existing
 [HMRC contact us application](http://search2.hmrc.gov.uk/kb5/hmrc/contactus/home.page)
