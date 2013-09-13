@@ -4,11 +4,11 @@ require 'rummageable'
 rummager_host = ENV["RUMMAGER_HOST"] || Plek.current.find('search')
 
 # Going to use the same index as mainstream till rummager has multi index search
-# HmrcContacts.contacts_search_client = GdsApi::Rummager.new(
-#   rummager_host + HmrcContacts.search_index_path
+# Contacts.contacts_search_client = GdsApi::Rummager.new(
+#   rummager_host + Contacts.search_index_path
 # )
 
-HmrcContacts.mainstream_search_client = GdsApi::Rummager.new(
+Contacts.mainstream_search_client = GdsApi::Rummager.new(
   rummager_host + '/mainstream'
 )
 

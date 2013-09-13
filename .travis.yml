@@ -11,8 +11,8 @@ script:
   - bundle exec rake db:schema:load
   - bundle exec rake spec
 before_install:
-  - mysql -u root -e "CREATE DATABASE hmrc_contacts_test"
-  - mysql -u root -e "GRANT ALL ON hmrc_contacts_test.* TO 'hmrc_contacts'@'localhost' IDENTIFIED BY 'hmrc_contacts'"
+  - mysql -u root -e "CREATE DATABASE contacts_test"
+  - mysql -u root -e "GRANT ALL ON contacts_test.* TO 'contacts'@'localhost' IDENTIFIED BY 'contacts'"
   - cp config/database.travis.yml config/database.yml
 branches:
   only:

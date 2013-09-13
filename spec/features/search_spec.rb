@@ -5,8 +5,8 @@ describe 'Search for information' do
 
   # Use mock search for this example
   around { |example|
-    search_client = HmrcContacts.mainstream_search_client
-    HmrcContacts.mainstream_search_client = MockMainstreamSearchClient.new(
+    search_client = Contacts.mainstream_search_client
+    Contacts.mainstream_search_client = MockMainstreamSearchClient.new(
       {
         title: 'tax result',
         description: 'description',
@@ -16,7 +16,7 @@ describe 'Search for information' do
 
     example.run
 
-    HmrcContacts.mainstream_search_client = search_client
+    Contacts.mainstream_search_client = search_client
   }
 
   specify 'allows finding information from mainstream search index' do
