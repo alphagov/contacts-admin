@@ -1,6 +1,6 @@
 Contacts::Application.routes.draw do
+  get "healthcheck" => "healthcheck#check"
   scope :path => "#{APP_SLUG}" do
-    get "healthcheck" => "healthcheck#check"
 
     namespace :admin do
       root to: 'dashboards#show', via: :get
