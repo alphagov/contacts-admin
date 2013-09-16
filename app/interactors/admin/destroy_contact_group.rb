@@ -1,6 +1,6 @@
 module Admin
   class DestroyContactGroup
-    include Contacts::Interactor
+    include ::Contacts::Interactor
 
     takes(:contact_group)
 
