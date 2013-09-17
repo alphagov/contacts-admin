@@ -12,11 +12,8 @@ module Admin
     end
 
     def delete_contact(contact)
-      ensure_on admin_contacts_path
-
-      within(contacts_table_selector) do
-        click_link 'Remove'
-      end
+      ensure_on edit_admin_contact_path(contact)
+      click_link 'Delete'
     end
 
     def update_contact(contact, new_details = {})
