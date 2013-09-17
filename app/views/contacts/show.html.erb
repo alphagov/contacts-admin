@@ -34,19 +34,8 @@
           <p>
             There is a lot of information on this website that might help resolve your inquiry. Please read the recommended guidance before contacting <%= department.title %>.
           </p>
-          <% if contact.related_content_links.any? %>
-            <ul class="useful-links">
-              <% contact.related_content_links.each do |related_content_link| %>
-                <li>
-                  <h3>
-                    <%= link_to related_content_link.title, related_content_link.link %>
-                  </h3>
-                  <p>
-                    <%= related_content_link.description %>
-                  </p>
-                </li>
-              <% end %>
-            </ul>
+          <% if contact.before_you_contact_us.present? %>
+            <%= markdown contact.before_you_contact_us %>
           <% end %>
           <footer>
             <nav class="pagination" role="navigation" aria-label="Pagination">

@@ -32,6 +32,7 @@ module Admin
         :contact_group_id,
         :department_id,
         :description,
+        :before_you_contact_us,
         :contact_information,
         :title,
         :more_info_contact_form,

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130909114409) do
+ActiveRecord::Schema.define(version: 20130917182459) do
 
   create_table "contact_groups", force: true do |t|
     t.integer  "contact_group_type_id"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20130909114409) do
     t.string   "slug"
     t.string   "title"
     t.integer  "department_id"
+    t.text     "before_you_contact_us"
   end
 
   add_index "contacts", ["department_id"], name: "index_contacts_on_department_id", using: :btree
@@ -93,6 +94,14 @@ ActiveRecord::Schema.define(version: 20130909114409) do
     t.text     "address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "street_address"
+    t.string   "locality"
+    t.string   "region"
+    t.string   "postal_code"
+    t.integer  "country_id"
+    t.integer  "contact_type_id"
+    t.decimal  "latitude",        precision: 10, scale: 0
+    t.decimal  "longitude",       precision: 10, scale: 0
   end
 
   add_index "post_addresses", ["contact_id"], name: "index_post_addresses_on_contact_id", using: :btree
