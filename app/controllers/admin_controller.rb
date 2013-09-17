@@ -1,4 +1,6 @@
 class AdminController < ApplicationController
+  include GDS::SSO::ControllerMethods
+
   layout 'admin'
 
   prepend_before_filter :authenticate_user!
