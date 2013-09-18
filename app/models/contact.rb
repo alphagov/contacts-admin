@@ -30,11 +30,15 @@ class Contact < ActiveRecord::Base
     title
   end
 
+  def link
+    "/#{APP_SLUG}/#{department.slug}/#{self.slug}"
+  end
+
   def to_indexed_json
     {
       title: title,
       description: description,
-      link: "/#{APP_SLUG}/#{department.slug}/#{self.slug}",
+      link: link,
       format: "contact",
       indexable_content: "#{title} #{description} #{questions.map(&:title).join}"
     }
