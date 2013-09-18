@@ -20,9 +20,12 @@ module Admin
     end
 
     def destroy
-      contact.destroy
-
-      redirect_to admin_contacts_path, notice: 'Contact was successfully deleted'
+      if Admin::DestroyContact.new(contact).destroy
+        flash.notice = 'Contact successfully deleted'
+      else
+        flash.alert = 'There was an error deleting this contact, please try again later'
+      end
+      redirect_to admin_contacts_path
     end
 
     private

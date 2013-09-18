@@ -30,6 +30,8 @@ gem 'plek', '>= 1.0.0'
 gem 'aws-ses', require: 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
 
+gem 'whenever'
+
 # assets
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'

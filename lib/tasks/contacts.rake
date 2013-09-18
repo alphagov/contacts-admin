@@ -8,8 +8,7 @@ namespace :contacts do
 
   desc "Index Contacts & Questions in rummager"
   task index: :environment do
-    index = RUMMAGER_INDEX
-    index.add_batch Contact.includes(:contact_group, :questions, :department).all.map(&:to_indexed_json)
-    index.commit
+    RUMMAGER_INDEX.add_batch Contact.includes(:contact_group, :questions, :department).all.map(&:to_indexed_json)
+    RUMMAGER_INDEX.commit
   end
 end
