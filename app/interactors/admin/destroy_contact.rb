@@ -10,7 +10,7 @@ module Admin
           RUMMAGER_INDEX.delete(@contact.slug)
           @contact.destroy
         end
-      rescue RestClient::RequestFailed, RestClient::RequestTimeout, RestClient::ServerBrokeConnection
+      rescue RestClient::RequestFailed, RestClient::RequestTimeout, RestClient::ServerBrokeConnection, SocketError
         false
       end
     end
