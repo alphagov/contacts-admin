@@ -1,4 +1,5 @@
 ENV["RAILS_ENV"] ||= 'test'
+ENV["RUMMAGER_HOST"] ||= 'http://search.dev.gov.uk'
 
 require 'simplecov'
 require 'simplecov-rcov'
