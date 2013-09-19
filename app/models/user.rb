@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
     # update details of existing user
     if user = where(uid: auth_hash["uid"]).first
       user.update_attributes(user_params)
+      user
     else # Create a new user.
       create!(user_params)
     end
