@@ -21,11 +21,10 @@
     }
 
     .header-div {
-      padding-bottom: $gutter*1.5;
+      padding-bottom: $gutter-half;
 
       @media (max-width: 641px) {
         padding-top: $gutter-half;
-        padding-bottom: $gutter-half;
       }
     }
 
