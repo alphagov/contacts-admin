@@ -26,4 +26,8 @@ Contacts::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  config.after_initialize do
+    Contacts.worldwide_api = GdsApi::Worldwide.new("https://www.gov.uk")
+  end
 end
