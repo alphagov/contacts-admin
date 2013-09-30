@@ -7,7 +7,7 @@ module Admin
 
       has_selector?(post_addresses_table_selector) &&
         within(post_addresses_table_selector) do
-          has_content? post_address.address
+          has_content? post_address.title
         end
     end
 
@@ -41,6 +41,8 @@ module Admin
       details.each do |field, value|
         fill_in "post_address_#{field}", with: value
       end
+
+      select "United Kingdom", from: "post_address_world_location_slug"
 
       yield if block_given?
 
