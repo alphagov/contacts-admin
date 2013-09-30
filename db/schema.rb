@@ -98,10 +98,10 @@ ActiveRecord::Schema.define(version: 20130917182459) do
     t.string   "locality"
     t.string   "region"
     t.string   "postal_code"
-    t.integer  "country_id"
+    t.string   "world_location_slug"
     t.integer  "contact_type_id"
-    t.decimal  "latitude",        precision: 10, scale: 0
-    t.decimal  "longitude",       precision: 10, scale: 0
+    t.decimal  "latitude",            precision: 10, scale: 0
+    t.decimal  "longitude",           precision: 10, scale: 0
   end
 
   add_index "post_addresses", ["contact_id"], name: "index_post_addresses_on_contact_id", using: :btree

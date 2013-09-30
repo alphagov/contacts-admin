@@ -11,4 +11,21 @@ namespace :contacts do
     RUMMAGER_INDEX.add_batch Contact.includes(:contact_group, :questions, :department).all.map(&:to_indexed_json)
     RUMMAGER_INDEX.commit
   end
+
+  desc "Crude implementation of splitting the address"
+  task split_address: :environment do
+    PostAddress.all.to_a.each do |address|
+      strings = address.address.split("\n")
+      address.title = strings[0]
+      address.street_address = strings[1]
+      address.locality = strings[2]
+      address.region = strings[3]
+      address.postal_code = strings[4]
+      address.world_location_slug = "united-kingdom"
+      if strings.length > 5
+        address.description = strings[5..-1].join("\n")
+      end
+      address.save(validate: false)
+    end
+  end
 end
