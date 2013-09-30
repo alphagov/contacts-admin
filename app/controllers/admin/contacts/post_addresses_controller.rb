@@ -30,7 +30,19 @@ module Admin
       private
 
       def post_address_params
-        params.require(:post_address).permit(:title, :description, :address)
+        params.require(:post_address).permit(
+          :title,
+          :description,
+          :address,
+          :street_address,
+          :locality,
+          :region,
+          :postal_code,
+          :world_location_slug,
+          :contact_type_id,
+          :latitude,
+          :longitude
+        )
       end
     end
   end

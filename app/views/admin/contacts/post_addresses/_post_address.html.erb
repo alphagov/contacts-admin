@@ -1,8 +1,8 @@
 <tr>
-  <td><%= post_address.address %></td>
   <td class="break-link">
     <%= link_to post_address.title, edit_admin_contact_post_address_path(contact, post_address) %>
   </td>
+  <td><%= vcard_for_post_address(post_address) %></td>
   <td><%= post_address.description %></td>
   <td class="text-right">
     <small>

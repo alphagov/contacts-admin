@@ -1,9 +1,3 @@
-# Error on CI with simple_form gem install
-if RUBY_VERSION =~ /1.9/
-  Encoding.default_external = Encoding::UTF_8
-  Encoding.default_internal = Encoding::UTF_8
-end
-
 source 'https://rubygems.org'
 source 'https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/'
 
@@ -24,6 +18,7 @@ gem 'virtus'
 
 gem 'gds-sso', github: 'alphagov/gds-sso', branch: 'master', ref: 'bf4b6d13a1'
 gem 'gds-api-adapters'
+gem 'lrucache', '0.1.4'
 gem 'rummageable', github: 'alphagov/rummageable', branch: 'master'
 gem 'plek', '>= 1.0.0'
 

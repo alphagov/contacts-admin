@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'gds_api/worldwide'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -25,6 +26,10 @@ module Contacts
       g.template_engine     :erb
       g.test_framework      :rspec, fixture: false
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
+    end
+
+    config.after_initialize do
+      Contacts.worldwide_api = GdsApi::Worldwide.new(Plek.current.find('whitehall-admin'))
     end
   end
 end

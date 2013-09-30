@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Post Address editing', auth: :user do
+describe 'Post Address editing', auth: :user, mock_world_location: true do
   include Admin::PostAddressSteps
 
   let!(:contact)      { create :contact }

@@ -302,6 +302,7 @@ DEPENDENCIES
   gds-sso!
   govuk_frontend_toolkit (= 0.34.0)
   jquery-rails
+  lrucache (= 0.1.4)
   mysql2
   plek (>= 1.0.0)
   pry-rails
