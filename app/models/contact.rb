@@ -1,4 +1,6 @@
 class Contact < ActiveRecord::Base
+  include Versioning
+
   acts_as_url :title, url_attribute: :slug, sync_url: true
 
   belongs_to :department

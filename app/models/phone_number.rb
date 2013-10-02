@@ -1,4 +1,6 @@
 class PhoneNumber < ActiveRecord::Base
+  include Versioning
+
   belongs_to :contact, inverse_of: :phone_numbers, counter_cache: true
 
   validates :contact, presence: true

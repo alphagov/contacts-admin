@@ -12,3 +12,16 @@
     <%= render partial: 'form', locals: { contact_group: contact_group } %>
   </div>
 </div>
+<div class="row">
+  <div class="span12">
+    <h3>Audit log</h3>
+    <table class="table table-striped">
+      <tr>
+        <th>User</th>
+        <th>Action</th>
+        <th>Changes</th>
+      </tr>
+      <%= render partial: 'admin/versions/version', collection: contact_group.display_versions, as: :version %>
+    </table>
+  </div>
+</div>
