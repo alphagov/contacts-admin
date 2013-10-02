@@ -1,6 +1,6 @@
 class ImportContacts
   class MoreInfoRecord
-    include Virtus::ValueObject
+    include Virtus.value_object
 
     class MarkdownRenderer
       CONTENT_PART = %Q{%{content}}

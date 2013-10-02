@@ -1,5 +1,5 @@
 class SearchResult
-  include Virtus::ValueObject
+  include Virtus.value_object
 
   attribute :title, String
   attribute :description, String

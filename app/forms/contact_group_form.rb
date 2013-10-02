@@ -1,5 +1,5 @@
 class ContactGroupForm
-  include Virtus
+  include Virtus.model
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 

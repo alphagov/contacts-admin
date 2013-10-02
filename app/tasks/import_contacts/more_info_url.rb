@@ -1,6 +1,6 @@
 class ImportContacts
   class MoreInfoUrl
-    include Virtus::ValueObject
+    include Virtus.value_object
 
     class MarkdownRenderer
       URL_PART         = %Q{[%{url}](%{url_title})}

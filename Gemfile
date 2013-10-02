@@ -3,21 +3,21 @@ source 'https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/'
 
 gem 'rails', '4.0.0'
 
-gem 'active_hash'
-gem 'bootstrap-sass'
-gem 'decent_decoration'
-gem 'decent_exposure'
-gem 'draper'
-gem 'mysql2'
-gem 'redcarpet'
-gem 'simple_form', github: 'plataformatec/simple_form', ref: '359606f'
-gem 'slimmer', '>= 3.0.0'
-gem 'stringex'
+gem 'active_hash', '~> 1.2.0'
+gem 'bootstrap-sass', '2.3.2.2'
+gem 'decent_decoration', '~> 0.0.5'
+gem 'decent_exposure', '~> 2.3.0'
+gem 'draper', '~> 1.2.1'
+gem 'mysql2', '~> 0.3.13'
+gem 'redcarpet', '~> 3.0.0'
+gem 'simple_form', '~> 3.0.0', github: 'plataformatec/simple_form'
+gem 'slimmer', '~> 3.20.0'
+gem 'stringex', '2.1.0'
 gem 'unicorn', '~> 4.6.3'
-gem 'virtus'
+gem 'virtus', '~> 1.0.0.beta8'
 
 gem 'gds-sso', github: 'alphagov/gds-sso', branch: 'master', ref: 'bf4b6d13a1'
-gem 'gds-api-adapters'
+gem 'gds-api-adapters', '~> 7.6.0'
 gem 'lrucache', '0.1.4'
 gem 'rummageable', github: 'alphagov/rummageable', branch: 'master'
 gem 'plek', '>= 1.0.0'
@@ -25,7 +25,7 @@ gem 'plek', '>= 1.0.0'
 gem 'aws-ses', require: 'aws/ses' # Needed by exception_notification
 gem 'exception_notification'
 
-gem 'whenever'
+gem 'whenever', '~> 0.8.4'
 
 # assets
 gem 'sass-rails', '~> 4.0.0'
@@ -39,7 +39,7 @@ gem 'jquery-rails'
 group :development do
   gem 'capistrano'
   gem 'railroady'
-  gem 'rack-mini-profiler'
+  gem 'rack-mini-profiler', '~> 0.1.31'
 end
 
 group :development, :test do
@@ -55,6 +55,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'fakefs', require: 'fakefs/safe'
   gem 'capybara'
-  gem "simplecov"
-  gem "simplecov-rcov"
+  gem 'simplecov'
+  gem 'simplecov-rcov'
 end

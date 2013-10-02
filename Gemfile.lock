@@ -22,10 +22,9 @@ GIT
 
 GIT
   remote: git://github.com/plataformatec/simple_form.git
-  revision: 359606f222fa0972a4a14ec70140ac00f7c80839
-  ref: 359606f
+  revision: 50c4ac4a8bd0cb883ddaa309b779978e4207fef4
   specs:
-    simple_form (3.0.0.rc)
+    simple_form (3.0.0)
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
 
@@ -43,7 +42,7 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
-    active_hash (1.0.1)
+    active_hash (1.2.0)
       activesupport (>= 2.2.2)
     activemodel (4.0.0)
       activesupport (= 4.0.0)
@@ -67,7 +66,10 @@ GEM
       mail (> 2.2.5)
       mime-types
       xml-simple
-    backports (3.3.3)
+    axiom-types (0.0.4)
+      descendants_tracker (~> 0.0.1)
+      ice_nine (~> 0.9)
+    backports (3.3.4)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
     builder (3.1.4)
@@ -83,10 +85,13 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    chronic (0.9.1)
+    chronic (0.10.2)
     ci_reporter (1.9.0)
       builder (>= 2.1.2)
     coderay (1.0.9)
+    coercible (0.2.0)
+      backports (~> 3.0, >= 3.1.0)
+      descendants_tracker (~> 0.0.1)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -94,15 +99,16 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    decent_decoration (0.0.4)
+    decent_decoration (0.0.5)
       decent_exposure (> 0)
-    decent_exposure (2.2.1)
+    decent_exposure (2.3.0)
     descendants_tracker (0.0.1)
     diff-lcs (1.2.4)
     draper (1.2.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0.3)
+    equalizer (0.0.7)
     erubis (2.7.0)
     exception_notification (4.0.0)
       actionmailer (>= 3.0.4)
@@ -116,7 +122,7 @@ GEM
     fakefs (0.4.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
-    gds-api-adapters (7.1.0)
+    gds-api-adapters (7.6.0)
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -130,6 +136,7 @@ GEM
     hike (1.2.3)
     httpauth (0.2.0)
     i18n (0.6.5)
+    ice_nine (0.10.0)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -184,7 +191,7 @@ GEM
     rack (1.5.2)
     rack-accept (0.4.5)
       rack (>= 0.4)
-    rack-mini-profiler (0.1.29)
+    rack-mini-profiler (0.1.31)
       rack (>= 1.1.3)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -233,7 +240,7 @@ GEM
     simplecov-html (0.7.1)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
-    slimmer (3.19.0)
+    slimmer (3.20.0)
       json
       lrucache (~> 0.1.3)
       nokogiri (~> 1.5.0)
@@ -250,7 +257,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    stringex (2.0.11)
+    stringex (2.1.0)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
@@ -269,12 +276,14 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    virtus (0.5.5)
-      backports (~> 3.3)
+    virtus (1.0.0.beta8)
+      axiom-types (~> 0.0.3)
+      coercible (~> 0.2)
       descendants_tracker (~> 0.0.1)
+      equalizer (~> 0.0.7)
     warden (1.2.3)
       rack (>= 1.0)
-    whenever (0.8.2)
+    whenever (0.8.4)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
     xml-simple (1.1.2)
@@ -285,42 +294,42 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_hash
+  active_hash (~> 1.2.0)
   aws-ses
-  bootstrap-sass
+  bootstrap-sass (= 2.3.2.2)
   capistrano
   capybara
   ci_reporter
   coffee-rails (~> 4.0.0)
-  decent_decoration
-  decent_exposure
-  draper
+  decent_decoration (~> 0.0.5)
+  decent_exposure (~> 2.3.0)
+  draper (~> 1.2.1)
   exception_notification
   factory_girl_rails
   fakefs
-  gds-api-adapters
+  gds-api-adapters (~> 7.6.0)
   gds-sso!
   govuk_frontend_toolkit (= 0.34.0)
   jquery-rails
   lrucache (= 0.1.4)
-  mysql2
+  mysql2 (~> 0.3.13)
   plek (>= 1.0.0)
   pry-rails
-  rack-mini-profiler
+  rack-mini-profiler (~> 0.1.31)
   railroady
   rails (= 4.0.0)
-  redcarpet
+  redcarpet (~> 3.0.0)
   rspec-rails (~> 2.14)
   rummageable!
   sass-rails (~> 4.0.0)
   shoulda-matchers
-  simple_form!
+  simple_form (~> 3.0.0)!
   simplecov
   simplecov-rcov
-  slimmer (>= 3.0.0)
-  stringex
+  slimmer (~> 3.20.0)
+  stringex (= 2.1.0)
   therubyracer
   uglifier (>= 1.3.0)
   unicorn (~> 4.6.3)
-  virtus
-  whenever
+  virtus (~> 1.0.0.beta8)
+  whenever (~> 0.8.4)
