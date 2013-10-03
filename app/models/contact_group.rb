@@ -1,5 +1,6 @@
 class ContactGroup < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
+  include Versioning
 
   acts_as_url :title, url_attribute: :slug, sync_url: true
 
