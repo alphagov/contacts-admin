@@ -1,4 +1,6 @@
 class EmailAddress < ActiveRecord::Base
+  include Versioning
+
   belongs_to :contact, inverse_of: :email_addresses, counter_cache: true
 
   validates :contact, presence: true
