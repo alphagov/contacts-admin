@@ -5,6 +5,7 @@ FactoryGirl.define do
 
   factory :question do
     contact
+    contact_group
 
     title { generate(:question_title) }
   end

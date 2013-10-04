@@ -4,6 +4,7 @@ describe 'Question creation', auth: :user do
   include Admin::QuestionSteps
 
   let!(:contact) { create :contact }
+  let!(:contact_group) { create :contact_group }
   let(:question) { build :question }
 
   before {
@@ -15,6 +16,7 @@ describe 'Question creation', auth: :user do
       title: question.title
     }) do
       select contact, from: 'question_contact_id'
+      select contact_group, from: 'question_contact_group_id'
     end
 
     verify question_exists(question)

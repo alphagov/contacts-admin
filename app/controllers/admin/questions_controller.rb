@@ -34,7 +34,8 @@ module Admin
     def question_params
       params.require(:question).permit(
         :contact_id,
-        :title
+        :title,
+        :contact_group_id
       )
     end
   end

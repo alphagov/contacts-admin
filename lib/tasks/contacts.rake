@@ -28,4 +28,12 @@ namespace :contacts do
       address.save(validate: false)
     end
   end
+
+  desc "Fix contact group id on questions"
+  task fix_questions: :environment do
+    Question.all.to_a.each do |question|
+      question.update_attribute :contact_group_id, question.contact.contact_group.id if question.contact.contact_group
+    end
+    Question.where(contact_group_id: nil).destroy_all
+  end
 end

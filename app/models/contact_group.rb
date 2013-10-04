@@ -5,7 +5,7 @@ class ContactGroup < ActiveRecord::Base
   acts_as_url :title, url_attribute: :slug, sync_url: true
 
   has_many :contacts
-  has_many :questions, through: :contacts
+  has_many :questions
 
   belongs_to_active_hash :contact_group_type
   belongs_to :department
