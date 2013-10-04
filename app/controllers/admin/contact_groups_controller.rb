@@ -35,7 +35,8 @@ module Admin
       params.require(:contact_group).permit(
         :contact_group_type_id,
         :description,
-        :title
+        :title,
+        :department_id
       )
     end
   end
