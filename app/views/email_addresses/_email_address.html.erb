@@ -8,7 +8,6 @@
   </span>
 
   <% if email_address.description.present? %>
-    <br>
-    <%= simple_format(h(email_address.description), {}, wrapper_tag: 'small') %>
+    <%= markdown email_address.description %>
   <% end %>
 </p>

@@ -3,7 +3,7 @@
     <%= vcard_for_post_address(post_address) %>
 
     <% if post_address.description.present? %>
-      <%= simple_format h(post_address.description) %>
+      <%= markdown post_address.description %>
     <% end %>
   </div>
 </div>

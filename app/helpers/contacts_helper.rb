@@ -4,7 +4,7 @@ module ContactsHelper
       address.title
     end
     street_address = content_tag :span, class: "street-address" do
-      address.street_address
+      markdown address.street_address
     end
     locality = content_tag :span, class: "locality" do
       address.locality
