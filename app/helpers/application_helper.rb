@@ -24,7 +24,7 @@ module ApplicationHelper
   private
 
   def markdown_renderer
-    @markdown_renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::XHTML,
+    @markdown_renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::XHTML.new(filter_html: true),
                                                    autolink: true,
                                                    space_after_headers: true,
                                                    tables: true,
