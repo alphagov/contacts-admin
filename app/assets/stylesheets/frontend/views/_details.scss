@@ -131,6 +131,12 @@
             }
           }
 
+          .vcard {
+            p {
+              margin-bottom: 0px;
+            }
+          }
+
           strong {
             font-weight: bold;
           }
@@ -191,7 +197,7 @@
               }
             }
           }
-            
+
           &.js-hide {
             margin-bottom: $gutter-half;
 
@@ -270,12 +276,12 @@
 
     &.js-hidden {
       display: block !important;
-        
+
       a {
         display: block;
       }
 
-      .application-notice { 
+      .application-notice {
         display: none;
       }
     }
