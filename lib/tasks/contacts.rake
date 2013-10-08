@@ -36,4 +36,11 @@ namespace :contacts do
     end
     Question.where(contact_group_id: nil).destroy_all
   end
+
+  desc "remap contact memberships"
+  task remap_memberships: :environment do
+    Contact.where("contact_group_id IS NOT NULL").to_a.each do |contact|
+      ContactMembership.create contact_id: contact.id, contact_group_id: contact.contact_group_id
+    end
+  end
 end
