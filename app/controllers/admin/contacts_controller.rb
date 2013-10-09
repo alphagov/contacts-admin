@@ -32,7 +32,7 @@ module Admin
 
     def contact_params
       params.require(:contact).permit(
-        :contact_group_id,
+        {contact_group_ids: []},
         :department_id,
         :description,
         :before_you_contact_us,

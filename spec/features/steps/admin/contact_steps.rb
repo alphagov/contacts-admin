@@ -53,7 +53,7 @@ module Admin
     end
 
     def associated_to_contact_group(contact, contact_group)
-      contact.reload.contact_group == contact_group
+      contact.reload.contact_groups.include?(contact_group)
     end
   end
 end

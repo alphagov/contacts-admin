@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def markdown(markdown_text, renderer = markdown_renderer)
-    renderer.render(markdown_text).html_safe
+    renderer.render(markdown_text).html_safe if markdown_text
   end
 
   private

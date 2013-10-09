@@ -4,7 +4,7 @@
       <legend>General details</legend>
       <%= f.input :title, input_html: { class: 'span4' } %>
       <%= f.association :department, collection: Department.all, include_blank: false, input_html: { class: 'span3 js-chosen-select' } %>
-      <%= f.association :contact_group, collection: ContactGroup.all, include_blank: true, input_html: { class: 'span9 js-chosen-select' } %>
+      <%= f.association :contact_groups, collection: ContactGroup.all, include_hidden: false, multiple: true, input_html: { class: 'span9 js-chosen-select' } %>
       <%= f.input :description, as: :text, input_html: { rows: 8, class: 'span9' } %>
       <div class='row'>
         <div class='span6 first-child'>
