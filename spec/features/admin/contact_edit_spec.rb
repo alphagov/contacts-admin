@@ -16,7 +16,7 @@ describe 'Contact editing', auth: :user do
       more_info_contact_form: 'more info contact form entry',
       more_info_phone_number: 'more info phone number entry'
     ) do
-      select contact_group, from: 'contact_contact_group_id'
+      select contact_group, from: 'contact_contact_group_ids'
     end
 
     verify contact_updated(

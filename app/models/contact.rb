@@ -4,7 +4,9 @@ class Contact < ActiveRecord::Base
   acts_as_url :title, url_attribute: :slug, sync_url: true
 
   belongs_to :department
-  belongs_to :contact_group, counter_cache: true
+
+  has_many :contact_groups, through: :contact_memberships
+  has_many :contact_memberships
 
   has_many :questions, inverse_of: :contact
 

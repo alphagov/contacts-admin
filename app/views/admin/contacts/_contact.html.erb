@@ -4,8 +4,8 @@
     <%= link_to contact.title, contact_path(contact.department, contact.slug), class: 'no-underline' %>
   </td>
   <td>
-    <% if contact.contact_group %>
-      <%= link_to contact.contact_group, edit_admin_contact_group_path(contact.contact_group) %>
+    <% contact.contact_groups.each do |contact_group| %>
+      <%= link_to contact_group, edit_admin_contact_group_path(contact_group) %> <br>
     <% end %>
   </td>
   <td>

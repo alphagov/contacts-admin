@@ -12,8 +12,8 @@ FactoryGirl.define do
     description { generate(:contact_group_description) }
 
     trait :with_contacts do
-      after(:create) do |contact_group, evaluator|
-        FactoryGirl.create_list(:contact, 1, contact_group: contact_group)
+      after(:create) do |contact_group|
+        contact_group.contacts << FactoryGirl.create(:contact)
       end
     end
   end
