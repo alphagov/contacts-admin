@@ -7,6 +7,10 @@ module Admin
       @contact_groups = ContactGroup.all
     end
 
+    def new
+      question.contact_group_id = params[:contact_group_id]
+    end
+
     def update
       if question.update_attributes(question_params)
         redirect_to admin_questions_path, notice: 'Question was successfully updated'
