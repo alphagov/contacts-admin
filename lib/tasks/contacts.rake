@@ -32,7 +32,7 @@ namespace :contacts do
   desc "Fix contact group id on questions"
   task fix_questions: :environment do
     Question.all.to_a.each do |question|
-      question.update_attribute :contact_group_id, question.contact.contact_groups.first.id if question.contact.contact_groups.any?
+      question.update_attribute :contact_group_id, question.contact.contact_groups.first.id if question.contact && question.contact.contact_groups.any?
     end
     Question.where(contact_group_id: nil).destroy_all
   end
