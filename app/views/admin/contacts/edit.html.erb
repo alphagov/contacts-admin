@@ -4,7 +4,11 @@
       <h2>
         Edit <%= contact %>
 
-        <%= link_to 'Delete', admin_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
+        <span class="pull-right">
+          <%= link_to 'Clone', clone_admin_contact_path(contact), data: { confirm: 'Are you sure?' }, class: 'btn btn-small' %>
+          &nbsp;
+          <%= link_to 'Delete', admin_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red' %>
+        </span>
       </h2>
 
       <%= render partial: 'contact_nav' %>
