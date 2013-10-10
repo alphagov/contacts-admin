@@ -9,6 +9,8 @@
     <div class="control-group">
       <div class="controls">
         <%= f.submit id: 'question-submit', class: 'btn btn-small btn-primary', data: { disable_with: 'Working' } %>
+        &nbsp;
+        <%= link_to "cancel", admin_questions_path, class: 'btn btn-small'%>
       </div>
     </div>
   </div>
