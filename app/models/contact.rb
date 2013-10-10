@@ -6,7 +6,7 @@ class Contact < ActiveRecord::Base
   belongs_to :department
 
   has_many :contact_groups, through: :contact_memberships
-  has_many :contact_memberships
+  has_many :contact_memberships, dependent: :destroy
 
   has_many :questions, inverse_of: :contact
 
