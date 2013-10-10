@@ -3,9 +3,7 @@
     <div class='page-header'>
       <h2>
         Edit Contact Group
-        <% if contact_group.contacts.none? %>
-          <%= link_to 'Delete', admin_contact_group_path(contact_group), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
-        <% end %>
+        <%= link_to 'Delete', admin_contact_group_path(contact_group), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
       </h2>
     </div>
 

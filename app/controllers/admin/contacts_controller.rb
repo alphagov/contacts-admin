@@ -23,7 +23,7 @@ module Admin
       if Admin::DestroyContact.new(contact).destroy
         flash.notice = 'Contact successfully deleted'
       else
-        flash.alert = 'There was an error deleting this contact, please try again later'
+        flash.alert = contact.errors.full_messages.to_sentence
       end
       redirect_to admin_contacts_path
     end
