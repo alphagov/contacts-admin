@@ -14,9 +14,6 @@
           Search for <%= department.title %> contact information
         </h1>
       </header>
-      <p>
-        Please enter the name of the contact detail you are looking for or type what you would like to do.
-      </p>
       <%= simple_form_for @search_form, url: search_path(department) do |search_form| %>
         <div class="searchfield">
           <fieldset class="search-input">
@@ -47,7 +44,7 @@
 
     <% @contact_groups.each do |contact_group| %>
       <ul class="common-sections" id="section-<%= contact_group.slug %>">
-        <% contact_group.questions.limit(7).decorate.each do |question| %>
+        <% contact_group.questions.limit(8).decorate.each do |question| %>
           <li>
             <%= link_to question, contact_path(department, question.contact) %>
           </li>
