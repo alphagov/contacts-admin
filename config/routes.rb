@@ -7,6 +7,9 @@ Contacts::Application.routes.draw do
 
       resources :contact_groups
       resources :contacts do
+        member do
+          get :clone
+        end
         scope module: 'contacts' do
           resources :contact_form_links
           resources :email_addresses
