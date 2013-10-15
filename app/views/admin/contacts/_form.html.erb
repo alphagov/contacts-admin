@@ -6,28 +6,8 @@
       <%= f.association :department, collection: Department.all, include_blank: false, input_html: { class: 'span3 js-chosen-select' } %>
       <%= f.association :contact_groups, collection: ContactGroup.all, include_hidden: false, multiple: true, input_html: { class: 'span9 js-chosen-select' } %>
       <%= f.input :description, as: :text, input_html: { rows: 8, class: 'span9' } %>
-      <div class='row'>
-        <div class='span6 first-child'>
-          <%= f.input :before_you_contact_us, as: :text, label: 'Before you contact us', input_html: { rows: 5, class: 'span4' } %>
-        </div>
-        <div class='span6 span-preview'>
-          <%= f.label :preview, required: false %>
-          <div class="controls">
-            <div class='well well-small' data-preview='markdown' data-preview-for='#contact_before_you_contact_us'></div>
-          </div>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='span6 first-child'>
-          <%= f.input :contact_information, as: :text, label: 'Information you will need', input_html: { rows: 5, class: 'span4' } %>
-        </div>
-        <div class='span6 span-preview'>
-          <%= f.label :preview, required: false %>
-          <div class="controls">
-            <div class='well well-small' data-preview='markdown' data-preview-for='#contact_contact_information'></div>
-          </div>
-        </div>
-      </div>
+      <%= f.input :before_you_contact_us, as: :text, label: 'Before you contact us', input_html: { rows: 5, class: 'span9' } %>
+      <%= f.input :contact_information, as: :text, label: 'Information you will need', input_html: { rows: 5, class: 'span9' } %>
     </fieldset>
 
     <fieldset class="form-horizontal">
@@ -36,53 +16,10 @@
       <p>These appear below each contact method (contact form, phone number, email address, post address)</p>
       <br>
 
-      <div class='row'>
-        <div class='span6 first-child'>
-          <%= f.input :more_info_contact_form, label: 'More info for contact forms', input_html: { rows: 8, class: 'span4' } %>
-        </div>
-        <div class='span6 span-preview'>
-          <%= f.label :preview, required: false %>
-          <div class="controls">
-            <div class='well well-small' data-preview='markdown' data-preview-for='#contact_more_info_contact_form'></div>
-          </div>
-        </div>
-      </div>
-
-      <div class='row'>
-        <div class='span6 first-child'>
-          <%= f.input :more_info_email_address, label: 'More info for email addresses', input_html: { rows: 8, class: 'span4' }  %>
-        </div>
-        <div class='span6 span-preview'>
-          <%= f.label :preview, required: false %>
-          <div class="controls">
-            <div class='well well-small' data-preview='markdown' data-preview-for='#contact_more_info_email_address'></div>
-          </div>
-        </div>
-      </div>
-
-      <div class='row'>
-        <div class='span6 first-child'>
-          <%= f.input :more_info_post_address, label: 'More info for postal addresses', input_html: { rows: 8, class: 'span4' }  %>
-        </div>
-        <div class='span6 span-preview'>
-          <%= f.label :preview, required: false %>
-          <div class="controls">
-            <div class='well well-small' data-preview='markdown' data-preview-for='#contact_more_info_post_address'></div>
-          </div>
-        </div>
-      </div>
-
-      <div class='row'>
-        <div class='span6 first-child'>
-          <%= f.input :more_info_phone_number, label: 'More info for phone numbers', input_html: { rows: 8, class: 'span4' }  %>
-        </div>
-        <div class='span6 span-preview'>
-          <%= f.label :preview, required: false %>
-          <div class="controls">
-            <div class='well well-small' data-preview='markdown' data-preview-for='#contact_more_info_phone_number'></div>
-          </div>
-        </div>
-      </div>
+      <%= f.input :more_info_contact_form, label: 'More info for contact forms', input_html: { rows: 8, class: 'span9' } %>
+      <%= f.input :more_info_email_address, label: 'More info for email addresses', input_html: { rows: 8, class: 'span9' }  %>
+      <%= f.input :more_info_post_address, label: 'More info for postal addresses', input_html: { rows: 8, class: 'span9' }  %>
+      <%= f.input :more_info_phone_number, label: 'More info for phone numbers', input_html: { rows: 8, class: 'span9' }  %>
     </fieldset>
 
     <div class='form-actions form-horizontal'>
