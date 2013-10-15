@@ -1,5 +1,18 @@
 <tr>
+  <td class="date"><%= version.created_at.to_formatted_s(:long) %></td>
   <td><%= version.user_name %></td>
   <td><%= version.event %></td>
-  <td><%= version.changeset %></td>
+  <td class="changeset">
+    <% version.changeset.each do |key, value| %>
+    <section id="<%= key %><%= rand(10000) %>" class="diff">
+      <%= key %>:
+      <p class="previous-version">
+        <%= value[0] %>
+      </p>
+      <p class="current-version">
+        <%= value[1] %>
+      </p>
+    </section>
+    <% end %>
+  </td>
 </tr>
