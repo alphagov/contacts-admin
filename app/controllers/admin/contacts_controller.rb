@@ -11,6 +11,13 @@ module Admin
       end
     end
 
+    def clone
+      contact = Contact.find(params[:id])
+      cloned_contact = Admin::CloneContact.new(contact).clone
+      flash.notice = 'Contact cloned'
+      redirect_to edit_admin_contact_path(cloned_contact)
+    end
+
     def create
       if contact.save
         redirect_to admin_contacts_path, notice: 'Contact successfully created'
