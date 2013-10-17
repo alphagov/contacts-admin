@@ -1,4 +1,5 @@
 <p class="vcard">
+  <%= govspeak email_address.description %>
   <strong class="fn">
     <%= email_address.title %>
   </strong>
@@ -6,8 +7,4 @@
   <span class="email">
     <%= mail_to email_address.email %>
   </span>
-
-  <% if email_address.description.present? %>
-    <%= markdown email_address.description %>
-  <% end %>
 </p>

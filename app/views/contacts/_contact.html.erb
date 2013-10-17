@@ -2,7 +2,5 @@
   <h2 id="<%= contact.slug %>">
     <%= link_to contact, contact_path(department, contact) %>
   </h2>
-  <p>
-    <%= contact.description %>
-  </p>
+  <%= govspeak contact.description %>
 </li>

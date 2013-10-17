@@ -4,19 +4,19 @@ module ContactsHelper
       address.title
     end
     street_address = content_tag :span, class: "street-address" do
-      markdown address.street_address
+      govspeak address.street_address
     end
     locality = content_tag :span, class: "locality" do
-      markdown address.locality
+      govspeak address.locality
     end
     region = content_tag :span, class: "region" do
-      markdown address.region
+      govspeak address.region
     end
     postal_code = content_tag :span, class: "postal-code" do
-      markdown address.postal_code
+      govspeak address.postal_code
     end
     world_location = content_tag :span, class: "country-name" do
-      markdown address.world_location.try(:name)
+      govspeak address.world_location.try(:name)
     end
     content_tag :span, class: "vcard" do
       [title, street_address, locality, region, postal_code, world_location].join.html_safe
