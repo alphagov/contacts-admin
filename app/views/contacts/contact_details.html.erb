@@ -17,9 +17,7 @@
             </h1>
           </header>
 
-          <p>
-            Help and advice for <%= contact %> customers
-          </p>
+          <%= govspeak contact.description %>
         </div>
 
         <aside>
@@ -81,7 +79,7 @@
                     </li>
                   </ul>
 
-                  <%= markdown contact.more_info_contact_form.to_s %>
+                  <%= govspeak contact.more_info_contact_form.to_s %>
                 </div>
               </li>
             <% end %>
@@ -108,7 +106,11 @@
                   </p>
                   <%= render contact.phone_numbers %>
 
-                  <%= markdown contact.more_info_phone_number.to_s %>
+                  <p>
+                    <%= link_to "Find out about call charges", "https://www.gov.uk/call-charges" %>
+                  </p>
+
+                  <%= govspeak contact.more_info_phone_number.to_s %>
                 </div>
               </li>
             <% end %>
@@ -121,7 +123,7 @@
                 <div class="contact-detail-inner">
                   <%= render contact.email_addresses %>
 
-                  <%= markdown contact.more_info_email_address.to_s %>
+                  <%= govspeak contact.more_info_email_address.to_s %>
                 </div>
               </li>
             <% end %>
@@ -134,7 +136,7 @@
                 <div class="contact-detail-inner">
                   <%= render contact.post_addresses %>
 
-                  <%= markdown contact.more_info_post_address.to_s %>
+                  <%= govspeak contact.more_info_post_address.to_s %>
                 </div>
               </li>
             <% end %>

@@ -4,9 +4,7 @@
       <%= link_to contact_group, "##{contact_group.slug}", 'data-expand' => "#{contact_group.slug}-elements" %>
     </h2>
     <%= link_to 'view all', "##{contact_group.slug}", class: "view-all", 'data-expand' => "#{contact_group.slug}-elements" %>
-    <p>
-      <%= contact_group.description %>
-    </p>
+    <%= govspeak contact_group.description %>
 
     <div class="organisations-box" id="<%= contact_group.slug %>-elements">
       <div class="organisations-box-inner">
@@ -16,9 +14,7 @@
               <h3>
                 <%= link_to contact, contact_path(department, contact) %>
               </h3>
-              <p>
-                <%= contact.description %>
-              </p>
+              <%= govspeak contact.description %>
             </li>
           <% end %>
         </ul>

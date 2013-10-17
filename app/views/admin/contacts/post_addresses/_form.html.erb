@@ -6,7 +6,7 @@
     <%= f.input :region, input_html: { class: 'span6' } %>
     <%= f.input :postal_code, input_html: { class: 'span6' } %>
     <%= f.input :world_location_slug, collection: WorldLocation.all, value_method: :slug, label: "Country", input_html: { rows: 8, class: 'span6' } %>
-    <%= f.input :description, input_html: { rows: 8, class: 'span6' } %>
+    <%= f.input :description, input_html: { rows: 8, class: 'span6' }, hint: "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>" %>
     <%= f.input :address, label: "Legacy Address - please rewrite", input_html: { rows: 5, class: 'span6' } %>
   </fieldset>
 
@@ -18,3 +18,4 @@
     </div>
   </div>
 <% end %>
+<%= render "admin/shared/formatting" %>
