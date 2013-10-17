@@ -17,9 +17,7 @@
             </h1>
           </header>
 
-          <p>
-            Help and advice for <%= contact %> customers
-          </p>
+          <%= govspeak contact.description %>
         </div>
 
         <aside>
@@ -107,6 +105,10 @@
                     Consider using alternative communication method.
                   </p>
                   <%= render contact.phone_numbers %>
+
+                  <p>
+                    <%= link_to "Find out about call charges", "https://www.gov.uk/call-charges" %>
+                  </p>
 
                   <%= govspeak contact.more_info_phone_number.to_s %>
                 </div>

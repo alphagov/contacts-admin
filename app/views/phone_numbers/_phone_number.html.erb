@@ -1,3 +1,4 @@
+<%= govspeak phone_number.description %>
 <div class="contact vcard">
   <p>
     <strong class="fn">
@@ -47,14 +48,6 @@
   <% end %>
 
   <div class="note">
-    <% if phone_number.open_hours.present? %>
-        <%= govspeak phone_number.open_hours %>
-    <% end %>
-    <% if phone_number.description.present? %>
-        <%= govspeak phone_number.description %>
-    <% end %>
-    <p>
-      <%= link_to "Find out about call charges", "https://www.gov.uk/call-charges" %>
-    </p>
+    <%= govspeak phone_number.open_hours %>
   </div>
 </div>

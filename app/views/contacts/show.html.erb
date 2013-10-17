@@ -17,9 +17,7 @@
             </h1>
           </header>
 
-          <p>
-            Help and advice for <%= contact %> customers
-          </p>
+          <%= govspeak contact.description %>
         </div>
         <div class="clear"></div>
       </div>
@@ -34,9 +32,7 @@
           <p>
             More information:
           </p>
-          <% if contact.before_you_contact_us.present? %>
-            <%= govspeak contact.before_you_contact_us %>
-          <% end %>
+          <%= govspeak contact.before_you_contact_us %>
           <footer>
             <nav class="pagination" role="navigation" aria-label="Pagination">
               <ul class="group">

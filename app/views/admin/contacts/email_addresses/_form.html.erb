@@ -2,7 +2,7 @@
   <fieldset class="form-horizontal">
     <%= f.input :title, input_html: { class: 'span6' } %>
     <%= f.input :email, input_html: { class: 'span6' } %>
-    <%= f.input :description, input_html: { rows: 8, class: 'span6' } %>
+    <%= f.input :description, input_html: { rows: 8, class: 'span6' }, hint: "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>" %>
   </fieldset>
 
   <div class='form-actions form-horizontal'>
@@ -13,3 +13,4 @@
     </div>
   </div>
 <% end %>
+<%= render "admin/shared/formatting" %>
