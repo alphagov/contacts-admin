@@ -5,7 +5,7 @@ module Admin
 
     def update
       if contact.update_attributes(contact_params)
-        redirect_to admin_contacts_path, notice: 'Contact successfully updated'
+        redirect_to edit_admin_contact_path(contact), notice: 'Contact successfully updated'
       else
         render :edit
       end
