@@ -17,6 +17,7 @@
       <%= simple_form_for @search_form, url: search_path(department) do |search_form| %>
         <div class="searchfield">
           <fieldset class="search-input">
+            <label class="visuallyhidden" for="search-main">Please enter the name of the contact detail you are looking for</label>
             <%= search_form.input :q, label: false, input_html: { id: 'search-main' } %>
           </fieldset>
           <fieldset class="search-submit">
