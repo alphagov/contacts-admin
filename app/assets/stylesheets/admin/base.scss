@@ -205,7 +205,7 @@ $hover-yellow: #fff8dd;
         padding-right: 12px;
         padding-left: 12px;
         margin-right: 2px;
-        line-height: 14px; 
+        line-height: 14px;
         padding-top: 8px;
         padding-bottom: 8px;
         line-height: 20px;
@@ -214,7 +214,7 @@ $hover-yellow: #fff8dd;
         height: 19px;
         overflow: hidden;
 
-        &:hover, 
+        &:hover,
         &:focus {
           border-color: #eee;
           background: #eee;
@@ -229,7 +229,7 @@ $hover-yellow: #fff8dd;
         background-color: white;
         border: 1px solid #ddd;
         border-bottom-color: white;
-        cursor: default; 
+        cursor: default;
         height: 20px;
       }
     }
@@ -442,6 +442,16 @@ fieldset {
     }
   }
 }
+
+table {
+  td.date{
+    width:85px;
+  }
+  td.changeset{
+    font-size: 11px;
+  }
+}
+
 
 .question-page {
   .js-expand-list {
