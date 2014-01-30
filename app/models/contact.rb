@@ -3,8 +3,6 @@ class Contact < ActiveRecord::Base
 
   acts_as_url :title, url_attribute: :slug, sync_url: true
 
-  belongs_to :department
-
   has_many :contact_groups, through: :contact_memberships
   has_many :contact_memberships, dependent: :destroy
 
@@ -32,6 +30,14 @@ class Contact < ActiveRecord::Base
 
   def to_s
     title
+  end
+
+  def department
+    Department.find department_id
+  end
+
+  def department=(department)
+    self.department_id = department ? department.id : nil
   end
 
   def link

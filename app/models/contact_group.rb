@@ -9,7 +9,6 @@ class ContactGroup < ActiveRecord::Base
   has_many :questions
 
   belongs_to_active_hash :contact_group_type
-  belongs_to :department
 
   validates :title, presence: true
   validates :description, presence: true
@@ -25,5 +24,13 @@ class ContactGroup < ActiveRecord::Base
 
   def to_s
     title
+  end
+
+  def department
+    Department.find department_id
+  end
+
+  def department=(department)
+    self.department_id = department ? department.id : nil
   end
 end
