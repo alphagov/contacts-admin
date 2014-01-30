@@ -98,7 +98,7 @@ class SeedDatabase
         contact_group_type_id: contact_group[:contact_group_type].id,
         title: contact_group[:title],
         description: contact_group[:description],
-        department_id: Department.first.id
+        department_id: Department.find_by(slug: "hm-revenue-customs").id
       )
     end
   end

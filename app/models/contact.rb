@@ -33,11 +33,11 @@ class Contact < ActiveRecord::Base
   end
 
   def department
-    Department.find department_id
+    Department.find_by slug: department_id
   end
 
   def department=(department)
-    self.department_id = department ? department.id : nil
+    self.department_id = department ? department.slug : nil
   end
 
   def link

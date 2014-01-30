@@ -33,6 +33,5 @@ RSpec.configure do |config|
 
   config.before(:each) do
     # ActiveHash clean slate for testing
-    [Department].each(&:delete_all)
   end
 end

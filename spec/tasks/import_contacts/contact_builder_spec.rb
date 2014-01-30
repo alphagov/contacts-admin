@@ -29,16 +29,16 @@ describe ImportContacts::ContactBuilder do
     end
 
     context 'HMRC department present' do
-      let!(:department) { create :department, title: 'HMRC' }
+      let!(:department) { Department.find_by abbreviation: "HMRC" }
 
       it 'assigns HMRC department contact' do
-        expect(described_class.build({}).department).to eq Department.hmrc
+        expect(described_class.build(department: department).department).to eq Department.find_by(abbreviation: "HMRC")
       end
     end
 
     context 'HMRC department missing' do
       it 'does not assign HMRC department to contact' do
-        expect(described_class.build({}).department).to be_blank
+        expect(described_class.build(department: nil).department).to be_blank
       end
     end
   end
