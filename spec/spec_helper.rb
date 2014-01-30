@@ -31,7 +31,7 @@ RSpec.configure do |config|
   config.include FeaturesHelpers, type: :feature
   config.include FileCreationHelper
 
-  config.before(:each) do
-    # ActiveHash clean slate for testing
+  config.before(:suite) do
+    Contacts.organisations_api = MockOrganisationsApi.new
   end
 end
