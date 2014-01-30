@@ -1,5 +1,9 @@
 class MockOrganisationsApi
   def organisations
+    self
+  end
+
+  def with_subsequent_pages
     [
       OpenStruct.new(id: "hmrc",
                   title: "HM Revenue & Customs",
