@@ -1,6 +1,7 @@
 module Admin
   class ContactsController < AdminController
-    expose(:contacts)
+    expose(:search) { ContactsSearch.new params[:search] }
+    expose(:contacts) { search.results }
     expose(:contact, attributes: :contact_params)
 
     def update
