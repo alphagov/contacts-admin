@@ -23,16 +23,7 @@ Contacts::Application.routes.draw do
     scope ':department_id' do
       get "/", to: "contacts#index", as: :contacts
 
-      resources :contacts, constraints: { id: SLUG_FORMAT }, path: '/' do
-        get 'information-you-will-need',
-            on: :member,
-            action: :information_you_will_need,
-            as: :information_you_will_need
-        get 'contact-details',
-            on: :member,
-            action: :contact_details,
-            as: :contact_details
-      end
+      resources :contacts, constraints: { id: SLUG_FORMAT }, path: '/'
     end
 
     # DEFAULT TO HMRC
