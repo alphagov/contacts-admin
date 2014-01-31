@@ -2,7 +2,7 @@
   <h1>
     <%= link_to search_path(department), class: "organisation-logo organisation-logo-stacked-#{department.slug} organisation-logo-stacked-#{department.slug}-large" do %>
       <span>
-        <%= h department.logo_name.html_safe %>
+        <%= department.logo_name %>
       </span>
     <% end %>
   </h1>
