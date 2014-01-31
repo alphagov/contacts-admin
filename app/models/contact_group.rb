@@ -1,6 +1,7 @@
 class ContactGroup < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
   include Versioning
+  include BelongsToDepartment
 
   acts_as_url :title, url_attribute: :slug, sync_url: true
 
@@ -9,7 +10,6 @@ class ContactGroup < ActiveRecord::Base
   has_many :questions
 
   belongs_to_active_hash :contact_group_type
-  belongs_to :department
 
   validates :title, presence: true
   validates :description, presence: true

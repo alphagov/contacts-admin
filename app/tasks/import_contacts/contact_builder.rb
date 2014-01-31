@@ -17,7 +17,7 @@ class ImportContacts
       {
         description: attributes['description'],
         contact_group_ids: [ContactGroup.find_by(title: attributes['clustergroup']).try(:id)],
-        department: Department.hmrc
+        department: attributes.fetch(:department) { Department.find_by abbreviation: "hmrc" }
       }
     end
 

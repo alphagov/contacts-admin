@@ -16,6 +16,7 @@ describe 'Contact creation', auth: :user do
       description: contact.description,
       contact_information: contact.contact_information
     }) do
+      select contact.department, from: "contact_department_id"
       select contact_group, from: 'contact_contact_group_ids'
     end
 

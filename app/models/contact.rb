@@ -1,9 +1,8 @@
 class Contact < ActiveRecord::Base
   include Versioning
+  include BelongsToDepartment
 
   acts_as_url :title, url_attribute: :slug, sync_url: true
-
-  belongs_to :department
 
   has_many :contact_groups, through: :contact_memberships
   has_many :contact_memberships, dependent: :destroy

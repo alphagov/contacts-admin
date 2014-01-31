@@ -40,7 +40,7 @@ Contacts::Application.routes.draw do
     end
 
     # DEFAULT TO HMRC
-    get "/", to: redirect("/#{APP_SLUG}/hmrc/search", status: 302)
+    get "/", to: redirect("/#{APP_SLUG}/hm-revenue-customs/search", status: 302)
   end
 
   root to: redirect("/#{APP_SLUG}", status: 302)
