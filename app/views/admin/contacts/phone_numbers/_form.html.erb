@@ -7,8 +7,8 @@
     <%= f.input :international_number_options_path, label: 'International Call Options (separate with commas)' %>
     <%= f.input :textphone %>
     <%= f.input :fax %>
-    <%= f.input :open_hours, input_html: { rows: 5, class: 'span6' }, hint: "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>" %>
-    <%= f.input :description, input_html: { rows: 8, class: 'span6' }, hint: "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>" %>
+    <%= f.input :open_hours, input_html: { rows: 5, class: 'span6' }, hint: formatting_help_link %>
+    <%= f.input :description, input_html: { rows: 8, class: 'span6' }, hint: formatting_help_link %>
   </fieldset>
 
   <div class='form-actions form-horizontal'>

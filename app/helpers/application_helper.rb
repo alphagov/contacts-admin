@@ -20,4 +20,8 @@ module ApplicationHelper
   def govspeak(text)
     Govspeak::Document.new(text).to_sanitized_html.html_safe if text
   end
+
+  def formatting_help_link
+    "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>"
+  end
 end

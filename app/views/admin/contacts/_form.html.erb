@@ -5,10 +5,10 @@
       <%= f.input :title, input_html: { class: 'span4' } %>
       <%= f.input :department_id, label: "Department", collection: Department.all, label_method: :to_s, value_method: :slug, include_blank: false, input_html: { class: 'span3 js-chosen-select' } %>
       <%= f.association :contact_groups, collection: ContactGroup.all, include_hidden: false, multiple: true, input_html: { class: 'span9 js-chosen-select' } %>
-      <%= f.input :description, as: :text, input_html: { rows: 8, class: 'span9' }, hint: "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>" %>
-      <%= f.input :before_you_contact_us, as: :text, label: 'Before you contact us', input_html: { rows: 5, class: 'span9' }, hint: "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>" %>
-      <%= f.input :contact_information, as: :text, label: 'Information you will need', input_html: { rows: 5, class: 'span9' }, hint: "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>" %>
+      <%= f.input :description, as: :text, input_html: { rows: 8, class: 'span9' }, hint: formatting_help_link %>
       <%= f.input :quick_answer, input_html: { rows: 5, class: 'span9' }, hint: formatting_help_link %>
+      <%= f.input :before_you_contact_us, as: :text, label: 'Before you contact us', input_html: { rows: 5, class: 'span9' }, hint: formatting_help_link %>
+      <%= f.input :contact_information, as: :text, label: 'Information you will need', input_html: { rows: 5, class: 'span9' }, hint: formatting_help_link %>
     </fieldset>
 
     <fieldset class="form-horizontal">
@@ -17,10 +17,10 @@
       <p>These appear below each contact method (contact form, phone number, email address, post address)</p>
       <br>
 
-      <%= f.input :more_info_contact_form, label: 'More info for contact forms', input_html: { rows: 8, class: 'span9' }, hint: "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>" %>
-      <%= f.input :more_info_email_address, label: 'More info for email addresses', input_html: { rows: 8, class: 'span9' }, hint: "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>" %>
-      <%= f.input :more_info_post_address, label: 'More info for postal addresses', input_html: { rows: 8, class: 'span9' }, hint: "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>"  %>
-      <%= f.input :more_info_phone_number, label: 'More info for phone numbers', input_html: { rows: 8, class: 'span9' }, hint: "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>" %>
+      <%= f.input :more_info_contact_form, label: 'More info for contact forms', input_html: { rows: 8, class: 'span9' }, hint: formatting_help_link %>
+      <%= f.input :more_info_email_address, label: 'More info for email addresses', input_html: { rows: 8, class: 'span9' }, hint: formatting_help_link %>
+      <%= f.input :more_info_post_address, label: 'More info for postal addresses', input_html: { rows: 8, class: 'span9' }, hint: formatting_help_link  %>
+      <%= f.input :more_info_phone_number, label: 'More info for phone numbers', input_html: { rows: 8, class: 'span9' }, hint: formatting_help_link %>
     </fieldset>
 
     <div class='form-actions form-horizontal'>
