@@ -40,10 +40,4 @@ class ContactsController < ApplicationController
 
   def show
   end
-
-  def information_you_will_need
-  end
-
-  def contact_details
-  end
 end
