@@ -27,6 +27,8 @@ gem 'exception_notification'
 
 gem 'whenever', '~> 0.8.4'
 
+gem 'searchlight'
+
 # assets
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
