@@ -23,10 +23,6 @@ Contacts::Application.routes.draw do
     scope ':department_id' do
       get "/", to: "contacts#index", as: :contacts
 
-      get 'search', to: 'search#index'
-      post 'search', to: 'search#search'
-
-
       resources :contacts, constraints: { id: SLUG_FORMAT }, path: '/' do
         get 'information-you-will-need',
             on: :member,
@@ -40,7 +36,7 @@ Contacts::Application.routes.draw do
     end
 
     # DEFAULT TO HMRC
-    get "/", to: redirect("/#{APP_SLUG}/hm-revenue-customs/search", status: 302)
+    get "/", to: redirect("/#{APP_SLUG}/hm-revenue-customs", status: 302)
   end
 
   root to: redirect("/#{APP_SLUG}", status: 302)
