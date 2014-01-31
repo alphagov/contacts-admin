@@ -17,7 +17,7 @@ gem 'virtus', '~> 1.0.0.beta8'
 gem 'paper_trail', '>= 3.0.0.beta1'
 gem "govspeak", "1.2.3"
 gem 'gds-sso', github: "alphagov/gds-sso", branch: "fix-user-attr-accessible", ref: "7022663"
-gem 'gds-api-adapters', '~> 7.6.0'
+gem 'gds-api-adapters', '~> 7.20.0'
 gem 'lrucache', '0.1.4'
 gem 'rummageable', github: 'alphagov/rummageable', branch: 'master'
 gem 'plek', '>= 1.0.0'

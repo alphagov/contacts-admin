@@ -4,13 +4,8 @@ class SeedDatabase
   include Singleton
 
   def run
-    create_hmrc
     create_users
     create_contact_groups
-  end
-
-  def create_hmrc
-    Department.create(title: "HMRC", logo_name: "HM Revenue<br>&amp; Customs")
   end
 
   def create_users
@@ -103,7 +98,7 @@ class SeedDatabase
         contact_group_type_id: contact_group[:contact_group_type].id,
         title: contact_group[:title],
         description: contact_group[:description],
-        department_id: Department.hmrc.id
+        department_id: Department.find_by(slug: "hm-revenue-customs").id
       )
     end
   end
