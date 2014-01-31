@@ -1,6 +1,7 @@
 class ContactGroup < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
   include Versioning
+  include BelongsToDepartment
 
   acts_as_url :title, url_attribute: :slug, sync_url: true
 
@@ -24,13 +25,5 @@ class ContactGroup < ActiveRecord::Base
 
   def to_s
     title
-  end
-
-  def department
-    Department.find_by slug: department_id
-  end
-
-  def department=(department)
-    self.department_id = department ? department.slug : nil
   end
 end
