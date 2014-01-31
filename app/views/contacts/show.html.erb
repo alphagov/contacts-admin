@@ -33,22 +33,23 @@
               1. Before you contact us
             </h1>
           </header>
-          <p>
-            More information:
-          </p>
           <%= govspeak contact.before_you_contact_us %>
-          <footer>
-            <nav class="pagination" role="navigation" aria-label="Pagination">
-              <ul class="group">
-                <li class="next">
-                  <a href="<%= information_you_will_need_contact_path(department, contact) %>" rel="next" title="Navigate to next part">
-                    <span class="pagination-label">Next</span>
-                    <span class="pagination-part-title">Information you will need</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </footer>
+        </article>
+        <article role="article" class="group">
+          <header>
+            <h1>
+              2. Information you will need
+            </h1>
+          </header>
+          <%= govspeak contact.contact_information.to_s %>
+        </article>
+        <article role="article" class="group">
+          <header>
+            <h1>
+              3. Contact details
+            </h1>
+          </header>
+          <%= render "contact_details" %>
         </article>
       </div>
     </div>
