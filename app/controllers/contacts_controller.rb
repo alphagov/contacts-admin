@@ -1,4 +1,8 @@
 class ContactsController < ApplicationController
+  expose(:search) {
+    ContactsSearch.new params[:search]
+  }
+
   expose(:department) {
     Department.find_by!(slug: params[:department_id])
   }
