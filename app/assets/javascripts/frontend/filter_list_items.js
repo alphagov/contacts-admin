@@ -5,83 +5,46 @@
   if(typeof root.GOVUK === 'undefined') { root.GOVUK = {}; }
 
   var filter = {
-    _terms: false,
-    _regexCache: {},
+    searchTimeout: 300,
 
-    init: function(){
-      var $filterList = $('.js-filter-list');
+    ignoreKeyCodes: [16, 17, 18, 91, 93],
+    $form: null,
+    submitTimeoutId: null,
 
-      if($filterList.length === 1){
-        filter.$form = $('.js-filter-form').show();
-        filter.$filterItems = $('.js-filter-item');
-        filter.$filterBlock = $('.js-filter-block');
+    initialize: function () {
+      this.$form = $(".js-filter-form");
+      this.$form.on("submit", this.formSubmitted);
+      this.$form.find("input").on( "keyup", $.proxy(this.keyUpped, this) );
+    },
 
-        $filterList.append(filter.$form);
-        filter.$form.submit(filter.updateResults);
-        filter.$form.find('input').keyup(filter.updateResults);
+    keyUpped: function (e) {
+      if (e.keyCode === 13) {
+        return this.submit();  // if user presses enter, submit form
+      }
+      if (this.ignoreKeyCodes.indexOf(e.keyCode) === -1) {
+        this.scheduleForSubmit();
       }
     },
-    updateResults: function(e){
-      e.preventDefault();
 
-      var search = filter.$form.find('input').val(),
-          itemsToShow = filter.getItems(search);
-
-      filter.$filterItems.hide();
-      $(itemsToShow).show();
-      filter.hideEmptyBlocks(itemsToShow);
+    formSubmitted: function () {
+      $("#working_on_filter_contacts").removeClass("hidden");
     },
-    hideEmptyBlocks: function(itemsToShow){
-      if(itemsToShow.length === 0){
-        $('.js-filter-no-results').addClass('reveal');
-        filter.$filterBlock.hide();
-      } else {
-        $('.js-filter-no-results').removeClass('reveal');
 
-        filter.$filterBlock.show();
-        filter.$filterBlock.each(function(i, el){
-          var $el = $(el),
-              $elFilterCount = $el.find('.js-filter-count'),
-              $filterItems = $el.find('.js-filter-item:visible');
+    scheduleForSubmit: function () {
+      this.clearCurrentTimeout();
+      this.submitTimeoutId = setTimeout( $.proxy(this.submit, this), this.searchTimeout );
+    },
 
-          if($filterItems.length === 0){
-            $el.hide();
-          } else {
-            if($elFilterCount.length > 0){
-              $elFilterCount.text($filterItems.length);
-            }
-          }
-        });
+    clearCurrentTimeout: function () {
+      if (this.submitTimeoutId) {
+        clearTimeout(this.submitTimeoutId);
+        this.submitTimeoutId = null;
       }
     },
-    getItems: function(search){
-      var regex = filter.getRegex(search),
-          terms = filter.getFilterTerms(),
-          items = [],
-          key;
 
-      for(key in terms) {
-        if(key.match(regex)){
-          items.push(terms[key]);
-        }
-      }
-      return items;
-    },
-    getRegex: function(search){
-      if(typeof filter._regexCache[search] === 'undefined'){
-        filter._regexCache[search] = new RegExp(search.replace(/\W/, ".*"), 'i');
-      }
-      return filter._regexCache[search];
-    },
-    getFilterTerms: function(){
-      if(filter._terms === false){
-        filter._terms = {};
-        filter.$filterItems.each(function(i, el){
-          filter._terms[$(el).data('filter-terms')] = el;
-        });
-      }
-
-      return filter._terms
+    submit: function () {
+      this.submitTimeoutId = null;
+      this.$form.submit();
     }
   };
 
