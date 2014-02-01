@@ -5,13 +5,13 @@ describe 'Contact removal', auth: :user do
 
   let!(:contact) { create :contact }
 
-  before { verify contact_exists(contact) }
+  before { Contact.count.should eq(1) }
 
   specify 'it can be removed' do
     RUMMAGER_INDEX.stub(:delete) { true }
 
-    delete_contact(contact)
-
-    verify !contact_exists(contact)
+    expect {
+      delete_contact(contact)
+    }.to change { Contact.count }.by(-1)
   end
 end

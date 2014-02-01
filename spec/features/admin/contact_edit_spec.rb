@@ -4,9 +4,9 @@ describe 'Contact editing', auth: :user do
   include Admin::ContactSteps
 
   let!(:contact_group) { create(:contact_group, title: 'new contact type') }
-  let(:contact)        { create :contact }
+  let!(:contact)        { create :contact }
 
-  before { verify contact_exists(contact) }
+  before { Contact.count.should eq(1) }
 
   specify 'it can be updated' do
     update_contact(
