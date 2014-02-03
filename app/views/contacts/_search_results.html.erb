@@ -1,20 +1,7 @@
 <% if search.name.blank? %>
   <%= render "index" %>
 <% else %>
-  <div class="block">
-    <div class="inner-block">
-      <div class="heading-block js-filter-block">
-        <header class="type-heading">
-          <h1>
-            Search results
-          </h1>
-        </header>
-        <div class="content">
-          <ol>
-            <%= render search.results %>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
+  <ol>
+    <%= render search.results %>
+  </ol>
 <% end %>
