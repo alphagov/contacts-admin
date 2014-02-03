@@ -15,7 +15,9 @@
     </colgroup>
     <thead>
       <tr>
-        <th>Department</th>
+        <% if search.department_id.blank? %>
+          <th>Department</th>
+        <% end %>
         <th>Title</th>
         <th>Contact Groups</th>
         <th>Description</th>
