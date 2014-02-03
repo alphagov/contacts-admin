@@ -27,6 +27,14 @@
           <%= govspeak contact.quick_answer %>
         </article>
 
+        <% unless contact.online_transaction_link.blank? %>
+          <!-- This section will probably need some extra markup -->
+          <article>
+            <%= govspeak contact.online_transaction_description %>
+            <%= link_to "Start now", contact.online_transaction_link %>
+          </article>
+        <% end %>
+
         <article role="article" class="group">
           <header>
             <h1>

@@ -12,6 +12,12 @@
     </fieldset>
 
     <fieldset class="form-horizontal">
+      <legend>Online Transaction</legend>
+      <%= f.input :online_transaction_link, label: "Link", input_html: { class: "span4" } %>
+      <%= f.input :online_transaction_description, label: "Description", input_html: { rows: 5, class: "span9" }, hint: formatting_help_link %>
+    </fieldset>
+
+    <fieldset class="form-horizontal">
       <legend>Extra information for each contact type</legend>
       <br>
       <p>These appear below each contact method (contact form, phone number, email address, post address)</p>
