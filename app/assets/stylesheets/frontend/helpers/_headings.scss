@@ -28,7 +28,7 @@
 
     @include media(tablet){
       float: left;
-      //width: $two-thirds;
+      width: $two-thirds;
       @include right-to-left {
         float: right;
       }
@@ -50,7 +50,7 @@
     margin: $gutter 0;
     @include media(tablet) {
       float: right;
-      //width: $one-third;
+      width: $one-third;
       margin-top: 0;
       @include right-to-left {
         float: left;
@@ -117,7 +117,7 @@
 
     @include media(tablet){
       float: left;
-      //width: $two-thirds;
+      width: $two-thirds;
       @include right-to-left {
         float: right;
       }
@@ -241,7 +241,7 @@
       @include media(tablet) {
         float: left;
         padding: $gutter 0;
-        //width: $one-third;
+        width: $one-third;
       }
       .content {
         padding: 0 0 $gutter-two-thirds 0;

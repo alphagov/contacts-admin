@@ -1,0 +1,33 @@
+.document-list {
+  clear: both;
+
+  .document-row {
+    display: block;
+    overflow: hidden;
+    list-style: none;
+    border-bottom: 1px solid $border-colour;
+    padding: $gutter-one-sixth 0 $gutter-one-third;
+
+    h2, h3 {
+      @include core-19;
+      font-weight: bold;
+      margin-top: $gutter-one-sixth;
+    }
+
+    ul {
+      li {
+        @include core-14;
+        float: left;
+        display: block;
+        list-style: none;
+        padding: 0 $gutter-half 0 0;
+
+        @include right-to-left {
+          text-align: right;
+          float: right;
+          padding: 0 0 0 $gutter;
+        }
+      }
+    }
+  }
+}

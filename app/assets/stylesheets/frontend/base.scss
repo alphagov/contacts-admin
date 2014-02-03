@@ -55,6 +55,8 @@
 // HELPERS
 // Styles for comment page elements
 .hmrc-contacts-body {
+  @import "helpers/_documents-index.scss";
+  @import "helpers/_documents-list.scss";
   @import "helpers/_headings.scss";
   @import "helpers/_heading-block.scss";
   @import "helpers/_index-list.scss";
@@ -72,6 +74,7 @@
   @import "views/_common.scss";
   @import "views/_contact_groups.scss";
   @import "views/_details.scss";
+  @import "views/_documents-list.scss";
   @import "views/_landing.scss";
   @import "views/_layouts.scss";
   @import "views/_organisations.scss";
