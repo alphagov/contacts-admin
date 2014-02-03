@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131213435) do
+ActiveRecord::Schema.define(version: 20140203154146) do
 
   create_table "contact_groups", force: true do |t|
     t.integer  "contact_group_type_id"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20140131213435) do
     t.boolean  "remotely_signed_out", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "organisation_slug"
   end
 
   create_table "versions", force: true do |t|
