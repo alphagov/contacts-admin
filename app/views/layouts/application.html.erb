@@ -15,7 +15,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="hmrc-contacts-body">
-<% unless local_assigns[:show_breadcrumbs] %><div id="global-breadcrumb" class="header-context group"><ol><!-- deliberately empty --></ol></div><% end %>
+<% unless local_assigns[:show_breadcrumbs] %>
+<div id="global-breadcrumb" class="header-context group">
+  <ol>
+    <% if params[:action] == "show" %>
+      <li>
+        <%= link_to "Home", root_path %>
+      </li>
+    <% end %>
+  </ol>
+</div>
+<% end %>
 <div id="wrapper">
   <div class="hmrc-contacts-content">
     <div id="page" class="<%= content_for?(:page_class) ? yield(:page_class) : '' %>" >
