@@ -1,4 +1,11 @@
-<%= simple_form_for search, url: admin_contacts_path, method: :get, html: { class: "form-search" } do |f| %>
+<%= simple_form_for search, url: admin_contacts_path, method: :get, html: { class: "form-search pull-right" } do |f| %>
+  <%= f.input_field :department_id,
+                    as: :select,
+                    collection: Department.all,
+                    label_method: :to_s,
+                    value_method: :slug,
+                    class: "js-chosen-select",
+                    data: { placeholder: "Department", allow_single_deselect: true } %>
   <%= f.input_field :title, placeholder: "Title", class: "search-query" %>
   <%= f.input_field :description, placeholder: "Description", class: "search-query" %>
   <%= f.submit "Filter", class: "btn btn-default", data: { disable_with: "Working" } %>
