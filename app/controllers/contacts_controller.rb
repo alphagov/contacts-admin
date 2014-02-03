@@ -14,7 +14,6 @@ class ContactsController < ApplicationController
   expose(:contacts) {
     department.
     contacts.
-    ungrouped.
     for_listing.
     decorate
   }
