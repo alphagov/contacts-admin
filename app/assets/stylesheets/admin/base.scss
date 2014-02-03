@@ -114,7 +114,6 @@ $hover-yellow: #fff8dd;
           white-space: nowrap;
 
           &:hover {
-            background: #00A19C;
             text-decoration: none;
             color: #FFF;
           }
@@ -260,14 +259,6 @@ abbr[title], abbr[data-original-title] {
   text-decoration: none;
 }
 
-.label-info,
-.dropdown-menu > li > a:hover,
-.dropdown-menu > li > a:focus,
-.dropdown-submenu:hover > a,
-.dropdown-submenu:focus > a {
-  background: #00a19c;
-}
-
 .text-red {
   color: #c00;
 }
@@ -396,26 +387,6 @@ fieldset {
 
 .chosen-container-multi .chosen-choices {
   padding-right: 5px;
-
-  li.search-choice {
-    color: #fff;
-    border: none;
-    background: #00a19c;
-    @include box-shadow(none);
-    font-weight: bold;
-
-    .search-choice-close {
-      background-position: -42px -49px;
-
-      &:hover {
-        background-position: -42px -60px;
-      }
-    }
-  }
-}
-
-.chosen-container .chosen-results li.highlighted {
-  background: #00a19c;
 }
 
 .contact-details {
