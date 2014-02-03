@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
   def dev_skip_slimmer
     response.headers[Slimmer::Headers::SKIP_HEADER] = "true" if params[:skip_slimmer]
   end
+
+  def skip_slimmer
+    response.headers[Slimmer::Headers::SKIP_HEADER] = "true"
+  end
 end
