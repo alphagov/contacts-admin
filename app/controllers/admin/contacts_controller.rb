@@ -49,7 +49,9 @@ module Admin
         :more_info_contact_form,
         :more_info_email_address,
         :more_info_post_address,
-        :more_info_phone_number
+        :more_info_phone_number,
+        :online_transaction_link,
+        :online_transaction_description
       )
     end
   end
