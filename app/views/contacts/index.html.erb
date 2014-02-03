@@ -1,17 +1,23 @@
 <% page_class 'contact_groups-page' %>
 
-<div class="block-1">
-  <div class="inner-block">
-    <%= render 'layouts/department_logo' %>
+<header class="block headings-block">
+  <div class="inner-block floated-children">
+    <div class="heading-big">
+      <div class="inner-heading">
+        <h1>
+          <%= department.title %> Contacts
+        </h1>
+      </div>
+    </div>
   </div>
-</div>
+</header>
 
 <div class="block-2 index-list-page organisations-index">
   <div class="inner-block">
     <div class="hmrc-search">
       <header class="page-header js-filter-list">
         <h1 class="title">
-          <%= department.title %> Contacts
+          
         </h1>
 
         <form class="js-filter-form" data-remote="true">
