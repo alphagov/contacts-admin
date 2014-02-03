@@ -1,0 +1,11 @@
+<%= simple_form_for [:admin, contact], remote: true do |f| %>
+  <fieldset class="form-horizontal">
+    <legend>Extra information for Contact Form method</legend>
+    <%= f.input :more_info_contact_form,
+                label: "More info for contact forms",
+                placeholder: "This appears below Contact Form method",
+                input_html: { rows: 5, class: "span9" },
+                hint: formatting_help_link %>
+    <%= f.submit "Update", class: 'btn btn-primary', data: { disable_with: "Working" } %>
+  </fieldset>
+<% end %>

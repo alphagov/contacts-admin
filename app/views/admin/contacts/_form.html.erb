@@ -17,18 +17,6 @@
       <%= f.input :online_transaction_description, label: "Description", input_html: { rows: 5, class: "span9" }, hint: formatting_help_link %>
     </fieldset>
 
-    <fieldset class="form-horizontal">
-      <legend>Extra information for each contact type</legend>
-      <br>
-      <p>These appear below each contact method (contact form, phone number, email address, post address)</p>
-      <br>
-
-      <%= f.input :more_info_contact_form, label: 'More info for contact forms', input_html: { rows: 8, class: 'span9' }, hint: formatting_help_link %>
-      <%= f.input :more_info_email_address, label: 'More info for email addresses', input_html: { rows: 8, class: 'span9' }, hint: formatting_help_link %>
-      <%= f.input :more_info_post_address, label: 'More info for postal addresses', input_html: { rows: 8, class: 'span9' }, hint: formatting_help_link  %>
-      <%= f.input :more_info_phone_number, label: 'More info for phone numbers', input_html: { rows: 8, class: 'span9' }, hint: formatting_help_link %>
-    </fieldset>
-
     <div class='form-actions form-horizontal'>
       <div class="control-group">
         <div class="controls">

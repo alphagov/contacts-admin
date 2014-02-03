@@ -1,0 +1,11 @@
+<%= simple_form_for [:admin, contact], remote: true do |f| %>
+  <fieldset class="form-horizontal">
+    <legend>Extra information for Email Address method</legend>
+    <%= f.input :more_info_email_address,
+                label: "More info for email addresses",
+                placeholder: "This appears below email method",
+                input_html: { rows: 5, class: "span9" },
+                hint: formatting_help_link %>
+    <%= f.submit "Update", class: "btn btn-primary", data: { disable_with: "Working" } %>
+  </fieldset>
+<% end %>
