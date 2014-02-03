@@ -8,7 +8,6 @@
     padding-bottom: $gutter;
     background: transparent;
     color: $text-colour;
-    border-bottom: $gutter-one-third solid $inside-gov-secondary;
 
     @include media(desktop) {
       padding-bottom: $gutter*2;
@@ -41,7 +40,7 @@
 
   .organisation-logo:link,
   .organisation-logo:visited {
-    border-color: $hm-revenue-customs-websafe;
+    background: transparent;
   }
 
   #page {
