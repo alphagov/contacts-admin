@@ -11,15 +11,15 @@ describe 'Contact creation', auth: :user do
   }
 
   specify 'it can be created' do
-    create_contact({
-      title: contact.title,
-      description: contact.description,
-      contact_information: contact.contact_information
-    }) do
-      select contact.department, from: "contact_department_id"
-      select contact_group, from: 'contact_contact_group_ids'
-    end
-
-    verify contact_exists(contact)
+    expect {
+      create_contact({
+        title: contact.title,
+        description: contact.description,
+        contact_information: contact.contact_information
+      }) do
+        select contact.department, from: "contact_department_id"
+        select contact_group, from: 'contact_contact_group_ids'
+      end
+    }.to change { Contact.count }.by(1)
   end
 end

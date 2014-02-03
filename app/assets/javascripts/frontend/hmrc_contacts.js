@@ -179,6 +179,6 @@ GOVUK.HmrcContacts = {
     this.contactDetailNavigationShow.initialize();
     this.chosenSelect.initialize();
     this.commonQuestionsSelect.initialize();
-    GOVUK.filterListItems.init();
+    GOVUK.filterListItems.initialize();
   }
 };

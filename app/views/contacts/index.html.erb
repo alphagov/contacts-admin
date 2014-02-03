@@ -14,71 +14,24 @@
           <%= department.title %> Contacts
         </h1>
 
-        <form class="js-filter-form">
+        <form class="js-filter-form" data-remote="true">
           <label for="who-are-you-looking-for" class="label">
             What are contact details
             <br>
             for
-            <input name="who-are-you-looking-for" placeholder="Example: Appeals">
+            <input name="search[name]" placeholder="Example: Appeals">
+            <input name="search[department_id]" value="<%= department.slug %>" type="hidden">
             ?
           </label>
+          <span class="help-block hidden" id="working_on_filter_contacts">Working..</span>
         </form>
       </header>
     </div>
   </div>
 </div>
 
-<div class="index-list-page organisations-index">
-  <div class="block most-popular">
-    <div class="inner-block">
-      <div class="heading-block js-filter-block">
-        <header class="type-heading">
-          <h1>
-            Most popular <%= department.title %> contacts
-          </h1>
-        </header>
-        <div class="content">
-          <ol>
-            <%= render most_popular_contact_groups %>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="block">
-    <div class="inner-block">
-      <div class="heading-block js-filter-block">
-        <header class="type-heading">
-          <h1>
-            <%= department.title %> contacts by group
-          </h1>
-        </header>
-        <div class="content">
-          <ol>
-            <%= render contact_groups %>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="block">
-    <div class="inner-block">
-      <div class="heading-block js-filter-block">
-        <header class="type-heading">
-          <h1>
-            Other contacts
-          </h1>
-        </header>
-        <div class="content">
-          <ol>
-            <%= render ungrouped_contacts %>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="index-list-page organisations-index" id="organisations-list">
+  <%= render "index" %>
 </div>
 
 <div class="js-filter-no-results">
