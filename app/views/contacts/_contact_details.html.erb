@@ -31,6 +31,13 @@
             Post
           </h3>
 
+          <% if contact.more_info_post_address.present? %>
+            <div class="contact">
+              <%= govspeak contact.more_info_post_address.to_s %>
+              <br>
+            </div>
+          <% end%>
+
           <%= render contact.post_addresses %>
         </div>
       <% end %>
