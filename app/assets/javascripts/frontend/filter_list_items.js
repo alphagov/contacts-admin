@@ -14,9 +14,9 @@
 
     initialize: function () {
       this.$form = $(".js-filter-form");
-      this.$form.on("submit", this.formSubmitted);
-      this.$form.find("#filter_contacts").on( "keyup change search", $.proxy(this.keyUpped, this) );
-      this.$form.find("#contact-groups-filter").on( "change", $.proxy(this.submit, this) );
+      this.$form.on( "submit", $.proxy(this.formSubmitted, this) );
+      this.$form.find("#search_name").on( "keyup change search", $.proxy(this.keyUpped, this) );
+      this.$form.find("#search_contact_group_id").on( "change", $.proxy(this.submit, this) );
     },
 
     keyUpped: function (e) {
@@ -36,8 +36,16 @@
       return false;
     },
 
-    formSubmitted: function () {
+    formSubmitted: function (e) {
+      this.pushState(e.target);
       $("#working_on_filter_contacts").removeClass("hidden");
+    },
+
+    pushState: function (form) {
+      if (history.pushState) {
+        var path = location.pathname + "?" + $(form).serialize();
+        history.pushState(null, null, path);
+      }
     },
 
     scheduleForSubmit: function () {
