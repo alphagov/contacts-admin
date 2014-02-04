@@ -7,7 +7,7 @@ module Admin
 
       has_selector?(contact_form_links_table_selector) &&
         within(contact_form_links_table_selector) do
-          has_content? contact_form_link.description
+          has_content? contact_form_link.link
         end
     end
 

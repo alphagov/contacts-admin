@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204164627) do
+ActiveRecord::Schema.define(version: 20140204194333) do
 
   create_table "contact_groups", force: true do |t|
     t.integer  "contact_group_type_id"
@@ -153,7 +153,6 @@ ActiveRecord::Schema.define(version: 20140204164627) do
   create_table "websites", force: true do |t|
     t.integer  "contact_id"
     t.string   "title"
-    t.text     "description"
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
