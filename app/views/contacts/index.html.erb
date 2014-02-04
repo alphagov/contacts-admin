@@ -34,6 +34,45 @@
               <span class="help-block hidden" id="working_on_filter_contacts">Working...</span>
             </div>
           </div>
+
+          <div class="filter" id="support-for">
+            <div class="filter-inner">
+              <label class="title">
+                Support for
+              </label>
+            </div>
+            <!-- TODO Filter by these groups -->
+            <div class="filter-inner checkbox">
+              <label>
+                <input type="checkbox">
+                Individuals and employees
+              </label>
+            </div>
+            <div class="filter-inner checkbox">
+              <label>
+                <input type="checkbox">
+                Employees
+              </label>
+            </div>
+            <div class="filter-inner checkbox">
+              <label>
+                <input type="checkbox">
+                Businesses and corporations
+              </label>
+            </div>
+          </div>
+
+          <div class="filter" id="tax-area">
+            <div class="filter-inner">
+              <label class="title" for="tax-area-filter">
+                Tax area
+              </label>
+              <select class="single-row-select" id="tax-area-filter" name="tax-area-filter">
+                <option value="all" selected>All tax areas</option>
+                <!-- TODO List other tax areas and filter by them -->
+              </select>
+            </div>
+          </div>
         </fieldset>
       </form>
     </div>
