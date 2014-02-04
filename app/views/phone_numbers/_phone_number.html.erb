@@ -1,4 +1,4 @@
-<div class="contact vcard">
+<div class="phone-number vcard">
   <ul class="phone-list list-plain clearfix">
     <li class="tel <%= cycle '', '', '', 'clear' %>">
       <span class="type">Telephone: </span>
@@ -43,4 +43,8 @@
     </p>
     <%= govspeak phone_number.open_hours %>
   </div>
+  <% if phone_number.description.present? %>
+    <br>
+    <%= govspeak phone_number.description %>
+  <% end %>
 </div>
