@@ -22,7 +22,7 @@
         <th>Title</th>
         <th>Description</th>
         <th>
-          <%= link_to "+ Add contact form link", new_admin_contact_contact_form_link_path(contact), class: 'btn btn-small pull-right' %>
+          <%= link_to "+ Add online link", new_admin_contact_contact_form_link_path(contact), class: 'btn btn-small pull-right' %>
         </th>
       </tr>
     </thead>
@@ -31,8 +31,8 @@
     </tbody>
   </table>
 <% else %>
-  <h4>No contact form links found</h4>
+  <h4>No online links found</h4>
   <p>
-    We have found no contact form links. <%= link_to "You should add one.", new_admin_contact_contact_form_link_path(contact) %>
+    We have found no online links. <%= link_to "You should add one.", new_admin_contact_contact_form_link_path(contact) %>
   </p>
 <% end %>
