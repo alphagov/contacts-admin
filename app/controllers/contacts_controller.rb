@@ -1,6 +1,13 @@
 class ContactsController < ApplicationController
   expose(:search) {
-    ContactsSearch.new params[:search]
+    ContactsSearch.new search_params
+  }
+
+  expose(:contact_groups) {
+    contact_group_ids = contacts.map do |contact|
+      contact.contact_memberships.pluck(:contact_group_id)
+    end.flatten.uniq
+    ContactGroup.where id: contact_group_ids  # select only contact_groups related to current contacts
   }
 
   expose(:department) {
@@ -12,19 +19,19 @@ class ContactsController < ApplicationController
   }
 
   expose(:contacts) {
-    if search.name.blank?
-      department.
-      contacts.
-      for_listing.
-      decorate
-    else
-      search.results.for_listing.decorate
-    end
+    search.results.for_listing.decorate
   }
 
   def index
   end
 
   def show
+  end
+
+  private
+
+  def search_params
+    filter = { department_id: params[:department_id] }
+    filter.merge params.fetch(:search, {})
   end
 end

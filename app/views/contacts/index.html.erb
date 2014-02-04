@@ -29,50 +29,27 @@
               <label class="title" for="who-are-you-looking-for">
                 Contains
               </label>
-              <input name="search[name]" placeholder="Example: Appeals" type="search">
-              <input name="search[department_id]" value="<%= department.slug %>" type="hidden">
+              <input name="search[name]" placeholder="Example: Appeals" type="search" id="filter_contacts">
               <span class="help-block hidden" id="working_on_filter_contacts">Working...</span>
             </div>
           </div>
 
-          <div class="filter" id="support-for">
+          <div class="filter">
             <div class="filter-inner">
-              <label class="title">
-                Support for
+              <label class="title" for="contact-groups-filter">
+                Contact Groups
               </label>
-            </div>
-            <!-- TODO Filter by these groups -->
-            <div class="filter-inner checkbox">
-              <label>
-                <input type="checkbox">
-                Individuals and employees
-              </label>
-            </div>
-            <div class="filter-inner checkbox">
-              <label>
-                <input type="checkbox">
-                Employees
-              </label>
-            </div>
-            <div class="filter-inner checkbox">
-              <label>
-                <input type="checkbox">
-                Businesses and corporations
-              </label>
-            </div>
-          </div>
-
-          <div class="filter" id="tax-area">
-            <div class="filter-inner">
-              <label class="title" for="tax-area-filter">
-                Tax area
-              </label>
-              <select class="single-row-select" id="tax-area-filter" name="tax-area-filter">
-                <option value="all" selected>All tax areas</option>
-                <!-- TODO List other tax areas and filter by them -->
+              <select class="single-row-select" id="contact-groups-filter" name="search[contact_group_id]">
+                <option value="">All contact groups</option>
+                <% contact_groups.each do |contact_group| %>
+                  <option value="<%= contact_group.id %>">
+                    <%= contact_group %>
+                  </option>
+                <% end %>
               </select>
             </div>
           </div>
+
         </fieldset>
       </form>
     </div>
