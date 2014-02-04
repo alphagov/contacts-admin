@@ -38,6 +38,16 @@ ul.list-plain {
   list-style: none;
 }
 
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="url"],
+input[type="password"],
+input[type="email"] {
+  -webkit-appearance: none;
+  @include border-radius(0);
+}
+
 .page-header h1 {
   @media (max-width: 641px) {
     font-size: em(32, 16);
