@@ -109,10 +109,12 @@
     }
   }
 
-  .quick-answer p {
-    @include ig-core-24;
+  .quick-answer {
+    p {
+      @include ig-core-24;
+    }
 
-    &:last-child {
+    h1 {
       font-size: 53px;
       line-height: 1.03774;
       font-weight: bold;
