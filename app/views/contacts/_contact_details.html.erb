@@ -1,4 +1,4 @@
-<div class="block-container clearfix">
+<div class="block-container block-contact clearfix">
   <div class="block-1">
     <div class="inner-block">
       <h3>
@@ -7,24 +7,26 @@
     </div>
   </div>
   <div class="block-2">
-    <% if contact.phone_numbers.any? %>
-      <div class="block-container clearfix">
-        <h3>
-          Phone
-        </h3>
+    <div class="inner-block">
+      <% if contact.phone_numbers.any? %>
+        <div class="block-container clearfix">
+          <h3>
+            Phone
+          </h3>
 
-        <%= render contact.phone_numbers %>
-      </div>
-    <% end %>
+          <%= render contact.phone_numbers %>
+        </div>
+      <% end %>
 
-    <% if contact.post_addresses.any? %>
-      <div class="block-container clearfix">
-        <h3>
-          Post
-        </h3>
+      <% if contact.post_addresses.any? %>
+        <div class="block-container clearfix">
+          <h3>
+            Post
+          </h3>
 
-        <%= render contact.post_addresses %>
-      </div>
-    <% end %>
+          <%= render contact.post_addresses %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
