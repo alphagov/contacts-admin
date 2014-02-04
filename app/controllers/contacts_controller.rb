@@ -12,10 +12,14 @@ class ContactsController < ApplicationController
   }
 
   expose(:contacts) {
-    department.
-    contacts.
-    for_listing.
-    decorate
+    if search.name.blank?
+      department.
+      contacts.
+      for_listing.
+      decorate
+    else
+      search.results
+    end
   }
 
   def index
