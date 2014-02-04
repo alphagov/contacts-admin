@@ -1,65 +1,106 @@
 <% page_class 'details-page' %>
 
-<div class="details-page-1">
-  <div class="block-1">
-    <div class="inner-block">
-      <%= render 'layouts/department_logo' %>
+
+<div class="related block-1 pull-right">
+  <div class="inner-block">
+    <h3>
+      <!-- TODO -->
+      <%= link_to "When can I expect a response to my query?" %>
+    </h3>
+  </div>
+</div>
+
+<header class="page-header group">
+  <div>
+    <h1>
+      <%= contact %> contact details
+    </h1>
+  </div>
+</header>
+
+<div class="block-container clearfix">
+  <div class="block-1 pull-right">
+    <div class="inner-block contact-links">
+      <!-- TODO Contact links -->
+      <ul class="list-plain">
+        <li>
+          <%= link_to "How to claim self assessment online" %>
+        </li>
+        <li>
+          <%= link_to "Register for self assessment" %>
+        </li>
+        <li>
+          <%= link_to "Claim a tax refund" %>
+        </li>
+      </ul>
     </div>
   </div>
 
-  <div class="block-2">
+  <div class="block-2 pull-left">
     <div class="inner-block">
-      <div class="article-header">
-        <div class="header-div">
-          <header class="page-header group">
-            <h1>
-              <%= contact %> contact details
-            </h1>
-          </header>
-
-          <%= govspeak contact.description %>
-        </div>
-        <div class="clear"></div>
-      </div>
-
-      <div class="article-container group">
-        <article>
-          <%= govspeak contact.quick_answer %>
-        </article>
-
-        <% unless contact.online_transaction_link.blank? %>
-          <!-- This section will probably need some extra markup -->
-          <article>
-            <%= govspeak contact.online_transaction_description %>
-            <%= link_to "Start now", contact.online_transaction_link %>
-          </article>
+      <div class="group">
+        <% if contact.quick_answer.present? %>
+          <div class="quick-answer">
+            <%= govspeak contact.quick_answer %>
+          </div>
+        <% else %>
+          <!-- TODO Quick links: only show 2 -->
+          <ul class="quick-links list-plain clearfix">
+            <li>
+              <%= link_to "Child Benefit" %>
+              <p>
+                Child Benefit - child benefit rates, eligibility, how to claim, child benefit claim form CH2
+              </p>
+            </li>
+            <li>
+              <%= link_to "Child Benefit rates" %>
+              <p>
+                Child Benefit rates - weekly amount of child benefit per child
+              </p>
+            </li>
+          </ul>
         <% end %>
-
-        <article role="article" class="group">
-          <header>
-            <h1>
-              1. Before you contact us
-            </h1>
-          </header>
-          <%= govspeak contact.before_you_contact_us %>
-        </article>
-        <article role="article" class="group">
-          <header>
-            <h1>
-              2. Information you will need
-            </h1>
-          </header>
-          <%= govspeak contact.contact_information.to_s %>
-        </article>
-        <article role="article" class="group">
-          <header>
-            <h1>
-              3. Contact details
-            </h1>
-          </header>
-          <%= render "contact_details" %>
-        </article>
       </div>
     </div>
   </div>
 </div>
+
+<% if contact.quick_answer.present? %>
+  <% if contact.online_transaction_link.present? %>
+    <div class="block-container clearfix online-transaction">
+      <div class="block-2 pull-left">
+        <div class="inner-block">
+          <div class="group">
+            <%= govspeak contact.online_transaction_description %>
+          </div>
+        </div>
+      </div>
+      <div class="block-1 pull-right">
+        <div class="inner-block">
+          <div class="group get-started">
+            <%= link_to "Start now", contact.online_transaction_link, class: "big button" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <% if contact.contact_form_links.any? %>
+    <div class="block-container clearfix online-contact">
+      <div class="block-1">
+        <div class="inner-block">
+          <h3>
+            Online
+          </h3>
+        </div>
+      </div>
+      <div class="block-2">
+        <ul class="list-plain">
+          <%= render contact.contact_form_links %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<%= render "contact_details" %>

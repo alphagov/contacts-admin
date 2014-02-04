@@ -79,7 +79,7 @@ class Department
   def self.load_departments
     (organisations_api.organisations.with_subsequent_pages || []).map { |org|
       new org
-    }.reject { |dep| dep.exempt? }.sort { |a, b| a.parent_organisations.count <=> b.parent_organisations.count }
+    }.reject { |dep| dep.exempt? }
   end
 
   def self.organisations_api

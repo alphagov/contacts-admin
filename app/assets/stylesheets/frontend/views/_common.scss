@@ -1,3 +1,43 @@
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.link-underline {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &.button {
+    text-decoration: none;
+  }
+}
+
+ul.list-plain {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .page-header h1 {
   @media (max-width: 641px) {
     font-size: em(32, 16);

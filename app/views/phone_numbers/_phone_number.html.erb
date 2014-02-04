@@ -1,53 +1,46 @@
-<%= govspeak phone_number.description %>
 <div class="contact vcard">
-  <p>
-    <strong class="fn">
-      <%= phone_number.title %>
-    </strong>
-    <br>
-    <span class="tel">
+  <ul class="phone-list list-plain clearfix">
+    <li class="tel <%= cycle '', '', '', 'clear' %>">
       <span class="type">Telephone: </span>
       <span class="value"><%= phone_number.number %></span>
-    </span>
+    </li>
 
-    <% if phone_number.number_options_path.any? %>
-      , option
-      <% phone_number.number_options_path.each do |option| %>
-        <span class="badge"><%= option %></span>
-      <% end %>
+    <% if phone_number.textphone.present? %>
+      <li class="tel <%= cycle '', '', '', 'clear' %>">
+        <span class="type">Textphone: </span>
+        <span class="value"><%= phone_number.textphone %></span>
+      </li>
     <% end %>
+
+    <% if phone_number.international_phone.present? %>
+      <li class="tel <%= cycle '', '', '', 'clear' %>">
+        <span class="type">Outside UK: </span>
+        <span class="value"><%= phone_number.international_phone %></span>
+      </li>
+    <% end %>
+
+    <% if phone_number.fax.present? %>
+      <li class="tel <%= cycle '', '', '', 'clear' %>">
+        <span class="type">Fax: </span>
+        <span class="value"><%= phone_number.fax %></span>
+      </li>
+    <% end %>
+  </ul>
+
+  <p>
+    Calls to 03 numbers cost approximately:
+    <br>
+    2p to 10p from landlines
+    <br>
+    10p to 40p from mobile phones.
+    <br>
+    <%= link_to "Find out more about call charges", "https://www.gov.uk/call-charges", class: "link-underline" %>
   </p>
 
-  <% if phone_number.international_phone.present? %>
-    <p>
-      <span class="tel">
-        <span class="type">From outside the UK: </span>
-        <span class="value"><%= phone_number.international_phone %></span>
-      </span>
-      <% if phone_number.international_number_options_path.any? %>
-        , option
-        <% phone_number.international_number_options_path.each do |option| %>
-          <span class="badge"><%= option %></span>
-        <% end %>
-      <% end %>
-    </p>
-  <% end %>
-
-  <% if phone_number.textphone.present? %>
-    <p class="tel">
-      <span class="type">Textphone: </span>
-      <span class="value"><%= phone_number.textphone %></span>
-    </p>
-  <% end %>
-
-  <% if phone_number.fax.present? %>
-    <p class="tel">
-      <span class="type">Fax: </span>
-      <span class="value"><%= phone_number.fax %></span>
-    </p>
-  <% end %>
-
   <div class="note">
+    <p>
+      Opening times:
+    </p>
     <%= govspeak phone_number.open_hours %>
   </div>
 </div>

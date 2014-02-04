@@ -8,10 +8,18 @@
   .block-1 {
     width: 33.33%;
     float: left;
+
+    &.pull-right {
+      float: right;
+    }
   }
   .block-2 {
     width: 66.66%;
     float: right;
+
+    &.pull-left {
+      float: left;
+    }
   }
 }
 

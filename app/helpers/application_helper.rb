@@ -22,6 +22,6 @@ module ApplicationHelper
   end
 
   def formatting_help_link
-    "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>"
+    "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>".html_safe
   end
 end

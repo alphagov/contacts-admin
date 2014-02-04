@@ -1,0 +1,9 @@
+(function () {
+  var $span = $("<span />", <%= render "span" %>);
+  $("form.edit_contact fieldset").append($span.hide().fadeIn());
+  setTimeout(function (){
+    $span.fadeOut(function (){
+      $span.remove()
+    });
+  }, 5000);
+})();
