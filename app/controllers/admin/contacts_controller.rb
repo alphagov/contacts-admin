@@ -55,7 +55,13 @@ module Admin
         :more_info_post_address,
         :more_info_phone_number,
         :online_transaction_link,
-        :online_transaction_description
+        :online_transaction_description,
+        :important_link1,
+        :important_link2,
+        :important_link_title1,
+        :important_link_title2,
+        :important_link_description1,
+        :important_link_description2
       )
     end
   end
