@@ -30,7 +30,7 @@ module Admin
       private
 
       def contact_form_link_params
-        params.require(:contact_form_link).permit(:title, :description, :link)
+        params.require(:contact_form_link).permit(:title, :link)
       end
     end
   end

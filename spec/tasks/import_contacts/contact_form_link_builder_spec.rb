@@ -22,7 +22,6 @@ describe ImportContacts::ContactFormLinkBuilder do
         expect(
           websites.detect { |website|
             website.title == site_title &&
-            website.description == site_desc &&
             website.link == site_link
           }
         ).to be_present
@@ -44,7 +43,6 @@ describe ImportContacts::ContactFormLinkBuilder do
         expect(
           websites.detect { |website|
             website.title == site_title &&
-            website.description == site_desc &&
             website.link == site_link
           }
         ).to be_present
