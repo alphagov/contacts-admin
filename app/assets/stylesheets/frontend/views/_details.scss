@@ -1,10 +1,22 @@
 .details-page {
   .page-header {
     margin-bottom: $gutter;
-  }
 
-  .block-2.pull-left .inner-block {
-    padding-right: 0;
+    @media (max-width: 800px) {
+      margin-bottom: 0;
+
+      div {
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      div {
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-bottom: $gutter-one-sixth;
+      }
+    }
   }
 
   .block-container {
@@ -18,14 +30,37 @@
       margin-bottom: 0;
     }
 
-    @media (max-width: 641px) {
-      border-bottom: none;
-      margin-bottom: $gutter;
-    }
-
     h3 {
       @include ig-core-24;
       font-weight: bold;
+    }
+  }
+
+  .block-contact {
+    .block-1 {
+      width: $one-quarter;
+
+      h3 {
+        @media (max-width: 768px) {
+          margin-bottom: $gutter-two-thirds;
+        }
+
+        @media (max-width: 640px) {
+          margin-bottom: $gutter-one-third;
+          font-size: 19px;
+        }
+      }
+    }
+
+    .block-2 {
+      width: $three-quarters;
+    }
+
+    .block-1,
+    .block-2 {
+      @media (max-width: 768px) {
+        width: $full-width;
+      }
     }
   }
 
@@ -35,11 +70,42 @@
   }
 
   .related {
+    top: 0;
     right: 0;
+    margin-bottom: $gutter-half;
     border-top: 0;
+
+    @media (max-width: 800px) {
+      &.pull-right {
+        float: none;
+        width: $full-width;
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 640px) {
+      margin-top: 0;
+    }
 
     h3 {
       @include core-19;
+      font-weight: bold;
+    }
+  }
+
+  .contact-links {
+    @media (max-width: 800px) {
+      margin-bottom: $gutter;
+    }
+  }
+
+  .contact-intro {
+    .block-1,
+    .block-2 {
+      @media (max-width: 800px) {
+        float: none;
+        width: $full-width;
+      }
     }
   }
 
@@ -47,17 +113,33 @@
     @include ig-core-24;
 
     &:last-child {
-      font-size: 68px;
+      font-size: 53px;
+      line-height: 1.03774;
       font-weight: bold;
+
+      @media (min-width: 769px) {
+        font-size: 68px;
+        line-height: 1.47059;
+      }
     }
   }
 
   .quick-links {
     margin-bottom: $gutter;
 
+    @media (max-width: 640px) {
+      margin-bottom: 0;
+    }
+
     li {
       float: left;
       width: $one-half;
+
+      @media (max-width: 640px) {
+        float: none;
+        width: $full-width;
+        margin-bottom: $gutter-two-thirds;
+      }
 
       a,
       p {
@@ -82,7 +164,11 @@
   }
 
   .get-started {
-    margin: 0;
+    margin-top: $gutter-one-third;
+
+    @media (min-width: 769px) {
+      margin: 0;
+    }
   }
 
   .online-contact {
@@ -101,6 +187,12 @@
       width: $one-third;
       margin-bottom: $gutter;
 
+      @media (max-width: 640px) {
+        float: none;
+        width: $full-width;
+        margin-bottom: $gutter-one-third;
+      }
+
       span.type {
         @include core-19;
       }
@@ -109,6 +201,10 @@
         display: block;
         @include ig-core-24;
         font-weight: bold;
+
+        @media (max-width: 640px) {
+          padding: 0;
+        }
       }
     }
   }
@@ -117,6 +213,10 @@
     p {
       @include ig-core-14;
       padding: 0;
+
+      @media (max-width: 640px) {
+        line-height: 1.7;
+      }
     }
 
     .note {

@@ -1,5 +1,13 @@
 <% page_class 'details-page' %>
 
+<header class="page-header group">
+  <div>
+    <h1>
+      <%= contact %> contact details
+    </h1>
+  </div>
+</header>
+
 
 <div class="related block-1 pull-right">
   <div class="inner-block">
@@ -10,15 +18,7 @@
   </div>
 </div>
 
-<header class="page-header group">
-  <div>
-    <h1>
-      <%= contact %> contact details
-    </h1>
-  </div>
-</header>
-
-<div class="block-container clearfix">
+<div class="block-container contact-intro clearfix">
   <div class="block-1 pull-right">
     <div class="inner-block contact-links">
       <!-- TODO Contact links -->
@@ -86,7 +86,7 @@
   <% end %>
 <% else %>
   <% if contact.contact_form_links.any? %>
-    <div class="block-container clearfix online-contact">
+    <div class="block-container block-contact clearfix online-contact">
       <div class="block-1">
         <div class="inner-block">
           <h3>
@@ -95,9 +95,11 @@
         </div>
       </div>
       <div class="block-2">
-        <ul class="list-plain">
-          <%= render contact.contact_form_links %>
-        </ul>
+        <div class="inner-block">
+          <ul class="list-plain">
+            <%= render contact.contact_form_links %>
+          </ul>
+        </div>
       </div>
     </div>
   <% end %>
