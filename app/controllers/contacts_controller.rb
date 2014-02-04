@@ -18,7 +18,7 @@ class ContactsController < ApplicationController
       for_listing.
       decorate
     else
-      search.results
+      search.results.for_listing.decorate
     end
   }
 
