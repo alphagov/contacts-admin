@@ -226,6 +226,26 @@
     }
   }
 
+  .online-contact .useful-links {
+    p {
+      @include core-16;
+      margin-bottom: $gutter;
+    }
+
+    li {
+      p {
+        @include ig-core-14;
+        display: block;
+        padding-top: 0;
+        margin-bottom: $gutter-one-third;
+      }
+
+      &:last-child p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
   .online-contact .email {
     p {
       @include core-16;
