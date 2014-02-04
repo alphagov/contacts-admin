@@ -61,7 +61,13 @@ module Admin
         :important_link_title1,
         :important_link_title2,
         :important_link_description1,
-        :important_link_description2
+        :important_link_description2,
+        :quick_link_1,
+        :quick_link_title_1,
+        :quick_link_2,
+        :quick_link_title_2,
+        :quick_link_3,
+        :quick_link_title_3
       )
     end
   end
