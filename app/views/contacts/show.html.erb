@@ -102,7 +102,9 @@
                 Useful links
               </h3>
             <% end %>
-            <div class="<%= 'contact' if contact.email_addresses.any? %>">
+            <div class="useful-links <%= 'contact' if contact.email_addresses.any? %>">
+              <%= govspeak contact.more_info_contact_form.to_s %>
+
               <ul class="list-plain">
                 <%= render contact.contact_form_links %>
               </ul>
