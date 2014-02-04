@@ -1,9 +1,10 @@
 class ContactGroup < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
   include Versioning
+  include FriendlyId
   include BelongsToDepartment
 
-  acts_as_url :title, url_attribute: :slug, sync_url: true
+  friendly_id :title, use: :history
 
   has_many :contacts, through: :contact_memberships
   has_many :contact_memberships, dependent: :destroy
