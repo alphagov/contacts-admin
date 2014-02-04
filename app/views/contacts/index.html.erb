@@ -43,19 +43,15 @@
 <div class="block-2 filtered-results index-list-page organisations-index">
   <div class="inner-block">
     <div class="filter-results-summary">
-      <div class="selections">
-        <span class="count">
-          <!-- #TODO not dynamic -->
-          <%= contacts.size %>
-        </span>
-        <strong>
-          Contacts
-        </strong>
+      <div class="selections contacts-count">
+        <%= render "contacts_count" %>
       </div>
     </div>
     <div class="js-filter-block">
-      <div class="content"  id="organisations-list">
-        <%= render "index" %>
+      <div class="content">
+        <ol class="document-list">
+          <%= render "index" %>
+        </ol>
       </div>
     </div>
   </div>
