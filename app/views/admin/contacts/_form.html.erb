@@ -17,6 +17,27 @@
       <%= f.input :online_transaction_description, label: "Description", input_html: { rows: 5, class: "span9" }, hint: formatting_help_link %>
     </fieldset>
 
+    <fieldset class="form-horizontal">
+      <legend>Important Links</legend>
+      <div class="control-group">
+        <label for="contact_important_link_title1" class="control-label">Link 1</label>
+        <div class="controls">
+          <%= f.input_field :important_link_title1, placeholder: "Title", class: "span4" %>
+        </div>
+      </div>
+      <%= f.input :important_link1, label: false, placeholder: "Link", input_html: { class: "span4" } %>
+      <%= f.input :important_link_description1, label: false, placeholder: "Description", input_html: { rows: 5, class: "span9" }, hint: formatting_help_link %>
+
+      <div class="control-group">
+        <label for="contact_important_link_title2" class="control-label">Link 2</label>
+        <div class="controls">
+          <%= f.input_field :important_link_title2, placeholder: "Title", class: "span4" %>
+        </div>
+      </div>
+      <%= f.input :important_link2, label: false, placeholder: "Link", input_html: { class: "span4" } %>
+      <%= f.input :important_link_description2, label: false, placeholder: "Description", input_html: { rows: 5, class: "span9" }, hint: formatting_help_link %>
+    </fieldset>
+
     <div class='form-actions form-horizontal'>
       <div class="control-group">
         <div class="controls">
