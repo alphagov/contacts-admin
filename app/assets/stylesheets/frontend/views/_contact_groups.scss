@@ -174,4 +174,11 @@
       content: " \25BC";
     }
   }
+
+  .document-list .document-row .contact-meta {
+    @include ig-core-14;
+    color: #6F777B;
+    display: block;
+    float: none;
+  }
 }
