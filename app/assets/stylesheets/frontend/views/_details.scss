@@ -1,284 +1,157 @@
 .details-page {
-  .article-header {
+  .page-header {
+    margin-bottom: $gutter;
+  }
+
+  .block-2.pull-left .inner-block {
+    padding-right: 0;
+  }
+
+  .block-container {
     border-bottom: 1px solid $grey-2;
-    padding-bottom: $gutter-half;
-    margin-bottom: $gutter*1.5;
+    padding-bottom: $gutter;
+    margin-bottom: $gutter;
+
+    &:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
 
     @media (max-width: 641px) {
       border-bottom: none;
       margin-bottom: $gutter;
     }
 
-    aside {
-      @media (max-width: 641px) {
-        margin-left: -15px;
-        margin-right: -15px;
-      }
-    }
-
-    .header-div {
-      padding-bottom: $gutter-half;
-
-      @media (max-width: 641px) {
-        padding-top: $gutter-half;
-      }
-    }
-
-    h1 {
-      padding-bottom: $gutter;
-
-      @media (max-width: 641px) {
-        padding-bottom: $gutter-half;
-      }
-    }
-
-    p {
-      @include copy-19;
+    h3 {
+      @include ig-core-24;
+      font-weight: bold;
     }
   }
 
-  .article-container {
-    clear: both;
-    margin-right: 0;
+  .related,
+  .contact-links {
+    font-weight: bold;
+  }
 
-    strong {
+  .related {
+    right: 0;
+    border-top: 0;
+
+    h3 {
+      @include core-19;
+    }
+  }
+
+  .quick-answer p {
+    @include ig-core-24;
+
+    &:last-child {
+      font-size: 68px;
       font-weight: bold;
     }
+  }
 
-    .info-notice {
-      margin-top: 1.5em;
-      margin-bottom: 1.5em;
+  .quick-links {
+    margin-bottom: $gutter;
 
-      strong {
+    li {
+      float: left;
+      width: $one-half;
+
+      a,
+      p {
+        margin-right: $gutter-half;
+      }
+
+      a {
+        @include ig-core-24;
         font-weight: bold;
       }
     }
+  }
 
-    .waiting-times p {
-      line-height: 1.5;
+  .online-transaction {
+    padding-top: $gutter-half;
+    padding-bottom: $gutter*1.5;
+
+    p {
+      padding-top: $gutter-one-sixth;
+      @include ig-core-24;
     }
+  }
 
-    ul {
-      padding-left: 1.7em;
+  .get-started {
+    margin: 0;
+  }
 
-      li {
-        margin-bottom: $gutter-one-third;
+  .online-contact {
+    padding-bottom: $gutter*1.5;
+    @include core-19;
+    font-weight: bold;
+
+    li {
+      margin-bottom: 5px;
+    }
+  }
+
+  .phone-list {
+    .tel {
+      float: left;
+      width: $one-third;
+      margin-bottom: $gutter;
+
+      span.type {
+        @include core-19;
       }
 
-      &.contact-details-list {
-        margin-top: 0;
-        padding-left: 0;
-
-        li {
-          list-style: none;
-          list-style-image: none;
-          margin-left: 0;
-          margin-bottom: $gutter*1.5;
-          padding-left: 0;
-
-          .contact-detail-inner {
-            margin-left: 38px;
-            margin-right: 19px;
-            word-wrap: break-word;
-
-            @media (max-width: 641px) {
-              margin-left: 10px;
-              margin-right: 10px;
-            }
-          }
-
-          h3 {
-            @include heading-24;
-            margin-bottom: $gutter-half;
-            padding-top: 13px;
-            padding-bottom: 9px;
-            padding-left: 14px;
-            font-weight: bold;
-            background: $grey-3;
-            cursor: pointer;
-            zoom: 100%;
-
-            @media (min-width: 640px) {
-              margin-bottom: $gutter;
-              padding-top: 13px;
-              padding-bottom: 9px;
-            }
-
-            &:before {
-              display: inline-block;
-              font-size: 13px;
-              height: 16px;
-              padding-right: 5px;
-              vertical-align: middle;
-              content: " \25B2";
-            }
-
-            @include ie-lte(7) {
-              padding-left: 40px;
-              background: $grey-3 image-url('hmrc-contact-details-arrows.png') no-repeat left 24px;
-            }
-          }
-
-          p {
-            margin-bottom: $gutter-half;
-
-            small {
-              font-size: em(16, 19)
-            }
-          }
-
-          .vcard {
-            p {
-              margin-bottom: 0px;
-            }
-          }
-
-          strong {
-            font-weight: bold;
-          }
-
-          .useful-links {
-            margin: $gutter 0;
-
-            .sub-link {
-              margin-top: $gutter;
-              @include copy-16;
-
-              a {
-                color: $black;
-              }
-            }
-          }
-
-          .badge {
-            display: inline-block;
-            background: $grey-3;
-            min-width: 15px;
-            margin: 5px 0;
-            margin-left: 5px;
-            padding: 4px 6px;
-            padding-bottom: 3px;
-            font-size: em(15, 16);
-            font-weight: bold;
-            text-align: center;
-            @include border-radius(1000px);
-
-            @media (max-width: 641px) {
-              min-width: 12px;
-              font-size: em(13, 16);
-            }
-          }
-
-          .address,
-          .contact {
-            padding: 0;
-            background: transparent;
-            margin-bottom: $gutter;
-            padding-bottom: $gutter-half;
-            border-bottom: 1px solid $grey-2;
-
-            &:last-child,
-            &.last-child {
-              margin-bottom: 0;
-              padding-bottom: 0;
-              border: 0;
-            }
-
-
-            &.last-child {
-              @include ie(8) {
-                margin-bottom: 0;
-                padding-bottom: 0;
-                border: none;
-              }
-            }
-          }
-
-          &.js-hide {
-            margin-bottom: $gutter-half;
-
-            h3:before {
-              content: " \25BC";
-            }
-
-            @include ie-lte(7) {
-              h3 {
-                background-position: left -26px;
-              }
-            }
-
-            .contact-detail-inner {
-              display: none;
-            }
-          }
-        }
-      }
-
-      &.useful-links {
-        margin-left: 0;
-        padding-left: 0;
-
-        li {
-          list-style: none;
-          list-style-image: none;
-          list-style-position: outside;
-          margin-left: 0;
-          margin-bottom: $gutter-one-third;
-          padding-left: 0;
-        }
-
-        h3 {
-          font-weight: normal;
-          margin-bottom: 0;
-        }
-
-        p {
-          @include copy-16;
-        }
+      span.value {
+        display: block;
+        @include ig-core-24;
+        font-weight: bold;
       }
     }
+  }
 
-    ol {
-      padding-left: 2em;
-
-      li {
-        padding-left: 0;
-      }
+  .contact {
+    p {
+      @include ig-core-14;
+      padding: 0;
     }
 
-    h4 {
-      font-weight: bold;
+    .note {
+      margin-top: $gutter;
+    }
+  }
+
+  .address {
+    @include core-19;
+
+    p {
+      margin-bottom: $gutter;
+    }
+
+    .adr {
+      margin-top: $gutter-half;
+      margin-bottom: $gutter*2;
+
+      &:last-child,
+      .vcard p {
+        margin-bottom: 0;
+      }
     }
   }
 
   .pagination {
     border: none;
-  }
 
-  .pagination li a {
-    &:before {
-      background-image: image-url('arrow-sprite-hmrc.png');
-    }
-
-    @include ie-lte(7) {
-      background: image-url('arrow-sprite-hmrc.png') no-repeat right top;
-    }
-  }
-
-  .privacy-security-info {
-    a {
-      display: none;
-    }
-
-    &.js-hidden {
-      display: block !important;
-
-      a {
-        display: block;
+    li a {
+      &:before {
+        background-image: image-url('arrow-sprite-hmrc.png');
       }
 
-      .application-notice {
-        display: none;
+      @include ie-lte(7) {
+        background: image-url('arrow-sprite-hmrc.png') no-repeat right top;
       }
     }
   }

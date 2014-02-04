@@ -389,31 +389,6 @@ fieldset {
   padding-right: 5px;
 }
 
-.contact-details {
-  input.span9,
-  textarea.span9 {
-    width: 726px;
-  }
-  select.span9 {
-    width: 739px;
-  }
-
-  @include ie-lte(6) {
-    .span6 {
-      width: 480px;
-
-      &.span-preview {
-        width: 435px;
-        margin-left: 0;
-
-        .controls {
-          margin-right: 0;
-        }
-      }
-    }
-  }
-}
-
 table {
   td.date{
     width:85px;
