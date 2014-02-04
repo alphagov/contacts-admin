@@ -3,7 +3,7 @@ Contacts::Application.routes.draw do
   scope :path => "#{APP_SLUG}" do
 
     namespace :admin do
-      root to: 'dashboards#show', via: :get
+      root to: 'contacts#index', via: :get
 
       resources :contact_groups
       resources :contacts do
