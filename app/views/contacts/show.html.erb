@@ -64,7 +64,6 @@
     </div>
   </div>
 </div>
-
 <% if contact.quick_answer.present? %>
   <% if contact.online_transaction_link.present? %>
     <div class="block-container clearfix online-transaction">
@@ -84,25 +83,51 @@
       </div>
     </div>
   <% end %>
-<% else %>
-  <% if contact.contact_form_links.any? %>
-    <div class="block-container block-contact clearfix online-contact">
-      <div class="block-1">
-        <div class="inner-block">
-          <h3>
-            Online
-          </h3>
-        </div>
-      </div>
-      <div class="block-2">
-        <div class="inner-block">
-          <ul class="list-plain">
-            <%= render contact.contact_form_links %>
-          </ul>
-        </div>
+<% end %>
+<% if contact.contact_form_links.any? or contact.email_addresses.any? %>
+  <div class="block-container block-contact clearfix online-contact">
+    <div class="block-1">
+      <div class="inner-block">
+        <h3>
+          Online
+        </h3>
       </div>
     </div>
-  <% end %>
+    <div class="block-2">
+      <div class="inner-block">
+        <% if contact.contact_form_links.any? %>
+          <div class="block-container clearfix">
+            <% if contact.email_addresses.any? %>
+              <h3>
+                Useful links
+              </h3>
+            <% end %>
+            <div class="<%= 'contact' if contact.email_addresses.any? %>">
+              <ul class="list-plain">
+                <%= render contact.contact_form_links %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+        <% if contact.email_addresses.any? %>
+          <div class="block-container clearfix">
+            <% if contact.email_addresses.any? %>
+              <h3>
+                Email
+              </h3>
+            <% end %>
+            <div class="email <%= 'contact' if contact.contact_form_links.any? %>">
+              <%= govspeak contact.more_info_email_address.to_s %>
+
+              <ul class="list-plain">
+                <%= render contact.email_addresses %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <%= render "contact_details" %>
