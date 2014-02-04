@@ -1,10 +1,14 @@
-<%= govspeak email_address.description %>
-<p class="vcard">
-  <strong class="fn">
-    <%= email_address.title %>
-  </strong>
-  <br>
-  <span class="email">
-    <%= mail_to email_address.email %>
-  </span>
-</p>
+<li class="contact-detail">
+  <p class="vcard">
+    <strong class="fn">
+      <%= email_address.title %>
+    </strong>
+    <br>
+    <span>
+      <%= mail_to email_address.email %>
+    </span>
+    <span class="email-description">
+      <%= email_address.description %>
+    </span>
+  </p>
+</li>

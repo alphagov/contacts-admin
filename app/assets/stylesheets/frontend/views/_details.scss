@@ -226,6 +226,34 @@
     }
   }
 
+  .online-contact .email {
+    p {
+      @include core-16;
+      margin-bottom: $gutter;
+
+      strong {
+        font-weight: bold;
+      }
+
+      .email-description {
+        @include ig-core-14;
+        display: block;
+      }
+    }
+
+    li {
+      margin-bottom: $gutter-two-thirds;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
   .address {
     @include core-19;
 
