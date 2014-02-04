@@ -38,10 +38,12 @@
   </p>
 
   <div class="note">
-    <p>
-      Opening times:
-    </p>
-    <%= govspeak phone_number.open_hours %>
+    <% if phone_number.open_hours.present? %>
+      <p>
+        Opening times:
+      </p>
+      <%= govspeak phone_number.open_hours %>
+    <% end %>
   </div>
   <% if phone_number.description.present? %>
     <br>
