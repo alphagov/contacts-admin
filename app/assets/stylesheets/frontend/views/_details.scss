@@ -204,6 +204,10 @@
         @include ig-core-24;
         font-weight: bold;
 
+        a {
+          color: inherit;
+        }
+
         @media (max-width: 640px) {
           padding: 0;
         }
