@@ -1,4 +1,8 @@
 .contact_groups-page {
+  .filter-block {
+    margin-bottom: $gutter;
+  }
+
   .hmrc-search {
     @media (min-width: 769px) {
       margin-bottom: $gutter;
