@@ -6,7 +6,7 @@
       <%= f.input :department_id, label: "Department", collection: Department.all, label_method: :to_s, value_method: :slug, include_blank: false, input_html: { class: 'span3 js-chosen-select' } %>
       <%= f.association :contact_groups, collection: ContactGroup.all, include_hidden: false, multiple: true, input_html: { class: 'span9 js-chosen-select' } %>
       <%= f.input :description, as: :text, input_html: { rows: 8, class: 'span9' }, hint: formatting_help_link %>
-      <%= f.input :quick_answer, input_html: { rows: 5, class: 'span9' }, hint: formatting_help_link %>
+      <%= f.input :quick_answer, input_html: { rows: 5, class: 'span9' }, hint: formatting_help_link("quick_answer") %>
       <%= f.input :before_you_contact_us, as: :text, label: 'Before you contact us', input_html: { rows: 5, class: 'span9' }, hint: formatting_help_link %>
       <%= f.input :contact_information, as: :text, label: 'Information you will need', input_html: { rows: 5, class: 'span9' }, hint: formatting_help_link %>
     </fieldset>
@@ -29,3 +29,4 @@
   <% end %>
 </div>
 <%= render "admin/shared/formatting" %>
+<%= render partial: "admin/shared/formatting", locals: { show_section: "quick_answer" } %>

@@ -1,36 +1,51 @@
-<div id="formatting" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="fotmattingLabel" aria-hidden="true">
+<div id="formatting<%= show_section if defined?(show_section) %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="fotmattingLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Formatting help</h3>
+    <h3 id="myModalLabel">
+      Formatting help
+    </h3>
   </div>
   <div class="modal-body">
-<p>For style, see the <a href="https://www.gov.uk/designprinciples/styleguide">style guide</a>
+    <% if defined?(show_section) && show_section == "quick_answer" %>
+      <div class="row">
+        <div class="span6">
+          <h4>Quick Answer</h4>
+          <p>To add emphasis to an answer, use a dash followed by the answer. </p>
+          <pre>
+The quick answer is:
+# Answer
+          </pre>
+        </div>
+      </div>
+      <br>
+    <% end %>
 
-<h4>Links</h4>
-<pre>[link text](http://www.example.com) </pre>
-<p>For external websites, use the full URL including http://:, The link will display with an external link symbol.</p>
-<div class="row">
-  <div class="span3">
-<h4>Bullets</h4>
-<pre>
+    <p>For style, see the <a href="https://www.gov.uk/designprinciples/styleguide">style guide</a>
+    <h4>Links</h4>
+    <pre>[link text](http://www.example.com) </pre>
+    <p>For external websites, use the full URL including http://:, The link will display with an external link symbol.</p>
+    <div class="row">
+      <div class="span3">
+        <h4>Bullets</h4>
+        <pre>
 * item 1
 * item 2
   * sub-item
   * another sub-item
-</pre>
-  </div>
-  <div class="span3">
-<h4>Numbered list</h4>
-<pre>
+        </pre>
+      </div>
+      <div class="span3">
+        <h4>Numbered list</h4>
+        <pre>
 1. item 1
 2. item 2
   * sub-item
   * another sub-item
-</pre>
+        </pre>
+      </div>
+    </div>
+    <p>To indent, add 2 spaces</p>
   </div>
-</div>
-<p>To indent, add 2 spaces</p>
-</div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>

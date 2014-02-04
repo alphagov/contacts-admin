@@ -21,7 +21,7 @@ module ApplicationHelper
     Govspeak::Document.new(text).to_sanitized_html.html_safe if text
   end
 
-  def formatting_help_link
-    "<a href='#formatting' role='button' data-toggle='modal'>formatting help</a>".html_safe
+  def formatting_help_link(show_section="")
+    "<a href='#formatting#{show_section if show_section.present?}' role='button' data-toggle='modal'>formatting help</a>".html_safe
   end
 end
