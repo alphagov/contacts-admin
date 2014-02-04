@@ -44,20 +44,27 @@
             <%= govspeak contact.quick_answer %>
           </div>
         <% else %>
-          <!-- TODO Quick links: only show 2 -->
           <ul class="quick-links list-plain clearfix">
-            <li>
-              <%= link_to "Child Benefit" %>
-              <p>
-                Child Benefit - child benefit rates, eligibility, how to claim, child benefit claim form CH2
-              </p>
-            </li>
-            <li>
-              <%= link_to "Child Benefit rates" %>
-              <p>
-                Child Benefit rates - weekly amount of child benefit per child
-              </p>
-            </li>
+            <% if contact.important_link1.present? %>
+              <li>
+                <% if contact.important_link_title1.present? %>
+                  <%= link_to contact.important_link_title1, contact.important_link1 %>
+                <% else %>
+                  <%= link_to contact.important_link1, contact.important_link1 %>
+                <% end %>
+                <%= govspeak contact.important_link_description1 %>
+              </li>
+            <% end %>
+            <% if contact.important_link2.present? %>
+              <li>
+                <% if contact.important_link_title2.present? %>
+                  <%= link_to contact.important_link_title2, contact.important_link2 %>
+                <% else %>
+                  <%= link_to contact.important_link2, contact.important_link2 %>
+                <% end %>
+                <%= govspeak contact.important_link_description2 %>
+              </li>
+            <% end %>
           </ul>
         <% end %>
       </div>
