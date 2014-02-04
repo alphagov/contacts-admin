@@ -14,7 +14,14 @@
             Phone
           </h3>
 
-          <%= render contact.phone_numbers %>
+          <div class="contact">
+            <% if contact.more_info_phone_number.present? %>
+              <%= govspeak contact.more_info_phone_number.to_s %>
+              <br>
+            <% end%>
+
+            <%= render contact.phone_numbers %>
+          </div>
         </div>
       <% end %>
 

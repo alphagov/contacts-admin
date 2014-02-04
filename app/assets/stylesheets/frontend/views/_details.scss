@@ -211,21 +211,6 @@
     }
   }
 
-  .contact {
-    p {
-      @include ig-core-14;
-      padding: 0;
-
-      @media (max-width: 640px) {
-        line-height: 1.7;
-      }
-    }
-
-    .note {
-      margin-top: $gutter;
-    }
-  }
-
   .online-contact .useful-links {
     p {
       @include core-16;
@@ -271,6 +256,27 @@
       p {
         margin-bottom: 0;
       }
+    }
+  }
+
+  .phone-number {
+    margin-bottom: $gutter;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      @include ig-core-14;
+      padding: 0;
+
+      @media (max-width: 640px) {
+        line-height: 1.7;
+      }
+    }
+
+    .note {
+      margin-top: $gutter;
     }
   }
 
