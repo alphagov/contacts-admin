@@ -1,8 +1,8 @@
 class ContactsSearch < Searchlight::Search
 
-  search_on Contact
+  search_on Contact.includes(:contact_memberships)
 
-  searches :title, :description, :name, :department_id
+  searches :title, :description, :name, :department_id, :contact_group_id
 
   def search_title
     search.where "title LIKE :title", title: "%#{title}%"
@@ -18,5 +18,9 @@ class ContactsSearch < Searchlight::Search
 
   def search_department_id
     search.where department_id: department_id
+  end
+
+  def search_contact_group_id
+    search.where "`contact_memberships`.`contact_group_id` = ?", contact_group_id
   end
 end

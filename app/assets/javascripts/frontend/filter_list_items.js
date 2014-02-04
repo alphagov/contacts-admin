@@ -10,20 +10,30 @@
     ignoreKeyCodes: [16, 17, 18, 91, 93],
     $form: null,
     submitTimeoutId: null,
+    lastQuery: null,
 
     initialize: function () {
       this.$form = $(".js-filter-form");
       this.$form.on("submit", this.formSubmitted);
-      this.$form.find("input").on( "keyup", $.proxy(this.keyUpped, this) );
+      this.$form.find("#filter_contacts").on( "keyup change search", $.proxy(this.keyUpped, this) );
+      this.$form.find("#contact-groups-filter").on( "change", $.proxy(this.submit, this) );
     },
 
     keyUpped: function (e) {
       if (e.keyCode === 13) {
         return this.submit();  // if user presses enter, submit form
       }
-      if (this.ignoreKeyCodes.indexOf(e.keyCode) === -1) {
+      if (this.ignoreKeyCodes.indexOf(e.keyCode) === -1 && this.queryChanged(e.target.value)) {
         this.scheduleForSubmit();
       }
+    },
+
+    queryChanged: function (newQuery) {
+      if (this.lastQuery != newQuery) {
+        this.lastQuery = newQuery;
+        return true;
+      }
+      return false;
     },
 
     formSubmitted: function () {
