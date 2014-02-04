@@ -81,6 +81,16 @@
   @import "views/_search.scss";
 }
 
+@-moz-document url-prefix(){
+  .single-row-select {
+    @media (min-width: 641px) {
+      text-indent: 0.01px !important;
+      text-overflow: '';
+      -moz-appearance: none;
+    }
+  }
+}
+
 
 
 // LAYOUTS
