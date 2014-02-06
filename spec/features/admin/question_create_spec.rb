@@ -12,6 +12,7 @@ describe 'Question creation', auth: :user do
   }
 
   specify 'it can be created' do
+    pending('deprecated')
     create_question({
       title: question.title
     }) do
