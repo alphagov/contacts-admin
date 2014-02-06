@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204212954) do
+ActiveRecord::Schema.define(version: 20140204220206) do
 
   create_table "contact_groups", force: true do |t|
     t.integer  "contact_group_type_id"
@@ -63,6 +63,12 @@ ActiveRecord::Schema.define(version: 20140204212954) do
     t.string   "important_link_title2"
     t.text     "important_link_description1"
     t.text     "important_link_description2"
+    t.string   "quick_link_1"
+    t.string   "quick_link_title_1"
+    t.string   "quick_link_2"
+    t.string   "quick_link_title_2"
+    t.string   "quick_link_3"
+    t.string   "quick_link_title_3"
   end
 
   add_index "contacts", ["department_id"], name: "index_contacts_on_department_id", using: :btree
