@@ -119,6 +119,8 @@ GEM
     fakefs (0.5.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    friendly_id (5.0.2)
+      activerecord (~> 4.0.0)
     gds-api-adapters (7.20.0)
       link_header
       lrucache (~> 0.1.1)
@@ -270,7 +272,6 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh
       term-ansicolor
-    stringex (2.1.0)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
     therubyracer (0.12.0)
@@ -323,6 +324,7 @@ DEPENDENCIES
   exception_notification
   factory_girl_rails
   fakefs
+  friendly_id (= 5.0.2)
   gds-api-adapters (~> 7.20.0)
   gds-sso!
   govspeak (= 1.2.3)
@@ -345,7 +347,6 @@ DEPENDENCIES
   simplecov
   simplecov-rcov
   slimmer (~> 3.20.0)
-  stringex (= 2.1.0)
   therubyracer
   uglifier (>= 1.3.0)
   unicorn (~> 4.6.3)
