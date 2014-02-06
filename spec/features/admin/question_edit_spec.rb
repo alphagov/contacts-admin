@@ -10,6 +10,7 @@ describe 'Question editing', auth: :user do
   before { verify question_exists(question) }
 
   specify 'it can be updated' do
+    pending('deprecated')
     update_question(question, title: 'new title') do
       select new_contact, from: 'question_contact_id'
       select new_contact_group, from: 'question_contact_group_id'

@@ -8,6 +8,7 @@ describe 'Question removal', auth: :user do
   before { verify question_exists(question) }
 
   specify 'it can be removed' do
+    pending('deprecated')
     delete_question(question)
 
     verify !question_exists(question)

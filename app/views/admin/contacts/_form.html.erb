@@ -16,6 +16,33 @@
     </fieldset>
 
     <fieldset class="form-horizontal">
+      <legend>Quick Links</legend>
+      <div class="control-group">
+        <%= f.label :quick_link_title_1, "Link 1", class: "control-label" %>
+        <div class="controls">
+          <%= f.input_field :quick_link_title_1, placeholder: "Title", class: "span4" %>
+        </div>
+      </div>
+      <%= f.input :quick_link_1, label: false, placeholder: "Link", input_html: { class: "span4" } %>
+
+      <div class="control-group">
+        <%= f.label :quick_link_title_2, "Link 2", class: "control-label" %>
+        <div class="controls">
+          <%= f.input_field :quick_link_title_2, placeholder: "Title", class: "span4" %>
+        </div>
+      </div>
+      <%= f.input :quick_link_2, label: false, placeholder: "Link", input_html: { class: "span4" } %>
+
+      <div class="control-group">
+        <%= f.label :quick_link_title_3, "Link 3", class: "control-label" %>
+        <div class="controls">
+          <%= f.input_field :quick_link_title_3, placeholder: "Title", class: "span4" %>
+        </div>
+      </div>
+      <%= f.input :quick_link_3, label: false, placeholder: "Link", input_html: { class: "span4" } %>
+    </fieldset>
+
+    <fieldset class="form-horizontal">
       <legend>Online Transaction</legend>
       <%= f.input :online_transaction_link, label: "Link", input_html: { class: "span4" } %>
       <%= f.input :online_transaction_description, label: "Description", input_html: { rows: 5, class: "span9" }, hint: formatting_help_link %>
@@ -24,7 +51,7 @@
     <fieldset class="form-horizontal">
       <legend>Important Links</legend>
       <div class="control-group">
-        <label for="contact_important_link_title1" class="control-label">Link 1</label>
+        <%= f.label :important_link_title1, "Link 1", class: "control-label" %>
         <div class="controls">
           <%= f.input_field :important_link_title1, placeholder: "Title", class: "span4" %>
         </div>
@@ -33,7 +60,7 @@
       <%= f.input :important_link_description1, label: false, placeholder: "Description", input_html: { rows: 5, class: "span9" }, hint: formatting_help_link %>
 
       <div class="control-group">
-        <label for="contact_important_link_title2" class="control-label">Link 2</label>
+        <%= f.label :important_link_title2, "Link 2", class: "control-label" %>
         <div class="controls">
           <%= f.input_field :important_link_title2, placeholder: "Title", class: "span4" %>
         </div>
