@@ -24,7 +24,8 @@
     padding-bottom: $gutter;
     margin-bottom: $gutter;
 
-    &:last-child {
+    &:last-child,
+    &.last {
       border-bottom: 0;
       padding-bottom: 0;
       margin-bottom: 0;
@@ -34,6 +35,12 @@
       @include ig-core-24;
       font-weight: bold;
     }
+  }
+
+  .block-container-last {
+    border-bottom: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 
   .block-contact {
@@ -187,7 +194,7 @@
     .tel {
       float: left;
       width: $one-third;
-      margin-bottom: $gutter;
+      padding-bottom: $gutter;
 
       @media (max-width: 640px) {
         float: none;

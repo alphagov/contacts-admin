@@ -175,10 +175,16 @@
     }
   }
 
-  .document-list .document-row .contact-meta {
-    @include ig-core-14;
-    color: #6F777B;
-    display: block;
-    float: none;
+  .document-list .document-row {
+    p {
+      float: none;
+    }
+
+    .contact-meta {
+      @include ig-core-14;
+      color: #6F777B;
+      display: block;
+      float: none;
+    }
   }
 }

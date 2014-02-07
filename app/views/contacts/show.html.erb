@@ -9,7 +9,7 @@
 </header>
 
 
-<div class="related block-1 pull-right">
+<div class="related block-1 block-pull-right">
   <div class="inner-block">
     <h3>
       <!-- TODO -->
@@ -19,7 +19,7 @@
 </div>
 
 <div class="block-container contact-intro clearfix">
-  <div class="block-1 pull-right">
+  <div class="block-1 block-pull-right">
     <div class="inner-block contact-links">
       <!-- TODO Contact links -->
       <ul class="list-plain">
@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <div class="block-2 pull-left">
+  <div class="block-2 block-pull-left">
     <div class="inner-block">
       <div class="group">
         <% if contact.quick_answer.present? %>
@@ -74,14 +74,14 @@
 <% if contact.quick_answer.present? %>
   <% if contact.online_transaction_link.present? %>
     <div class="block-container clearfix online-transaction">
-      <div class="block-2 pull-left">
+      <div class="block-2 block-pull-left">
         <div class="inner-block">
           <div class="group">
             <%= govspeak contact.online_transaction_description %>
           </div>
         </div>
       </div>
-      <div class="block-1 pull-right">
+      <div class="block-1 block-pull-right">
         <div class="inner-block">
           <div class="group get-started">
             <%= link_to "Start now", contact.online_transaction_link, class: "big button" %>
@@ -103,7 +103,7 @@
     <div class="block-2">
       <div class="inner-block">
         <% if contact.contact_form_links.any? %>
-          <div class="block-container clearfix">
+          <div class="block-container clearfix <%= 'block-container-last' if contact.email_addresses.none? %>">
             <% if contact.email_addresses.any? %>
               <h3>
                 Useful links
@@ -119,7 +119,7 @@
           </div>
         <% end %>
         <% if contact.email_addresses.any? %>
-          <div class="block-container clearfix">
+          <div class="block-container clearfix block-container-last">
             <% if contact.email_addresses.any? %>
               <h3>
                 Email
