@@ -39,7 +39,6 @@ gem 'jquery-rails'
 
 # development
 group :development do
-  gem 'capistrano'
   gem 'railroady'
   gem 'rack-mini-profiler', '~> 0.1.31'
   gem 'rubocop'
@@ -50,7 +49,6 @@ group :development, :test do
 end
 
 # testing
-
 group :test do
   gem 'ci_reporter'
   gem 'rspec-rails', '~> 2.14'

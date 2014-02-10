@@ -73,10 +73,6 @@ GEM
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
     builder (3.1.4)
-    capistrano (3.1.0)
-      i18n
-      rake (>= 10.0.0)
-      sshkit (~> 1.3)
     capybara (2.2.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -163,9 +159,6 @@ GEM
     multipart-post (2.0.0)
     mysql2 (0.3.15)
     named (1.1.0)
-    net-scp (1.1.2)
-      net-ssh (>= 2.6.5)
-    net-ssh (2.8.0)
     nokogiri (1.5.11)
     null_logger (0.0.1)
     oauth2 (0.9.3)
@@ -279,12 +272,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sshkit (1.3.0)
-      net-scp (>= 1.1.2)
-      net-ssh
-      term-ansicolor
-    term-ansicolor (1.2.2)
-      tins (~> 0.8)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
@@ -292,7 +279,6 @@ GEM
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
-    tins (0.13.2)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -325,7 +311,6 @@ DEPENDENCIES
   active_hash (~> 1.2.0)
   aws-ses
   bootstrap-sass (= 2.3.2.2)
-  capistrano
   capybara
   ci_reporter
   coffee-rails (~> 4.0.0)
