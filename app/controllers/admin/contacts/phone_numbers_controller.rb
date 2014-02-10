@@ -7,7 +7,7 @@ module Admin
 
       def create
         if phone_number.save
-          redirect_to [:admin, contact, :phone_numbers], notice: 'Phone Number successfully created'
+          redirect_to [:admin, contact, :phone_numbers], notice: "Phone Number successfully created"
         else
           render :new
         end
@@ -15,7 +15,7 @@ module Admin
 
       def update
         if phone_number.update_attributes(phone_number_params)
-          redirect_to [:admin, contact, :phone_numbers], notice: 'Phone Number successfully updated'
+          redirect_to [:admin, contact, :phone_numbers], notice: "Phone Number successfully updated"
         else
           render :edit
         end
@@ -24,7 +24,7 @@ module Admin
       def destroy
         phone_number.destroy
 
-        redirect_to [:admin, contact, :phone_numbers], notice: 'Phone Number successfully deleted'
+        redirect_to [:admin, contact, :phone_numbers], notice: "Phone Number successfully deleted"
       end
 
       private

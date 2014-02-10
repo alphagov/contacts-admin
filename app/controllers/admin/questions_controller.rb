@@ -13,7 +13,7 @@ module Admin
 
     def update
       if question.update_attributes(question_params)
-        redirect_to admin_questions_path, notice: 'Question was successfully updated'
+        redirect_to admin_questions_path, notice: "Question was successfully updated"
       else
         render :edit
       end
@@ -21,7 +21,7 @@ module Admin
 
     def create
       if question.save
-        redirect_to admin_questions_path, notice: 'Question was successfully created'
+        redirect_to admin_questions_path, notice: "Question was successfully created"
       else
         render :new
       end
@@ -30,7 +30,7 @@ module Admin
     def destroy
       question.destroy
 
-      redirect_to admin_questions_path, notice: 'Question was successfully deleted'
+      redirect_to admin_questions_path, notice: "Question was successfully deleted"
     end
 
     private

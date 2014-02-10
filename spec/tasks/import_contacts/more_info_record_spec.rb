@@ -1,17 +1,17 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe ImportContacts::MoreInfoRecord do
-  let(:url_content)   { 'http://www.example.com' }
-  let(:content)       { 'content' }
+  let(:url_content)   { "http://www.example.com" }
+  let(:content)       { "content" }
   let(:more_info_url) {
     ImportContacts::MoreInfoUrl.new(
-      title: 'url title',
+      title: "url title",
       url: url_content
     )
   }
 
-  describe '#to_markdown' do
-    context 'url content present, content present' do
+  describe "#to_markdown" do
+    context "url content present, content present" do
       let(:more_info_record) {
         described_class.new(
           content: content,
@@ -19,16 +19,16 @@ describe ImportContacts::MoreInfoRecord do
         )
       }
 
-      it 'includes url content' do
+      it "includes url content" do
         expect(more_info_record.to_markdown).to include content
       end
 
-      it 'includes content' do
+      it "includes content" do
         expect(more_info_record.to_markdown).to include url_content
       end
     end
 
-    context 'url content missing, content present' do
+    context "url content missing, content present" do
       let(:more_info_record) {
         described_class.new(
           content: content,
@@ -36,16 +36,16 @@ describe ImportContacts::MoreInfoRecord do
         )
       }
 
-      it 'does not include url content' do
+      it "does not include url content" do
         expect(more_info_record.to_markdown).to include content
       end
 
-      it 'includes content' do
+      it "includes content" do
         expect(more_info_record.to_markdown).not_to include url_content
       end
     end
 
-    context 'url content present, content missing' do
+    context "url content present, content missing" do
       let(:more_info_record) {
         described_class.new(
           content: nil,
@@ -53,16 +53,16 @@ describe ImportContacts::MoreInfoRecord do
         )
       }
 
-      it 'includes url content' do
+      it "includes url content" do
         expect(more_info_record.to_markdown).not_to include content
       end
 
-      it 'does not include content' do
+      it "does not include content" do
         expect(more_info_record.to_markdown).to include url_content
       end
     end
 
-    context 'url content missing, content missing' do
+    context "url content missing, content missing" do
       let(:more_info_record) {
         described_class.new(
           content: nil,
@@ -70,11 +70,11 @@ describe ImportContacts::MoreInfoRecord do
         )
       }
 
-      it 'does not include url content' do
+      it "does not include url content" do
         expect(more_info_record.to_markdown).not_to include url_content
       end
 
-      it 'does not include content' do
+      it "does not include content" do
         expect(more_info_record.to_markdown).not_to include content
       end
     end

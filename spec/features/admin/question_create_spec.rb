@@ -1,6 +1,6 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe 'Question creation', auth: :user do
+describe "Question creation", auth: :user do
   include Admin::QuestionSteps
 
   let!(:contact) { create :contact }
@@ -11,13 +11,13 @@ describe 'Question creation', auth: :user do
     verify !question_exists(question)
   }
 
-  specify 'it can be created' do
-    pending('deprecated')
-    create_question({
+  specify "it can be created" do
+    pending("deprecated")
+    create_question(
       title: question.title
-    }) do
-      select contact, from: 'question_contact_id'
-      select contact_group, from: 'question_contact_group_id'
+    ) do
+      select contact, from: "question_contact_id"
+      select contact_group, from: "question_contact_group_id"
     end
 
     verify question_exists(question)

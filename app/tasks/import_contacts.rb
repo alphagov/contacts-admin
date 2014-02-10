@@ -1,12 +1,12 @@
-require 'csv'
+require "csv"
 
-require 'import_contacts/more_info_url'
-require 'import_contacts/more_info_record'
-require 'import_contacts/contact_form_link_builder'
-require 'import_contacts/phone_number_builder'
-require 'import_contacts/post_address_builder'
-require 'import_contacts/email_address_builder'
-require 'import_contacts/contact_builder'
+require "import_contacts/more_info_url"
+require "import_contacts/more_info_record"
+require "import_contacts/contact_form_link_builder"
+require "import_contacts/phone_number_builder"
+require "import_contacts/post_address_builder"
+require "import_contacts/email_address_builder"
+require "import_contacts/contact_builder"
 
 class ImportContacts
   def initialize(file_path)
@@ -16,7 +16,7 @@ class ImportContacts
   end
 
   def import(builder = ContactBuilder)
-    csv_opts = { skip_blanks: true, encoding: 'windows-1252:utf-8', headers: true }
+    csv_opts = { skip_blanks: true, encoding: "windows-1252:utf-8", headers: true }
 
     logger.info "Importing: Import_id, title"
 

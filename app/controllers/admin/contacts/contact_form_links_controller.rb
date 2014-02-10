@@ -7,7 +7,7 @@ module Admin
 
       def create
         if contact_form_link.save
-          redirect_to [:admin, contact, :contact_form_links], notice: 'Contact Form Link successfully created'
+          redirect_to [:admin, contact, :contact_form_links], notice: "Contact Form Link successfully created"
         else
           render :new
         end
@@ -15,7 +15,7 @@ module Admin
 
       def update
         if contact_form_link.update_attributes(contact_form_link_params)
-          redirect_to [:admin, contact, :contact_form_links], notice: 'Contact Form Link successfully updated'
+          redirect_to [:admin, contact, :contact_form_links], notice: "Contact Form Link successfully updated"
         else
           render :edit
         end
@@ -24,7 +24,7 @@ module Admin
       def destroy
         contact_form_link.destroy
 
-        redirect_to [:admin, contact, :contact_form_links], notice: 'Contact Form Link successfully deleted'
+        redirect_to [:admin, contact, :contact_form_links], notice: "Contact Form Link successfully deleted"
       end
 
       private

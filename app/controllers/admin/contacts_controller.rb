@@ -7,7 +7,7 @@ module Admin
     def update
       if contact.update_attributes(contact_params)
         respond_to do |format|
-          format.html { redirect_to edit_admin_contact_path(contact), notice: 'Contact successfully updated' }
+          format.html { redirect_to edit_admin_contact_path(contact), notice: "Contact successfully updated" }
           format.js { render :edit }
         end
       else
@@ -18,13 +18,13 @@ module Admin
     def clone
       contact = Contact.find(params[:id])
       cloned_contact = Admin::CloneContact.new(contact).clone
-      flash.notice = 'Contact cloned'
+      flash.notice = "Contact cloned"
       redirect_to edit_admin_contact_path(cloned_contact)
     end
 
     def create
       if contact.save
-        redirect_to admin_contacts_path, notice: 'Contact successfully created'
+        redirect_to admin_contacts_path, notice: "Contact successfully created"
       else
         render :new
       end
@@ -32,7 +32,7 @@ module Admin
 
     def destroy
       if Admin::DestroyContact.new(contact).destroy
-        flash.notice = 'Contact successfully deleted'
+        flash.notice = "Contact successfully deleted"
       else
         flash.alert = contact.errors.full_messages.to_sentence
       end
@@ -43,7 +43,7 @@ module Admin
 
     def contact_params
       params.require(:contact).permit(
-        {contact_group_ids: []},
+        { contact_group_ids: [] },
         :department_id,
         :description,
         :quick_answer,

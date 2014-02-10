@@ -1,22 +1,22 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe ImportContacts::PostAddressBuilder do
-  describe '.build' do
+  describe ".build" do
     let(:contact)    { build :contact }
-    let(:posttitle)         { 'post title' }
-    let(:postaddress_desc)  { 'post description' }
-    let(:postaddress)       { 'some address' }
-    let(:postlink)          { 'http://www.example.com' }
+    let(:posttitle)         { "post title" }
+    let(:postaddress_desc)  { "post description" }
+    let(:postaddress)       { "some address" }
+    let(:postlink)          { "http://www.example.com" }
 
-    context 'with primary post address record' do
+    context "with primary post address record" do
       let(:input_attributes) {
         {
-          'postaddresstag1' => postaddress_desc,
-          'postaddress1' => postaddress
+          "postaddresstag1" => postaddress_desc,
+          "postaddress1" => postaddress
         }
       }
 
-      it 'builds post address record' do
+      it "builds post address record" do
         post_addresses = described_class.build(contact, input_attributes)
 
         expect(
@@ -28,15 +28,15 @@ describe ImportContacts::PostAddressBuilder do
       end
     end
 
-    context 'with secondary postaddress record' do
+    context "with secondary postaddress record" do
       let(:input_attributes) {
         {
-          'postaddresstag2' => postaddress_desc,
-          'postaddress2' => postaddress
+          "postaddresstag2" => postaddress_desc,
+          "postaddress2" => postaddress
         }
       }
 
-      it 'builds secondary post address record' do
+      it "builds secondary post address record" do
         post_addresses = described_class.build(contact, input_attributes)
 
         expect(
@@ -48,15 +48,15 @@ describe ImportContacts::PostAddressBuilder do
       end
     end
 
-    context 'with third post address record' do
+    context "with third post address record" do
       let(:input_attributes) {
         {
-          'postaddresstag3' => postaddress_desc,
-          'postaddress3' => postaddress
+          "postaddresstag3" => postaddress_desc,
+          "postaddress3" => postaddress
         }
       }
 
-      it 'builds third post address record' do
+      it "builds third post address record" do
         post_addresses = described_class.build(contact, input_attributes)
 
         expect(

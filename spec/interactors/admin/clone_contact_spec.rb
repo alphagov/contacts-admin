@@ -1,11 +1,11 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Admin::CloneContact do
-  describe '#clone' do
-    context 'contact exists' do
+  describe "#clone" do
+    context "contact exists" do
       let!(:contact) { create :contact, :with_contact_group, :with_contact_form_links, :with_post_addresses, :with_phone_numbers, :with_email_addresses }
 
-      it 'clones the contact and returns the clone' do
+      it "clones the contact and returns the clone" do
         clone = described_class.new(contact).clone
 
         expect(contact.reload).to be_present

@@ -1,6 +1,6 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe 'Contact Form Link creation', auth: :user do
+describe "Contact Form Link creation", auth: :user do
   include Admin::ContactFormLinkSteps
 
   let(:contact)           { create :contact }
@@ -10,11 +10,11 @@ describe 'Contact Form Link creation', auth: :user do
     verify !contact_form_link_exists(contact, contact_form_link)
   }
 
-  specify 'it can be created' do
-    create_contact_form_link(contact, {
-      link: contact_form_link.link,
-      title: contact_form_link.title
-    })
+  specify "it can be created" do
+    create_contact_form_link(contact,
+                             link: contact_form_link.link,
+                             title: contact_form_link.title
+    )
 
     verify contact_form_link_exists(contact, contact_form_link)
   end

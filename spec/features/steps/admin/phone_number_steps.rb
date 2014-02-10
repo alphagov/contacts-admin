@@ -17,7 +17,7 @@ module Admin
         number
       )
 
-      click_link 'Delete'
+      click_link "Delete"
     end
 
     def update_phone_number(number, new_details = {})
@@ -32,7 +32,7 @@ module Admin
 
       yield if block_given?
 
-      find('#phone-number-submit').click
+      find("#phone-number-submit").click
     end
 
     def create_phone_number(contact, details = {})
@@ -44,7 +44,7 @@ module Admin
 
       yield if block_given?
 
-      find('#phone-number-submit').click
+      find("#phone-number-submit").click
     end
 
     def phone_number_updated(number, details = {})

@@ -1,0 +1,167 @@
+AllCops:
+  Includes:
+    - config.ru
+    - Gemfile
+  Excludes:
+    - bin/**
+    - db/**
+    - config/**
+    - script/**
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedHashRocketStyle, EnforcedColonStyle.
+AlignHash:
+  Enabled: true
+
+# Cop supports --auto-correct.
+AlignParameters:
+  Enabled: true
+
+# Cop supports --auto-correct.
+AndOr:
+  Enabled: true
+
+# Configuration parameters: AllowSafeAssignment.
+AssignmentInCondition:
+  Enabled: true
+
+# Cop supports --auto-correct.
+Blocks:
+  Enabled: false
+
+# Offence count: 1
+ClassVars:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: PreferredMethods.
+CollectionMethods:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+# Configuration parameters: AllowAdjacentOneLineDefs.
+EmptyLineBetweenDefs:
+  Enabled: true
+
+# Cop supports --auto-correct.
+EmptyLines:
+  Enabled: true
+
+EmptyLinesAroundAccessModifier:
+  Enabled: true
+
+# Cop supports --auto-correct.
+EmptyLinesAroundBody:
+  Enabled: true
+
+# Configuration parameters: AlignWith, SupportedStyles.
+EndAlignment:
+  Enabled: true
+
+# Cop supports --auto-correct.
+FinalNewline:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+HashSyntax:
+  Enabled: true
+
+IndentationWidth:
+  Enabled: true
+
+Lambda:
+  Enabled: false
+
+# Cop supports --auto-correct.
+LeadingCommentSpace:
+  Enabled: true
+
+LineLength:
+  Max: 183
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+MethodDefParentheses:
+  Enabled: true
+
+# Configuration parameters: CountComments.
+MethodLength:
+  Max: 32
+
+MultilineBlockChain:
+  Enabled: true
+
+# Cop supports --auto-correct.
+NumericLiterals:
+  Enabled: true
+
+# Configuration parameters: SupportedStyles.
+RaiseArgs:
+  EnforcedStyle: compact
+
+# Cop supports --auto-correct.
+RedundantSelf:
+  Enabled: true
+
+ShadowingOuterLocalVariable:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+SignalException:
+  Enabled: true
+  EnforcedStyle: only_raise
+
+# Cop supports --auto-correct.
+SpaceAfterComma:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
+SpaceAroundBlockBraces:
+  Enabled: true
+
+# Cop supports --auto-correct.
+SpaceAroundOperators:
+  Enabled: true
+
+# Cop supports --auto-correct.
+SpaceInsideBrackets:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SupportedStyles.
+SpaceInsideHashLiteralBraces:
+  Enabled: true
+
+# Cop supports --auto-correct.
+SpaceInsideParens:
+  Enabled: true
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Tab:
+  Enabled: true
+
+# Cop supports --auto-correct.
+TrailingBlankLines:
+  Enabled: true
+
+# Cop supports --auto-correct.
+TrailingWhitespace:
+  Enabled: true
+
+# Configuration parameters: ExactNameMatch, AllowPredicates, Whitelist.
+TrivialAccessors:
+  Enabled: true
+
+# Cop supports --auto-correct.
+WordArray:
+  MinSize: 3
