@@ -1,6 +1,6 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe 'Post Address removal', auth: :user, mock_world_location: true do
+describe "Post Address removal", auth: :user, mock_world_location: true do
   include Admin::PostAddressSteps
 
   let!(:contact)      { create :contact }
@@ -8,7 +8,7 @@ describe 'Post Address removal', auth: :user, mock_world_location: true do
 
   before { verify post_address_exists(contact, post_address) }
 
-  specify 'it can be removed' do
+  specify "it can be removed" do
     delete_post_address(post_address)
 
     verify !post_address_exists(contact, post_address)

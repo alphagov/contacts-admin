@@ -17,7 +17,7 @@ module Admin
         email_address
       )
 
-      click_link 'Delete'
+      click_link "Delete"
     end
 
     def update_email_address(email_address, new_details = {})
@@ -32,7 +32,7 @@ module Admin
 
       yield if block_given?
 
-      find('#email-address-submit').click
+      find("#email-address-submit").click
     end
 
     def create_email_address(contact, details = {})
@@ -44,7 +44,7 @@ module Admin
 
       yield if block_given?
 
-      find('#email-address-submit').click
+      find("#email-address-submit").click
     end
 
     def email_address_updated(email_address, details = {})

@@ -1,22 +1,22 @@
-ENV["RAILS_ENV"] ||= 'test'
-ENV["RUMMAGER_HOST"] ||= 'http://search.dev.gov.uk'
+ENV["RAILS_ENV"] ||= "test"
+ENV["RUMMAGER_HOST"] ||= "http://search.dev.gov.uk"
 
-require 'simplecov'
-require 'simplecov-rcov'
+require "simplecov"
+require "simplecov-rcov"
 
-SimpleCov.start 'rails'
+SimpleCov.start "rails"
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 
 require File.expand_path("../../config/environment", __FILE__)
 
-require 'rspec/rails'
-require 'rspec/autorun'
-require 'capybara/rails'
-require 'slimmer/test'
-require 'fakefs/spec_helpers'
+require "rspec/rails"
+require "rspec/autorun"
+require "capybara/rails"
+require "slimmer/test"
+require "fakefs/spec_helpers"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
-Dir[Rails.root.join("spec/features/steps/**/*.rb")].sort.reverse.each {|f| require f}
+Dir[Rails.root.join("spec/features/steps/**/*.rb")].sort.reverse.each { |f| require f }
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 

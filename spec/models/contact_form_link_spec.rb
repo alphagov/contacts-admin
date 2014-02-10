@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe ContactFormLink do
   it { should validate_presence_of :title }

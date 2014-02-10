@@ -11,6 +11,6 @@ FactoryGirl.define do
     title   { generate(:post_address_title) }
     street_address { generate(:street_address) }
     postal_code { generate(:postal_code) }
-    world_location_slug { 'united-kingdom' }
+    world_location_slug { "united-kingdom" }
   end
 end

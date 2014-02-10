@@ -65,7 +65,7 @@ class Department
   def self.find_by(attributes)
     all.find { |department|
       attributes.inject(true) { |prev, key|
-        prev and department.send(key.first) == key.last
+        prev && department.send(key.first) == key.last
       }
     }
   end

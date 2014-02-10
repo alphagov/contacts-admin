@@ -1,7 +1,7 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Department do
-  let (:hmrc) { Department.first }
+  let(:hmrc) { Department.first }
 
   describe "#all" do
     it "should have only hmrc loaded" do

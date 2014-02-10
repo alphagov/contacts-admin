@@ -15,14 +15,14 @@ class ImportContacts
 
     def contact_attributes
       {
-        description: attributes['description'],
-        contact_group_ids: [ContactGroup.find_by(title: attributes['clustergroup']).try(:id)],
+        description: attributes["description"],
+        contact_group_ids: [ContactGroup.find_by(title: attributes["clustergroup"]).try(:id)],
         department: attributes.fetch(:department) { Department.find_by abbreviation: "hmrc" }
       }
     end
 
     def build
-      @contact.assign_attributes({
+      @contact.assign_attributes(
         contact_form_links: contact_form_link_records,
         email_addresses: email_address_records,
         post_addresses: post_address_records,
@@ -32,7 +32,7 @@ class ImportContacts
         more_info_post_address: more_info_text_for(:post_address),
         more_info_phone_number: more_info_text_for(:phone_number),
         title: title
-      })
+      )
 
       @contact
     end
@@ -43,7 +43,7 @@ class ImportContacts
     # it seems offices are like alias to help people search for contacts
     # we can do this by improving search and having better descriptions
     def title
-      attributes.fetch('title', '').split(/\n/).map(&:strip).first
+      attributes.fetch("title", "").split(/\n/).map(&:strip).first
     end
 
     def contact_form_link_records

@@ -1,22 +1,22 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe ImportContacts::ContactFormLinkBuilder do
-  describe '.build' do
+  describe ".build" do
     let(:contact)    { build :contact }
-    let(:site_title) { 'website title' }
-    let(:site_desc)  { 'website description' }
-    let(:site_link)  { 'http://www.url.com' }
+    let(:site_title) { "website title" }
+    let(:site_desc)  { "website description" }
+    let(:site_link)  { "http://www.url.com" }
 
-    context 'with primary website record' do
+    context "with primary website record" do
       let(:input_attributes) {
         {
-          'ogtitle1' => site_title,
-          'ogtag1' => site_desc,
-          'ogurl1' => site_link
+          "ogtitle1" => site_title,
+          "ogtag1" => site_desc,
+          "ogurl1" => site_link
         }
       }
 
-      it 'builds website record' do
+      it "builds website record" do
         websites = described_class.build(contact, input_attributes)
 
         expect(
@@ -29,16 +29,16 @@ describe ImportContacts::ContactFormLinkBuilder do
       end
     end
 
-    context 'with secondary website record' do
+    context "with secondary website record" do
       let(:input_attributes) {
         {
-          'ogtitle2' => site_title,
-          'ogtag2' => site_desc,
-          'ogurl2' => site_link
+          "ogtitle2" => site_title,
+          "ogtag2" => site_desc,
+          "ogurl2" => site_link
         }
       }
 
-      it 'builds secondary website record' do
+      it "builds secondary website record" do
         websites = described_class.build(contact, input_attributes)
 
         expect(
