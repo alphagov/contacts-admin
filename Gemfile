@@ -42,6 +42,7 @@ group :development do
   gem 'capistrano'
   gem 'railroady'
   gem 'rack-mini-profiler', '~> 0.1.31'
+  gem 'rubocop'
 end
 
 group :development, :test do
