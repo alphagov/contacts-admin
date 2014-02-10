@@ -8,10 +8,10 @@ class PhoneNumber < ActiveRecord::Base
   validates :number, presence: true
 
   def number_options_path
-    read_attribute(:number_options_path).to_s.split(',')
+    self[:number_options_path].to_s.split(",")
   end
 
   def international_number_options_path
-    read_attribute(:international_number_options_path).to_s.split(',')
+    self[:international_number_options_path].to_s.split(",")
   end
 end

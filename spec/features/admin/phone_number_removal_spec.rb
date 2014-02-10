@@ -1,6 +1,6 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe 'Phone Number removal', auth: :user do
+describe "Phone Number removal", auth: :user do
   include Admin::PhoneNumberSteps
 
   let!(:contact) { create :contact }
@@ -8,7 +8,7 @@ describe 'Phone Number removal', auth: :user do
 
   before { verify phone_number_exists(contact, number) }
 
-  specify 'it can be removed' do
+  specify "it can be removed" do
     delete_phone_number(number)
 
     verify !phone_number_exists(contact, number)

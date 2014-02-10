@@ -5,7 +5,7 @@ module Admin
 
     def update
       if contact_group.update_attributes(contact_group_params)
-        redirect_to admin_contact_groups_path, notice: 'Contact Group successfully updated'
+        redirect_to admin_contact_groups_path, notice: "Contact Group successfully updated"
       else
         render :edit
       end
@@ -13,7 +13,7 @@ module Admin
 
     def create
       if contact_group.save
-        redirect_to admin_contact_groups_path, notice: 'Contact Group successfully created'
+        redirect_to admin_contact_groups_path, notice: "Contact Group successfully created"
       else
         render :new
       end
@@ -21,7 +21,7 @@ module Admin
 
     def destroy
       if Admin::DestroyContactGroup.new(contact_group).destroy
-        flash.notice = 'Contact Group successfully deleted'
+        flash.notice = "Contact Group successfully deleted"
       else
         flash.alert = contact_group.errors.full_messages.to_sentence
       end

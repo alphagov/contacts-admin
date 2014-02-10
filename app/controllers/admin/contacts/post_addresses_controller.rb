@@ -7,7 +7,7 @@ module Admin
 
       def create
         if post_address.save
-          redirect_to [:admin, contact, :post_addresses], notice: 'Post Address successfully created'
+          redirect_to [:admin, contact, :post_addresses], notice: "Post Address successfully created"
         else
           render :new
         end
@@ -15,7 +15,7 @@ module Admin
 
       def update
         if post_address.update_attributes(post_address_params)
-          redirect_to [:admin, contact, :post_addresses], notice: 'Post Address successfully updated'
+          redirect_to [:admin, contact, :post_addresses], notice: "Post Address successfully updated"
         else
           render :edit
         end
@@ -24,7 +24,7 @@ module Admin
       def destroy
         post_address.destroy
 
-        redirect_to [:admin, contact, :post_addresses], notice: 'Post Address successfully deleted'
+        redirect_to [:admin, contact, :post_addresses], notice: "Post Address successfully deleted"
       end
 
       private

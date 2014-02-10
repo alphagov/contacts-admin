@@ -13,7 +13,7 @@ module Admin
 
     def delete_contact(contact)
       ensure_on edit_admin_contact_path(contact)
-      click_link 'Delete'
+      click_link "Delete"
     end
 
     def update_contact(contact, new_details = {})
@@ -25,7 +25,7 @@ module Admin
 
       yield if block_given?
 
-      find('#contact-submit').click
+      find("#contact-submit").click
     end
 
     def create_contact(details = {})
@@ -37,7 +37,7 @@ module Admin
 
       yield if block_given?
 
-      find('#contact-submit').click
+      find("#contact-submit").click
     end
 
     def contact_updated(contact, details = {})

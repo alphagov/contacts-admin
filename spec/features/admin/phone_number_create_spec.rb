@@ -1,6 +1,6 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe 'Phone Number creation', auth: :user do
+describe "Phone Number creation", auth: :user do
   include Admin::PhoneNumberSteps
 
   let(:contact) { create :contact }
@@ -10,11 +10,11 @@ describe 'Phone Number creation', auth: :user do
     verify !phone_number_exists(contact, number)
   }
 
-  specify 'it can be created' do
-    create_phone_number(contact, {
-      number: number.number,
-      title: number.title
-    })
+  specify "it can be created" do
+    create_phone_number(contact,
+                        number: number.number,
+                        title: number.title
+    )
 
     verify phone_number_exists(contact, number)
   end

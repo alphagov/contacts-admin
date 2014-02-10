@@ -14,7 +14,7 @@ module Admin
     def delete_contact_group(contact_group)
       ensure_on edit_admin_contact_group_path(contact_group)
 
-      click_link 'Delete'
+      click_link "Delete"
     end
 
     def update_contact_group(contact_group, new_details = {})
@@ -26,7 +26,7 @@ module Admin
 
       yield if block_given?
 
-      find('#contact-group-submit').click
+      find("#contact-group-submit").click
     end
 
     def create_contact_group(details = {})
@@ -38,7 +38,7 @@ module Admin
 
       yield if block_given?
 
-      find('#contact-group-submit').click
+      find("#contact-group-submit").click
     end
 
     def contact_group_updated(contact_group, details = {})

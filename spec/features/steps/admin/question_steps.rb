@@ -14,7 +14,7 @@ module Admin
     def delete_question(question)
       ensure_on edit_admin_question_path(question)
 
-      click_link 'Delete'
+      click_link "Delete"
     end
 
     def update_question(question, new_details = {})
@@ -26,7 +26,7 @@ module Admin
 
       yield if block_given?
 
-      find('#question-submit').click
+      find("#question-submit").click
     end
 
     def create_question(details = {})
@@ -38,7 +38,7 @@ module Admin
 
       yield if block_given?
 
-      find('#question-submit').click
+      find("#question-submit").click
     end
 
     def question_updated(question, details = {})

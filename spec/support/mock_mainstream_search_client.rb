@@ -1,4 +1,4 @@
-require 'ostruct'
+require "ostruct"
 
 class MockMainstreamSearchClient
   attr_reader :results

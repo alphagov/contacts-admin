@@ -17,7 +17,7 @@ module Admin
         contact_form_link
       )
 
-      click_link 'Delete'
+      click_link "Delete"
     end
 
     def update_contact_form_link(contact_form_link, new_details = {})
@@ -32,7 +32,7 @@ module Admin
 
       yield if block_given?
 
-      find('#contact-form-link-submit').click
+      find("#contact-form-link-submit").click
     end
 
     def create_contact_form_link(contact, details = {})
@@ -44,7 +44,7 @@ module Admin
 
       yield if block_given?
 
-      find('#contact-form-link-submit').click
+      find("#contact-form-link-submit").click
     end
 
     def contact_form_link_updated(contact_form_link, details = {})

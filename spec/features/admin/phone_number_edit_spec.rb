@@ -1,6 +1,6 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe 'Phone Number editing', auth: :user do
+describe "Phone Number editing", auth: :user do
   include Admin::PhoneNumberSteps
 
   let!(:contact) { create :contact }
@@ -8,9 +8,9 @@ describe 'Phone Number editing', auth: :user do
 
   before { verify phone_number_exists(contact, number) }
 
-  specify 'it can be updated' do
-    update_phone_number(number, title: 'new title')
+  specify "it can be updated" do
+    update_phone_number(number, title: "new title")
 
-    verify phone_number_updated(number, title: 'new title')
+    verify phone_number_updated(number, title: "new title")
   end
 end

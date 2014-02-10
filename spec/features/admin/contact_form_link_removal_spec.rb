@@ -1,6 +1,6 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe 'Contact Form Link removal', auth: :user do
+describe "Contact Form Link removal", auth: :user do
   include Admin::ContactFormLinkSteps
 
   let!(:contact)           { create :contact }
@@ -8,7 +8,7 @@ describe 'Contact Form Link removal', auth: :user do
 
   before { verify contact_form_link_exists(contact, contact_form_link) }
 
-  specify 'it can be removed' do
+  specify "it can be removed" do
     delete_contact_form_link(contact_form_link)
 
     verify !contact_form_link_exists(contact, contact_form_link)

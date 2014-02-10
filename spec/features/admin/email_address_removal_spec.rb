@@ -1,6 +1,6 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe 'Email Address removal', auth: :user do
+describe "Email Address removal", auth: :user do
   include Admin::EmailAddressSteps
 
   let!(:contact)       { create :contact }
@@ -8,7 +8,7 @@ describe 'Email Address removal', auth: :user do
 
   before { verify email_address_exists(contact, email_address) }
 
-  specify 'it can be removed' do
+  specify "it can be removed" do
     delete_email_address(email_address)
 
     verify !email_address_exists(contact, email_address)
