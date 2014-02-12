@@ -16,8 +16,22 @@
       $.ajaxSetup({ cache: false });
       this.$form = $(".js-filter-form");
       this.$form.on( "submit", $.proxy(this.formSubmitted, this) );
+      $(window).on( "popstate", $.proxy(this.popStated, this) );
       this.$form.find("#search_name").on( "keyup change search", $.proxy(this.keyUpped, this) );
       this.$form.find("#search_contact_group_id").on( "change", $.proxy(this.submit, this) );
+    },
+
+    popStated: function (e) {
+      var state = e.originalEvent.state;
+      if (state && state.formData) {
+        var data, i;
+        for (i = 0; i < state.data.length; i++) {
+          data = state.data[i];
+          this.$form.find("[name='" + data.name + "']").val(data.value);
+        }
+        this.preventPushingState = true;
+        this.submit();
+      }
     },
 
     keyUpped: function (e) {
@@ -43,10 +57,13 @@
     },
 
     pushState: function (form) {
-      if (history.pushState) {
-        var path = location.pathname + "?" + $(form).serialize();
-        history.pushState(null, null, path);
+      if (history.pushState && !this.preventPushingState) {
+        var $form = $(form),
+            path = location.pathname + "?" + $form.serialize(),
+            formData = { formData: true, data: $form.serializeArray() } ;
+        history.pushState(formData, null, path);
       }
+      this.preventPushingState = false;
     },
 
     scheduleForSubmit: function () {
