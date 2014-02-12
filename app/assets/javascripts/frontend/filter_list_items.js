@@ -13,6 +13,7 @@
     lastQuery: null,
 
     initialize: function () {
+      $.ajaxSetup({ cache: false });
       this.$form = $(".js-filter-form");
       this.$form.on( "submit", $.proxy(this.formSubmitted, this) );
       this.$form.find("#search_name").on( "keyup change search", $.proxy(this.keyUpped, this) );
