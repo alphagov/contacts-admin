@@ -21,14 +21,17 @@ class Contact < ActiveRecord::Base
   validates :description, presence: true
 
   scope :by_title, -> { order("title ASC") }
-  scope :ungrouped, -> {
-    where(contact_group_id: nil)
-  }
+  scope :ungrouped, -> { where(contact_group_id: nil) }
+  scope :with_needs, -> { where.not(need_id: nil) }
   scope :for_listing, -> {
     where(
       "`contacts`.`phone_numbers_count` > 0 OR `contacts`.`post_addresses_count` > 0 OR `contacts`.`email_addresses_count` > 0 OR `contacts`.`contact_form_links_count` > 0"
     ).order("contacts.title ASC")
   }
+
+  def self.index_for_seach
+    Contact.includes(:contact_group, :questions, :department).with_needs.map(&:to_indexed_json)
+  end
 
   def to_s
     title
