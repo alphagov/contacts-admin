@@ -1,0 +1,48 @@
+<% if contact.phone_numbers.any? or contact.post_addresses.any? %>
+  <div class="block-container block-contact clearfix block-container-last">
+    <div class="block-1">
+      <div class="inner-block">
+        <h3>
+          Offline
+        </h3>
+      </div>
+    </div>
+    <div class="block-2">
+      <div class="inner-block">
+        <% if contact.phone_numbers.any? %>
+          <div class="block-container clearfix <%= 'block-container-last' if contact.post_addresses.none? %>">
+            <h3>
+              Phone
+            </h3>
+
+            <div class="contact">
+              <% if contact.more_info_phone_number.present? %>
+                <%= govspeak contact.more_info_phone_number.to_s %>
+                <br>
+              <% end%>
+
+              <%= render contact.phone_numbers %>
+            </div>
+          </div>
+        <% end %>
+
+        <% if contact.post_addresses.any? %>
+          <div class="block-container clearfix block-container-last">
+            <h3>
+              Post
+            </h3>
+
+            <% if contact.more_info_post_address.present? %>
+              <div class="contact">
+                <%= govspeak contact.more_info_post_address.to_s %>
+                <br>
+              </div>
+            <% end%>
+
+            <%= render contact.post_addresses %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
