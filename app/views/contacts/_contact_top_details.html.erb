@@ -1,0 +1,60 @@
+<% if contact_top_details_present(contact) %>
+  <div class="block-container contact-intro clearfix">
+    <div class="block-1 block-pull-right">
+      <div class="inner-block contact-links">
+        <ul class="list-plain">
+          <% if contact.quick_link_title_1.present? && contact.quick_link_1.present? %>
+            <li>
+              <%= link_to contact.quick_link_title_1, contact.quick_link_1 %>
+            </li>
+          <% end %>
+          <% if contact.quick_link_title_2.present? && contact.quick_link_2.present? %>
+            <li>
+              <%= link_to contact.quick_link_title_2, contact.quick_link_2 %>
+            </li>
+          <% end %>
+          <% if contact.quick_link_title_3.present? && contact.quick_link_3.present? %>
+            <li>
+              <%= link_to contact.quick_link_title_3, contact.quick_link_3 %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block-2 block-pull-left">
+      <div class="inner-block">
+        <div class="group">
+          <% if contact.quick_answer.present? %>
+            <div class="quick-answer">
+              <%= govspeak contact.quick_answer %>
+            </div>
+          <% else %>
+            <ul class="quick-links list-plain clearfix">
+              <% if contact.important_link1.present? %>
+                <li>
+                  <% if contact.important_link_title1.present? %>
+                    <%= link_to contact.important_link_title1, contact.important_link1 %>
+                  <% else %>
+                    <%= link_to contact.important_link1, contact.important_link1 %>
+                  <% end %>
+                  <%= govspeak contact.important_link_description1 %>
+                </li>
+              <% end %>
+              <% if contact.important_link2.present? %>
+                <li>
+                  <% if contact.important_link_title2.present? %>
+                    <%= link_to contact.important_link_title2, contact.important_link2 %>
+                  <% else %>
+                    <%= link_to contact.important_link2, contact.important_link2 %>
+                  <% end %>
+                  <%= govspeak contact.important_link_description2 %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
