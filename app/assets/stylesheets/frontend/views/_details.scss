@@ -21,9 +21,9 @@
 
   .block-container {
     border-bottom: 1px solid $grey-2;
-    padding-bottom: $gutter;
+    padding-bottom: $gutter-one-third;
     margin: 0 $gutter;
-    margin-bottom: $gutter;
+    margin-bottom: $gutter-one-third;
 
     @media (max-width: 640px) {
       margin-left: $gutter-half;
@@ -183,7 +183,11 @@
 
   .online-transaction {
     padding-top: $gutter-half;
-    padding-bottom: $gutter*1.5;
+    padding-bottom: $gutter-two-thirds;
+
+    @media (max-width: 769px) {
+      padding-top: 0;
+    }
 
     p {
       padding-top: $gutter-one-sixth;
@@ -192,7 +196,7 @@
 
     .block-pull-left,
     .block-pull-right {
-      @media (max-width: 770px) {
+      @media (max-width: 769px) {
         float: none !important;
       }
     }
@@ -207,7 +211,6 @@
   }
 
   .online-contact {
-    padding-bottom: $gutter*1.5;
     @include core-19;
     font-weight: bold;
 
