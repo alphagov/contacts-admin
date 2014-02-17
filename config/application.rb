@@ -18,7 +18,15 @@ module Contacts
       #{config.root}/app/models/website
     )
 
-    config.assets.precompile += %w( admin.css admin.js frontend.css frontend.js )
+    config.assets.precompile += %w(
+      admin.css
+      admin.js
+      frontend.css
+      frontend.js
+      frontend/base-ie6.css
+      frontend/base-ie7.css
+      frontend/base-ie8.css
+      )
 
     # Generators
     config.generators do |g|
