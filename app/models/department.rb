@@ -74,6 +74,17 @@ class Department
     find_by(attributes) or raise ActiveRecord::RecordNotFound
   end
 
+  def as_json(options={})
+    {
+      id: id,
+      title: title,
+      format: format,
+      slug: slug,
+      abbreviation: abbreviation,
+      govuk_status: govuk_status
+    }
+  end
+
   private
 
   def self.load_departments

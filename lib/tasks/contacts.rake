@@ -8,7 +8,9 @@ namespace :contacts do
 
   desc "Index Contacts & Questions in rummager"
   task index: :environment do
-    RUMMAGER_INDEX.add_batch Contact.index_for_search
+    index = Contact.index_for_search
+    puts index.inspect
+    RUMMAGER_INDEX.add_batch index
     RUMMAGER_INDEX.commit
   end
 
