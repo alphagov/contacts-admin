@@ -1,5 +1,9 @@
 <tr>
-  <td><%= vcard_for_post_address(post_address) %></td>
+  <td>
+    <div class="address">
+      <%= vcard_for_post_address(post_address) %>
+    </div>
+  </td>
   <td><%= govspeak post_address.description %></td>
   <td class="text-right">
     <small>
