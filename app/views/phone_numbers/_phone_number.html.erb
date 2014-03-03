@@ -27,15 +27,23 @@
     <% end %>
   </ul>
 
-  <p>
-    Calls to 03 numbers cost approximately:
-    <br>
-    2p to 10p from landlines
-    <br>
-    10p to 40p from mobile phones.
-    <br>
-    <%= link_to "Find out more about call charges", "https://www.gov.uk/call-charges", class: "link-underline" %>
-  </p>
+  <% if phone_number.description.present? %>
+    <div class="note">
+      <%= govspeak phone_number.description %>
+    </div>
+  <% end %>
+
+  <div class="note">
+    <p>
+      Calls to 03 numbers cost approximately:
+      <br>
+      2p to 10p from landlines
+      <br>
+      10p to 40p from mobile phones.
+      <br>
+      <%= link_to "Find out more about call charges", "https://www.gov.uk/call-charges", class: "link-underline" %>
+    </p>
+  </div>
 
   <div class="note">
     <% if phone_number.open_hours.present? %>
@@ -45,8 +53,4 @@
       <%= govspeak phone_number.open_hours %>
     <% end %>
   </div>
-  <% if phone_number.description.present? %>
-    <br>
-    <%= govspeak phone_number.description %>
-  <% end %>
 </div>
