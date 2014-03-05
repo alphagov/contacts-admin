@@ -3,12 +3,8 @@ class ContactsSearch < Searchlight::Search
 
   searches :title, :description, :name, :department_id, :contact_group_id
 
-  def search_title
-    search.where "title LIKE :title", title: "%#{title}%"
-  end
-
-  def search_description
-    search.where "description LIKE :description", description: "%#{description}%"
+  def name
+    (super || "").strip
   end
 
   def search_name
