@@ -30,7 +30,7 @@ class Contact < ActiveRecord::Base
   }
 
   def self.index_for_search
-    Contact.includes(:contact_groups, :questions).map(&:to_indexed_json)
+    Contact.includes(:contact_groups).map(&:to_indexed_json)
   end
 
   def to_s
@@ -47,7 +47,7 @@ class Contact < ActiveRecord::Base
       description: description,
       link: link,
       format: "contact",
-      indexable_content: "#{title} #{description} #{questions.map(&:title).join}",
+      indexable_content: "#{title} #{description} #{contact_groups.map(&:title).join}",
       department: department.as_json
     }
   end
