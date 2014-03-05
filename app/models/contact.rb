@@ -30,7 +30,7 @@ class Contact < ActiveRecord::Base
   }
 
   def self.index_for_search
-    Contact.includes(:contact_groups).map(&:to_indexed_json)
+    Contact.includes(:contact_groups).with_needs.map(&:to_indexed_json)
   end
 
   def to_s
