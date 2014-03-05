@@ -28,7 +28,6 @@
             <div class="filter-inner">
               <%= f.label :name, "Contains", class: "title" %>
               <%= f.text_field :name, type: "search" %>
-              <span class="help-block hidden" id="working_on_filter_contacts">Working...</span>
             </div>
           </div>
 
@@ -48,6 +47,7 @@
 <div class="block-2 filtered-results index-list-page organisations-index">
   <div class="inner-block">
     <div class="filter-results-summary">
+      <span class="help-block hidden" id="working_on_filter_contacts">Loading results...</span>
       <div class="selections contacts-count">
         <%= render "contacts_count" %>
       </div>
