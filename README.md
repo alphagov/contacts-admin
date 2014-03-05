@@ -20,11 +20,6 @@ linking to contact details within content.
 * Rummager (for indexing)
 * Whitehall (for departments API)
 
-## Setup
-
-* Install necessary dependencies
-* Start the app
-
 ## Database setup
 
 The best way to get a database with good seed data is to use a dump from preview, 
