@@ -32,6 +32,6 @@ class ContactsController < ApplicationController
 
   def search_params
     filter = { department_id: params[:department_id] }
-    filter.merge({ name: params["search"]["name"].lstrip })
+    filter.merge(params.fetch(:search, {}))
   end
 end
