@@ -54,6 +54,7 @@
     formSubmitted: function (e) {
       this.pushState(e.target);
       $("#working_on_filter_contacts").removeClass("hidden");
+      $(".contacts-count").addClass("hidden");
     },
 
     pushState: function (form) {
