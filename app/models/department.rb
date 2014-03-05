@@ -43,7 +43,7 @@ class Department
   end
 
   def contacts
-    Contact.where department_id: slug
+    Contact.where(department_id: slug).includes(:contact_memberships)
   end
 
   def contact_groups
