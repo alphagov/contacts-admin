@@ -1,3 +1,3 @@
 $("#working_on_filter_contacts").addClass("hidden");
 $(".document-list").html("<%= j render 'index' %>");
-$(".contacts-count").html("<%= j render 'contacts_count' %>");
+$(".contacts-count").removeClass("hidden").html("<%= j render 'contacts_count' %>");
