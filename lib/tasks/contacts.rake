@@ -6,10 +6,9 @@ namespace :contacts do
     ImportContacts.new(ENV['DATA_FILE']).import
   end
 
-  desc "Index Contacts & Questions in rummager"
+  desc "Index Contacts in rummager"
   task index: :environment do
     index = Contact.index_for_search
-    puts index.inspect
     RUMMAGER_INDEX.add_batch index
     RUMMAGER_INDEX.commit
   end
@@ -29,14 +28,6 @@ namespace :contacts do
       end
       address.save(validate: false)
     end
-  end
-
-  desc "Fix contact group id on questions"
-  task fix_questions: :environment do
-    Question.all.to_a.each do |question|
-      question.update_attribute :contact_group_id, question.contact.contact_groups.first.id if question.contact && question.contact.contact_groups.any?
-    end
-    Question.where(contact_group_id: nil).destroy_all
   end
 
   desc "remap contact memberships"
