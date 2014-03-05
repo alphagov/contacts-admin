@@ -17,7 +17,6 @@ Contacts::Application.routes.draw do
           resources :phone_numbers
         end
       end
-      resources :questions
     end
 
     scope ':department_id' do
