@@ -1,7 +1,7 @@
 class ContactsSearch < Searchlight::Search
   search_on Contact.includes(:contact_memberships)
 
-  searches :name, :department_id, :contact_group_id
+  searches :title, :description, :name, :department_id, :contact_group_id
 
   def name
     (super || "").strip
