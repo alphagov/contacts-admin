@@ -16,11 +16,6 @@ FactoryGirl.define do
         contact.contact_groups << FactoryGirl.create(:contact_group)
       end
     end
-    trait :with_question do
-      after(:create) do |contact|
-        contact.questions << FactoryGirl.create(:question)
-      end
-    end
     trait :with_contact_form_links do
       after(:create) do |contact|
         contact.contact_form_links << FactoryGirl.create(:contact_form_link)
