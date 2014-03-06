@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(version: 20140306160232) do
     t.string   "quick_link_title_3"
     t.integer  "need_id"
     t.boolean  "query_response_time",            default: false
+    t.integer  "popularity",                     default: 0
     t.string   "quick_link_description_1"
     t.string   "quick_link_description_2"
     t.string   "quick_link_description_3"
-    t.integer  "popularity",                     default: 0
   end
 
   add_index "contacts", ["department_id"], name: "index_contacts_on_department_id", using: :btree
