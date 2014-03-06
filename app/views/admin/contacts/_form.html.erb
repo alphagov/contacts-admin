@@ -8,7 +8,7 @@
       <%= f.input :description, as: :text, input_html: { rows: 8, class: 'span9' }, hint: formatting_help_link %>
       <%= f.input :before_you_contact_us, as: :text, label: 'Before you contact us', input_html: { rows: 5, class: 'span9' }, hint: formatting_help_link %>
       <%= f.input :contact_information, as: :text, label: 'Information you will need', input_html: { rows: 5, class: 'span9' }, hint: formatting_help_link %>
-      <%= f.input :query_response_time, label: 'Show "When can I expect my reply" link' %>
+      <%= f.input :query_response_time, as: :boolean, label: 'Show "When can I expect my reply" link' %>
     </fieldset>
 
     <fieldset class="form-horizontal">
