@@ -135,23 +135,6 @@
     }
   }
 
-  .quick-answer {
-    p {
-      @include ig-core-24;
-    }
-
-    h1 {
-      font-size: 53px;
-      line-height: 1.03774;
-      font-weight: bold;
-
-      @media (min-width: 769px) {
-        font-size: 68px;
-        line-height: 1.47059;
-      }
-    }
-  }
-
   .quick-links {
     margin-bottom: $gutter;
 
@@ -161,7 +144,7 @@
 
     li {
       float: left;
-      width: $one-half;
+      width: $one-third;
 
       @media (max-width: 640px) {
         float: none;

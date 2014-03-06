@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306152429) do
+ActiveRecord::Schema.define(version: 20140306154705) do
 
   create_table "contact_groups", force: true do |t|
     t.integer  "contact_group_type_id"
@@ -54,15 +54,8 @@ ActiveRecord::Schema.define(version: 20140306152429) do
     t.string   "title"
     t.string   "department_id"
     t.text     "before_you_contact_us"
-    t.text     "quick_answer"
     t.text     "online_transaction_description"
     t.string   "online_transaction_link"
-    t.string   "important_link1"
-    t.string   "important_link2"
-    t.string   "important_link_title1"
-    t.string   "important_link_title2"
-    t.text     "important_link_description1"
-    t.text     "important_link_description2"
     t.string   "quick_link_1"
     t.string   "quick_link_title_1"
     t.string   "quick_link_2"
@@ -71,6 +64,9 @@ ActiveRecord::Schema.define(version: 20140306152429) do
     t.string   "quick_link_title_3"
     t.integer  "need_id"
     t.boolean  "query_response_time",            default: false
+    t.string   "quick_link_description_1"
+    t.string   "quick_link_description_2"
+    t.string   "quick_link_description_3"
     t.integer  "popularity",                     default: 0
   end
 
