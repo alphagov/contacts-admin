@@ -47,4 +47,10 @@
       <%= govspeak phone_number.open_hours %>
     <% end %>
   </div>
+
+  <div class="note">
+    <% if phone_number.best_time_to_call.present? %>
+      <%= govspeak phone_number.best_time_to_call %>
+    <% end %>
+  </div>
 </div>

@@ -35,6 +35,7 @@ module Admin
           :description,
           :number,
           :open_hours,
+          :best_time_to_call,
           :international_phone,
           :number_options_path,
           :international_number_options_path,
