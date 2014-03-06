@@ -1,7 +1,35 @@
+require "lrucache"
+
 class Department
   cattr_writer :departments
 
   attr_reader :id, :title, :format, :slug, :abbreviation, :govuk_status, :parent_organisations
+
+  def self.cache
+    @cache ||= LRUCache.new(soft_ttl: 1.day, ttl: 2.days)
+  end
+
+  def self.reset_cache
+    @cache = nil
+  end
+
+  def self.cache_fetch(key)
+    inner_exception = nil
+    cache.fetch(key) do
+      begin
+        yield
+      rescue GdsApi::BaseError => e
+        inner_exception = e
+        raise RuntimeError.new("use_stale_value")
+      end
+    end
+  rescue RuntimeError => e
+    if e.message == "use_stale_value"
+      raise inner_exception
+    else
+      raise
+    end
+  end
 
   def initialize(org)
     @id = org.id
@@ -60,11 +88,15 @@ class Department
   end
 
   def self.all
-    @@departments ||= load_departments
+    cache_fetch("all") do
+      load_departments
+    end
   end
 
   def self.find(id)
-    all.find { |department| department.id == id }
+    cache_fetch("department-#{id}") do
+      all.find { |department| department.id == id }
+    end
   end
 
   def self.first
