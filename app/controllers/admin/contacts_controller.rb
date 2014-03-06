@@ -46,6 +46,7 @@ module Admin
         { contact_group_ids: [] },
         :department_id,
         :description,
+        :popularity,
         :quick_answer,
         :before_you_contact_us,
         :contact_information,
