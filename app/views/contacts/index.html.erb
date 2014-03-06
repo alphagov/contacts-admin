@@ -34,7 +34,7 @@
           <div class="filter">
             <div class="filter-inner">
               <%= f.label :contact_group_id, "Topic" %>
-              <%= f.select :contact_group_id, contact_groups.map {|c| [c, c.id]}, { include_blank: "All contact groups" }, { class: "single-row-select" } %>
+              <%= f.select :contact_group_id, contact_groups.map {|c| [c, c.id]}, { include_blank: "All Topics" }, { class: "single-row-select" } %>
             </div>
           </div>
         </fieldset>
