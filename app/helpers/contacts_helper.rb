@@ -22,10 +22,4 @@ module ContactsHelper
       [title, street_address, locality, region, postal_code, world_location].join.html_safe
     end
   end
-
-  def contact_top_details_present(contact)
-    if (contact.quick_link_title_1.present? && contact.quick_link_1.present?) or (contact.quick_link_title_2.present? && contact.quick_link_2.present?) or (contact.quick_link_title_3.present? && contact.quick_link_3.present?)  or contact.quick_answer.present? or contact.important_link1.present? or contact.important_link2.present?
-      return true
-    end
-  end
 end
