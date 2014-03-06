@@ -9,13 +9,15 @@
 </header>
 
 
-<div class="related block-1 block-pull-right">
-  <div class="inner-block">
-    <h3>
-      <%= link_to "When can I expect a response to my query?", "http://www.hmrc.gov.uk/tools/progress-tool/index.htm" %>
-    </h3>
+<% if contact.query_response_time? %>
+  <div class="related block-1 block-pull-right">
+    <div class="inner-block">
+      <h3>
+        <%= link_to "When can I expect a response to my query?", "http://www.hmrc.gov.uk/tools/progress-tool/index.htm" %>
+      </h3>
+    </div>
   </div>
-</div>
+<% end -%>
 
 <%= render "contact_top_details" %>
 
