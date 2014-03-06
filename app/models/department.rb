@@ -31,7 +31,7 @@ class Department
   def abbreviation_or_title
     abbreviation || title
   end
-  
+
   alias_method :to_s,      :title_with_abbreviation
   alias_method :logo_name, :title_with_abbreviation
 
@@ -39,8 +39,8 @@ class Department
     slug
   end
 
-  def url
-    "http://www.gov.uk/government/organisations/#{slug}"
+  def path
+    "/government/organisations/#{slug}"
   end
 
   def exempt?
