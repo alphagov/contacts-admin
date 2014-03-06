@@ -13,11 +13,6 @@
     </fieldset>
 
     <fieldset class="form-horizontal">
-      <legend>Quick Answer</legend>
-      <%= f.input :quick_answer, input_html: { rows: 5, class: 'span9' }, hint: formatting_help_link("quick_answer") %>
-    </fieldset>
-
-    <fieldset class="form-horizontal">
       <legend>Quick Links</legend>
       <div class="control-group">
         <%= f.label :quick_link_title_1, "Link 1", class: "control-label" %>
@@ -26,6 +21,7 @@
         </div>
       </div>
       <%= f.input :quick_link_1, label: false, placeholder: "Link", input_html: { class: "span4" } %>
+      <%= f.input :quick_link_description_1, label: false, placeholder: "Description", input_html: { rows: 5, class: "span9" }, hint: formatting_help_link %>
 
       <div class="control-group">
         <%= f.label :quick_link_title_2, "Link 2", class: "control-label" %>
@@ -34,6 +30,7 @@
         </div>
       </div>
       <%= f.input :quick_link_2, label: false, placeholder: "Link", input_html: { class: "span4" } %>
+      <%= f.input :quick_link_description_2, label: false, placeholder: "Description", input_html: { rows: 5, class: "span9" }, hint: formatting_help_link %>
 
       <div class="control-group">
         <%= f.label :quick_link_title_3, "Link 3", class: "control-label" %>
@@ -42,33 +39,13 @@
         </div>
       </div>
       <%= f.input :quick_link_3, label: false, placeholder: "Link", input_html: { class: "span4" } %>
+      <%= f.input :quick_link_description_3, label: false, placeholder: "Description", input_html: { rows: 5, class: "span9" }, hint: formatting_help_link %>
     </fieldset>
 
     <fieldset class="form-horizontal">
       <legend>Online Transaction</legend>
       <%= f.input :online_transaction_link, label: "Link", input_html: { class: "span4" } %>
       <%= f.input :online_transaction_description, label: "Description", input_html: { rows: 5, class: "span9" }, hint: formatting_help_link %>
-    </fieldset>
-
-    <fieldset class="form-horizontal">
-      <legend>Important Links</legend>
-      <div class="control-group">
-        <%= f.label :important_link_title1, "Link 1", class: "control-label" %>
-        <div class="controls">
-          <%= f.input_field :important_link_title1, placeholder: "Title", class: "span4" %>
-        </div>
-      </div>
-      <%= f.input :important_link1, label: false, placeholder: "Link", input_html: { class: "span4" } %>
-      <%= f.input :important_link_description1, label: false, placeholder: "Description", input_html: { rows: 5, class: "span9" }, hint: formatting_help_link %>
-
-      <div class="control-group">
-        <%= f.label :important_link_title2, "Link 2", class: "control-label" %>
-        <div class="controls">
-          <%= f.input_field :important_link_title2, placeholder: "Title", class: "span4" %>
-        </div>
-      </div>
-      <%= f.input :important_link2, label: false, placeholder: "Link", input_html: { class: "span4" } %>
-      <%= f.input :important_link_description2, label: false, placeholder: "Description", input_html: { rows: 5, class: "span9" }, hint: formatting_help_link %>
     </fieldset>
 
     <div class='form-actions form-horizontal'>
@@ -83,4 +60,3 @@
   <% end %>
 </div>
 <%= render "admin/shared/formatting" %>
-<%= render partial: "admin/shared/formatting", locals: { show_section: "quick_answer" } %>

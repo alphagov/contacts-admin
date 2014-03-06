@@ -47,7 +47,6 @@ module Admin
         :department_id,
         :description,
         :popularity,
-        :quick_answer,
         :before_you_contact_us,
         :contact_information,
         :title,
@@ -57,18 +56,16 @@ module Admin
         :more_info_phone_number,
         :online_transaction_link,
         :online_transaction_description,
-        :important_link1,
-        :important_link2,
-        :important_link_title1,
-        :important_link_title2,
-        :important_link_description1,
-        :important_link_description2,
         :quick_link_1,
         :quick_link_title_1,
+        :quick_link_description_1,
         :quick_link_2,
         :quick_link_title_2,
+        :quick_link_description_2,
         :quick_link_3,
-        :quick_link_title_3
+        :quick_link_title_3,
+        :quick_link_description_3,
+        :query_response_time
       )
     end
   end
