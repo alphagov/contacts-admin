@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(version: 20140310155822) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "contact_form_links_count",       default: 0
-    t.integer  "phone_numbers_count",            default: 0
-    t.integer  "email_addresses_count",          default: 0
-    t.integer  "post_addresses_count",           default: 0
-    t.integer  "related_content_links_count",    default: 0
+    t.integer  "contact_form_links_count",    default: 0
+    t.integer  "phone_numbers_count",         default: 0
+    t.integer  "email_addresses_count",       default: 0
+    t.integer  "post_addresses_count",        default: 0
+    t.integer  "related_content_links_count", default: 0
     t.text     "contact_information"
     t.text     "more_info_contact_form"
     t.text     "more_info_email_address"
