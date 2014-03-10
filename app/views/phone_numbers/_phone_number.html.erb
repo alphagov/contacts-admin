@@ -1,4 +1,10 @@
 <div class="phone-number vcard">
+  <%- if phone_number.contact.phone_numbers.size > 1 %>
+    <h4>
+      <%= phone_number.title %>
+    </h4>
+  <% end -%>
+
   <ul class="phone-list list-plain clearfix">
     <li class="tel <%= cycle '', '', '', 'clear' %>">
       <span class="type">Telephone: </span>

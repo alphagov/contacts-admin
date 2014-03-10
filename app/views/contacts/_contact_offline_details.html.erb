@@ -1,48 +1,32 @@
-<% if contact.phone_numbers.any? or contact.post_addresses.any? %>
-  <div class="block-container block-contact clearfix block-container-last">
+<% if contact.phone_numbers.any? %>
+  <div class="block-container block-contact clearfix <% if contact.post_addresses.empty? then 'block-container-last' end %>">
     <div class="block-1">
       <div class="inner-block">
         <h3>
-          Offline
+          Phone
+        </h3>
+      </div>
+    </div>
+
+    <div class="block-2">
+      <%= render contact.phone_numbers %>
+    </div>
+  </div>
+<% end %>
+
+<% if contact.post_addresses.any? %>
+  <div class="block-container block-contact clearfix <%= if contact.query_response_time == false then 'block-container-last' end %>">
+    <div class="block-1">
+      <div class="inner-block">
+        <h3>
+          Post
         </h3>
       </div>
     </div>
     <div class="block-2">
-      <div class="inner-block">
-        <% if contact.phone_numbers.any? %>
-          <div class="block-container clearfix <%= 'block-container-last' if contact.post_addresses.none? %>">
-            <h3>
-              Phone
-            </h3>
-
-            <div class="contact">
-              <% if contact.more_info_phone_number.present? %>
-                <%= govspeak contact.more_info_phone_number.to_s %>
-                <br>
-              <% end%>
-
-              <%= render contact.phone_numbers %>
-            </div>
-          </div>
-        <% end %>
-
-        <% if contact.post_addresses.any? %>
-          <div class="block-container clearfix block-container-last">
-            <h3>
-              Post
-            </h3>
-
-            <% if contact.more_info_post_address.present? %>
-              <div class="contact">
-                <%= govspeak contact.more_info_post_address.to_s %>
-                <br>
-              </div>
-            <% end%>
-
-            <%= render contact.post_addresses %>
-          </div>
-        <% end %>
-      </div>
+      <%= render contact.post_addresses %>
     </div>
+
   </div>
 <% end %>
+

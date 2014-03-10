@@ -1,47 +1,39 @@
 <% if contact.contact_form_links.any? or contact.email_addresses.any? %>
-  <div class="block-container block-contact clearfix online-contact">
-    <div class="block-1">
-      <div class="inner-block">
-        <h3>
-          Online
-        </h3>
+  <% if contact.contact_form_links.any? %>
+    <div class="block-container block-contact clearfix online-contact">
+      <h2>
+        Online Forms
+      </h2>
+      
+      <div class="block-inner">
+        <div class="block-2 block-pull-left">
+          <div class="useful-links <%= 'contact' if contact.email_addresses.any? %>">
+            <ul class="form-links list-plain">
+              <%= render contact.contact_form_links %>
+            </ul>
+            <%= govspeak contact.more_info_contact_form.to_s %>
+          </div>
+        </div>
+      </div>      
+    </div>
+  <% end -%>
+  <% if contact.email_addresses.any? %>
+    <div class="block-container block-contact clearfix online-contact">
+      <div class="block-1">
+        <div class="inner-block">
+          <h3>
+            Email
+          </h3>
+        </div>
+      </div>
+      <div class="block-2">
+        <div class="email">
+          <%= govspeak contact.more_info_email_address.to_s %>
+          <ul class="list-plain">
+            <%= render contact.email_addresses %>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="block-2">
-      <div class="inner-block">
-        <% if contact.contact_form_links.any? %>
-          <div class="block-container clearfix <%= 'block-container-last' if contact.email_addresses.none? %>">
-            <% if contact.email_addresses.any? %>
-              <h3>
-                Useful links
-              </h3>
-            <% end %>
-            <div class="useful-links <%= 'contact' if contact.email_addresses.any? %>">
-              <%= govspeak contact.more_info_contact_form.to_s %>
-
-              <ul class="list-plain">
-                <%= render contact.contact_form_links %>
-              </ul>
-            </div>
-          </div>
-        <% end %>
-        <% if contact.email_addresses.any? %>
-          <div class="block-container clearfix block-container-last">
-            <% if contact.email_addresses.any? %>
-              <h3>
-                Email
-              </h3>
-            <% end %>
-            <div class="email <%= 'contact' if contact.contact_form_links.any? %>">
-              <%= govspeak contact.more_info_email_address.to_s %>
-
-              <ul class="list-plain">
-                <%= render contact.email_addresses %>
-              </ul>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <% end %>
 <% end %>
