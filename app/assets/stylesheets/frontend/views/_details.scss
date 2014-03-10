@@ -1,6 +1,15 @@
 .details-page {
+  #header {
+    margin-top: $gutter;
+    padding-bottom: $gutter-one-third;
+    margin-bottom: $gutter-one-third;
+  }
   .page-header {
-    margin-bottom: $gutter;
+
+    .type {
+      @include core-27;
+      color: #6e777b;
+    }
 
     @media (max-width: 800px) {
       margin-bottom: 0;
@@ -21,7 +30,7 @@
 
   .block-container {
     border-bottom: 1px solid $grey-2;
-    padding-bottom: $gutter-one-third;
+    padding-bottom: $gutter;
     margin: 0 $gutter;
     margin-bottom: $gutter-one-third;
 
@@ -46,9 +55,15 @@
       }
     }
 
+    h2 {
+      @include core-36;
+      font-weight: 700;
+      margin-bottom: $gutter;
+    }
+
     h3 {
-      @include ig-core-24;
-      font-weight: bold;
+      @include core-24;
+      font-weight: 700;
 
       @media (max-width: 640px) {
         padding-top: 0;
@@ -143,13 +158,11 @@
     }
 
     li {
-      float: left;
-      width: $one-third;
-
       @media (max-width: 640px) {
         float: none;
         width: $full-width;
-        margin-bottom: $gutter-two-thirds;
+        padding-top: 5px;
+        padding-bottom: 5px;
       }
 
       a,
@@ -158,8 +171,8 @@
       }
 
       a {
-        @include ig-core-24;
-        font-weight: bold;
+        @include ig-core-16;
+        font-weight: 700;
       }
     }
   }
@@ -195,18 +208,18 @@
 
   .online-contact {
     @include core-19;
-    font-weight: bold;
 
     li {
       margin-bottom: 5px;
     }
+
+    
   }
 
   .phone-list {
     .tel {
       float: left;
       width: $one-third;
-      padding-bottom: $gutter;
 
       @media (max-width: 640px) {
         float: none;
@@ -284,8 +297,14 @@
     }
   }
 
-  .phone-number {
-    margin-bottom: $gutter*2;
+  .phone-number, .email {
+    margin-bottom: $gutter*1.5;
+
+    h4 {
+      @include core-19;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -301,7 +320,7 @@
     }
 
     .note {
-      margin-top: $gutter;
+      margin-top: 0.5em;
     }
   }
 
@@ -313,8 +332,7 @@
     }
 
     .adr {
-      margin-top: $gutter-half;
-      margin-bottom: $gutter*2;
+      margin-bottom: $gutter*1.5;
     }
 
     &:last-child .adr,

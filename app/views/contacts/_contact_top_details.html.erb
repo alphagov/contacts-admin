@@ -1,36 +1,4 @@
 <div class="block-container contact-intro clearfix">
   <div class="inner-block">
-    <ul class="quick-links list-plain">
-      <% if contact.quick_link_title_1.present? && contact.quick_link_1.present? %>
-        <li>
-          <%= link_to contact.quick_link_title_1, contact.quick_link_1 %>
-          <% if contact.quick_link_description_1.present? %>
-            <p>
-              <%= contact.quick_link_description_1 %>
-            </p>
-          <% end -%>
-        </li>
-      <% end %>
-      <% if contact.quick_link_title_2.present? && contact.quick_link_2.present? %>
-        <li>
-          <%= link_to contact.quick_link_title_2, contact.quick_link_2 %>
-          <% if contact.quick_link_description_2.present? %>
-            <p>
-              <%= contact.quick_link_description_2 %>
-            </p>
-          <% end -%>
-        </li>
-      <% end %>
-      <% if contact.quick_link_title_3.present? && contact.quick_link_3.present? %>
-        <li>
-          <%= link_to contact.quick_link_title_3, contact.quick_link_3 %>
-          <% if contact.quick_link_description_3.present? %>
-            <p>
-              <%= contact.quick_link_description_3 %>
-            </p>
-          <% end -%>
-        </li>
-      <% end %>
-    </ul>
   </div>
 </div>
