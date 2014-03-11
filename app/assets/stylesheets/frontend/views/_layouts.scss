@@ -72,3 +72,16 @@ p.report-a-problem-toggle {
 .report-a-problem-container {
   max-width: 33em;
 }
+
+@include media(mobile){
+  .block-1 {
+    width: 100%;
+    float: none;
+    clear: both;
+  }
+  .block-2 {
+    width: 100%;
+    float: none;
+    clear: both;
+  }
+}
