@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_beta_notice
-    response.header[Slimmer::Headers::BETA_HEADER] = "true"
+    response.header[Slimmer::Headers::BETA_LABEL] = "after:div#beta-notice"
   end
 end
