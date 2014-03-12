@@ -16,6 +16,7 @@
     h1 {
       @include core-36;
       font-weight: bold;
+      padding-bottom: 20px;
     }
     .type {
       @include core-27;
