@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
     contact_group_ids = department.contacts.map do |contact|
       contact.contact_memberships.pluck(:contact_group_id)
     end.flatten.uniq
-    ContactGroup.where id: contact_group_ids  # select only contact_groups related to current department
+    ContactGroup.where(id: contact_group_ids).by_title  # select only contact_groups related to current department
   }
 
   expose(:department) {
