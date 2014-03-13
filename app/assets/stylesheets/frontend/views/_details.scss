@@ -37,6 +37,7 @@
     @media (max-width: 640px) {
       margin-left: $gutter-half;
       margin-right: $gutter-half;
+      padding-bottom: $gutter-one-third;
     }
 
     &:last-child,
@@ -59,6 +60,10 @@
       @include core-36;
       font-weight: 700;
       margin-bottom: $gutter;
+
+      @media (max-width: 640px) {
+        margin: $gutter-half 0;
+      }
     }
 
     h3 {
@@ -87,7 +92,7 @@
         }
 
         @media (max-width: 640px) {
-          margin-bottom: $gutter-one-third;
+          margin: $gutter-one-sixth 0;
           font-size: 19px;
         }
       }
@@ -154,15 +159,16 @@
     margin-bottom: $gutter;
 
     @media (max-width: 640px) {
-      margin-bottom: 0;
+      margin: $gutter-two-thirds 0 0;
     }
 
     li {
       @media (max-width: 640px) {
         float: none;
         width: $full-width;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        line-height: 0.8;
+        padding: 0;
+        margin-bottom: $gutter-one-third;
       }
 
       a,
@@ -173,6 +179,10 @@
       a {
         @include ig-core-16;
         font-weight: 700;
+
+        @media (max-width: 640px) {
+          padding: 0;
+        }
       }
     }
   }
