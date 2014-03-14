@@ -29,5 +29,6 @@ Contacts::Application.configure do
 
   config.after_initialize do
     Contacts.worldwide_api = GdsApi::Worldwide.new("https://www.gov.uk")
+    Contacts.enable_admin_routes = true
   end
 end
