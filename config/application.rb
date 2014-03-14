@@ -7,7 +7,7 @@ require 'gds_api/worldwide'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-APP_SLUG = 'contacts'
+APP_SLUG = 'contact'
 SLUG_FORMAT = /[A-Za-z0-9\-_]+/
 
 module Contacts

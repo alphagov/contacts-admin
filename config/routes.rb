@@ -6,26 +6,27 @@ end
 
 Contacts::Application.routes.draw do
   get "healthcheck" => "healthcheck#check"
-  scope :path => "#{APP_SLUG}" do
 
-    constraints(AdminRequest) do
-      namespace :admin do
-        root to: 'contacts#index', via: :get
+  constraints(AdminRequest) do
+    namespace :admin do
+      root to: 'contacts#index', via: :get
 
-        resources :contact_groups
-        resources :contacts do
-          member do
-            get :clone
-          end
-          scope module: 'contacts' do
-            resources :contact_form_links
-            resources :email_addresses
-            resources :post_addresses
-            resources :phone_numbers
-          end
+      resources :contact_groups
+      resources :contacts do
+        member do
+          get :clone
+        end
+        scope module: 'contacts' do
+          resources :contact_form_links
+          resources :email_addresses
+          resources :post_addresses
+          resources :phone_numbers
         end
       end
     end
+  end
+    
+  scope :path => "#{APP_SLUG}" do
 
     scope ':department_id' do
       get "/", to: "contacts#index", as: :contacts
