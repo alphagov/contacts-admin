@@ -7,11 +7,11 @@ namespace :router do
   end
 
   task :register_backend => :router_environment do
-    @router_api.add_backend('contacts', Plek.current.find('contacts', :force_http => true) + "/")
+    @router_api.add_backend('contacts-frontend', Plek.current.find('contacts-frontend', :force_http => true) + "/")
   end
 
   task :register_routes => :router_environment do
-    @router_api.add_route('/contact/hm-revenue-customs', 'prefix', 'contacts')
+    @router_api.add_route('/contact/hm-revenue-customs', 'prefix', 'contacts-frontend')
   end
 
   desc "Register Contacts application and routes with the router"
