@@ -8,7 +8,7 @@ describe "Contact removal", auth: :user do
   before { Contact.count.should eq(1) }
 
   specify "it can be removed" do
-    RUMMAGER_INDEX.stub(:delete) { true }
+    Contacts.rummager_client.stub(:delete) { true }
 
     expect {
       delete_contact(contact)

@@ -16,7 +16,7 @@ describe Admin::DestroyContact do
       let(:contact) { create :contact }
 
       it "destroys the contact" do
-        RUMMAGER_INDEX.stub(:delete) { true }
+        Contacts.rummager_client.stub(:delete) { true }
 
         described_class.new(contact).destroy
 
