@@ -26,7 +26,9 @@ module Contacts
       frontend/base-ie6.css
       frontend/base-ie7.css
       frontend/base-ie8.css
-      )
+    )
+
+    config.assets.prefix = '/contacts-assets'
 
     # Generators
     config.generators do |g|
