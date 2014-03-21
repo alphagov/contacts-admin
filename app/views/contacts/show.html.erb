@@ -2,16 +2,15 @@
 
 
 <div class="block-container clearfix" id="header">
-  <div class="block-2 block-pull-left">
-    <header class="page-header group">
+  <div id="contact-details-header">
+    <header class="page-header group block-2 block-pull-left">
       <p class="type">Contact details</p>
       <h1>
         <%= contact %> 
       </h1>
     </header>
-  </div>
 
-  <% if (contact.quick_link_title_1.present? && contact.quick_link_1.present?) ||
+      <% if (contact.quick_link_title_1.present? && contact.quick_link_1.present?) ||
         (contact.quick_link_title_2.present? && contact.quick_link_2.present?) ||
         (contact.quick_link_title_3.present? && contact.quick_link_3.present?) %>
 
@@ -36,11 +35,11 @@
           </ul>
         </div>
       </div>
-  <% end -%>
+    <% end -%>
 
-  <div class="clearfix"></div>
-  <div id="beta-notice"></div>
+    <div class="clearfix"></div>
 
+  </div>
 </div>
 
 <%= render "contact_online_details" %>

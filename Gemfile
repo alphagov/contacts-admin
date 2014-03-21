@@ -10,7 +10,7 @@ gem "decent_exposure", "~> 2.3.0"
 gem "draper", "~> 1.2.1"
 gem "mysql2", "~> 0.3.13"
 gem "simple_form", "~> 3.0.0", github: "plataformatec/simple_form"
-gem "slimmer", "~> 3.20.0"
+gem "slimmer", "~> 3.27.0"
 gem "friendly_id", "5.0.2"
 gem "unicorn", "~> 4.6.3"
 gem "virtus", "~> 1.0.0.beta8"
@@ -40,8 +40,8 @@ gem "jquery-rails"
 # development
 group :development do
   gem "railroady"
-  gem "rack-mini-profiler", "~> 0.1.31"
   gem "rubocop"
+  gem "thin"
 end
 
 group :development, :test do

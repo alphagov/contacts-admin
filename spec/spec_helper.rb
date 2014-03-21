@@ -1,5 +1,4 @@
 ENV["RAILS_ENV"] ||= "test"
-ENV["RUMMAGER_HOST"] ||= "http://search.dev.gov.uk"
 
 require "simplecov"
 require "simplecov-rcov"
@@ -33,8 +32,4 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include FeaturesHelpers, type: :feature
   config.include FileCreationHelper
-
-  config.before(:suite) do
-    Contacts.organisations_api = MockOrganisationsApi.new
-  end
 end
