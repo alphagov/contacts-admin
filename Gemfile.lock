@@ -21,6 +21,13 @@ GIT
       rest-client
 
 GIT
+  remote: git://github.com/argerim/select2-rails.git
+  revision: dba1bbf9de951d1ba20e55a497d416fc28857b2d
+  specs:
+    select2-rails (3.5.4)
+      thor (~> 0.14)
+
+GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 32019827798eddbecc19676d69eb406a4f3902cc
   specs:
@@ -343,6 +350,7 @@ DEPENDENCIES
   rummageable!
   sass-rails (~> 4.0.0)
   searchlight
+  select2-rails!
   shoulda-matchers
   simple_form (~> 3.0.0)!
   simplecov

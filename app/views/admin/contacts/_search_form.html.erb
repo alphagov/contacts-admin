@@ -4,8 +4,8 @@
                     collection: Department.all,
                     label_method: :to_s,
                     value_method: :slug,
-                    class: "js-chosen-select",
-                    data: { placeholder: "Department", allow_single_deselect: true } %>
+                    class: "js-select2",
+                    data: { placeholder: "Department" } %>
   <%= f.input_field :title, placeholder: "Title", class: "search-query" %>
   <%= f.input_field :description, placeholder: "Description", class: "search-query" %>
   <%= f.submit "Filter", class: "btn btn-default", data: { disable_with: "Working" } %>

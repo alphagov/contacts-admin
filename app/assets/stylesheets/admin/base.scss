@@ -6,7 +6,7 @@
 @import "_css3.scss";
 @import "_device-pixels.scss";
 @import "./frontend/styleguide/_colours.scss";
-@import "./frontend/vendor/_chosen.min.scss";
+
 
 /* variables */
 $hover-yellow: #fff8dd;
@@ -383,10 +383,6 @@ fieldset {
   background: transparent;
   border: none;
   padding-left: 0;
-}
-
-.chosen-container-multi .chosen-choices {
-  padding-right: 5px;
 }
 
 table {
