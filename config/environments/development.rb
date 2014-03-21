@@ -32,9 +32,19 @@ Contacts::Application.configure do
 
   config.after_initialize do
     Contacts.enable_admin_routes = true
-    # Comment out the following to hit the actual APIs
-    Contacts.worldwide_api = GdsApi::Worldwide.new("https://www.gov.uk")
-    Contacts.organisations_api = MockOrganisationsApi.new
-    Contacts.rummager_client = FakeRummageableIndex.new("http://localhost", 'mainstream', logger: Rails.logger)
+
+    if ENV['WHITEHALL_ADMIN'] 
+      Contacts.worldwide_api = GdsApi::Worldwide.new( Plek.current.find('whitehall-admin') )
+      Contacts.organisations_api = GdsApi::Organisations.new( Plek.current.find('whitehall-admin') )
+    else
+      Contacts.worldwide_api = GdsApi::Worldwide.new("https://www.gov.uk")
+      Contacts.organisations_api = MockOrganisationsApi.new
+    end
+    
+    Contacts.rummager_client = if ENV['RUMMAGER_API']
+      Rummageable::Index.new(ENV['RUMMAGER_API'], 'mainstream', logger: Rails.logger)
+    else
+      FakeRummageableIndex.new("http://localhost", 'mainstream', logger: Rails.logger)
+    end
   end
 end
