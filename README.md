@@ -35,6 +35,8 @@ alternatively you can load the database schema and use the old initial seed data
 
 Start the application with `./startup.sh` or use bowler.
 
+Set RUMMAGER_API=true and WHITEHALL_API=true to enable API requests in development
+
 ## Indexing the data
 
 Only contacts with a need id will be indexed, need ids will need to be added via 
