@@ -37,6 +37,8 @@ gem "therubyracer", platforms: :ruby
 gem "govuk_frontend_toolkit", "0.34.0"
 gem "jquery-rails"
 
+gem "select2-rails", github: "argerim/select2-rails"
+
 # development
 group :development do
   gem "railroady"
