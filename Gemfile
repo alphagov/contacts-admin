@@ -40,8 +40,8 @@ gem "jquery-rails"
 # development
 group :development do
   gem "railroady"
-  gem "rack-mini-profiler", "~> 0.1.31"
   gem "rubocop"
+  gem "thin"
 end
 
 group :development, :test do

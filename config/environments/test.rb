@@ -1,4 +1,7 @@
 Contacts::Application.configure do
+  require "#{config.root}/spec/support/mock_organisations_api"
+  require "#{config.root}/spec/support/fake_rummageable_index"
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's
@@ -37,5 +40,9 @@ Contacts::Application.configure do
   config.after_initialize do
     PaperTrail.enabled = false
     Contacts.enable_admin_routes = true
+    
+    Contacts.worldwide_api = GdsApi::Worldwide.new("https://www.gov.uk")
+    Contacts.organisations_api = MockOrganisationsApi.new
+    Contacts.rummager_client = FakeRummageableIndex.new("http://localhost", 'mainstream', logger: Rails.logger)
   end
 end

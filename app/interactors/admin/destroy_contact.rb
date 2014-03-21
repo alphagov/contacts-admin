@@ -6,7 +6,7 @@ module Admin
 
     def destroy
       @contact.transaction do
-        RUMMAGER_INDEX.delete(@contact.slug)
+        ::Contacts.rummager_client.delete(@contact.slug)
         @contact.destroy
       end
       rescue RestClient::RequestFailed, RestClient::RequestTimeout, RestClient::ServerBrokeConnection, SocketError

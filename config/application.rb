@@ -2,6 +2,9 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 require 'gds_api/worldwide'
+require 'gds_api/organisations'
+require 'gds_api/rummager'
+require 'rummageable'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -39,7 +42,11 @@ module Contacts
     end
 
     config.after_initialize do
-      Contacts.worldwide_api = GdsApi::Worldwide.new(Plek.current.find('whitehall-admin'))
+      Contacts.worldwide_api = GdsApi::Worldwide.new( Plek.current.find('whitehall-admin') )
+      Contacts.organisations_api = GdsApi::Organisations.new( Plek.current.find('whitehall-admin') )
+      
+      # Going to use the same index as mainstream till rummager has multi index search
+      Contacts.rummager_client = Rummageable::Index.new( Plek.current.find('search'), 'mainstream', logger: Rails.logger )
     end
   end
 end
