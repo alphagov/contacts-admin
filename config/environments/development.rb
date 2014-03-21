@@ -42,7 +42,7 @@ Contacts::Application.configure do
     end
 
     Contacts.rummager_client = if ENV['RUMMAGER_API']
-      Rummageable::Index.new( Plek.current.find('search'), 'mainstream', logger: Rails.logger
+      Rummageable::Index.new( Plek.current.find('search'), 'mainstream', logger: Rails.logger )
     else
       FakeRummageableIndex.new("http://localhost", 'mainstream', logger: Rails.logger)
     end
