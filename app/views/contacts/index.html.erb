@@ -19,26 +19,26 @@
         You can use the filters to show only results that match your interests
       </h2>
 
-      <%= form_for search, url: contacts_path, method: :get, remote: true, html: { class: "js-filter-form" } do |f| %>
+      <form method="get" action="<%= contacts_path %>"  class="js-filter-form" data-remote="true">
         <fieldset>
           <legend class="visuallyhidden">
             Filter publications
           </legend>
           <div class="filter" id="keyword-filter">
             <div class="filter-inner">
-              <%= f.label :name, "Contains", class: "title" %>
-              <%= f.text_field :name, type: "search" %>
+              <%= label_tag "search[name]", "Contains", class: "title" %>
+              <%= text_field_tag "search[name]", search.name, type: "search" %>
             </div>
           </div>
 
           <div class="filter">
             <div class="filter-inner">
-              <%= f.label :contact_group_id, "Topic" %>
-              <%= f.select :contact_group_id, contact_groups.map {|c| [c, c.id]}, { include_blank: "All Topics" }, { class: "single-row-select" } %>
+              <%= label_tag "search[contact_group_id]", "Topic" %>
+              <%= select_tag "search[contact_group_id]", options_for_select(contact_groups.map {|c| [c, c.id]}, search.contact_group_id), { include_blank: "All Topics", class: "single-row-select" } %>
             </div>
           </div>
         </fieldset>
-      <% end %>
+      </form>
 
     </div>
   </div>
