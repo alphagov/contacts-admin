@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>Contacts: Admin Interface</title>
   <%= stylesheet_link_tag    "admin", media: "all" %>
   <!--[if IE 6]>
@@ -13,9 +14,6 @@
     <%= stylesheet_link_tag "admin/#{local_assigns[:stylesheet] || "base"}-ie8.css" %><script>var ieVersion = 8;</script>
   <![endif]-->
   <%= javascript_include_tag "admin" %>
-  <!--[if IE 6]>
-    <%= javascript_include_tag "ie6_zindex.js" %>
-  <![endif]-->
   <%= csrf_meta_tags %>
 </head>
 <body>
