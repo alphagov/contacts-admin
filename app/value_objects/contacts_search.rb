@@ -1,5 +1,5 @@
 class ContactsSearch < Searchlight::Search
-  search_on Contact.includes(:contact_memberships)
+  search_on Contact.includes(:contact_memberships, :contact_groups)
 
   searches :title, :description, :name, :department_id, :contact_group_id
 
