@@ -12,7 +12,10 @@ describe "Contact editing", auth: :user do
     update_contact(
       contact,
       title: "new title",
-      description: "new description"
+      description: "new description",
+      quick_link_1: "http://bitzesty.com",
+      quick_link_title_1: "bitzesty",
+      popularity: 2
     ) do
       select contact_group, from: "contact_contact_group_ids"
     end
@@ -20,7 +23,10 @@ describe "Contact editing", auth: :user do
     verify contact_updated(
       contact,
       title: "new title",
-      description: "new description"
+      description: "new description",
+      quick_link_1: "http://bitzesty.com",
+      quick_link_title_1: "bitzesty",
+      popularity: 2
     )
     verify associated_to_contact_group(contact, contact_group)
   end
