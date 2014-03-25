@@ -2,9 +2,12 @@ ENV["RAILS_ENV"] ||= "test"
 
 require "simplecov"
 require "simplecov-rcov"
+require "capybara/poltergeist"
 
 SimpleCov.start "rails"
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+
+Capybara.javascript_driver = :poltergeist
 
 require File.expand_path("../../config/environment", __FILE__)
 
