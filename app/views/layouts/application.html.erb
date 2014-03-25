@@ -25,7 +25,7 @@
       <%= link_to department.title, department.path %>
     </li>
     <li>
-      <%= link_to "Contact #{department.abbreviation_or_title}", root_path %>
+      <%= link_to "Contact #{department.abbreviation_or_title}", contacts_path(department.slug) %>
     </li>
     <% if params[:action] == "show" %>
       <li>
