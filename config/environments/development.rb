@@ -30,11 +30,13 @@ Contacts::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.assets.prefix = "/assets"
+
   config.after_initialize do
     Contacts.enable_admin_routes = true
-    
+
     Contacts.worldwide_api = GdsApi::Worldwide.new("https://www.gov.uk")
-    
+
     Contacts.organisations_api = if ENV['WHITEHALL_API']
       GdsApi::Organisations.new( Plek.current.find('whitehall-admin') )
     else

@@ -89,7 +89,6 @@ GEM
     chronic (0.10.2)
     ci_reporter (1.9.1)
       builder (>= 2.1.2)
-    cliver (0.3.2)
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -194,11 +193,6 @@ GEM
       ast (~> 1.1)
       slop (~> 3.4, >= 3.4.5)
     plek (1.7.0)
-    poltergeist (1.5.0)
-      capybara (~> 2.1)
-      cliver (~> 0.3.1)
-      multi_json (~> 1.0)
-      websocket-driver (>= 0.2.0)
     polyglot (0.3.3)
     powerpack (0.0.9)
     pry (0.9.12.6)
@@ -315,7 +309,6 @@ GEM
       equalizer (~> 0.0.7)
     warden (1.2.3)
       rack (>= 1.0)
-    websocket-driver (0.3.2)
     whenever (0.8.4)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
@@ -349,7 +342,6 @@ DEPENDENCIES
   mysql2 (~> 0.3.13)
   paper_trail (>= 3.0.0.beta1)
   plek (>= 1.0.0)
-  poltergeist
   pry-rails
   railroady
   rails (= 4.0.2)

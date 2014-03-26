@@ -11,6 +11,14 @@ module Public
         end
     end
 
+    def should_list_contact(contact)
+      expect(page).to have_content(contact.title)
+    end
+
+    def should_not_list_contact(contact)
+      expect(page).to_not have_content(contact.title)
+    end
+
     def contacts_page_selector
       "div.contacts-page"
     end

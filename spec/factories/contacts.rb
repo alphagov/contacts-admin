@@ -26,22 +26,22 @@ FactoryGirl.define do
     end
     trait :with_contact_form_links do
       after(:create) do |contact|
-        contact.contact_form_links << FactoryGirl.create(:contact_form_link)
+        contact.contact_form_links << FactoryGirl.create(:contact_form_link, contact_id: contact.id)
       end
     end
     trait :with_post_addresses do
       after(:create) do |contact|
-        contact.post_addresses << FactoryGirl.create(:post_address)
+        contact.post_addresses << FactoryGirl.create(:post_address, contact_id: contact.id)
       end
     end
     trait :with_phone_numbers do
       after(:create) do |contact|
-        contact.phone_numbers << FactoryGirl.create(:phone_number)
+        contact.phone_numbers << FactoryGirl.create(:phone_number, contact_id: contact.id)
       end
     end
     trait :with_email_addresses do
       after(:create) do |contact|
-        contact.email_addresses << FactoryGirl.create(:email_address)
+        contact.email_addresses << FactoryGirl.create(:email_address, contact_id: contact.id)
       end
     end
   end
