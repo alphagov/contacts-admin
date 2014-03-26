@@ -6,6 +6,10 @@ Contacts::Application.configure do
   end
 
   if Rails.env.development?
-    config.slimmer.asset_host = ENV["STATIC_DEV"] || "https://static.preview.alphagov.co.uk"
+    config.slimmer.asset_host = if ENV["STATIC_DEV"]
+      Plek.current.find('static')
+    else
+      "https://static.preview.alphagov.co.uk"
+    end
   end
 end
