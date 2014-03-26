@@ -9,6 +9,16 @@ describe "Contact view" do
     it { expect(page).to have_content(contact.title) }
   end
 
+  context "quick links" do
+    (1..3).each do |i| # 3 quick links
+      it "quick link #{i}" do
+        title = contact.send("quick_link_title_#{i}")
+        href = contact.send("quick_link_#{i}")
+        expect(page).to have_link(title, href: href)
+      end
+    end
+  end
+
   context "contact form links" do
     let(:link) { contact.contact_form_links.first }
 
@@ -34,30 +44,6 @@ describe "Contact view" do
 
     [:title, :description, :address, :street_address, :postal_code].each do |field|
       it { expect(page).to have_content(address.send(field)) }
-    end
-  end
-
-  context "query response time" do
-    let(:query_text) { "Find out when to expect a response to your query" }
-
-    context "shown" do
-      it { expect(page).to_not have_content(query_text) } # query_response_time false by default
-    end
-
-    context "hidden" do
-      let!(:contact) { create :contact, query_response_time: true }
-
-      it { expect(page).to have_content(query_text) }
-    end
-  end
-
-  context "quick links" do
-    (1..3).each do |i| # 3 quick links
-      it "quick link #{i}" do
-        title = contact.send("quick_link_title_#{i}")
-        href = contact.send("quick_link_#{i}")
-        expect(page).to have_link(title, href: href)
-      end
     end
   end
 
