@@ -40,6 +40,8 @@ gem "select2-rails", github: "argerim/select2-rails"
 
 # development
 group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
   gem "railroady"
   gem "rubocop"
   gem "thin"
