@@ -37,6 +37,8 @@
               <%= select_tag "search[contact_group_id]", options_for_select(contact_groups.map {|c| [c, c.id]}, search.contact_group_id), { include_blank: "All Topics", class: "single-row-select" } %>
             </div>
           </div>
+
+          <input class="button js-hidden" name="commit" type="submit" value="Refresh results">
         </fieldset>
       </form>
 
