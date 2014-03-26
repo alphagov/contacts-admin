@@ -25,18 +25,18 @@ Contacts::Application.configure do
   # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load
 
-  config.assets.prefix = "/assets"
-
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
 
+  config.assets.prefix = "/assets"
+
   config.after_initialize do
     Contacts.enable_admin_routes = true
-    
+
     Contacts.worldwide_api = GdsApi::Worldwide.new("https://www.gov.uk")
-    
+
     Contacts.organisations_api = if ENV['WHITEHALL_API']
       GdsApi::Organisations.new( Plek.current.find('whitehall-admin') )
     else
