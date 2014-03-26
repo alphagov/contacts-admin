@@ -33,6 +33,8 @@ module Contacts
 
     config.assets.prefix = '/contacts-assets'
 
+    config.i18n.enforce_available_locales = true
+
     # Generators
     config.generators do |g|
       g.orm                 :active_record
