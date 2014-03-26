@@ -20,7 +20,7 @@ describe "Contacts" do
       it { expect(page).to_not have_content(contact2.title) }
     end
     context "by topic" do
-      before { select contact.contact_groups.first, from: "Topic" }
+      before { select contact.contact_groups.first.to_s, from: "Topic" }
 
       it { verify contacts_exist([contact]) }
       it { expect(page).to_not have_content(contact2.title) }
@@ -28,7 +28,7 @@ describe "Contacts" do
     context "by both title and topic" do
       before { 
         fill_in "Contains", with: contact.title
-        select contact.contact_groups.first, from: "Topic"
+        select contact.contact_groups.first.to_s, from: "Topic"
       }
 
       it { verify contacts_exist([contact]) }
