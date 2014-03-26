@@ -2,29 +2,21 @@ require "spec_helper"
 
 describe "Contacts" do
   include Public::ContactSteps
-  let!(:contact) { create :contact }
-  let!(:contact2) { create :contact }
+
+  let!(:contact) { create(:phone_number).contact }
+  let!(:contact2) { create(:phone_number).contact }
 
   before { Department.first.contacts.count.should eq(2) }
+  before { ensure_on contacts_path(Department.first) }
 
-  specify "are listed" do
-    ensure_on contacts_path(Department.first)
-    verify contacts_exist([contact, contact2])
+  context "list" do
+    it { verify contacts_exist([contact, contact2]) }
   end
 
-  specify "should filter contacts", js: true do
-    # contacts for listing
-    contact = create(:phone_number).contact
-    contact2 = create(:phone_number).contact
+  context "filter", js: true do
+    before { fill_in "Contains", with: contact.title } # filter
 
-    visit contacts_path(Department.first)
-
-    fill_in "Contains", with: contact.title # filter
-
-    page.should have_content(contact.title)
-    page.should have_content(contact.description)
-
-    page.should_not have_content(contact2.title)
-    page.should_not have_content(contact2.description)
+    it { verify contacts_exist([contact]) }
+    it { expect(page).to_not have_content(contact2.title) }
   end
 end

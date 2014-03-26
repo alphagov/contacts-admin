@@ -1,76 +1,77 @@
 require "spec_helper"
 
 describe "Contact view" do
-  let!(:contact) { create :contact }
-  let(:visit_contact) { visit contact_path(contact.department, contact) }
+  let!(:contact) { create :contact, :with_contact_group, :with_contact_form_links, :with_post_addresses, :with_phone_numbers, :with_email_addresses }
 
-  it "contact's general info" do
-    visit_contact
+  before { visit contact_path(contact.department, contact) }
 
-    page.should have_content(contact.title)
+  context "general info" do
+    it { expect(page).to have_content(contact.title) }
+  end
 
-    (1..3).each do |i|
-      title = contact.send("quick_link_title_#{i}")
-      href = contact.send("quick_link_#{i}")
-      page.should have_link(title, href: href)
+  context "contact form links" do
+    let(:link) { contact.contact_form_links.first }
+
+    it { expect(page).to have_link(link.title, href: link.link) }
+  end
+
+  context "emails" do
+    let(:email) { contact.email_addresses.first }
+
+    it {
+      expect(page).to have_link(email.email, href: "mailto:#{email.email}")
+    }
+  end
+
+  context "phone numbers" do
+    let(:number) { contact.phone_numbers.first }
+
+    it { expect(page).to have_content(number.number) }
+  end
+
+  context "addresses" do
+    let(:address) { contact.post_addresses.first }
+
+    [:title, :description, :address, :street_address, :postal_code].each do |field|
+      it { expect(page).to have_content(address.send(field)) }
     end
   end
 
-  describe "query response time" do
-    query_text = "Find out when to expect a response to your query"
+  context "query response time" do
+    let(:query_text) { "Find out when to expect a response to your query" }
 
-    it "should be shown" do
-      contact.update query_response_time: true
-      visit_contact
-      page.should have_content(query_text)
+    context "shown" do
+      it { expect(page).to_not have_content(query_text) } # query_response_time false by default
     end
 
-    it "should be hidden" do
-      visit_contact
-      page.should_not have_content(query_text)
-    end
-  end
+    context "hidden" do
+      let!(:contact) { create :contact, query_response_time: true }
 
-  it "should list all contact form links" do
-    (1..3).map { contact.contact_form_links << create(:contact_form_link) }
-
-    visit_contact
-
-    contact.contact_form_links.each do |link|
-      page.should have_link(link.title, href: link.link)
+      it { expect(page).to have_content(query_text) }
     end
   end
 
-  it "should list all emails" do
-    (1..3).map { contact.email_addresses << create(:email_address) }
-
-    visit_contact
-
-    contact.email_addresses.each do |email|
-      page.should have_content(email.title)
-      page.should have_link(email.email, href: "mailto:#{email.email}")
-    end
-  end
-
-  it "should list phone numbers" do
-    (1..3).map { contact.phone_numbers << create(:phone_number) }
-
-    visit_contact
-
-    contact.phone_numbers.each do |number|
-      page.should have_content(number.number)
-    end
-  end
-
-  it "should list addresses" do
-    (1..3).map { contact.post_addresses << create(:post_address) }
-
-    visit_contact
-
-    contact.post_addresses.each do |address|
-      [:title, :description, :address, :street_address, :postal_code].each do |field|
-        page.should have_content(address.send(field))
+  context "quick links" do
+    (1..3).each do |i| # 3 quick links
+      it "quick link #{i}" do
+        title = contact.send("quick_link_title_#{i}")
+        href = contact.send("quick_link_#{i}")
+        expect(page).to have_link(title, href: href)
       end
+    end
+  end
+
+  context "query response time" do
+    let(:query_text) { "Find out when to expect a response to your query" }
+
+    context "shown" do
+      it { expect(page).to_not have_content(query_text) } # query_response_time false by default
+    end
+
+    context "hidden" do
+      let!(:contact) { create :contact, query_response_time: true }
+
+      it { expect(page).to have_content(query_text) }
     end
   end
 end
