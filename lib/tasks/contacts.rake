@@ -9,8 +9,8 @@ namespace :contacts do
   desc "Index Contacts in rummager"
   task index: :environment do
     index = Contact.index_for_search
-    RUMMAGER_INDEX.add_batch index
-    RUMMAGER_INDEX.commit
+    Contacts.rummager_client.add_batch index
+    Contacts.rummager_client.commit
   end
 
   desc "Crude implementation of splitting the address"
