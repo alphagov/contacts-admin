@@ -24,6 +24,7 @@ gem "plek", ">= 1.0.0"
 
 gem "aws-ses", require: "aws/ses" # Needed by exception_notification
 gem "exception_notification"
+gem "airbrake", "3.1.15"
 
 gem "whenever", "~> 0.8.4"
 
