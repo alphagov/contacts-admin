@@ -20,23 +20,20 @@
     @description A set of methods for handling behaviours with HMRC Contacts app functionality
     @requires jquery 1.6.2
   */
+
   GOVUK.HmrcContacts = {
-    /**
-      @name GOVUK.HmrcContacts.contactGroupList
-      @object
-      @description container for contact group list behaviour
-    */
+
     contactGroupList : {
-        /**
-          @name GOVUK.HmrcContacts.toggledControl.initialize
-          @function
-          @description initializes namespace
-        */
-        toggledControl: {
-          initialize: function(control) {
-            var $control = $(control),
-                $controlledElement = $($control.data('expand')),
-                $container = $control.closest('.department');
+      /**
+        @name GOVUK.HmrcContacts.toggledControl.initialize
+        @function
+        @description initializes namespace
+      */
+      toggledControl: {
+        initialize: function(control) {
+          var $control = $(control),
+              $controlledElement = $($control.data('expand')),
+              $container = $control.closest('.organisation');
 
             // hide all expandables unless asked to open
             if (window.location.hash != $control.attr('href')) {

@@ -36,7 +36,7 @@ module Admin
         :contact_group_type_id,
         :description,
         :title,
-        :department_id
+        :organisation_id
       )
     end
   end

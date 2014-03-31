@@ -1,9 +1,10 @@
 require "spec_helper"
 
 describe "Contact view" do
+  let!(:hmrc) { create :organisation }
   let!(:contact) { create :contact, :with_contact_group, :with_contact_form_links, :with_post_addresses, :with_phone_numbers, :with_email_addresses }
 
-  before { visit contact_path(contact.department, contact) }
+  before { visit contact_path(contact.organisation.slug, contact) }
 
   context "general info" do
     it { expect(page).to have_content(contact.title) }

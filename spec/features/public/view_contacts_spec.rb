@@ -3,10 +3,11 @@ require "spec_helper"
 describe "Contacts" do
   include Public::ContactSteps
 
+  let!(:hmrc) { create :organisation }
   let!(:contact) { create(:contact, :with_phone_numbers, :with_contact_group) }
   let!(:contact2) { create(:contact, :with_phone_numbers, :with_contact_group) }
 
-  before { ensure_on contacts_path(Department.first) }
+  before { ensure_on contacts_path(Organisation.first) }
 
   context "list" do
     it { verify contacts_exist([contact, contact2]) }

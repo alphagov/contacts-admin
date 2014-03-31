@@ -44,7 +44,7 @@ module Admin
     def contact_params
       params.require(:contact).permit(
         { contact_group_ids: [] },
-        :department_id,
+        :organisation_id,
         :description,
         :popularity,
         :before_you_contact_us,
