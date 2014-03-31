@@ -22,6 +22,8 @@ Dir[Rails.root.join("spec/features/steps/public/*.rb")].sort.reverse.each { |f| 
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
+WebMock.disable_net_connect!(:allow_localhost => true)
+
 RSpec.configure do |config|
   config.mock_with :rspec
   config.use_transactional_fixtures = true

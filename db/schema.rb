@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310155822) do
+ActiveRecord::Schema.define(version: 20140324131404) do
 
   create_table "contact_groups", force: true do |t|
     t.integer  "contact_group_type_id"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20140310155822) do
   end
 
   add_index "contact_groups", ["contact_group_type_id"], name: "index_contact_groups_on_contact_group_type_id", using: :btree
-  add_index "contact_groups", ["department_id"], name: "index_contact_groups_on_department_id", using: :btree
   add_index "contact_groups", ["slug"], name: "index_contact_groups_on_slug", using: :btree
 
   create_table "contact_memberships", force: true do |t|
@@ -52,7 +51,6 @@ ActiveRecord::Schema.define(version: 20140310155822) do
     t.text     "more_info_phone_number"
     t.string   "slug"
     t.string   "title"
-    t.string   "department_id"
     t.text     "before_you_contact_us"
     t.string   "quick_link_1"
     t.string   "quick_link_title_1"
@@ -63,9 +61,9 @@ ActiveRecord::Schema.define(version: 20140310155822) do
     t.integer  "need_id"
     t.boolean  "query_response_time",         default: false
     t.integer  "popularity",                  default: 0
+    t.string   "department_id"
   end
 
-  add_index "contacts", ["department_id"], name: "index_contacts_on_department_id", using: :btree
   add_index "contacts", ["need_id"], name: "index_contacts_on_need_id", using: :btree
   add_index "contacts", ["slug"], name: "index_contacts_on_slug", using: :btree
 
@@ -91,6 +89,20 @@ ActiveRecord::Schema.define(version: 20140310155822) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "organisations", force: true do |t|
+    t.string   "title"
+    t.string   "format"
+    t.string   "slug"
+    t.string   "abbreviation"
+    t.string   "govuk_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "parent_organisation"
+    t.string   "ancestry"
+  end
+
+  add_index "organisations", ["ancestry"], name: "index_organisations_on_ancestry", using: :btree
 
   create_table "phone_numbers", force: true do |t|
     t.integer  "contact_id"

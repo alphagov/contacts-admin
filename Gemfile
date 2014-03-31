@@ -28,6 +28,8 @@ gem "whenever", "~> 0.8.4"
 
 gem "searchlight"
 
+gem 'ancestry', '2.0.0'
+
 # assets
 gem "sass-rails", "~> 4.0.0"
 gem "uglifier", ">= 1.3.0"
@@ -61,4 +63,5 @@ group :test do
   gem "capybara"
   gem "simplecov"
   gem "simplecov-rcov"
+  gem 'webmock', '1.17.3'
 end

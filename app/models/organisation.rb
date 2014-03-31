@@ -3,6 +3,8 @@ class Organisation < ActiveRecord::Base
 
   friendly_id :slug
 
+  has_ancestry
+
   has_many :contacts
   has_many :contact_groups
 
