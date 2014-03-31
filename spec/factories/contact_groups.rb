@@ -7,9 +7,9 @@ FactoryGirl.define do
   factory :contact_group do
     contact_group_type
 
-    department  { Department.first }
-    title       { generate(:contact_group_title) }
-    description { generate(:contact_group_description) }
+    organisation   { Organisation.first }
+    title          { generate(:contact_group_title) }
+    description    { generate(:contact_group_description) }
 
     trait :with_contacts do
       after(:create) do |contact_group|

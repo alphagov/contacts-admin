@@ -3,7 +3,7 @@ require "spec_helper"
 describe SeedDatabase do
   describe "#run" do
 
-    before { described_class.instance.run }
+    # before { described_class.instance.run }
 
     it "creates mock user" do
       expect(User.count).to eq 1

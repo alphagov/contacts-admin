@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140324131404) do
+ActiveRecord::Schema.define(version: 20140331144016) do
 
   create_table "contact_groups", force: true do |t|
     t.integer  "contact_group_type_id"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140324131404) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
-    t.string   "department_id"
+    t.integer  "organisation_id"
   end
 
   add_index "contact_groups", ["contact_group_type_id"], name: "index_contact_groups_on_contact_group_type_id", using: :btree
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20140324131404) do
     t.integer  "need_id"
     t.boolean  "query_response_time",         default: false
     t.integer  "popularity",                  default: 0
-    t.string   "department_id"
+    t.integer  "organisation_id"
   end
 
   add_index "contacts", ["need_id"], name: "index_contacts_on_need_id", using: :btree
@@ -98,7 +98,6 @@ ActiveRecord::Schema.define(version: 20140324131404) do
     t.string   "govuk_status"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "parent_organisation"
     t.string   "ancestry"
   end
 

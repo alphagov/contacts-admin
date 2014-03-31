@@ -4,6 +4,7 @@ class SeedDatabase
   include Singleton
 
   def run
+    ImportOrganisations.new.call
     create_users
     create_contact_groups
   end
@@ -97,7 +98,7 @@ class SeedDatabase
         contact_group_type_id: contact_group[:contact_group_type].id,
         title: contact_group[:title],
         description: contact_group[:description],
-        department_id: Department.find_by(slug: "hm-revenue-customs").id
+        organisation_id: Organisation.find_by_slug("hm-revenue-customs").id
       )
     end
   end

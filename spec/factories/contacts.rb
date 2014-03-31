@@ -8,7 +8,7 @@ FactoryGirl.define do
   sequence(:quick_link_title) { |n| "link #{n}" }
 
   factory :contact do
-    department          { Department.first }
+    organisation        { Organisation.first }
     title               { generate(:contact_title) }
     description         { generate(:contact_description) }
     contact_information { generate(:contact_information) }

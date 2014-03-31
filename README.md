@@ -18,11 +18,10 @@ linking to contact details within content.
 * Ruby 2.0.0-p353
 * MySQL
 * Rummager (for indexing)
-* Whitehall (for departments API)
 
 ## Database setup
 
-The best way to get a database with good seed data is to use a dump from preview, 
+The best way to get a database with good seed data is to use a dump from preview,
 alternatively you can load the database schema and use the old initial seed data.
 
     ```
@@ -42,8 +41,8 @@ open http://contacts.dev.gov.uk/admin
 
 ## Indexing the data
 
-Only contacts with a need id will be indexed, need ids will need to be added via 
-a database migration. 
+Only contacts with a need id will be indexed, need ids will need to be added via
+a database migration.
 
     ````
     Ensure rummager is running

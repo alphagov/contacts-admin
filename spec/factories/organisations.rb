@@ -7,6 +7,5 @@ FactoryGirl.define do
     slug "hm-revenue-customs"
     abbreviation "HMRC"
     govuk_status "live"
-    parent_organisation nil
   end
 end

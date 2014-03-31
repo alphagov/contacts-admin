@@ -28,17 +28,17 @@ describe ImportContacts::ContactBuilder do
       expect(described_class.build(attributes).contact_groups).to eq [ContactGroup.find_by(title: contact_group)]
     end
 
-    context "HMRC department present" do
-      let!(:department) { Department.find_by abbreviation: "HMRC" }
+    context "HMRC organisation present" do
+      let!(:organisation) { Organisation.find_by abbreviation: "HMRC" }
 
-      it "assigns HMRC department contact" do
-        expect(described_class.build(department: department).department).to eq Department.find_by(abbreviation: "HMRC")
+      it "assigns HMRC organisation contact" do
+        expect(described_class.build(organisation: organisation).organisation).to eq Organisation.find_by(abbreviation: "HMRC")
       end
     end
 
-    context "HMRC department missing" do
-      it "does not assign HMRC department to contact" do
-        expect(described_class.build(department: nil).department).to be_blank
+    context "HMRC organisation missing" do
+      it "does not assign HMRC organisation to contact" do
+        expect(described_class.build(organisation: nil).organisation).to be_blank
       end
     end
   end
