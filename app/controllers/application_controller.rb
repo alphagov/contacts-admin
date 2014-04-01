@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  before_filter :set_beta_notice
   after_filter :dev_skip_slimmer
 
   decent_configuration do
@@ -20,7 +19,4 @@ class ApplicationController < ActionController::Base
     response.headers[Slimmer::Headers::SKIP_HEADER] = "true"
   end
 
-  def set_beta_notice
-    response.header[Slimmer::Headers::BETA_LABEL] = "after:div#contact-details-header"
-  end
 end
