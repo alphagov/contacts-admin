@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331144016) do
+ActiveRecord::Schema.define(version: 20140401092644) do
 
   create_table "contact_groups", force: true do |t|
     t.integer  "contact_group_type_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140331144016) do
   end
 
   add_index "contact_groups", ["contact_group_type_id"], name: "index_contact_groups_on_contact_group_type_id", using: :btree
+  add_index "contact_groups", ["organisation_id"], name: "index_contact_groups_on_organisation_id", using: :btree
   add_index "contact_groups", ["slug"], name: "index_contact_groups_on_slug", using: :btree
 
   create_table "contact_memberships", force: true do |t|
