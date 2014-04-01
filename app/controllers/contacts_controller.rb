@@ -1,4 +1,7 @@
 class ContactsController < ApplicationController
+
+  before_filter :set_beta_notice, only: :show
+
   expose(:search) {
     ContactsSearch.new search_params
   }
@@ -33,5 +36,9 @@ class ContactsController < ApplicationController
   def search_params
     filter = { department_id: params[:department_id] }
     filter.merge(params.fetch(:search, {}))
+  end
+
+  def set_beta_notice
+    response.header[Slimmer::Headers::BETA_LABEL] = "after:div#contact-details-header"
   end
 end
