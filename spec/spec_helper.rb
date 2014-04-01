@@ -13,6 +13,7 @@ require "rspec/autorun"
 require "capybara/rails"
 require "slimmer/test"
 require "fakefs/spec_helpers"
+require "webmock/rspec"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 

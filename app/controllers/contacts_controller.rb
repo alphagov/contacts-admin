@@ -18,7 +18,7 @@ class ContactsController < ApplicationController
   }
 
   expose(:contact) {
-    organisation.contacts.find_by_slug(params[:organisation_slug]).decorate
+    organisation.contacts.find(params[:id]).decorate
   }
 
   expose(:contacts) {

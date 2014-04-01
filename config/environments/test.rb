@@ -40,9 +40,8 @@ Contacts::Application.configure do
   config.after_initialize do
     PaperTrail.enabled = false
     Contacts.enable_admin_routes = true
-    
-    Contacts.worldwide_api = GdsApi::Worldwide.new("https://www.gov.uk")
-    Contacts.organisations_api = MockOrganisationsApi.new
+
+    Contacts.worldwide_api = GdsApi::Worldwide.new( Plek.current.find('whitehall-admin') )
     Contacts.rummager_client = FakeRummageableIndex.new("http://localhost", 'mainstream', logger: Rails.logger)
   end
 end

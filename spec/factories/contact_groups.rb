@@ -7,7 +7,6 @@ FactoryGirl.define do
   factory :contact_group do
     contact_group_type
 
-    organisation   { Organisation.first }
     title          { generate(:contact_group_title) }
     description    { generate(:contact_group_description) }
 
