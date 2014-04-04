@@ -85,3 +85,7 @@ p.report-a-problem-toggle {
     clear: both;
   }
 }
+
+.beta {
+  @include phase-tag(beta);
+}

@@ -33,7 +33,7 @@ gem "sass-rails", "~> 4.0.0"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.0.0"
 gem "therubyracer", platforms: :ruby
-gem "govuk_frontend_toolkit", "0.34.0"
+gem "govuk_frontend_toolkit", "0.46.1"
 gem "jquery-rails"
 
 gem "select2-rails", github: "argerim/select2-rails"
