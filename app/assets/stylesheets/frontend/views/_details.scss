@@ -19,7 +19,7 @@
       }
     }
 
-    @media (max-width: 640px) {
+    @include media(mobile) {
       div {
         padding-left: 1em;
         padding-right: 1em;
@@ -34,7 +34,7 @@
     margin: 0 $gutter;
     margin-bottom: $gutter-one-third;
 
-    @media (max-width: 640px) {
+    @include media(mobile) {
       margin-left: $gutter-half;
       margin-right: $gutter-half;
       padding-bottom: $gutter-one-third;
@@ -61,7 +61,7 @@
       font-weight: 700;
       margin-bottom: $gutter;
 
-      @media (max-width: 640px) {
+      @include media(mobile) {
         margin: $gutter-one-sixth 0 $gutter-two-thirds;
       }
     }
@@ -70,7 +70,7 @@
       @include core-24;
       font-weight: 700;
 
-      @media (max-width: 640px) {
+      @include media(mobile) {
         padding-top: 0;
       }
     }
@@ -91,7 +91,7 @@
           margin-bottom: $gutter-two-thirds;
         }
 
-        @media (max-width: 640px) {
+        @include media(mobile) {
           margin: $gutter-one-sixth 0;
           font-size: 19px;
         }
@@ -129,7 +129,7 @@
       }
     }
 
-    @media (max-width: 640px) {
+    @include media(mobile) {
       margin-top: 0;
     }
 
@@ -158,12 +158,12 @@
   .quick-links {
     margin-bottom: $gutter;
 
-    @media (max-width: 640px) {
+    @include media(mobile) {
       margin: $gutter-two-thirds 0 0;
     }
 
     li {
-      @media (max-width: 640px) {
+      @include media(mobile) {
         float: none;
         width: $full-width;
         line-height: 0.8;
@@ -180,7 +180,7 @@
         @include ig-core-16;
         font-weight: 700;
 
-        @media (max-width: 640px) {
+        @include media(mobile) {
           padding: 0;
         }
       }
@@ -233,7 +233,7 @@
       float: left;
       width: $one-third;
 
-      @media (max-width: 640px) {
+      @include media(mobile) {
         float: none;
         width: $full-width;
         padding-bottom: $gutter-one-third;
@@ -251,7 +251,7 @@
             color: inherit;
           }
 
-          @media (max-width: 640px) {
+          @include media(mobile) {
             padding: 0;
             font-size: 24px;
           }
@@ -259,7 +259,7 @@
       }
     }
 
-    @media (max-width: 640px) {
+    @include media(mobile) {
       margin-bottom: $gutter-half;
     }
   }
@@ -329,7 +329,7 @@
       @include ig-core-14;
       padding: 0;
 
-      @media (max-width: 640px) {
+     @include media(mobile) {
         line-height: 1.7;
       }
     }
