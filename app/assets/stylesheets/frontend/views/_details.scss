@@ -62,7 +62,7 @@
       margin-bottom: $gutter;
 
       @media (max-width: 640px) {
-        margin: $gutter-half 0;
+        margin: $gutter-one-sixth 0 $gutter-two-thirds;
       }
     }
 
@@ -227,6 +227,8 @@
   }
 
   .phone-list {
+    margin-bottom: $gutter;
+
     .tel {
       float: left;
       width: $one-third;
@@ -234,28 +236,31 @@
       @media (max-width: 640px) {
         float: none;
         width: $full-width;
-        margin-bottom: $gutter-one-third;
         padding-bottom: $gutter-one-third;
       }
 
-      span.type {
+      span {
         @include core-19;
-      }
+        padding-right: $gutter-half;
 
-      span.value {
-        display: block;
-        @include ig-core-24;
-        font-weight: bold;
+        &.value {
+          display: block;
+          font-weight: bold;
 
-        a {
-          color: inherit;
+          a {
+            color: inherit;
+          }
+
+          @media (max-width: 640px) {
+            padding: 0;
+            font-size: 24px;
+          }
         }
-
-        @media (max-width: 640px) {
-          padding: 0;
-          font-size: 24px;
-        }
       }
+    }
+
+    @media (max-width: 640px) {
+      margin-bottom: $gutter-half;
     }
   }
 
@@ -343,11 +348,10 @@
 
     .adr {
       margin-bottom: $gutter*1.5;
-    }
-
-    &:last-child .adr,
-    .vcard p {
-      margin-bottom: 0;
+      span {
+        display: block;
+        margin-bottom: 0;
+      }
     }
   }
 

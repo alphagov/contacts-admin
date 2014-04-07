@@ -4,21 +4,21 @@ module ContactsHelper
       address.title
     end
     street_address = content_tag :span, class: "street-address" do
-      govspeak address.street_address
+      address.street_address
     end
     locality = content_tag :span, class: "locality" do
-      govspeak address.locality
+      address.locality
     end
     region = content_tag :span, class: "region" do
-      govspeak address.region
+      address.region
     end
     postal_code = content_tag :span, class: "postal-code" do
-      govspeak address.postal_code
+      address.postal_code
     end
     world_location = content_tag :span, class: "country-name" do
-      govspeak address.world_location.try(:name)
+      address.world_location.try(:name)
     end
-    content_tag :span, class: "vcard" do
+    content_tag :div, class: "vcard" do
       [title, street_address, locality, region, postal_code, world_location].join.html_safe
     end
   end
