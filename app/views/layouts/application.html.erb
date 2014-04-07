@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= department.title %> contacts - GOV.UK</title>
+  <title><%= organisation.title %> contacts - GOV.UK</title>
   <!--[if gt IE 8]><!--><%= stylesheet_link_tag "frontend", media: "all" %><!--<![endif]-->
   <!--[if IE 6]>
     <%= stylesheet_link_tag "frontend/base-ie6.css" %><script>var ieVersion = 6;</script>
@@ -22,11 +22,11 @@
       <%= link_to "Home", '/' %>
     </li>
     <li>
-      <%= link_to department.title, department.path %>
+      <%= link_to organisation.title, organisation.path %>
     </li>
     <% if params[:action] == "show" %>
       <li>
-        <%= link_to "Contact #{department.abbreviation_or_title}", contacts_path(department.slug) %>
+        <%= link_to "Contact #{organisation.abbreviation_or_title}", contacts_path(organisation.slug) %>
       </li>
     <% end %>
   </ol>

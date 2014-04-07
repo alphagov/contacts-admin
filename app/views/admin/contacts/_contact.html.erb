@@ -1,9 +1,9 @@
 <tr>
-  <% if search.department_id.blank? %>
-    <td><%= contact.department %></td>
+  <% if search.organisation_id.blank? %>
+    <td><%= contact.organisation %></td>
   <% end %>
   <td>
-    <%= link_to contact.title, contact_path(contact.department, contact.slug), class: 'no-underline' %>
+    <%= link_to contact.title, contact_path(contact.organisation.slug, contact.slug), class: 'no-underline' %>
   </td>
   <td>
     <% contact.contact_groups.each do |contact_group| %>

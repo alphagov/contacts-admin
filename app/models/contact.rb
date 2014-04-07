@@ -1,9 +1,10 @@
 class Contact < ActiveRecord::Base
   include Versioning
   include FriendlyId
-  include BelongsToDepartment
 
   friendly_id :title, use: :history
+
+  belongs_to :organisation
 
   has_many :contact_groups, through: :contact_memberships
   has_many :contact_memberships, dependent: :destroy
@@ -36,7 +37,7 @@ class Contact < ActiveRecord::Base
   end
 
   def link
-    "/#{APP_SLUG}/#{department.slug}/#{slug}"
+    "/#{APP_SLUG}/#{organisation.slug}/#{slug}"
   end
 
   def to_indexed_json
@@ -46,7 +47,7 @@ class Contact < ActiveRecord::Base
       link: link,
       format: "contact",
       indexable_content: "#{title} #{description} #{contact_groups.map(&:title).join}",
-      department: department.as_json
+      organisation: organisation.as_json
     }
   end
 end

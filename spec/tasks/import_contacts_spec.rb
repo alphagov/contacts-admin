@@ -1,5 +1,6 @@
 require "spec_helper"
 require "fileutils"
+require "webmock/rspec"
 
 describe ImportContacts, with_fakefs: true do
   let(:file_name) { "contacts.csv" }

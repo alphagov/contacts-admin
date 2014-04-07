@@ -8,7 +8,6 @@ FactoryGirl.define do
   sequence(:quick_link_title) { |n| "link #{n}" }
 
   factory :contact do
-    department          { Department.first }
     title               { generate(:contact_title) }
     description         { generate(:contact_description) }
     contact_information { generate(:contact_information) }
@@ -19,9 +18,19 @@ FactoryGirl.define do
     quick_link_3        { generate(:quick_link) }
     quick_link_title_3  { generate(:quick_link_title) }
 
+    trait :organisation do
+      after(:create) do |contact|
+        contact.organisation << FactoryGirl.create(:organisation)
+      end
+    end
+
     trait :with_contact_group do
       after(:create) do |contact|
         contact.contact_groups << FactoryGirl.create(:contact_group)
+        contact.contact_groups.each do |group|
+          group.organisation = contact.organisation
+          group.save!
+        end
       end
     end
     trait :with_contact_form_links do

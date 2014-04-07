@@ -28,7 +28,7 @@ Contacts::Application.routes.draw do
     
   scope :path => "#{APP_SLUG}" do
 
-    scope ':department_id' do
+    scope ':organisation_slug' do
       get "/", to: "contacts#index", as: :contacts
 
       resources :contacts, constraints: { id: SLUG_FORMAT }, path: '/'

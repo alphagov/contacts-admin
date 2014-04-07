@@ -7,18 +7,18 @@ class ContactsController < ApplicationController
   }
 
   expose(:contact_groups) {
-    contact_group_ids = department.contacts.map do |contact|
+    contact_group_ids = organisation.contacts.map do |contact|
       contact.contact_memberships.pluck(:contact_group_id)
     end.flatten.uniq
     ContactGroup.where(id: contact_group_ids).by_title  # select only contact_groups related to current department
   }
 
-  expose(:department) {
-    Department.find_by!(slug: params[:department_id])
+  expose(:organisation) {
+    Organisation.find_by_slug(params[:organisation_slug])
   }
 
   expose(:contact) {
-    department.contacts.find_by!(slug: params[:id]).decorate
+    organisation.contacts.find(params[:id]).decorate
   }
 
   expose(:contacts) {
@@ -34,7 +34,7 @@ class ContactsController < ApplicationController
   private
 
   def search_params
-    filter = { department_id: params[:department_id] }
+    filter = { organisation: params[:organisation] }
     filter.merge(params.fetch(:search, {}))
   end
 

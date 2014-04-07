@@ -2,7 +2,8 @@ class ContactGroup < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
   include Versioning
   include FriendlyId
-  include BelongsToDepartment
+
+  belongs_to :organisation
 
   friendly_id :title, use: :history
 

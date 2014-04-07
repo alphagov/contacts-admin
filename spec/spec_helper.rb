@@ -13,6 +13,7 @@ require "rspec/autorun"
 require "capybara/rails"
 require "slimmer/test"
 require "fakefs/spec_helpers"
+require "webmock/rspec"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
@@ -21,6 +22,8 @@ Dir[Rails.root.join("spec/features/steps/admin/*.rb")].sort.reverse.each { |f| r
 Dir[Rails.root.join("spec/features/steps/public/*.rb")].sort.reverse.each { |f| require f }
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
+
+WebMock.disable_net_connect!(:allow_localhost => true)
 
 RSpec.configure do |config|
   config.mock_with :rspec

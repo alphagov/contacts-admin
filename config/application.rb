@@ -45,7 +45,6 @@ module Contacts
 
     config.after_initialize do
       Contacts.worldwide_api = GdsApi::Worldwide.new( Plek.current.find('whitehall-admin') )
-      Contacts.organisations_api = GdsApi::Organisations.new( Plek.current.find('whitehall-admin') )
       
       # Going to use the same index as mainstream till rummager has multi index search
       Contacts.rummager_client = Rummageable::Index.new( Plek.current.find('search'), 'mainstream', logger: Rails.logger )

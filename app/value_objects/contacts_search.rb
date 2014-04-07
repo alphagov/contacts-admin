@@ -1,7 +1,7 @@
 class ContactsSearch < Searchlight::Search
   search_on Contact.includes(:contact_memberships)
 
-  searches :title, :description, :name, :department_id, :contact_group_id
+  searches :title, :description, :name, :organisation_id, :contact_group_id
 
   def name
     (super || "").strip
@@ -11,8 +11,8 @@ class ContactsSearch < Searchlight::Search
     search.where("contacts.title LIKE :name OR contacts.description LIKE :name", name: "%#{name}%")
   end
 
-  def search_department_id
-    search.where(department_id: department_id)
+  def search_organisation_id
+    search.where organisation_id: organisation_id
   end
 
   def search_contact_group_id
