@@ -27,7 +27,7 @@
     .type {
       @include core-27;
       margin-bottom: $gutter-one-sixth;
-      color: #6e777b;
+      color: $secondary-text-colour;
     }
     .heading-extra {
       ul {
@@ -94,6 +94,11 @@
   .online-forms {
     margin-bottom: $gutter;
 
+    @include media(tablet) {
+      margin-bottom: $gutter*2;
+      width: 75%;
+    }
+
     ul {
       margin-bottom: $gutter-half;
      li {
@@ -103,11 +108,6 @@
 
     p {
       margin-bottom: $gutter-half;
-    }
-
-    @include media(tablet) {
-      margin-bottom: $gutter*2;
-      width: 75%;
     }
   }
 
