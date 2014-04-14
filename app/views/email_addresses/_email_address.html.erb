@@ -1,13 +1,7 @@
-<li class="contact-detail">
+<li>
   <div class="vcard">
-    <h4 class="fn">
-      <%= email_address.title %>
-    </h4>
-    <span>
-      <%= mail_to email_address.email %>
-    </span>
-    <span class="email-description">
-      <%= govspeak email_address.description %>
-    </span>
+    <h3 class="fn"><%= email_address.title %></h3>
+    <span><%= mail_to email_address.email %></span>
+    <span class="email-description"><%= govspeak email_address.description %></span>
   </div>
 </li>

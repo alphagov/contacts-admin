@@ -1,0 +1,182 @@
+.contact-show {
+  padding: 0 $gutter-half;
+
+  @include media(tablet) {
+    padding: 0 $gutter;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .header-block {
+    @extend %contain-floats;
+    margin: $gutter 0 0;
+
+    h1 {
+      @include core-48;
+      font-weight: 700;
+      margin-bottom: $gutter;
+
+      @include media(tablet) {
+        padding-right: $gutter;
+        margin-bottom: 0  ;
+      }
+    }
+    .type {
+      @include core-27;
+      margin-bottom: $gutter-one-sixth;
+      color: #6e777b;
+    }
+    .heading-extra {
+      ul {
+        padding-left: 0;
+      }
+    }
+
+    @include media(tablet) {
+      margin-bottom: $gutter;
+
+      .heading,
+      .heading-extra {
+        float: left;
+        width: $two-thirds;
+      }
+      .heading-extra {
+        width: $one-third;
+      }
+    }
+  }
+
+  h2 {
+    @include core-36;
+    clear: both;
+    font-weight: 700;
+    margin: $gutter*1.5 0 $gutter-one-third;
+
+    &.details-header {
+      @include media(tablet) {
+        float: left;
+        width: $one-quarter;
+      }
+    }
+    @include media(tablet) {
+      margin: 0 0 $gutter;
+    }
+  }
+
+  .details {
+    margin-bottom: $gutter;
+
+    @include media(tablet) {
+      float: left;
+      margin-bottom: $gutter*2;
+      width: 75%;
+    }
+
+    .times {
+      padding-top: $gutter-half;
+    }
+
+    .email {
+      margin-top: $gutter;
+      li {
+        margin-bottom: $gutter-two-thirds;
+      }
+    }
+    .description {
+      @include core-19;
+      margin-bottom: $gutter-two-thirds;
+    }
+  }
+
+  .online-forms {
+    margin-bottom: $gutter;
+
+    ul {
+      margin-bottom: $gutter-half;
+     li {
+        @include core-19;
+      }
+    }
+
+    p {
+      margin-bottom: $gutter-half;
+    }
+
+    @include media(tablet) {
+      margin-bottom: $gutter*2;
+      width: 75%;
+    }
+  }
+
+  .quick-links {
+    li {
+      a {
+        @include core-16;
+        font-weight: 700;
+      }
+    }
+
+    @include media(tablet) {
+      margin-bottom: $gutter;
+    }
+  }
+
+  .phone-list {
+    @extend %contain-floats;
+    margin: 0 0 $gutter;
+
+    li {
+      float: none;
+      padding-bottom: $gutter-one-third;
+      width: $full-width;
+
+      @include media(tablet) {
+        float: left;
+        width: $one-third;
+      }
+
+      span {
+        @include core-19;
+        padding-right: $gutter-half;
+
+        &.value {
+          display: block;
+          font-weight: bold;
+
+          a {
+            color: inherit;
+          }
+
+          @include media(mobile) {
+            padding: 0;
+            font-size: 24px;
+          }
+        }
+      }
+    }
+
+    @include media(mobile) {
+      margin-bottom: $gutter-half;
+    }
+  }
+
+  .vcard {
+    @include core-19;
+    margin-bottom: $gutter;
+    span {
+      display: block;
+      margin-bottom: 0;
+    }
+  }
+
+
+  .beta-label {
+    margin: $gutter 0;
+    .beta {
+      margin-left: 0;
+    }
+  }
+}

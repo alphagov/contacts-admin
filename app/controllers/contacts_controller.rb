@@ -39,6 +39,6 @@ class ContactsController < ApplicationController
   end
 
   def set_beta_notice
-    response.header[Slimmer::Headers::BETA_LABEL] = "after:div#contact-details-header"
+    response.header[Slimmer::Headers::BETA_LABEL] = "after:.header-block"
   end
 end

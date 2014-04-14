@@ -1,57 +1,26 @@
-<% page_class 'details-page' %>
+<% page_class 'contact-show' %>
 
-
-<div class="block-container clearfix" id="header">
-  <div id="contact-details-header">
-    <header class="page-header group block-2 block-pull-left">
-      <p class="type">Contact details</p>
-      <h1>
-        <%= contact %> 
-      </h1>
-    </header>
-
-      <% if (contact.quick_link_title_1.present? && contact.quick_link_1.present?) ||
-        (contact.quick_link_title_2.present? && contact.quick_link_2.present?) ||
-        (contact.quick_link_title_3.present? && contact.quick_link_3.present?) %>
-
-      <div class="block-1 block-pull-right">
-        <div class="inner-block">
-          <ul class="quick-links list-plain">
-            <% if contact.quick_link_title_1.present? && contact.quick_link_1.present? %>
-              <li>
-                <%= link_to contact.quick_link_title_1, contact.quick_link_1 %>
-              </li>
-            <% end %>
-            <% if contact.quick_link_title_2.present? && contact.quick_link_2.present? %>
-              <li>
-                <%= link_to contact.quick_link_title_2, contact.quick_link_2 %>
-              </li>
-            <% end %>
-            <% if contact.quick_link_title_3.present? && contact.quick_link_3.present? %>
-              <li>
-                <%= link_to contact.quick_link_title_3, contact.quick_link_3 %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    <% end -%>
-
-    <div class="clearfix"></div>
-
+<header class="header-block">
+  <div class="heading">
+    <p class="type">Contact details</p>
+    <h1><%= contact %></h1>
   </div>
-</div>
 
-<%= render "contact_online_details" %>
+  <% if contact.quick_links.any? %>
+    <aside class="heading-extra">
+      <ul class="quick-links">
+        <% contact.quick_links.each do |quick_link| %>
+          <li>
+            <%= link_to quick_link.title, quick_link.url %>
+          </li>
+        <% end %>
+      </ul>
+    </aside>
+  <% end %>
+</header>
 
-<%= render "contact_offline_details" %>
+<%= render "contact_details" %>
 
 <% if contact.query_response_time? %>
-  <div class="block-container">
-    <div class="block-inner">  
-      <p>
-        <%= link_to "Find out when to expect a response to your query", "http://www.hmrc.gov.uk/tools/progress-tool/index.htm" %>
-      </p>
-    </div>
-  </div>
+  <p class="response"><%= link_to "Find out when to expect a response to your query", "http://www.hmrc.gov.uk/tools/progress-tool/index.htm" %></p>
 <% end -%>
