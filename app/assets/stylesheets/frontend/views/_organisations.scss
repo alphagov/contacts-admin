@@ -19,8 +19,8 @@
     padding: $gutter-half 0;
     @extend %contain-floats;
 
-    @include media(tablet){
-      width: 75%;
+    @include media(tablet) {
+      width: $three-quarters;
       padding: $gutter*1.5 0 ($gutter + $gutter-one-third);
     }
 
@@ -304,7 +304,7 @@
         .sub-organisation-name {
           clear: both;
           float: none;
-          width: 75%;
+          width: $three-quarters;
 
           h1 {
             @include heading-48;
@@ -588,7 +588,7 @@
         ul.management-secondary {
           position: relative;
           float: left;
-          width: 75%;
+          width: $three-quarters;
           li {
             width: 33.33%;
           }

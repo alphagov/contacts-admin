@@ -72,7 +72,7 @@
     @include media(tablet) {
       float: left;
       margin-bottom: $gutter*2;
-      width: 75%;
+      width: $three-quarters;
     }
 
     .times {
@@ -96,7 +96,7 @@
 
     @include media(tablet) {
       margin-bottom: $gutter*2;
-      width: 75%;
+      width: $three-quarters;
     }
 
     ul {
