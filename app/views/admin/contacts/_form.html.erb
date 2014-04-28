@@ -5,7 +5,7 @@
       <%= f.input :title, input_html: { class: 'span4' } %>
       <%= f.input :organisation_id, label: "Organisation", collection: Organisation.all, label_method: :to_s, value_method: :id, include_blank: false, input_html: { class: 'span3 js-select2' } %>
       <%= f.association :contact_groups, collection: ContactGroup.all, include_hidden: false, multiple: true, input_html: { class: 'span9 js-select2' } %>
-      <%= f.input :description, as: :text, input_html: { rows: 8, class: 'span9' }, hint: formatting_help_link %>
+      <%= f.input :description, as: :text, input_html: { rows: 8, class: 'span9' } %>
       <%= f.input :before_you_contact_us, as: :text, label: 'Before you contact us', input_html: { rows: 5, class: 'span9' }, hint: formatting_help_link %>
       <%= f.input :contact_information, as: :text, label: 'Information you will need', input_html: { rows: 5, class: 'span9' }, hint: formatting_help_link %>
       <%= f.input :query_response_time, as: :boolean, label: 'Show "When can I expect my reply" link' %>
