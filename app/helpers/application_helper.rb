@@ -18,7 +18,9 @@ module ApplicationHelper
   end
 
   def govspeak(text)
-    Govspeak::Document.new(text).to_sanitized_html.html_safe if text
+    if text
+      content_tag(:div, Govspeak::Document.new(text).to_sanitized_html.html_safe, class: "govspeak")
+    end
   end
 
   def formatting_help_link(show_section = "")
