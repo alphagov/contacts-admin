@@ -7,10 +7,7 @@ class ContactsController < ApplicationController
   }
 
   expose(:contact_groups) {
-    contact_group_ids = organisation.contacts.map do |contact|
-      contact.contact_memberships.pluck(:contact_group_id)
-    end.flatten.uniq
-    ContactGroup.where(id: contact_group_ids).by_title  # select only contact_groups related to current department
+    organisation.contact_groups.by_title
   }
 
   expose(:organisation) {
@@ -22,7 +19,7 @@ class ContactsController < ApplicationController
   }
 
   expose(:contacts) {
-    search.results.for_listing.decorate
+    search.results.includes(:contact_groups).for_listing.decorate
   }
 
   def index
