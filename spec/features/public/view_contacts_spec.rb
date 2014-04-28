@@ -7,7 +7,7 @@ describe "Contacts" do
   let!(:contact) { create(:contact, :with_phone_numbers, :with_contact_group) }
   let!(:contact2) { create(:contact, :with_phone_numbers, :with_contact_group) }
 
-  before { 
+  before {
     ContactGroup.all.each do |group|
       group.organisation = Organisation.first
       group.save!
@@ -16,11 +16,15 @@ describe "Contacts" do
       contact.organisation = Organisation.first
       contact.save!
     end
-    ensure_on contacts_path(Organisation.first) 
+    ensure_on contacts_path(Organisation.first)
   }
 
   context "list" do
     it { verify contacts_exist([contact, contact2]) }
+  end
+
+  it "should provide a form to report problems" do
+    expect(page).to have_selector("#test-report_a_problem")
   end
 
   context "filter" do
