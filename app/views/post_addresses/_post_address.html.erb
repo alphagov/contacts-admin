@@ -1,6 +1,2 @@
-<div class="address <%= 'last-child' if post_address == contact.post_addresses.last %>">
-  <div class="adr org fn">
-    <%= govspeak post_address.description %>
-    <%= vcard_for_post_address(post_address) %>
-  </div>
-</div>
+<p class="description"><%= post_address.description %></p>
+<%= vcard_for_post_address(post_address) %>

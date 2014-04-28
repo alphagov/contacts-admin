@@ -1,6 +1,6 @@
 module ContactsHelper
   def vcard_for_post_address(address)
-    title = content_tag :h4, class: "fn" do
+    title = content_tag :h3, class: "fn" do
       address.title
     end
     street_address = content_tag :span, class: "street-address" do

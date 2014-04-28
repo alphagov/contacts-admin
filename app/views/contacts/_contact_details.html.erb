@@ -1,0 +1,35 @@
+<% if contact.contact_form_links.any? %>
+  <div class="online-forms">
+    <h2>Online forms</h2>
+    <ul class="form-links">
+      <%= render contact.contact_form_links %>
+    </ul>
+    <%= govspeak contact.more_info_contact_form.to_s %>
+  </div>
+<% end -%>
+
+<% if contact.email_addresses.any? %>
+  <h2 class="details-header">Email</h2>
+  <div class="details">
+    <p class="description"><%= contact.more_info_email_address.to_s %></p>
+    <ul class="email">
+      <%= render contact.email_addresses %>
+    </ul>
+  </div>
+<% end %>
+
+<% if contact.phone_numbers.any? %>
+  <h2 class="details-header">Phone</h2>
+  <div class="details">
+    <%= render contact.phone_numbers %>
+  </div>
+<% end %>
+
+<% if contact.post_addresses.any? %>
+  <h2 class="details-header">Post</h2>
+  <div class="details">
+    <%= render contact.post_addresses %>
+    <%= govspeak contact.more_info_post_address %>
+  </div>
+<% end %>
+

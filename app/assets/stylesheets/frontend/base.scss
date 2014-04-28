@@ -14,6 +14,7 @@
 @import "_css3.scss";
 @import "_device-pixels.scss";
 @import "design-patterns/_alpha-beta.scss";
+@import "measurements";
 
 @import "styleguide/_dimensions.scss";
 @import "styleguide/_font-stacks.scss";
@@ -23,6 +24,7 @@
 @import "styleguide/_float-fix.scss";
 @import "styleguide/_hidpi.scss";
 @import "styleguide/_right-to-left.scss";
+@import "styleguide/_govspeak.scss";
 
 /* conversion functions */
 
@@ -67,7 +69,7 @@
 .hmrc-contacts-body {
   @import "views/_common.scss";
   @import "views/_contacts.scss";
-  @import "views/_details.scss";
+  @import "views/_contact-show.scss";
   @import "views/_documents-list.scss";
   @import "views/_layouts.scss";
   @import "views/_organisations.scss";
