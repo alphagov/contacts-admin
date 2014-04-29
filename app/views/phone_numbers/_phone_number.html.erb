@@ -33,7 +33,9 @@
 </ul>
 
 <% if phone_number.description.present? %>
-  <p class="description"><%= phone_number.description %></p>
+  <div class="description">
+    <%= govspeak phone_number.description %>
+  </div>
 <% end %>
 
 <p><%= link_to "Find out about call charges", "https://www.gov.uk/call-charges", class: "link-underline" %></p>

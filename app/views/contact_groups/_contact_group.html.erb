@@ -14,7 +14,9 @@
               <h3>
                 <%= link_to contact, contact_path(organisation, contact) %>
               </h3>
-              <%= govspeak contact.description %>
+              <% if contact.description.present? %>
+                <%= govspeak contact.description %>
+              <% end %>
             </li>
           <% end %>
         </ul>
