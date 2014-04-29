@@ -2,6 +2,10 @@
   <div class="vcard">
     <h3 class="fn"><%= email_address.title %></h3>
     <p><%= mail_to email_address.email %></p>
-    <p class="email-description"><%= email_address.description %></p>
+    <% if email_address.description.present? %>
+      <div class="email-description">
+        <%= govspeak email_address.description %>
+      </div>
+    <% end %>
   </div>
 </li>
