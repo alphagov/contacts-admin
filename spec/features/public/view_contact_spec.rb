@@ -6,7 +6,7 @@ describe "Contact view" do
   let!(:hmrc)    { create :organisation }
   let!(:contact) { create :contact, :with_contact_group, :with_contact_form_links, :with_post_addresses, :with_phone_numbers, :with_email_addresses }
 
-  before { 
+  before {
     @location_slugs = %w(
         afghanistan angola aruba bangladesh belarus brazil brunei
         cambodia chad croatia denmark eritrea france ghana iceland
@@ -18,11 +18,15 @@ describe "Contact view" do
     worldwide_api_has_locations(@location_slugs)
     contact.organisation = hmrc
     contact.save!
-    visit contact_path(contact.organisation.slug, contact) 
+    visit contact_path(contact.organisation.slug, contact)
   }
 
   context "general info" do
     it { expect(page).to have_content(contact.title) }
+  end
+
+  it "should provide a form to report problems" do
+    expect(page).to have_selector("#test-report_a_problem")
   end
 
   context "quick links" do
