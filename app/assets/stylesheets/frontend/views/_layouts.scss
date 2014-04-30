@@ -59,6 +59,7 @@ p.report-a-problem-toggle {
   clear: both;
   margin: $gutter-half;
   direction: ltr;
+  padding-top: $gutter;
   @include media(tablet){
     margin: $gutter;
   }
