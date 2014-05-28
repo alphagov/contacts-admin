@@ -3,9 +3,9 @@
     <div class='page-header'>
       <h2>New Email Address for <%= @contact %></h2>
 
-      <%= render partial: 'admin/contacts/contact_nav', locals: { contact: @contact } %>
+      <%= render 'admin/contacts/contact_nav', contact: @contact %>
     </div>
 
-    <%= render partial: 'form', locals: { contact: @contact, email_address: @email_address } %>
+    <%= render 'form', contact: @contact, email_address: @email_address %>
   </div>
 </div>

@@ -6,10 +6,10 @@
         <%= link_to 'Delete', admin_contact_phone_number_path(@contact, @phone_number), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
       </h2>
 
-      <%= render partial: 'admin/contacts/contact_nav', locals: { contact: @contact } %>
+      <%= render 'admin/contacts/contact_nav', contact: @contact %>
     </div>
 
-    <%= render partial: 'form', locals: { contact: @contact, phone_number: @phone_number } %>
+    <%= render 'form', contact: @contact, phone_number: @phone_number %>
   </div>
 </div>
 <div class="row">

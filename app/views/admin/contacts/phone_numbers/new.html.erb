@@ -3,9 +3,9 @@
     <div class='page-header'>
       <h2>New Phone Number for <%= @contact %></h2>
 
-      <%= render partial: 'admin/contacts/contact_nav', locals: { contact: @contact } %>
+      <%= render 'admin/contacts/contact_nav', contact: @contact %>
     </div>
 
-    <%= render partial: 'form', locals: { contact: @contact, phone_number: @phone_number } %>
+    <%= render 'form', contact: @contact, phone_number: @phone_number %>
   </div>
 </div>

@@ -3,7 +3,7 @@
     Edit <%= @contact %>
   </h2>
 
-  <%= render partial: 'admin/contacts/contact_nav', locals: { contact: @contact } %>
+  <%= render 'admin/contacts/contact_nav', contact: @contact %>
 </div>
 
 <%= render "more_info_form", contact: @contact %>
