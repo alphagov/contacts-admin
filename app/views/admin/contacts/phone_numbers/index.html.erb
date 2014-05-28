@@ -1,14 +1,14 @@
 <div class='page-header'>
   <h2>
-    Edit <%= contact %>
+    Edit <%= @contact %>
   </h2>
 
-  <%= render partial: 'admin/contacts/contact_nav' %>
+  <%= render partial: 'admin/contacts/contact_nav', locals: { contact: @contact } %>
 </div>
 
-<%= render "more_info_form" %>
+<%= render "more_info_form", contact: @contact %>
 
-<% if phone_numbers.any? %>
+<% if @contact.phone_numbers.any? %>
   <table class='table table-striped table-hover phone-numbers-table'>
     <colgroup>
       <col width="120"></col>
@@ -24,18 +24,18 @@
         <th>Description</th>
         <th>Open Hours</th>
         <th>
-          <%= link_to "+ Add phone number", new_admin_contact_phone_number_path(contact), class: 'btn btn-small pull-right' %>
+          <%= link_to "+ Add phone number", new_admin_contact_phone_number_path(@contact), class: 'btn btn-small pull-right' %>
         </th>
       </tr>
     </thead>
     <tbody>
-      <%= render phone_numbers %>
+      <%= render @contact.phone_numbers, contact: @contact %>
     </tbody>
   </table>
 <% else %>
   <h4>No phone numbers found</h4>
   <p>
     We have found no phone numbers.
-    <%= link_to "You should add one.", new_admin_contact_phone_number_path(contact) %>
+    <%= link_to "You should add one.", new_admin_contact_phone_number_path(@contact) %>
   </p>
 <% end %>

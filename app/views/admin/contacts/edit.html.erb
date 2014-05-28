@@ -2,19 +2,19 @@
   <div class="span12 first-child">
     <div class='page-header'>
       <h2>
-        Edit <%= contact %>
+        Edit <%= @contact %>
 
         <span class="pull-right">
-          <%= link_to 'Clone', clone_admin_contact_path(contact), data: { confirm: 'Are you sure?' }, class: 'btn btn-small' %>
+          <%= link_to 'Clone', clone_admin_contact_path(@contact), data: { confirm: 'Are you sure?' }, class: 'btn btn-small' %>
           &nbsp;
-          <%= link_to 'Delete', admin_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red' %>
+          <%= link_to 'Delete', admin_contact_path(@contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red' %>
         </span>
       </h2>
 
-      <%= render partial: 'contact_nav' %>
+      <%= render partial: 'contact_nav', locals: { contact: @contact } %>
     </div>
 
-    <%= render partial: 'form', locals: { contact: contact } %>
+    <%= render partial: 'form', locals: { contact: @contact } %>
 
   </div>
 </div>
@@ -28,7 +28,7 @@
         <th>Action</th>
         <th>Changes</th>
       </tr>
-      <%= render partial: 'admin/versions/version', collection: contact.display_versions, as: :version %>
+      <%= render partial: 'admin/versions/version', collection: @contact.display_versions, as: :version %>
     </table>
   </div>
 </div>

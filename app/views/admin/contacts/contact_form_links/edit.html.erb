@@ -2,15 +2,15 @@
   <div class="span12 first-child">
     <div class='page-header'>
       <h2>
-        Edit Contact Form Link for <%= contact %>
+        Edit Contact Form Link for <%= @contact %>
 
-        <%= link_to 'Delete', admin_contact_contact_form_link_path(contact, contact_form_link), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
+        <%= link_to 'Delete', admin_contact_contact_form_link_path(@contact, @contact_form_link), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
       </h2>
 
-      <%= render partial: 'admin/contacts/contact_nav' %>
+      <%= render partial: 'admin/contacts/contact_nav', locals: { contact: @contact } %>
     </div>
 
-    <%= render partial: 'form', locals: { contact: contact, contact_form_link: contact_form_link } %>
+    <%= render partial: 'form', locals: { contact: @contact, contact_form_link: @contact_form_link } %>
   </div>
 </div>
 <div class="row">
@@ -23,7 +23,7 @@
         <th>Action</th>
         <th>Changes</th>
       </tr>
-      <%= render partial: 'admin/versions/version', collection: contact_form_link.display_versions, as: :version %>
+      <%= render partial: 'admin/versions/version', collection: @contact_form_link.display_versions, as: :version %>
     </table>
   </div>
 </div>

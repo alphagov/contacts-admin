@@ -8,4 +8,10 @@ class AdminController < ApplicationController
   def info_for_paper_trail
     { user_name: current_user.name }
   end
+
+private
+
+  def load_parent_contact
+    @contact = Contact.find(params[:contact_id])
+  end
 end

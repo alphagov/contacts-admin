@@ -1,33 +1,36 @@
 module Admin
   module Contacts
     class PhoneNumbersController < AdminController
-      expose(:contact)
-      expose(:phone_numbers, ancestor: :contact)
-      expose(:phone_number, attributes: :phone_number_params)
+      before_filter :load_parent_contact
+      before_filter :load_phone_number, only: [:edit, :update, :destroy]
+
+      def new
+        @phone_number = @contact.phone_numbers.build
+      end
 
       def create
-        if phone_number.save
-          redirect_to [:admin, contact, :phone_numbers], notice: "Phone Number successfully created"
+        @phone_number = @contact.phone_numbers.build(phone_number_params)
+        if @phone_number.save
+          redirect_to [:admin, @contact, :phone_numbers], notice: "Phone Number successfully created"
         else
           render :new
         end
       end
 
       def update
-        if phone_number.update_attributes(phone_number_params)
-          redirect_to [:admin, contact, :phone_numbers], notice: "Phone Number successfully updated"
+        if @phone_number.update_attributes(phone_number_params)
+          redirect_to [:admin, @contact, :phone_numbers], notice: "Phone Number successfully updated"
         else
           render :edit
         end
       end
 
       def destroy
-        phone_number.destroy
-
-        redirect_to [:admin, contact, :phone_numbers], notice: "Phone Number successfully deleted"
+        @phone_number.destroy
+        redirect_to [:admin, @contact, :phone_numbers], notice: "Phone Number successfully deleted"
       end
 
-      private
+    private
 
       def phone_number_params
         params.require(:phone_number).permit(
@@ -42,6 +45,10 @@ module Admin
           :textphone,
           :fax
         )
+      end
+
+      def load_phone_number
+        @phone_number = @contact.phone_numbers.find(params[:id])
       end
     end
   end

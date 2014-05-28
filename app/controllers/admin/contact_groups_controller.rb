@@ -1,10 +1,17 @@
 module Admin
   class ContactGroupsController < AdminController
-    expose(:contact_groups)
-    expose(:contact_group, attributes: :contact_group_params)
+    before_filter :load_contact_group, only: [:edit, :update, :destroy]
+
+    def new
+      @contact_group = ContactGroup.new
+    end
+
+    def index
+      @contact_groups = ContactGroup.all
+    end
 
     def update
-      if contact_group.update_attributes(contact_group_params)
+      if @contact_group.update_attributes(contact_group_params)
         redirect_to admin_contact_groups_path, notice: "Contact Group successfully updated"
       else
         render :edit
@@ -12,7 +19,8 @@ module Admin
     end
 
     def create
-      if contact_group.save
+      @contact_group = ContactGroup.new(contact_group_params)
+      if @contact_group.save
         redirect_to admin_contact_groups_path, notice: "Contact Group successfully created"
       else
         render :new
@@ -20,16 +28,20 @@ module Admin
     end
 
     def destroy
-      if Admin::DestroyContactGroup.new(contact_group).destroy
+      if Admin::DestroyContactGroup.new(@contact_group).destroy
         flash.notice = "Contact Group successfully deleted"
       else
-        flash.alert = contact_group.errors.full_messages.to_sentence
+        flash.alert = @contact_group.errors.full_messages.to_sentence
       end
 
       redirect_to admin_contact_groups_path
     end
 
-    private
+  private
+
+    def load_contact_group
+      @contact_group = ContactGroup.find(params[:id])
+    end
 
     def contact_group_params
       params.require(:contact_group).permit(
