@@ -31,7 +31,7 @@ class ContactsController < ApplicationController
   private
 
   def search_params
-    filter = { organisation: params[:organisation] }
+    filter = { organisation_id: organisation.id }
     filter.merge(params.fetch(:search, {}))
   end
 

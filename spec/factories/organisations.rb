@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :organisation do
-    title "HM Revenue & Customs"
+    sequence(:title) { |n| "Organisation #{n}" }
+    slug { title.parameterize }
     format "Non-ministerial department"
-    slug "hm-revenue-customs"
-    abbreviation "HMRC"
+    sequence(:abbreviation) { |n| "ORG#{n}" }
     govuk_status "live"
   end
 end

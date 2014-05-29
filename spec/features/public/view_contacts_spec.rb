@@ -3,24 +3,18 @@ require "spec_helper"
 describe "Contacts" do
   include Public::ContactSteps
 
-  let!(:hmrc) { create :organisation }
-  let!(:contact) { create(:contact, :with_phone_numbers, :with_contact_group) }
-  let!(:contact2) { create(:contact, :with_phone_numbers, :with_contact_group) }
+  let!(:hmrc)          { create :organisation }
+  let!(:contact)       { create(:contact, :with_phone_numbers, :with_contact_group, organisation: hmrc) }
+  let!(:contact2)      { create(:contact, :with_phone_numbers, :with_contact_group, organisation: hmrc) }
+  let!(:other_contact) { create(:contact, :with_phone_numbers, :with_contact_group) }
 
   before {
-    ContactGroup.all.each do |group|
-      group.organisation = Organisation.first
-      group.save!
-    end
-    Contact.all.each do |contact|
-      contact.organisation = Organisation.first
-      contact.save!
-    end
-    ensure_on contacts_path(Organisation.first)
+    ensure_on contacts_path(hmrc)
   }
 
-  context "list" do
-    it { verify contacts_exist([contact, contact2]) }
+  it "only lists contacts for the given organisation" do
+    verify contacts_exist([contact, contact2])
+    should_not_list_contact other_contact
   end
 
   it "should provide a form to report problems" do

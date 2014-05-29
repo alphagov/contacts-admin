@@ -9,7 +9,6 @@ SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 require File.expand_path("../../config/environment", __FILE__)
 
 require "rspec/rails"
-require "rspec/autorun"
 require "capybara/rails"
 require "slimmer/test"
 require "fakefs/spec_helpers"
