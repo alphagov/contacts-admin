@@ -9,8 +9,7 @@ class Contact < ActiveRecord::Base
   has_many :contact_groups, through: :contact_memberships
   has_many :contact_memberships, dependent: :destroy
 
-  has_many :contact_form_links, inverse_of: :contact
-
+  has_many :contact_form_links, inverse_of: :contact, dependent: :destroy
   has_many :phone_numbers, inverse_of: :contact, dependent: :destroy
   has_many :email_addresses, inverse_of: :contact, dependent: :destroy
   has_many :post_addresses, inverse_of: :contact, dependent: :destroy
