@@ -11,13 +11,5 @@ FactoryGirl.define do
 
   factory :contact_form_link, parent: :website, class: ContactFormLink do
     contact
-
-    type { "ContactFormLink" }
-  end
-
-  factory :related_content_link, parent: :website, class: RelatedContentLink do
-    contact
-
-    type { "RelatedContentLink" }
   end
 end

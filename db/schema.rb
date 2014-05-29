@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401092644) do
+ActiveRecord::Schema.define(version: 20140529140836) do
 
   create_table "contact_groups", force: true do |t|
     t.integer  "contact_group_type_id"
@@ -40,11 +40,10 @@ ActiveRecord::Schema.define(version: 20140401092644) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "contact_form_links_count",    default: 0
-    t.integer  "phone_numbers_count",         default: 0
-    t.integer  "email_addresses_count",       default: 0
-    t.integer  "post_addresses_count",        default: 0
-    t.integer  "related_content_links_count", default: 0
+    t.integer  "contact_form_links_count", default: 0
+    t.integer  "phone_numbers_count",      default: 0
+    t.integer  "email_addresses_count",    default: 0
+    t.integer  "post_addresses_count",     default: 0
     t.text     "contact_information"
     t.text     "more_info_contact_form"
     t.text     "more_info_email_address"
@@ -60,8 +59,8 @@ ActiveRecord::Schema.define(version: 20140401092644) do
     t.string   "quick_link_3"
     t.string   "quick_link_title_3"
     t.integer  "need_id"
-    t.boolean  "query_response_time",         default: false
-    t.integer  "popularity",                  default: 0
+    t.boolean  "query_response_time",      default: false
+    t.integer  "popularity",               default: 0
     t.integer  "organisation_id"
   end
 
