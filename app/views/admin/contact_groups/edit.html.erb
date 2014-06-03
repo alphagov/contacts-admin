@@ -3,11 +3,11 @@
     <div class='page-header'>
       <h2>
         Edit Contact Group
-        <%= link_to 'Delete', admin_contact_group_path(contact_group), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
+        <%= link_to 'Delete', admin_contact_group_path(@contact_group), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
       </h2>
     </div>
 
-    <%= render partial: 'form', locals: { contact_group: contact_group } %>
+    <%= render partial: 'form', locals: { contact_group: @contact_group, contact_form_link: @contact_form_link } %>
   </div>
 </div>
 <div class="row">
@@ -20,7 +20,7 @@
         <th>Action</th>
         <th>Changes</th>
       </tr>
-      <%= render partial: 'admin/versions/version', collection: contact_group.display_versions, as: :version %>
+      <%= render partial: 'admin/versions/version', collection: @contact_group.display_versions, as: :version %>
     </table>
   </div>
 </div>

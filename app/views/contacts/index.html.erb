@@ -51,13 +51,13 @@
     <div class="filter-results-summary">
       <span class="help-block hidden" id="working_on_filter_contacts">Loading results...</span>
       <div class="selections contacts-count">
-        <%= render "contacts_count" %>
+        <%= render "contacts_count", contacts: @contacts %>
       </div>
     </div>
     <div class="js-filter-block">
       <div class="content">
         <ol class="document-list">
-          <%= render contacts %>
+          <%= render @contacts %>
         </ol>
       </div>
     </div>

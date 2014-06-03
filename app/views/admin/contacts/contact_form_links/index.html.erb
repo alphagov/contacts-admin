@@ -1,14 +1,14 @@
 <div class='page-header'>
   <h2>
-    Edit <%= contact %>
+    Edit <%= @contact %>
   </h2>
 
-  <%= render partial: 'admin/contacts/contact_nav' %>
+  <%= render partial: 'admin/contacts/contact_nav', locals: { contact: @contact } %>
 </div>
 
-<%= render "more_info_form" %>
+<%= render "more_info_form", contact: @contact %>
 
-<% if contact_form_links.any? %>
+<% if @contact.contact_form_links.any? %>
   <table class='table table-striped table-hover contact-form-links-table'>
     <colgroup>
       <col width="250"></col>
@@ -22,17 +22,17 @@
         <th>Title</th>
         <th>Description</th>
         <th>
-          <%= link_to "+ Add online link", new_admin_contact_contact_form_link_path(contact), class: 'btn btn-small pull-right' %>
+          <%= link_to "+ Add online link", new_admin_contact_contact_form_link_path(@contact), class: 'btn btn-small pull-right' %>
         </th>
       </tr>
     </thead>
     <tbody>
-      <%= render contact_form_links %>
+      <%= render @contact.contact_form_links, contact: @contact %>
     </tbody>
   </table>
 <% else %>
   <h4>No online links found</h4>
   <p>
-    We have found no online links. <%= link_to "You should add one.", new_admin_contact_contact_form_link_path(contact) %>
+    We have found no online links. <%= link_to "You should add one.", new_admin_contact_contact_form_link_path(@contact) %>
   </p>
 <% end %>

@@ -1,4 +1,4 @@
-<% if contacts.any? %>
+<% if @contacts.any? %>
   <%= render "search_form" %>
 
   <table class='table table-striped table-hover contacts-table'>
@@ -31,7 +31,7 @@
       </tr>
     </thead>
     <tbody>
-      <%= render contacts %>
+      <%= render @contacts %>
     </tbody>
   </table>
 <% else %>

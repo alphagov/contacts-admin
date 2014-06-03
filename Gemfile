@@ -5,8 +5,6 @@ gem "rails", "4.0.5"
 
 gem "active_hash", "~> 1.2.0"
 gem "bootstrap-sass", "2.3.2.2"
-gem "decent_decoration", "~> 0.0.5"
-gem "decent_exposure", "~> 2.3.0"
 gem "draper", "~> 1.2.1"
 gem "mysql2", "~> 0.3.13"
 gem "simple_form", "~> 3.0.0", github: "plataformatec/simple_form"

@@ -8,10 +8,6 @@ class ApplicationController < ActionController::Base
   after_filter :dev_skip_slimmer
   before_filter :set_slimmer_headers
 
-  decent_configuration do
-    strategy DecentExposure::StrongParametersStrategy
-  end
-
   def dev_skip_slimmer
     response.headers[Slimmer::Headers::SKIP_HEADER] = "true" if params[:skip_slimmer]
   end
@@ -23,6 +19,4 @@ class ApplicationController < ActionController::Base
    def set_slimmer_headers
     response.headers[Slimmer::Headers::TEMPLATE_HEADER] = "header_footer_only"
   end
-
-
 end
