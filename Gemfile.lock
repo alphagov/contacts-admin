@@ -101,10 +101,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
     docile (1.1.3)
-    draper (1.2.1)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      request_store (~> 1.0.3)
     equalizer (0.0.9)
     erubis (2.7.0)
     eventmachine (1.0.3)
@@ -221,7 +217,6 @@ GEM
     raindrops (0.13.0)
     rake (10.3.2)
     ref (1.0.5)
-    request_store (1.0.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec-core (2.14.8)
@@ -331,7 +326,6 @@ DEPENDENCIES
   capybara
   ci_reporter
   coffee-rails (~> 4.0.0)
-  draper (~> 1.2.1)
   factory_girl_rails
   fakefs
   friendly_id (= 5.0.2)

@@ -3,11 +3,11 @@ class ContactsController < ApplicationController
   helper_method :organisation, :search, :contact_groups
 
   def index
-    @contacts = search.results.includes(:contact_groups).for_listing.decorate
+    @contacts = search.results.includes(:contact_groups).for_listing
   end
 
   def show
-    @contact = organisation.contacts.find(params[:id]).decorate
+    @contact = organisation.contacts.find(params[:id])
   end
 
   private
