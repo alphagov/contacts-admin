@@ -4,6 +4,7 @@ require 'rails/all'
 require 'gds_api/worldwide'
 require 'gds_api/organisations'
 require 'gds_api/rummager'
+require 'gds_api/content_store'
 require 'rummageable'
 
 # Require the gems listed in Gemfile, including any gems
@@ -48,6 +49,8 @@ module Contacts
       
       # Going to use the same index as mainstream till rummager has multi index search
       Contacts.rummager_client = Rummageable::Index.new( Plek.current.find('search'), 'mainstream', logger: Rails.logger )
+
+      Contacts.content_store_api = GdsApi::ContentStore.new(Plek.current.find('content-store'))
     end
   end
 end
