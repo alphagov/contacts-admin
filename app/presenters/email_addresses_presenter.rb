@@ -1,4 +1,6 @@
 class EmailAddressesPresenter
+  include GovspeakHelper
+
   def initialize(email_addresses)
     @email_addresses = email_addresses
   end
@@ -10,14 +12,6 @@ class EmailAddressesPresenter
         email: e.email,
         description: govspeak(e.description)
       }
-    end
-  end
-
-  private
-
-  def govspeak(text)
-    if text
-      Govspeak::Document.new(text).to_sanitized_html
     end
   end
 end

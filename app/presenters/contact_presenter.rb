@@ -1,4 +1,6 @@
 class ContactPresenter
+  include GovspeakHelper
+
   attr_reader :contact
 
   def initialize(contact)
@@ -47,11 +49,5 @@ class ContactPresenter
       post_addresses: PostAddressesPresenter.new(contact.post_addresses).present,
       more_info_post_address: govspeak(contact.more_info_post_address),
     }
-  end
-
-  def govspeak(text)
-    if text
-      Govspeak::Document.new(text).to_sanitized_html
-    end
   end
 end

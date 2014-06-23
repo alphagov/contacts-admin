@@ -1,4 +1,6 @@
 class PostAddressesPresenter
+  include GovspeakHelper
+
   def initialize(post_addresses)
     @post_addresses = post_addresses
   end
@@ -14,14 +16,6 @@ class PostAddressesPresenter
         region: post.region,
         description: govspeak(post.description),
       }
-    end
-  end
-
-  private
-
-  def govspeak(text)
-    if text
-      Govspeak::Document.new(text).to_sanitized_html
     end
   end
 end

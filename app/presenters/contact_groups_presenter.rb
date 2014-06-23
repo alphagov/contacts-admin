@@ -1,4 +1,6 @@
 class ContactGroupsPresenter
+  include GovspeakHelper
+
   def initialize(contact_groups)
     @contact_groups = contact_groups
   end
@@ -13,14 +15,6 @@ class ContactGroupsPresenter
           { description: govspeak(contact.description) }
         end
       }
-    end
-  end
-
-  private
-
-  def govspeak(text)
-    if text
-      Govspeak::Document.new(text).to_sanitized_html
     end
   end
 end

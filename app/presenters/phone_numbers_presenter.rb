@@ -1,4 +1,6 @@
 class PhoneNumbersPresenter
+  include GovspeakHelper
+
   def initialize(phone_numbers)
     @phone_numbers = phone_numbers
   end
@@ -15,14 +17,6 @@ class PhoneNumbersPresenter
         open_hours: govspeak(phone.open_hours),
         best_time_to_call: govspeak(phone.best_time_to_call),
       }
-    end
-  end
-
-  private
-
-  def govspeak(text)
-    if text
-      Govspeak::Document.new(text).to_sanitized_html
     end
   end
 end
