@@ -10,16 +10,16 @@ describe PhoneNumbersPresenter do
   it "transforms a contact to the correct format" do
     presented = PhoneNumbersPresenter.new([phone]).present.first
 
-    presented[:title].should eq(phone.title)
-    presented[:number].should eq(phone.number)
+    expect(presented[:title]).to eq(phone.title)
+    expect(presented[:number]).to eq(phone.number)
 
     govspeak_description = "<p>#{phone.description}</p>"
-    presented[:description].should eq(govspeak_description)
+    expect(presented[:description]).to eq(govspeak_description)
 
     govspeak_open_hours = "<p>#{phone.open_hours}</p>"
-    presented[:open_hours].should eq(govspeak_open_hours)
+    expect(presented[:open_hours]).to eq(govspeak_open_hours)
 
     govspeak_best_time = "<p>#{phone.best_time_to_call}</p>"
-    presented[:best_time_to_call].should eq(govspeak_best_time)
+    expect(presented[:best_time_to_call]).to eq(govspeak_best_time)
   end
 end

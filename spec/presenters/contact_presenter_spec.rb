@@ -6,23 +6,23 @@ describe ContactPresenter do
   it "transforms a contact to the correct format" do
     payload = ContactPresenter.new(contact).present
 
-    payload[:base_path].should eq("/contact/#{contact.organisation.slug}/#{contact.slug}")
-    payload[:title].should eq(contact.title)
-    payload[:description].should eq(contact.description)
-    payload[:format].should eq('contact')
-    payload[:publishing_app].should eq("contacts")
-    payload[:rendering_app].should eq("contacts-frontend")
-    payload[:update_type].should eq("major")
-    payload[:routes].first[:path].should eq(payload[:base_path])
-    payload[:public_updated_at].should be_present
-    payload[:need_ids].should be_empty
+    expect(payload[:base_path]).to eq("/contact/#{contact.organisation.slug}/#{contact.slug}")
+    expect(payload[:title]).to eq(contact.title)
+    expect(payload[:description]).to eq(contact.description)
+    expect(payload[:format]).to eq('contact')
+    expect(payload[:publishing_app]).to eq("contacts")
+    expect(payload[:rendering_app]).to eq("contacts-frontend")
+    expect(payload[:update_type]).to eq("major")
+    expect(payload[:routes].first[:path]).to eq(payload[:base_path])
+    expect(payload[:public_updated_at]).to be_present
+    expect(payload[:need_ids]).to be_empty
 
     details = payload[:details]
-    details[:slug].should eq(contact.slug)
-    details[:title].should eq(contact.title)
-    details[:description].should eq(contact.description)
-    details[:quick_links].should eq(contact.quick_links.map {|q| {title: q.title, url: q.url} })
-    details[:contact_form_links].should eq(contact.contact_form_links.map(&:as_json))
-    details[:more_info_email_address].should eq(contact.more_info_email_address)
+    expect(details[:slug]).to eq(contact.slug)
+    expect(details[:title]).to eq(contact.title)
+    expect(details[:description]).to eq(contact.description)
+    expect(details[:quick_links]).to eq(contact.quick_links.map {|q| {title: q.title, url: q.url} })
+    expect(details[:contact_form_links]).to eq(contact.contact_form_links.map(&:as_json))
+    expect(details[:more_info_email_address]).to eq(contact.more_info_email_address)
   end
 end

@@ -10,12 +10,12 @@ describe PostAddressesPresenter do
 
     presented = PostAddressesPresenter.new([post]).present.first
 
-    presented[:title].should eq(post.title)
-    presented[:street_address].should eq(post.street_address)
-    presented[:postal_code].should eq(post.postal_code)
-    presented[:world_location].should eq(post.world_location.title)
+    expect(presented[:title]).to eq(post.title)
+    expect(presented[:street_address]).to eq(post.street_address)
+    expect(presented[:postal_code]).to eq(post.postal_code)
+    expect(presented[:world_location]).to eq(post.world_location.title)
 
     govspeak_description = "<p>#{post.description}</p>"
-    presented[:description].should eq(govspeak_description)
+    expect(presented[:description]).to eq(govspeak_description)
   end
 end

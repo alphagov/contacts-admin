@@ -6,10 +6,10 @@ describe EmailAddressesPresenter do
   it "transforms a contact to the correct format" do
     presented = EmailAddressesPresenter.new([email]).present.first
 
-    presented[:title].should eq(email.title)
-    presented[:email].should eq(email.email)
+    expect(presented[:title]).to eq(email.title)
+    expect(presented[:email]).to eq(email.email)
 
     govspeak_description = "<p>#{email.description}</p>"
-    presented[:description].should eq(govspeak_description)
+    expect(presented[:description]).to eq(govspeak_description)
   end
 end
