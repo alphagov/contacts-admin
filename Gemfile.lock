@@ -115,7 +115,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     friendly_id (5.0.2)
       activerecord (~> 4.0.0)
-    gds-api-adapters (10.17.1)
+    gds-api-adapters (11.2.0)
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -329,7 +329,7 @@ DEPENDENCIES
   factory_girl_rails
   fakefs
   friendly_id (= 5.0.2)
-  gds-api-adapters (~> 10.17.1)
+  gds-api-adapters (~> 11.2.0)
   gds-sso (~> 9.2.5)
   govspeak (= 1.2.3)
   govuk_frontend_toolkit (= 0.46.1)
