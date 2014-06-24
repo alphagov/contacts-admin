@@ -1,6 +1,10 @@
+require "contacts/register_contact"
+
 class Contact < ActiveRecord::Base
   include Versioning
   include FriendlyId
+
+  after_save :register_contact
 
   friendly_id :title, use: :history
 
@@ -56,5 +60,12 @@ class Contact < ActiveRecord::Base
       indexable_content: "#{title} #{description} #{contact_groups.map(&:title).join}",
       organisation: organisation.as_json
     }
+  end
+
+  private
+
+  def register_contact
+    presenter = ContactPresenter.new(self)
+    Contacts::RegisterContact.register(presenter)
   end
 end
