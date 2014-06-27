@@ -30,7 +30,9 @@ Contacts::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.assets.prefix = "/assets"
+  if ENV['GOVUK_ASSET_ROOT'].present?
+    config.asset_host = ENV['GOVUK_ASSET_ROOT']
+  end
 
   config.after_initialize do
     Contacts.enable_admin_routes = true
