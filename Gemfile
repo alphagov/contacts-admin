@@ -1,5 +1,4 @@
 source "https://rubygems.org"
-source "https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/"
 
 gem "rails", "4.0.5"
 
