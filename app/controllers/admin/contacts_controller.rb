@@ -12,10 +12,7 @@ class Admin::ContactsController < AdminController
 
   def update
     if @contact.update_attributes(contact_params)
-      respond_to do |format|
-        format.html { redirect_to edit_admin_contact_path(@contact), notice: "Contact successfully updated" }
-        format.js { render :edit }
-      end
+      redirect_to successful_update_url, notice: "Contact successfully updated"
     else
       render :edit
     end
@@ -46,6 +43,14 @@ class Admin::ContactsController < AdminController
   end
 
   private
+
+  def successful_update_url
+    if params[:tab].present?
+      [:admin, @contact, params[:tab]]
+    else
+      [:edit, :admin, @contact]
+    end
+  end
 
   def load_contact
     @contact = Contact.find(params[:id])

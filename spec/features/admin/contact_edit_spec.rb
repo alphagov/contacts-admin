@@ -6,8 +6,6 @@ describe "Contact editing", auth: :user do
   let!(:contact_group) { create(:contact_group, title: "new contact type") }
   let!(:contact)       { create :contact }
 
-  before { Contact.count.should eq(1) }
-
   specify "it can be updated" do
     update_contact(
       contact,
@@ -38,5 +36,24 @@ describe "Contact editing", auth: :user do
                   )
 
     assert_content_store_put_item(contact.link, title: "new title", description: "new description")
+  end
+
+  specify "updating more info fields from tabs redirects the user back to the tab" do
+    can_update_more_info_from_tab(contact, 'email_addresses', 'more_info_email_address')
+    can_update_more_info_from_tab(contact, 'post_addresses', 'more_info_post_address')
+    can_update_more_info_from_tab(contact, 'phone_numbers', 'more_info_phone_number')
+    can_update_more_info_from_tab(contact, 'contact_form_links', 'more_info_contact_form')
+  end
+
+private
+
+  def can_update_more_info_from_tab(contact, tab, attribute_name)
+    ensure_on url_for([:admin, contact, tab])
+
+    fill_in "contact_#{attribute_name}", with: "More info details."
+    click_on "Update"
+
+    expect(page.current_url).to eq(url_for([:admin, contact, tab]))
+    expect(page).to have_field("contact_#{attribute_name}", with: "More info details.")
   end
 end
