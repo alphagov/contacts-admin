@@ -1,5 +1,0 @@
-<% if contact.valid? %>
-{ class: "alert alert-success", text: "Updated" }
-<% else %>
-{ class: "alert alert-error", text: "<%= contact.errors.full_messages.join(', ') %>"}
-<% end %>
