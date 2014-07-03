@@ -25,18 +25,13 @@ Contacts::Application.routes.draw do
       end
     end
   end
-    
-  scope :path => "#{APP_SLUG}" do
 
-    scope ':organisation_slug' do
-      get "/", to: "contacts#index", as: :contacts
+  get "/government/organisations/:organisation_slug/contact" => "contacts#index", :as => :contacts
+  get "/government/organisations/:organisation_slug/contact/:id" => "contacts#show", :as => :contact, :constraints => {:id => SLUG_FORMAT }
 
-      resources :contacts, constraints: { id: SLUG_FORMAT }, path: '/'
-    end
+  get "/contact/:organisation_slug" => "contacts#index", :as => :legacy_contacts
+  get "/contact/:organisation_slug/:id" => "contacts#show", :as => :legacy_contact, :constraints => {:id => SLUG_FORMAT }
 
-    # DEFAULT TO HMRC
-    get "/", to: redirect("/#{APP_SLUG}/hm-revenue-customs", status: 302)
-  end
-
-  root to: redirect("/#{APP_SLUG}", status: 302)
+  # DEFAULT TO HMRC
+  root :to => redirect("/government/organisations/hm-revenue-customs/contact", status: 302)
 end
