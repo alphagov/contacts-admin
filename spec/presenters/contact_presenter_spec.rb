@@ -6,7 +6,7 @@ describe ContactPresenter do
   it "transforms a contact to the correct format" do
     payload = ContactPresenter.new(contact).present
 
-    expect(payload[:base_path]).to eq("/contact/#{contact.organisation.slug}/#{contact.slug}")
+    expect(payload[:base_path]).to eq("/government/organisations/#{contact.organisation.slug}/contact/#{contact.slug}")
     expect(payload[:title]).to eq(contact.title)
     expect(payload[:description]).to eq(contact.description)
     expect(payload[:format]).to eq('contact')

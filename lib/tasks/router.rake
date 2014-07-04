@@ -11,7 +11,7 @@ namespace :router do
   end
 
   task :register_routes => :router_environment do
-    @router_api.add_route('/contact/hm-revenue-customs', 'prefix', 'contacts-frontend-old')
+    @router_api.add_route('/government/organisations/hm-revenue-customs/contact', 'prefix', 'contacts-frontend-old')
   end
 
   desc "Register Contacts application and routes with the router"
