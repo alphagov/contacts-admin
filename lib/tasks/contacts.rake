@@ -36,4 +36,27 @@ namespace :contacts do
       ContactMembership.create contact_id: contact.id, contact_group_id: contact.contact_group_id
     end
   end
+
+  desc "Register all contacts with the content-store"
+  task :register_in_content_store => :environment do
+    Contact.find_each do |contact|
+      p = ContactPresenter.new(contact)
+      Contacts::RegisterContact.register(p)
+    end
+  end
+
+  desc "Register redirects for the old contact URLs"
+  task :create_legacy_redirects => :environment do
+    require 'contacts/register_contact'
+
+    # Redirect for index
+    p = LegacyContactRedirectPresenter::Index.new
+    Contacts::RegisterContact.register(p)
+
+    # Redirect for contact pages
+    Contact.find_each do |contact|
+      p = LegacyContactRedirectPresenter.new(contact)
+      Contacts::RegisterContact.register(p)
+    end
+  end
 end

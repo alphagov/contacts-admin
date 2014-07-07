@@ -48,7 +48,7 @@ class Contact < ActiveRecord::Base
   end
 
   def link
-    "/#{APP_SLUG}/#{organisation.slug}/#{slug}"
+    "/government/organisations/#{organisation.slug}/contact/#{slug}"
   end
 
   def to_indexed_json
