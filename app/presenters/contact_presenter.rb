@@ -18,7 +18,7 @@ class ContactPresenter
       update_type: "major",
       public_updated_at: contact.updated_at,
       routes: [
-        { path: contact.link, type: "exact", rendering_app: "contacts-frontend" }
+        { path: contact.link, type: "exact" }
       ],
       details: contact_details.merge(language: "en"),
       need_ids: [],
