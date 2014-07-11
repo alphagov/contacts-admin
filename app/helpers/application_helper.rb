@@ -26,15 +26,4 @@ module ApplicationHelper
   def formatting_help_link(show_section = "")
     "<a href='#formatting#{show_section if show_section.present?}' role='button' data-toggle='modal'>formatting help</a>".html_safe
   end
-
-  # This hackery is necessary while we're supporting both the new and the legacy routes.
-  # We want the legacy index page to link to the legacy show URL, while the new index
-  # page should link to the new show URL
-  def calculate_contact_path(org, contact)
-    if request.path == legacy_contacts_path(org)
-      legacy_contact_path(org, contact)
-    else
-      contact_path(org, contact)
-    end
-  end
 end

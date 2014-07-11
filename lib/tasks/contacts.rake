@@ -44,19 +44,4 @@ namespace :contacts do
       Contacts::RegisterContact.register(p)
     end
   end
-
-  desc "Register redirects for the old contact URLs"
-  task :create_legacy_redirects => :environment do
-    require 'contacts/register_contact'
-
-    # Redirect for index
-    p = LegacyContactRedirectPresenter::Index.new
-    Contacts::RegisterContact.register(p)
-
-    # Redirect for contact pages
-    Contact.find_each do |contact|
-      p = LegacyContactRedirectPresenter.new(contact)
-      Contacts::RegisterContact.register(p)
-    end
-  end
 end

@@ -15,13 +15,4 @@ describe "Contacts index page" do
     expect(page).to have_link(contact.title, :href => "/government/organisations/#{hmrc.slug}/contact/#{contact.slug}")
     expect(page).to have_link(contact2.title, :href => "/government/organisations/#{hmrc.slug}/contact/#{contact2.slug}")
   end
-
-  it "should render the index page at the old URL with the old contact page links" do
-    visit "/contact/#{hmrc.slug}"
-
-    expect(page).to have_content("HM Revenue & Customs")
-
-    expect(page).to have_link(contact.title, :href => "/contact/#{hmrc.slug}/#{contact.slug}")
-    expect(page).to have_link(contact2.title, :href => "/contact/#{hmrc.slug}/#{contact2.slug}")
-  end
 end
