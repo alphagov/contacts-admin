@@ -29,13 +29,13 @@ describe "Contact editing", auth: :user do
     verify associated_to_contact_group(contact, contact_group)
   end
 
-  specify "updating a contact sends the data to the content-store" do
+  specify "updating a contact sends the data to the publishing-api" do
     update_contact(contact,
                    title: "new title",
                    description: "new description"
                   )
 
-    assert_content_store_put_item(contact.link, title: "new title", description: "new description")
+    assert_publishing_api_put_item(contact.link, title: "new title", description: "new description")
   end
 
   specify "updating more info fields from tabs redirects the user back to the tab" do
