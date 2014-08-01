@@ -9,7 +9,7 @@ Contacts::Application.configure do
     config.slimmer.asset_host = if ENV["STATIC_DEV"]
       Plek.current.find('static')
     else
-      "https://static.preview.alphagov.co.uk"
+      "https://assets-origin.preview.alphagov.co.uk"
     end
   end
 end
