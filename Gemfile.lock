@@ -114,11 +114,12 @@ GEM
       multipart-post (>= 1.2, < 3)
     friendly_id (5.0.2)
       activerecord (~> 4.0.0)
-    gds-api-adapters (11.2.0)
+    gds-api-adapters (14.0.0)
       link_header
       lrucache (~> 0.1.1)
       null_logger
       plek
+      rack-cache
       rest-client (~> 1.6.3)
     gds-sso (9.3.0)
       multi_json (~> 1.0)
@@ -199,6 +200,8 @@ GEM
       pry (>= 0.9.10)
     rack (1.5.2)
     rack-accept (0.4.5)
+      rack (>= 0.4)
+    rack-cache (1.2)
       rack (>= 0.4)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -334,7 +337,7 @@ DEPENDENCIES
   factory_girl_rails
   fakefs
   friendly_id (= 5.0.2)
-  gds-api-adapters (~> 11.2.0)
+  gds-api-adapters (~> 14.0)
   gds-sso (~> 9.3.0)
   govspeak (= 1.2.3)
   govuk_frontend_toolkit (= 0.46.1)

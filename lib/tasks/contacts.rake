@@ -37,7 +37,7 @@ namespace :contacts do
     end
   end
 
-  desc "Register all contacts with the content-store"
+  desc "Register all contacts with the publishing-api"
   task :register_in_content_store => :environment do
     Contact.find_each do |contact|
       p = ContactPresenter.new(contact)

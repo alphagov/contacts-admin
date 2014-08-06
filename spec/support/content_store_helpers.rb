@@ -1,8 +1,8 @@
-require 'gds_api/test_helpers/content_store'
+require 'gds_api/test_helpers/publishing_api'
 
 RSpec.configure do |config|
-  config.include GdsApi::TestHelpers::ContentStore
+  config.include GdsApi::TestHelpers::PublishingApi
   config.before(:each) do
-    stub_default_content_store_put
+    stub_default_publishing_api_put
   end
 end
