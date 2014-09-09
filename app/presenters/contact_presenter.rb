@@ -38,11 +38,11 @@ class ContactPresenter
 
       contact_groups: ContactGroupsPresenter.new(contact.contact_groups).present,
 
-      contact_form_links: contact.contact_form_links.map(&:as_json),
+      contact_form_links: ContactFormLinksPresenter.new(contact.contact_form_links).present,
       more_info_contact_form: govspeak(contact.more_info_contact_form),
 
       email_addresses: EmailAddressesPresenter.new(contact.email_addresses).present,
-      more_info_email_address: contact.more_info_email_address,
+      more_info_email_address: govspeak(contact.more_info_email_address),
 
       phone_numbers: PhoneNumbersPresenter.new(contact.phone_numbers).present,
 
