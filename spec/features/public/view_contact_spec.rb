@@ -3,19 +3,11 @@ require 'gds_api/test_helpers/worldwide'
 include GdsApi::TestHelpers::Worldwide
 
 describe "Contact view" do
-  let!(:hmrc)    { create :organisation }
-  let!(:contact) { create :contact, :with_contact_group, :with_contact_form_links, :with_post_addresses, :with_phone_numbers, :with_email_addresses }
+  let(:hmrc)    { create :organisation }
+  let(:contact) { create :contact, :with_contact_group, :with_contact_form_links, :with_post_addresses, :with_phone_numbers, :with_email_addresses }
 
   before {
-    @location_slugs = %w(
-        afghanistan angola aruba bangladesh belarus brazil brunei
-        cambodia chad croatia denmark eritrea france ghana iceland
-        japan laos luxembourg malta micronesia mozambique nicaragua
-        panama portugal sao-tome-and-principe singapore south-korea
-        sri-lanka uk-delegation-to-council-of-europe
-        uk-delegation-to-organization-for-security-and-co-operation-in-europe
-        united-kingdom venezuela vietnam)
-    worldwide_api_has_locations(@location_slugs)
+    worldwide_api_has_selection_of_locations
     contact.organisation = hmrc
     contact.save!
     visit contact_path(contact.organisation.slug, contact)

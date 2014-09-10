@@ -1,5 +1,6 @@
 class EmailAddress < ActiveRecord::Base
   include Versioning
+  include RegisterParent
 
   belongs_to :contact, inverse_of: :email_addresses, counter_cache: true
 
