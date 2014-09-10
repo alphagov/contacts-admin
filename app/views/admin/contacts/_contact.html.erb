@@ -3,7 +3,7 @@
     <td><%= contact.organisation %></td>
   <% end %>
   <td>
-    <%= link_to contact.title, contact_path(contact.organisation.slug, contact.slug), class: 'no-underline' %>
+    <%= link_to contact.title, contact_url(contact.organisation, contact), class: 'no-underline' %>
   </td>
   <td>
     <% contact.contact_groups.each do |contact_group| %>

@@ -1,4 +1,6 @@
 require "spec_helper"
+require 'gds_api/test_helpers/worldwide'
+include GdsApi::TestHelpers::Worldwide
 
 describe Admin::CloneContact do
   describe "#clone" do

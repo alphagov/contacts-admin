@@ -22,4 +22,13 @@ module ContactsHelper
       [title, street_address, locality, region, postal_code, world_location].join.html_safe
     end
   end
+
+  def contact_path(organisation, contact)
+    "#{contacts_path(organisation.slug)}/#{contact.slug}"
+  end
+
+  def contact_url(organisation, contact)
+    URI::join(Plek.current.website_root, contact_path(organisation, contact)).to_s
+  end
+
 end
