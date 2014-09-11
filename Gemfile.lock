@@ -1,14 +1,4 @@
 GIT
-  remote: git://github.com/alphagov/rummageable.git
-  revision: a262ddf2141775bb9a812a8adb3d532d7d4ff681
-  branch: master
-  specs:
-    rummageable (1.0.1)
-      multi_json
-      null_logger
-      rest-client
-
-GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 92a6a9c278e062ed68e69b91ba5fc084a1668639
   specs:
@@ -237,6 +227,10 @@ GEM
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.4)
     ruby-progressbar (1.4.2)
+    rummageable (1.0.1)
+      multi_json
+      null_logger
+      rest-client
     safe_yaml (1.0.1)
     sanitize (2.0.3)
       nokogiri (>= 1.4.4, < 1.6)
@@ -346,7 +340,7 @@ DEPENDENCIES
   rails (= 4.0.5)
   rspec-rails (~> 2.14)
   rubocop
-  rummageable!
+  rummageable (>= 1.0.1, < 2.0.0)
   sass-rails (~> 4.0.0)
   searchlight
   select2-rails (= 3.5.5)

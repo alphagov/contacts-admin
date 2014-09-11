@@ -15,7 +15,7 @@ gem "govspeak", "1.2.3"
 gem "gds-sso", "~> 9.3.0"
 gem "gds-api-adapters", '~> 14.0'
 gem "lrucache", "0.1.4"
-gem "rummageable", github: "alphagov/rummageable", branch: "master"
+gem "rummageable", ">= 1.0.1", "< 2.0.0"
 gem "plek", ">= 1.0.0"
 
 gem "airbrake", "3.1.15"
