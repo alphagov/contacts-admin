@@ -45,6 +45,7 @@ class ContactPresenter
       more_info_email_address: govspeak(contact.more_info_email_address),
 
       phone_numbers: PhoneNumbersPresenter.new(contact.phone_numbers).present,
+      more_info_phone_number: govspeak(contact.more_info_phone_number),
 
       post_addresses: PostAddressesPresenter.new(contact.post_addresses).present,
       more_info_post_address: govspeak(contact.more_info_post_address),
