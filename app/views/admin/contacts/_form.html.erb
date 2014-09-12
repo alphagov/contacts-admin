@@ -39,6 +39,11 @@
       <%= f.input :quick_link_3, label: false, placeholder: "Link", input_html: { class: "span4" } %>
     </fieldset>
 
+    <fieldset class="form-horizontal">
+      <legend>Related contacts</legend>
+      <%= f.association :related_contacts, collection: Contact.by_title, multiple: true, input_html: { class: 'span9 js-select2' } %>
+    </fieldset>
+
     <div class='form-actions form-horizontal'>
       <div class="control-group">
         <div class="controls">
