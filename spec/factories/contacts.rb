@@ -6,6 +6,7 @@ FactoryGirl.define do
   sequence(:contact_title) { |n| "contact title #{n}" }
   sequence(:quick_link) { |n| "http://link_#{n}.com" }
   sequence(:quick_link_title) { |n| "link #{n}" }
+  sequence(:govspeak) { |n| "* something about #{n}" }
 
   factory :contact do
     title               { generate(:contact_title) }
@@ -17,6 +18,8 @@ FactoryGirl.define do
     quick_link_title_2  { generate(:quick_link_title) }
     quick_link_3        { generate(:quick_link) }
     quick_link_title_3  { generate(:quick_link_title) }
+    more_info_phone_number { generate(:govspeak) }
+    more_info_email_address { generate(:govspeak) }
     organisation
 
     trait :with_contact_group do
