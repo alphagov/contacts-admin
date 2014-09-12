@@ -21,6 +21,9 @@ class Contact < ActiveRecord::Base
   has_many :email_addresses, inverse_of: :contact, dependent: :destroy
   has_many :post_addresses, inverse_of: :contact, dependent: :destroy
 
+  has_many :contact_relationships
+  has_many :related_contacts, through: :contact_relationships
+
   validates :title, presence: true
   validates :description, presence: true
   validates :content_id, uuid: true
