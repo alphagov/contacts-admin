@@ -4,6 +4,9 @@ class Contact < ActiveRecord::Base
   include Versioning
   include FriendlyId
 
+  before_validation :set_content_id, on: :create
+  attr_readonly :content_id
+
   after_save :register_contact
 
   friendly_id :title, use: :history
@@ -20,6 +23,7 @@ class Contact < ActiveRecord::Base
 
   validates :title, presence: true
   validates :description, presence: true
+  validates :content_id, uuid: true
 
   scope :by_title, -> { order("title ASC") }
   scope :ungrouped, -> { where(contact_group_id: nil) }
@@ -63,6 +67,10 @@ class Contact < ActiveRecord::Base
   end
 
   private
+
+  def set_content_id
+    self.content_id ||= SecureRandom.uuid
+  end
 
   def register_contact
     presenter = ContactPresenter.new(self)
