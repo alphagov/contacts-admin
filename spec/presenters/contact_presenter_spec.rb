@@ -7,6 +7,7 @@ describe ContactPresenter do
     payload = ContactPresenter.new(contact).present
 
     expect(payload[:base_path]).to eq("/government/organisations/#{contact.organisation.slug}/contact/#{contact.slug}")
+    expect(payload[:content_id]).to eq(contact.content_id)
     expect(payload[:title]).to eq(contact.title)
     expect(payload[:description]).to eq(contact.description)
     expect(payload[:format]).to eq('contact')
