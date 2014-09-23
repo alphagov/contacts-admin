@@ -9,6 +9,7 @@ FactoryGirl.define do
   sequence(:govspeak) { |n| "* something about #{n}" }
 
   factory :contact do
+    content_id          { SecureRandom.uuid }
     title               { generate(:contact_title) }
     description         { generate(:contact_description) }
     contact_information { generate(:contact_information) }
