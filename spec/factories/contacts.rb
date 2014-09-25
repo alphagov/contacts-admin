@@ -28,6 +28,12 @@ FactoryGirl.define do
         contact.contact_groups << FactoryGirl.create(:contact_group, organisation: contact.organisation)
       end
     end
+    trait :with_related_contacts do
+      after(:create) do |contact|
+        contact.related_contacts << FactoryGirl.create(:contact)
+        contact.related_contacts << FactoryGirl.create(:contact)
+      end
+    end
     trait :with_contact_form_links do
       after(:create) do |contact|
         contact.contact_form_links << FactoryGirl.create(:contact_form_link, contact_id: contact.id)

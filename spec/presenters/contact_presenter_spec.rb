@@ -27,4 +27,19 @@ describe ContactPresenter do
     expect(details[:more_info_email_address]).to include("<li>")
     expect(details[:more_info_phone_number]).to include("<li>")
   end
+
+  context "with related contacts" do
+    let (:contact) { create(:contact, :with_related_contacts) }
+
+    it "links to their content IDs" do
+      payload = ContactPresenter.new(contact).present
+
+      related_content_ids = contact.related_contacts.pluck(:content_id)
+
+      expect(payload[:links]).to include("related")
+
+      # FIXME: change this to `match_exactly` once we have RSpec 3
+      expect(payload[:links]["related"].sort).to eq(related_content_ids.sort)
+    end
+  end
 end
