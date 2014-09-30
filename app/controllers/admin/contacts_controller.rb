@@ -84,7 +84,8 @@ class Admin::ContactsController < AdminController
       :quick_link_3,
       :quick_link_title_3,
       :quick_link_description_3,
-      :query_response_time
+      :query_response_time,
+      { related_contact_ids: [] },
     )
   end
 end

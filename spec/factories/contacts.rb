@@ -9,6 +9,7 @@ FactoryGirl.define do
   sequence(:govspeak) { |n| "* something about #{n}" }
 
   factory :contact do
+    content_id          { SecureRandom.uuid }
     title               { generate(:contact_title) }
     description         { generate(:contact_description) }
     contact_information { generate(:contact_information) }
@@ -25,6 +26,12 @@ FactoryGirl.define do
     trait :with_contact_group do
       after(:create) do |contact|
         contact.contact_groups << FactoryGirl.create(:contact_group, organisation: contact.organisation)
+      end
+    end
+    trait :with_related_contacts do
+      after(:create) do |contact|
+        contact.related_contacts << FactoryGirl.create(:contact)
+        contact.related_contacts << FactoryGirl.create(:contact)
       end
     end
     trait :with_contact_form_links do

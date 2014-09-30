@@ -7,6 +7,7 @@ describe ContactPresenter do
     payload = ContactPresenter.new(contact).present
 
     expect(payload[:base_path]).to eq("/government/organisations/#{contact.organisation.slug}/contact/#{contact.slug}")
+    expect(payload[:content_id]).to eq(contact.content_id)
     expect(payload[:title]).to eq(contact.title)
     expect(payload[:description]).to eq(contact.description)
     expect(payload[:format]).to eq('contact')
@@ -25,5 +26,20 @@ describe ContactPresenter do
     expect(details[:contact_form_links]).to eq(contact.contact_form_links.map(&:as_json))
     expect(details[:more_info_email_address]).to include("<li>")
     expect(details[:more_info_phone_number]).to include("<li>")
+  end
+
+  context "with related contacts" do
+    let (:contact) { create(:contact, :with_related_contacts) }
+
+    it "links to their content IDs" do
+      payload = ContactPresenter.new(contact).present
+
+      related_content_ids = contact.related_contacts.pluck(:content_id)
+
+      expect(payload[:links]).to include("related")
+
+      # FIXME: change this to `match_exactly` once we have RSpec 3
+      expect(payload[:links]["related"].sort).to eq(related_content_ids.sort)
+    end
   end
 end

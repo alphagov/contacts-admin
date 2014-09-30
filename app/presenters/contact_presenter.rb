@@ -10,6 +10,7 @@ class ContactPresenter
   def present
     {
       base_path: contact.link,
+      content_id: contact.content_id,
       title: contact.title,
       description: contact.description,
       format: "contact",
@@ -22,10 +23,17 @@ class ContactPresenter
       ],
       details: contact_details.merge(language: "en"),
       need_ids: [],
+      links: links,
     }
   end
 
   private
+
+  def links
+    {
+      "related" => @contact.related_contacts.pluck(:content_id),
+    }
+  end
 
   def contact_details
     {
