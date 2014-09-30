@@ -1,10 +1,8 @@
 class CreateContactRelationships < ActiveRecord::Migration
   def change
     create_table :contact_relationships, id: false do |t|
-      t.references :contact
-      t.references :related_contact, class_name: "Contact"
-
-      t.index :contact_id
+      t.references :contact, null: false, index: true
+      t.references :related_contact, null: false
     end
   end
 end

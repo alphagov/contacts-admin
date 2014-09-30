@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20140915145616) do
   end
 
   create_table "contact_relationships", id: false, force: true do |t|
-    t.integer "contact_id"
-    t.integer "related_contact_id"
+    t.integer "contact_id",         null: false
+    t.integer "related_contact_id", null: false
   end
 
   add_index "contact_relationships", ["contact_id"], name: "index_contact_relationships_on_contact_id", using: :btree
