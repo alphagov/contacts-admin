@@ -1,10 +1,10 @@
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs add-bottom-margin">
   <li class="<%= 'active' if params[:controller] == 'admin/contacts' %>">
     <a href="<%= edit_admin_contact_path(contact) %>">Contact</a>
   </li>
   <li class="<%= 'active' if params[:controller] == 'admin/contacts/contact_form_links' %>">
     <a href="<%= admin_contact_contact_form_links_path(contact) %>">
-      Online Links 
+      Online Links
       <span class="badge <%= 'badge-info' if contact.contact_form_links.count > 0 %>"><%= contact.contact_form_links.count %></span>
     </a>
   </li>

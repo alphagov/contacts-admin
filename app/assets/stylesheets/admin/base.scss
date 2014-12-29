@@ -3,30 +3,9 @@
 /* variables */
 $hover-yellow: #fff8dd;
 
-/* conversion functions */
-
-  @function em($target-px, $current-px) {
-    @return $target-px * (1 / $current-px) * 1em;
-  }
-
-  @function px($value) {
-    @return $value * 1px;
-  }
-
-/* end conversion functions */
-
-.clear {
-  clear: both;
-  zoom: 100%;
-}
-
 .nav-tabs {
-  margin-bottom: 30px;
-
-  .badge{
+  .badge {
     margin-left: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
     min-width: 8px;
     text-align: center;
   }
