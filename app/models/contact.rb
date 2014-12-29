@@ -1,4 +1,5 @@
 require "contacts/register_contact"
+require "contacts/deregister_contact"
 
 class Contact < ActiveRecord::Base
   include Versioning
@@ -8,6 +9,7 @@ class Contact < ActiveRecord::Base
   attr_readonly :content_id
 
   after_save :register_contact
+  before_destroy :deregister_contact
 
   friendly_id :title, use: :history
 
@@ -78,5 +80,10 @@ class Contact < ActiveRecord::Base
   def register_contact
     presenter = ContactPresenter.new(self)
     Contacts::RegisterContact.register(presenter)
+  end
+
+  def deregister_contact
+    presenter = ContactGonePresenter.new(self)
+    Contacts::DeregisterContact.deregister(presenter)
   end
 end
