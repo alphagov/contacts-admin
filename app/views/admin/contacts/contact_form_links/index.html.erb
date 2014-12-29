@@ -1,11 +1,4 @@
-<div class='page-header'>
-  <h2>
-    Edit <%= @contact %>
-  </h2>
-
-  <%= render partial: 'admin/contacts/contact_nav', locals: { contact: @contact } %>
-</div>
-
+<%= render 'admin/contacts/edit_contact_header', contact: @contact %>
 <%= render "more_info_form", contact: @contact %>
 
 <% if @contact.contact_form_links.any? %>

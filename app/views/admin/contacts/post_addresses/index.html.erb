@@ -1,11 +1,4 @@
-<div class='page-header'>
-  <h2>
-    Edit <%= @contact %>
-  </h2>
-
-  <%= render 'admin/contacts/contact_nav', contact: @contact %>
-</div>
-
+<%= render 'admin/contacts/edit_contact_header', contact: @contact %>
 <%= render "more_info_form", contact: @contact %>
 
 <% if @contact.post_addresses.any? %>
