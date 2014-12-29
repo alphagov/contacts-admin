@@ -1,4 +1,5 @@
-@import "bootstrap";
+@import 'govuk_admin_template';
+
 @import "_colours.scss";
 @import "_conditionals.scss";
 @import "_typography.scss";
@@ -6,7 +7,6 @@
 @import "_css3.scss";
 @import "_device-pixels.scss";
 @import "./frontend/styleguide/_colours.scss";
-
 
 /* variables */
 $hover-yellow: #fff8dd;
@@ -140,31 +140,6 @@ $hover-yellow: #fff8dd;
   }
 }
 
-.navbar .navbar-inner {
-  @include border-radius(0);
-
-  @include ie-lte(6) {
-    .nav li{
-      float: left;
-
-      a {
-        color: #999;
-        display: block;
-        padding: 10px 15px 10px;
-      }
-
-      &.active {
-        color: #fff;
-        background: transparent;
-
-        a {
-          background: #000;
-        }
-      }
-    }
-  }
-}
-
 .breadcrumb {
   background: transparent;
   padding: 0;
@@ -243,17 +218,11 @@ $hover-yellow: #fff8dd;
   }
 }
 
-a {
-  text-decoration: underline;
-}
-
-abbr[title], abbr[data-original-title] {
+abbr[title],
+abbr[data-original-title] {
   border: none;
 }
 
-.btn,
-.nav a,
-.navbar a,
 .no-underline,
 .no-underline a {
   text-decoration: none;

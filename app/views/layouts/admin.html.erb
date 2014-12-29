@@ -1,49 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Contacts: Admin Interface</title>
-  <%= stylesheet_link_tag    "admin", media: "all" %>
+<% content_for :app_title, 'GOV.UK Contacts' %>
+<% content_for :page_title, ' | GOV.UK Contacts' %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "admin", :media => "all" %>
+  <%= csrf_meta_tag %>
   <!--[if IE 6]>
-    <%= stylesheet_link_tag "admin/#{local_assigns[:stylesheet] || "base"}-ie6.css" %><script>var ieVersion = 6;</script>
+  <%= stylesheet_link_tag "admin/#{local_assigns[:stylesheet] || "base"}-ie6.css" %><script>var ieVersion = 6;</script>
   <![endif]-->
   <!--[if IE 7]>
-    <%= stylesheet_link_tag "admin/#{local_assigns[:stylesheet] || "base"}-ie7.css" %><script>var ieVersion = 7;</script>
+  <%= stylesheet_link_tag "admin/#{local_assigns[:stylesheet] || "base"}-ie7.css" %><script>var ieVersion = 7;</script>
   <![endif]-->
   <!--[if IE 8]>
-    <%= stylesheet_link_tag "admin/#{local_assigns[:stylesheet] || "base"}-ie8.css" %><script>var ieVersion = 8;</script>
+  <%= stylesheet_link_tag "admin/#{local_assigns[:stylesheet] || "base"}-ie8.css" %><script>var ieVersion = 8;</script>
   <![endif]-->
   <%= javascript_include_tag "admin" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <%= yield :extra_headers %>
+<% end %>
 
-<div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-    <%= link_to 'Contacts', admin_root_path, class: 'brand'  %>
+<% content_for :navbar_items do %>
+  <li class="<%= 'active' if params[:controller] == 'admin/contacts' || params[:controller] == 'admin/contacts/contact_form_links' || params[:controller] == 'admin/contacts/email_addresses' || params[:controller] == 'admin/contacts/phone_numbers' || params[:controller] == 'admin/contacts/post_addresses' %>">
+    <%= link_to 'Contacts', admin_contacts_path  %>
+  </li>
+  <li class="<%= 'active' if params[:controller] == 'admin/contact_groups' %>">
+    <%= link_to 'Contact Groups', admin_contact_groups_path  %>
+  </li>
+<% end %>
 
-    <ul class="nav">
-      <li class="<%= 'active' if params[:controller] == 'admin/contacts' || params[:controller] == 'admin/contacts/contact_form_links' || params[:controller] == 'admin/contacts/email_addresses' || params[:controller] == 'admin/contacts/phone_numbers' || params[:controller] == 'admin/contacts/post_addresses' %>">
-        <%= link_to 'Contacts', admin_contacts_path  %>
-      </li>
-      <li class="<%= 'active' if params[:controller] == 'admin/contact_groups' %>">
-        <%= link_to 'Contact Groups', admin_contact_groups_path  %>
-      </li>
-    </ul>
-    <p class='navbar-text pull-right'>
-      <%= current_user.name %>
-      &nbsp; | &nbsp;
-      <%= link_to "Sign out", gds_sign_out_path %>
-    </p>
-  </div>
-</div>
+<% content_for :navbar_right do %>
+  <%= link_to current_user.name, Plek.current.find('signon') %>
+  &bull; <%= link_to 'Sign out', gds_sign_out_path %>
+<% end %>
 
-<div class="container-fluid">
-  <div class="clear"></div>
+<% content_for :content do %>
   <%= render 'flashes' %>
-
   <%= yield %>
-</div>
+<% end %>
 
-</body>
-</html>
+<% content_for :footer_version, CURRENT_RELEASE_SHA %>
+
+<%# use the govuk_admin_template layout %>
+<%= render :template => 'layouts/govuk_admin_template' %>
