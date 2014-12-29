@@ -1,16 +1,17 @@
-<%= simple_form_for [:admin, contact, email_address] do |f| %>
-  <fieldset class="form-horizontal">
-    <%= f.input :title, input_html: { class: 'span6' } %>
-    <%= f.input :email, input_html: { class: 'span6' } %>
-    <%= f.input :description, input_html: { rows: 8, class: 'span6' }, hint: formatting_help_link %>
-  </fieldset>
+<% show_delete ||= false %>
+<div class="well">
+  <%= simple_form_for [:admin, contact, email_address] do |f| %>
+    <fieldset>
+      <%= f.input :title, input_html: { class: 'form-control input-md-6' } %>
+      <%= f.input :email, input_html: { class: 'form-control input-md-6' } %>
+      <%= f.input :description, input_html: { rows: 8, class: 'form-control input-md-6' }, hint: formatting_help_link %>
+    </fieldset>
 
-  <div class='form-actions form-horizontal'>
-    <div class="control-group">
-      <div class="controls">
-        <%= f.submit id: 'email-address-submit', class: 'btn btn-small btn-primary', data: { disable_with: 'Working' } %>
-      </div>
-    </div>
-  </div>
-<% end %>
+    <%= f.submit id: 'email-address-submit', class: 'btn btn-success', data: { disable_with: 'Working' } %>
+
+    <% if show_delete %>
+    <%= link_to 'Delete email address', admin_contact_email_address_path(@contact, @email_address), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger add-left-margin' %>
+    <% end %>
+  <% end %>
+</div>
 <%= render "admin/shared/formatting" %>
