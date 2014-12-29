@@ -1,12 +1,12 @@
-<%= simple_form_for search, url: admin_contacts_path, method: :get, html: { class: "form-search pull-right" } do |f| %>
+<%= simple_form_for search, url: admin_contacts_path, method: :get, html: { class: "form-search add-bottom-margin form form-inline well" } do |f| %>
   <%= f.input_field :organisation_id,
                     as: :select,
                     collection: Organisation.all,
                     label_method: :to_s,
                     value_method: :slug,
-                    class: "js-select2",
+                    class: "js-select2 form-control",
                     data: { placeholder: "Organisation" } %>
-  <%= f.input_field :title, placeholder: "Title", class: "search-query" %>
-  <%= f.input_field :description, placeholder: "Description", class: "search-query" %>
-  <%= f.submit "Filter", class: "btn btn-default", data: { disable_with: "Working" } %>
+  <%= f.input_field :title, placeholder: "Title", class: "form-control search-query" %>
+  <%= f.input_field :description, placeholder: "Description", class: "form-control search-query" %>
+  <%= f.submit "Filter contacts", class: "add-left-margin btn btn-default", data: { disable_with: "Working" } %>
 <% end %>

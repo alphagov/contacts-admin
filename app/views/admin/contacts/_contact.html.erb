@@ -3,7 +3,7 @@
     <td><%= contact.organisation %></td>
   <% end %>
   <td>
-    <%= link_to contact.title, contact_url(contact.organisation, contact), class: 'no-underline' %>
+    <%= link_to contact.title, contact_url(contact.organisation, contact) %>
   </td>
   <td>
     <% contact.contact_groups.each do |contact_group| %>
@@ -18,8 +18,6 @@
   <td><%= contact.post_addresses.size %></td>
   <td><%= contact.phone_numbers.size %></td>
   <td class='text-right'>
-    <small>
-      <%= link_to "Edit", edit_admin_contact_path(contact) %>
-    </small>
+      <%= link_to "Edit contact", edit_admin_contact_path(contact), class: 'btn btn-default' %>
   </td>
 </tr>
