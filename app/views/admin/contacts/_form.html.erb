@@ -1,58 +1,38 @@
-<div class="span12 first-child contact-details">
+<div class="contact-details">
   <%= simple_form_for [:admin, contact] do |f| %>
-    <fieldset class="form-horizontal">
-      <legend>General details</legend>
-      <%= f.input :title, input_html: { class: 'span4' } %>
-      <%= f.input :organisation_id, label: "Organisation", collection: Organisation.all, label_method: :to_s, value_method: :id, include_blank: false, input_html: { class: 'span3 js-select2' } %>
-      <%= f.association :contact_groups, collection: ContactGroup.all, multiple: true, input_html: { class: 'span9 js-select2' } %>
-      <%= f.input :description, as: :text, input_html: { rows: 8, class: 'span9' } %>
-      <%= f.input :before_you_contact_us, as: :text, label: 'Before you contact us', input_html: { rows: 5, class: 'span9' }, hint: formatting_help_link %>
-      <%= f.input :contact_information, as: :text, label: 'Information you will need', input_html: { rows: 5, class: 'span9' }, hint: formatting_help_link %>
+    <fieldset>
+      <%= f.input :title, input_html: { class: 'input-md-4 form-control' } %>
+      <%= f.input :organisation_id, label: "Organisation", collection: Organisation.all, label_method: :to_s, value_method: :id, include_blank: false, input_html: { class: 'input-md-3 form-control js-select2' } %>
+      <%= f.association :contact_groups, collection: ContactGroup.all, multiple: true, input_html: { class: 'input-md-8 form-control js-select2' } %>
+      <%= f.input :description, as: :text, input_html: { rows: 8, class: 'input-md-8 form-control' } %>
+      <%= f.input :before_you_contact_us, as: :text, label: 'Before you contact us', input_html: { rows: 5, class: 'input-md-8 form-control' }, hint: formatting_help_link %>
+      <%= f.input :contact_information, as: :text, label: 'Information you will need', input_html: { rows: 5, class: 'input-md-8 form-control' }, hint: formatting_help_link %>
       <%= f.input :query_response_time, as: :boolean, label: 'Show "When can I expect my reply" link' %>
-      <%= f.input :popularity, hint: 'This is used to weight the contacts list, use call volume for example' %>
+      <%= f.input :popularity, class: 'input-md-3 form-control', hint: 'This is used to weight the contacts list, use call volume for example' %>
     </fieldset>
 
-    <fieldset class="form-horizontal">
-      <legend>Quick Links</legend>
-      <div class="control-group">
-        <%= f.label :quick_link_title_1, "Link 1", class: "control-label" %>
-        <div class="controls">
-          <%= f.input_field :quick_link_title_1, placeholder: "Title", class: "span4" %>
-        </div>
-      </div>
-      <%= f.input :quick_link_1, label: false, placeholder: "Link", input_html: { class: "span4" } %>
+    <fieldset>
+      <legend>Links</legend>
 
-      <div class="control-group">
-        <%= f.label :quick_link_title_2, "Link 2", class: "control-label" %>
-        <div class="controls">
-          <%= f.input_field :quick_link_title_2, placeholder: "Title", class: "span4" %>
+      <% 3.times do |i| %>
+        <% link_no = i + 1 %>
+        <div class="add-top-margin form-group">
+          <%= f.label "quick_link_title_#{link_no}".to_sym, "Link #{link_no}", class: "control-label" %>
+          <%= f.input_field "quick_link_title_#{link_no}".to_sym, placeholder: "Title", class: "input-md-6 form-control add-label-margin" %>
+          <%= f.input "quick_link_#{link_no}".to_sym, label: false, placeholder: "Link", input_html: { class: "input-md-6 form-control" } %>
         </div>
-      </div>
-      <%= f.input :quick_link_2, label: false, placeholder: "Link", input_html: { class: "span4" } %>
-
-      <div class="control-group">
-        <%= f.label :quick_link_title_3, "Link 3", class: "control-label" %>
-        <div class="controls">
-          <%= f.input_field :quick_link_title_3, placeholder: "Title", class: "span4" %>
-        </div>
-      </div>
-      <%= f.input :quick_link_3, label: false, placeholder: "Link", input_html: { class: "span4" } %>
+      <% end %>
     </fieldset>
 
-    <fieldset class="form-horizontal">
+    <fieldset>
       <legend>Related contacts</legend>
-      <%= f.association :related_contacts, collection: Contact.by_title, multiple: true, input_html: { class: 'span9 js-select2' } %>
+      <div class="add-top-margin form-group">
+        <%= f.association :related_contacts, collection: Contact.by_title, multiple: true, input_html: { class: 'input-md-8 form-control js-select2' } %>
+      </div>
     </fieldset>
 
-    <div class='form-actions form-horizontal'>
-      <div class="control-group">
-        <div class="controls">
-          <%= f.submit id: 'contact-submit', class: 'btn btn-small btn-primary', data: { disable_with: 'Working' } %>
-          &nbsp;
-          <%= link_to "cancel", admin_contacts_path, class: 'btn btn-small'%>
-        </div>
-      </div>
-    </div>
+    <%= f.submit id: 'contact-submit', class: 'btn btn-success', data: { disable_with: 'Working' } %>
+    <%= link_to "Cancel", admin_contacts_path, class: 'add-left-margin btn btn-default'%>
   <% end %>
 </div>
 <%= render "admin/shared/formatting" %>
