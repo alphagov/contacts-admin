@@ -1,3 +1,4 @@
+<% show_actions ||= false %>
 <% content_for :page_title, @contact %>
 <ol class="breadcrumb">
   <li><%= link_to 'Contacts', admin_contacts_path  %></li>
@@ -6,10 +7,12 @@
 
 <div class="page-title">
   <h1><%= @contact %></h1>
-  <span class="pull-right">
-    <%= link_to 'Clone', clone_admin_contact_path(@contact), data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
-    &nbsp;
-    <%= link_to 'Delete', admin_contact_path(@contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-  </span>
+  <% if show_actions %>
+    <span class="pull-right">
+      <%= link_to 'Clone', clone_admin_contact_path(@contact), data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+      &nbsp;
+      <%= link_to 'Delete', admin_contact_path(@contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+    </span>
+  <% end %>
 </div>
 <%= render 'admin/contacts/contact_nav', contact: @contact %>
