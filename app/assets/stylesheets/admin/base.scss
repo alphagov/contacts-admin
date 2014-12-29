@@ -21,32 +21,6 @@ $hover-yellow: #fff8dd;
   zoom: 100%;
 }
 
-.span12 .span12 {
-  margin-left: 0;
-}
-
-.breadcrumb {
-  background: transparent;
-  padding: 0;
-
-  li, a {
-    font-size: em(13, 14);
-    max-width: 250px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-decoration: none;
-    background: transparent;
-  }
-
-  @include ie-lte(6) {
-    li {
-      float: left;
-      margin-right: 5px;
-    }
-  }
-}
-
 .nav-tabs {
   margin-bottom: 30px;
 

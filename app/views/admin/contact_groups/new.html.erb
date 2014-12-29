@@ -1,9 +1,12 @@
-<div class="row">
-  <div class="span12 first-child">
-    <div class='page-header'>
-      <h2>New Contact Group</h2>
-    </div>
+<% content_for :page_title, 'Add group' %>
 
-    <%= render partial: 'form', locals: { contact_group: @contact_group } %>
-  </div>
+<ol class="breadcrumb">
+  <li><%= link_to 'Contact groups', admin_contact_groups_path  %></li>
+  <li class="active">Add group</li>
+</ol>
+
+<div class='page-header'>
+  <h2>Add group</h2>
 </div>
+
+<%= render partial: 'form', locals: { contact_group: @contact_group } %>
