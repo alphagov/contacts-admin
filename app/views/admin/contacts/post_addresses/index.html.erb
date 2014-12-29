@@ -1,19 +1,14 @@
 <%= render 'admin/contacts/edit_contact_header', contact: @contact %>
-<%= render "more_info_form", contact: @contact %>
 
+<h2>Postal addresses</h2>
 <% if @contact.post_addresses.any? %>
-  <table class='table table-striped table-hover post-addresses-table'>
-    <colgroup>
-      <col width="250"></col>
-      <col width="*"></col>
-      <col width="150"></col>
-    </colgroup>
+  <table class='table table-striped table-hover table-bordered post-addresses-table'>
     <thead>
-      <tr>
+      <tr class="table-header">
         <th>Address</th>
         <th>Description</th>
         <th>
-          <%= link_to "+ Add Post Address", new_admin_contact_post_address_path(@contact), class: 'btn btn-small pull-right' %>
+          <%= link_to "Add Post Address", new_admin_contact_post_address_path(@contact), class: 'btn btn-default pull-right' %>
         </th>
       </tr>
     </thead>
@@ -22,8 +17,9 @@
     </tbody>
   </table>
 <% else %>
-  <h4>No post addresses found</h4>
-  <p>
-    We have found no post addresses. <%= link_to "You should add one.", new_admin_contact_post_address_path(@contact) %>
-  </p>
+  <div class="no-content no-content-bordered">
+    <%= link_to "Add postal address", new_admin_contact_post_address_path(@contact) %>
+  </div>
 <% end %>
+
+<%= render "more_info_form", contact: @contact %>

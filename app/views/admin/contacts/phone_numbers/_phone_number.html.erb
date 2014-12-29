@@ -6,8 +6,6 @@
   <td><%= govspeak phone_number.description %></td>
   <td><%= govspeak phone_number.open_hours %></td>
   <td class="text-right">
-    <small>
-      <%= link_to 'Edit', edit_admin_contact_phone_number_path(contact, phone_number) %>
-    </small>
+    <%= link_to 'Edit phone number', edit_admin_contact_phone_number_path(contact, phone_number), class: 'btn btn-default' %>
   </td>
 </tr>

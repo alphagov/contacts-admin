@@ -1,9 +1,9 @@
 <%= render 'admin/shared/formatting' %>
+<h3 class="add-bottom-margin">Further information</h3>
 <div class="well">
   <%= simple_form_for [:admin, contact] do |f| %>
     <%= hidden_field_tag :tab, 'email_addresses' %>
     <fieldset>
-      <legend class="add-bottom-margin">Further information for Email Address contact method</legend>
       <%= f.input :more_info_email_address,
                   label: "More information for email addresses",
                   placeholder: "This appears below email method",

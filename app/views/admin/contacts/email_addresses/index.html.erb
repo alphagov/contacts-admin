@@ -1,21 +1,15 @@
 <%= render 'admin/contacts/edit_contact_header', contact: @contact %>
-<%= render "more_info_form", contact: @contact %>
 
+<h2>Email addresses</h2>
 <% if @contact.email_addresses.any? %>
-  <table class='table table-striped table-hover email-addresses-table'>
-    <colgroup>
-      <col width="200"></col>
-      <col width="250"></col>
-      <col width="*"></col>
-      <col width="150"></col>
-    </colgroup>
+  <table class='table table-striped table-hover table-bordered email-addresses-table'>
     <thead>
-      <tr>
+      <tr class="table-header">
         <th>Email</th>
         <th>Title</th>
         <th>Description</th>
         <th>
-          <%= link_to "+ Add Email Address", new_admin_contact_email_address_path(@contact), class: 'btn btn-small pull-right' %>
+          <%= link_to "Add Email Address", new_admin_contact_email_address_path(@contact), class: 'btn btn-default pull-right' %>
         </th>
       </tr>
     </thead>
@@ -24,8 +18,9 @@
     </tbody>
   </table>
 <% else %>
-  <h4>No email address found</h4>
-  <p>
-    We have found no email addresses. <%= link_to "You should add one.", new_admin_contact_email_address_path(@contact) %>
-  </p>
+  <div class="no-content no-content-bordered">
+    <%= link_to "Add email address", new_admin_contact_email_address_path(@contact) %>
+  </div>
 <% end %>
+
+<%= render "more_info_form", contact: @contact %>

@@ -5,8 +5,6 @@
   </td>
   <td><%= email_address.description %></td>
   <td class="text-right">
-    <small>
-      <%= link_to 'Edit', edit_admin_contact_email_address_path(contact, email_address) %>
-    </small>
+    <%= link_to 'Edit email', edit_admin_contact_email_address_path(contact, email_address), class: 'btn btn-default' %>
   </td>
 </tr>

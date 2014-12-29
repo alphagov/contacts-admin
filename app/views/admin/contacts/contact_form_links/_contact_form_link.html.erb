@@ -5,8 +5,6 @@
   </td>
   <td><%= contact_form_link.description %></td>
   <td class="text-right">
-    <small>
-      <%= link_to 'Edit', edit_admin_contact_contact_form_link_path(contact, contact_form_link) %>
-    </small>
+    <%= link_to 'Edit link', edit_admin_contact_contact_form_link_path(contact, contact_form_link), class: 'btn btn-default' %>
   </td>
 </tr>

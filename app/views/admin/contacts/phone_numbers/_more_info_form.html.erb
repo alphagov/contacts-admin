@@ -1,12 +1,11 @@
 <%= render 'admin/shared/formatting' %>
-
+<h3 class="add-bottom-margin">Further information</h3>
 <div class="well">
   <%= simple_form_for [:admin, contact] do |f| %>
     <%= hidden_field_tag :tab, 'phone_numbers' %>
     <fieldset>
-      <legend class="add-bottom-margin">Further information for Phone Number contact method</legend>
       <%= f.input :more_info_phone_number,
-                  label: "More informaiton for phone numbers",
+                  label: "More information for phone numbers",
                   placeholder: "This appears below phone method",
                   input_html: { rows: 5, class: "input-md-8 form-control" },
                   hint: formatting_help_link %>
