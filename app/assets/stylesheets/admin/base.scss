@@ -25,114 +25,6 @@ $hover-yellow: #fff8dd;
   margin-left: 0;
 }
 
-@include ie-lte(6) {
-  .alert {
-    padding-top: 4px;
-  }
-
-  .span1,
-  .span2,
-  .span3,
-  .span4,
-  .span5,
-  .span6,
-  .span7,
-  .span8,
-  .span9,
-  .span10,
-  .span11,
-  .span12 {
-    float: left;
-    min-height: 1px;
-    margin-left: 20px;
-
-    &.first-child {
-      margin-left: 10px;
-    }
-  }
-
-  input,
-  textarea,
-  select {
-    &.span1,
-    &.span2,
-    &.span3,
-    &.span4,
-    &.span5,
-    &.span6,
-    &.span7,
-    &.span8,
-    &.span9,
-    &.span10,
-    &.span11,
-    &.span12 {
-      float: none;
-      min-height: 1px;
-      margin-left: 0px;
-
-      &.first-child {
-        margin-left: 0px;
-      }
-    }
-  }
-
-  .form-actions .controls {
-    margin-left: 80px;
-
-    .btn {
-      width: auto;
-    }
-  }
-
-  .open {
-    .dropdown-toggle {
-      background: transparent;
-    }
-
-    .dropdown-menu {
-      display: block;
-      top: 30px;
-      left: 10px;
-
-      li {
-        display: inline;
-
-        a {
-          display: block;
-          padding: 3px 20px;
-          clear: both;
-          font-weight: normal;
-          line-height: 20px;
-          color: #333;
-          white-space: nowrap;
-
-          &:hover {
-            text-decoration: none;
-            color: #FFF;
-          }
-        }
-      }
-    }
-  }
-
-  .page-header h2 .pull-right {
-    position: relative;
-    top: -30px;
-  }
-
-  .ie6-select-iframe {
-    display: none;
-    position: absolute;
-    left: 12px;
-    top: 32px;
-    border: none;
-  }
-
-  .open .ie6-select-iframe {
-    display: block;
-  }
-}
-
 .breadcrumb {
   background: transparent;
   padding: 0;
@@ -157,50 +49,6 @@ $hover-yellow: #fff8dd;
 
 .nav-tabs {
   margin-bottom: 30px;
-
-  @include ie-lte(6) {
-    border-bottom: 1px solid #ddd;
-    zoom: 1;
-
-    li {
-      background: transparent;
-      float: left;
-      position: relative;
-      top: 1px;
-
-      a {
-        padding-right: 12px;
-        padding-left: 12px;
-        margin-right: 2px;
-        line-height: 14px;
-        padding-top: 8px;
-        padding-bottom: 8px;
-        line-height: 20px;
-        border: 1px solid white;
-        zoom: 100%;
-        height: 19px;
-        overflow: hidden;
-
-        &:hover,
-        &:focus {
-          border-color: #eee;
-          background: #eee;
-          text-decoration: none;
-        }
-      }
-
-      &.active a,
-      &.active a:hover,
-      &.active a:focus {
-        color: #555555;
-        background-color: white;
-        border: 1px solid #ddd;
-        border-bottom-color: white;
-        cursor: default;
-        height: 20px;
-      }
-    }
-  }
 
   .badge{
     margin-left: 3px;
@@ -250,12 +98,6 @@ textarea {
       font-weight: normal;
     }
   }
-
-  @include ie-lte(6) {
-    th {
-      border-top: none;
-    }
-  }
 }
 
 .table-hover tbody tr:hover {
@@ -280,10 +122,6 @@ h2 {
       @include ie-lte(7) {
         margin-top: 14px;
       }
-
-      @include ie-lte(6) {
-        border-color: black white white;
-      }
     }
 
     .dropdown-menu a {
@@ -301,10 +139,6 @@ fieldset {
 
   legend {
     margin-bottom: 0;
-
-    @include ie-lte(6) {
-      margin-bottom: 20px;
-    }
   }
 }
 
@@ -333,10 +167,10 @@ fieldset {
 }
 
 table {
-  td.date{
-    width:85px;
+  td.date {
+    width: 85px;
   }
-  td.changeset{
+  td.changeset {
     font-size: 11px;
   }
 }
