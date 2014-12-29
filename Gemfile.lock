@@ -242,7 +242,7 @@ GEM
       thor (~> 0.14)
     shoulda-matchers (2.5.0)
       activesupport (>= 3.0.0)
-    simple_form (3.1.0.rc1)
+    simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
     simplecov (0.8.2)
@@ -343,7 +343,7 @@ DEPENDENCIES
   searchlight
   select2-rails (= 3.5.5)
   shoulda-matchers
-  simple_form (= 3.1.0.rc1)
+  simple_form (= 3.1.0)
   simplecov
   simplecov-rcov
   slimmer (~> 3.27.0)
