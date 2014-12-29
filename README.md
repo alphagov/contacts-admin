@@ -1,28 +1,28 @@
 # Contacts app
 
-This is an alpha for the replacement of the existing
-[HMRC contact us application](http://search2.hmrc.gov.uk/kb5/hmrc/contactus/home.page)
-to facilitate the HMRC transition to GOV.UK.
+This is a beta for an app to publish contact information for a given
+organisation to GOV.UK. In the first instance, it is replacing the
+[HMRC contact us application](http://search2.hmrc.gov.uk/kb5/hmrc/contactus/home.page).
 
-The aim is to build an application which can surface many contact methods for a
-department or agency with deflection into relevant content, and grouping of contacts.
+## Live examples
 
-The use case would be to populate the application with HMRC contact data, and the
-relevant links to content. Having one place for this information will reduce the burden
-on editors to keep all the contact details up to date on disparate pieces of content,
-and we plan to have a contacts lookup API similar to the one Whitehall has to allow easy
-linking to contact details within content.
+This application serves the index/filtering page for contacts, for example:
+- https://www.gov.uk/government/organisations/hm-revenue-customs/contact
+
+Another application, [contacts-frontend](https://github.com/alphagov/contacts-frontend)
+displays the contacts themselves, fetching them from content store:
+- https://www.gov.uk/government/organisations/hm-revenue-customs/contact/alcohol-duties-national-registration-unit
 
 ## Dependencies
 
-* Ruby 2.0.0-p353
+* Ruby 2.1.4
 * MySQL
-* Rummager (for indexing)
+* Rummager (for GOV.UK site search)
 
 ## Database setup
 
 The best way to get a database with good seed data is to use a dump from preview,
-alternatively you can load the database schema and use the old initial seed data.
+alternatively you can load the database schema and use the old initial seed data:
 
     ```
     bundle exec rake db:schema:load
@@ -39,18 +39,22 @@ Set RUMMAGER_API=true and WHITEHALL_API=true to enable API requests in developme
 open http://contacts.dev.gov.uk/contact/hm-revenue-customs/
 open http://contacts.dev.gov.uk/admin
 
-## Indexing the data
+By default, this application uses the GOV.UK preview environment for assets. To
+run against a local version of static you need to set `STATIC_DEV` to
+"http://static.dev.gov.uk".
 
-Only contacts with a need id will be indexed, need ids will need to be added via
-a database migration.
+## Including Contacts in GOV.UK site search
+
+You can manually add contacts to the GOV.UK search index with a rake task:
 
     ````
-    Ensure rummager is running
     bundle exec rake contacts:index
 
     ````
 
-To run against a local version of static you need to set `STATIC_DEV` to "http://static.dev.gov.uk".
+This rake task only indexes contacts with a need ID. There are currently no
+contacts with need IDs and there is no user interface to do so.
+
 
 ## Development notes
 
