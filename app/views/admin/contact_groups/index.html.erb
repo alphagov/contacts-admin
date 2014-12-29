@@ -1,20 +1,18 @@
+<% content_for :page_title, "Contact Groups" %>
+<div class="page-title">
+  <h1>Contact Groups</h1>
+</div>
+
 <% if @contact_groups.any? %>
-  <table class='table table-striped table-hover contact-groups-table'>
-    <colgroup>
-      <col width="100"></col>
-      <col width="250"></col>
-      <col width="*"></col>
-      <col width="120"></col>
-      <col width="160"></col>
-    </colgroup>
+  <table class="table table-striped table-hover table-bordered contact-groups-table">
     <thead>
-      <tr>
+      <tr class="table-header">
         <th>Organisation</th>
         <th>Title</th>
         <th>Description</th>
         <th>Contacts</th>
         <th>
-          <%= link_to "+ Add contact group", new_admin_contact_group_path, class: 'btn btn-small pull-right' %>
+          <%= link_to "Add group", new_admin_contact_group_path, class: 'btn btn-default btn-small pull-right' %>
         </th>
       </tr>
     </thead>
@@ -23,8 +21,8 @@
     </tbody>
   </table>
 <% else %>
-  <h4>No contact groups found</h4>
-  <p>
-    We have found no contact groups. <%= link_to "You should add one.", new_admin_contact_group_path %>
+  <p class="no-content no-content-bordered">
+    No contact groups found<br />
+    <%= link_to "Add contact group", new_admin_contact_group_path %>
   </p>
 <% end %>
