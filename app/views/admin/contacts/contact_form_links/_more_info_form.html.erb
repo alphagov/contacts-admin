@@ -1,14 +1,15 @@
 <%= render 'admin/shared/formatting' %>
-
-<%= simple_form_for [:admin, contact] do |f| %>
-  <%= hidden_field_tag :tab, 'contact_form_links' %>
-  <fieldset class="form-horizontal">
-    <legend>Extra information for Online Links</legend>
-    <%= f.input :more_info_contact_form,
-                label: "More info for contact forms",
-                placeholder: "This appears below Contact Form method",
-                input_html: { rows: 5, class: "span9" },
-                hint: formatting_help_link %>
-    <%= f.submit "Update", class: "btn btn-primary" %>
-  </fieldset>
-<% end %>
+<div class="well">
+  <%= simple_form_for [:admin, contact] do |f| %>
+    <%= hidden_field_tag :tab, 'contact_form_links' %>
+    <fieldset>
+      <legend class="add-bottom-margin">Further information for Online Links</legend>
+      <%= f.input :more_info_contact_form,
+                  label: "More information for contact forms",
+                  placeholder: "This appears below Contact Form method",
+                  input_html: { rows: 5, class: "input-md-8 form-control" },
+                  hint: formatting_help_link %>
+      <%= f.submit "Update information", class: "btn btn-success" %>
+    </fieldset>
+  <% end %>
+</div>
