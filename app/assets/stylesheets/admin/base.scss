@@ -38,19 +38,6 @@ abbr[data-original-title] {
   border: none;
 }
 
-.no-underline,
-.no-underline a {
-  text-decoration: none;
-}
-
-.text-red {
-  color: #c00;
-}
-
-textarea {
-  width: 400px;
-}
-
 .table {
   th, td {
     &.break-link a {
@@ -60,6 +47,7 @@ textarea {
     &.text-right {
       text-align: right;
     }
+
     &.text-center {
       text-align: center;
     }
@@ -81,29 +69,6 @@ textarea {
   }
 }
 
-h2 {
-
-  small {
-    margin-left: 10px;
-
-    a {
-      text-decoration: none;
-    }
-
-    .dropdown-toggle .caret {
-      margin-top: 21px;
-
-      @include ie-lte(7) {
-        margin-top: 14px;
-      }
-    }
-
-    .dropdown-menu a {
-      font-size: em(13, 18);
-    }
-  }
-}
-
 fieldset {
   margin-bottom: 30px;
 
@@ -116,34 +81,11 @@ fieldset {
   }
 }
 
-.control-label {
-  font-weight: bold;
-}
-
-.span-preview {
-  .control-label {
-    width: 100px;
-  }
-  .controls {
-    margin-left: 120px;
-    margin-right: 20px;
-  }
-
-  .well {
-    word-wrap: break-word;
-  }
-}
-
-.form-actions {
-  background: transparent;
-  border: none;
-  padding-left: 0;
-}
-
 table {
   td.date {
     width: 85px;
   }
+
   td.changeset {
     font-size: 11px;
   }
