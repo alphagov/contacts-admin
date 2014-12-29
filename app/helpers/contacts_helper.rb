@@ -1,6 +1,6 @@
 module ContactsHelper
   def vcard_for_post_address(address)
-    title = content_tag :h3, class: "fn" do
+    title = content_tag :strong, class: "fn" do
       address.title
     end
     street_address = content_tag :span, class: "street-address" do
@@ -19,7 +19,7 @@ module ContactsHelper
       address.world_location.try(:name)
     end
     content_tag :div, class: "vcard" do
-      [title, street_address, locality, region, postal_code, world_location].join.html_safe
+      [title, street_address, locality, region, postal_code, world_location].join('<br>').html_safe
     end
   end
 
