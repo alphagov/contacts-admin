@@ -3,12 +3,6 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag "admin", :media => "all" %>
   <%= csrf_meta_tag %>
-  <!--[if IE 7]>
-  <%= stylesheet_link_tag "admin/#{local_assigns[:stylesheet] || "base"}-ie7.css" %>
-  <![endif]-->
-  <!--[if IE 8]>
-  <%= stylesheet_link_tag "admin/#{local_assigns[:stylesheet] || "base"}-ie8.css" %>
-  <![endif]-->
   <%= javascript_include_tag "admin" %>
   <%= yield :extra_headers %>
 <% end %>
