@@ -90,3 +90,11 @@ table {
     font-size: 11px;
   }
 }
+
+.error {
+  color: $state-danger-text;
+
+  input {
+    border-color: $state-danger-text;
+  }
+}
