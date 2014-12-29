@@ -1,34 +1,33 @@
-<div class="row">
-  <div class="span12 first-child">
-    <div class='page-header'>
-      <h2>
-        Edit <%= @contact %>
+<% content_for :page_title, @contact %>
+<ol class="breadcrumb">
+  <li><%= link_to 'Contacts', admin_contacts_path  %></li>
+  <li class="active"><%= @contact %></li>
+</ol>
 
-        <span class="pull-right">
-          <%= link_to 'Clone', clone_admin_contact_path(@contact), data: { confirm: 'Are you sure?' }, class: 'btn btn-small' %>
-          &nbsp;
-          <%= link_to 'Delete', admin_contact_path(@contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red' %>
-        </span>
-      </h2>
-
-      <%= render 'contact_nav', contact: @contact %>
-    </div>
-
-    <%= render 'form', contact: @contact %>
-
-  </div>
+<div class="page-title">
+  <h1><%= @contact %></h1>
+  <span class="pull-right">
+    <%= link_to 'Clone', clone_admin_contact_path(@contact), data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+    &nbsp;
+    <%= link_to 'Delete', admin_contact_path(@contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  </span>
 </div>
-<div class="row">
-  <div class="span12">
-    <h3>Audit log</h3>
-    <table class="table table-striped">
-      <tr>
+
+<%= render 'contact_nav', contact: @contact %>
+<%= render 'form', contact: @contact %>
+
+<% if @contact.display_versions.size > 0 %>
+  <hr />
+  <h3 class="add-bottom-margin">Audit log</h3>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr class="table-header">
         <th>Time</th>
         <th>User</th>
         <th>Action</th>
         <th>Changes</th>
       </tr>
-      <%= render partial: 'admin/versions/version', collection: @contact.display_versions, as: :version %>
-    </table>
-  </div>
-</div>
+    </thead>
+    <%= render partial: 'admin/versions/version', collection: @contact.display_versions, as: :version %>
+  </table>
+<% end %>
