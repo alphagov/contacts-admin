@@ -1,29 +1,29 @@
-<div class="row">
-  <div class="span12 first-child">
-    <div class='page-header'>
-      <h2>
-        Edit Contact Form Link for <%= @contact %>
+<% content_for :page_title, 'Edit contact form link' %>
+<ol class="breadcrumb">
+  <li><%= link_to 'Contacts', admin_contacts_path  %></li>
+  <li><%= link_to @contact, edit_admin_contact_path(@contact) %></li>
+  <li><%= link_to 'Online links', admin_contact_contact_form_links_path(@contact) %></li>
+  <li class="active">Edit link</li>
+</ol>
 
-        <%= link_to 'Delete', admin_contact_contact_form_link_path(@contact, @contact_form_link), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
-      </h2>
-
-      <%= render partial: 'admin/contacts/contact_nav', locals: { contact: @contact } %>
-    </div>
-
-    <%= render partial: 'form', locals: { contact: @contact, contact_form_link: @contact_form_link } %>
-  </div>
+<div class="page-title">
+  <h1>
+    <small><%= @contact %></small><br />
+    Edit contact form link
+  </h1>
 </div>
-<div class="row">
-  <div class="span12">
-    <h3>Audit log</h3>
-    <table class="table table-striped">
-      <tr>
-        <th>Time</th>
-        <th>User</th>
-        <th>Action</th>
-        <th>Changes</th>
-      </tr>
-      <%= render partial: 'admin/versions/version', collection: @contact_form_link.display_versions, as: :version %>
-    </table>
-  </div>
-</div>
+
+<%= render partial: 'form', locals: { contact: @contact, contact_form_link: @contact_form_link, show_delete: true } %>
+
+<h3>Audit log</h3>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr class="table-header">
+      <th>Time</th>
+      <th>User</th>
+      <th>Action</th>
+      <th>Changes</th>
+    </tr>
+  </thead>
+  <%= render partial: 'admin/versions/version', collection: @contact_form_link.display_versions, as: :version %>
+</table>
