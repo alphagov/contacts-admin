@@ -1,11 +1,16 @@
-<div class="row">
-  <div class="span12 first-child">
-    <div class='page-header'>
-      <h2>New Phone Number for <%= @contact %></h2>
+<% content_for :page_title, 'Add phone number' %>
+<ol class="breadcrumb">
+  <li><%= link_to 'Contacts', admin_contacts_path  %></li>
+  <li><%= link_to @contact, edit_admin_contact_path(@contact) %></li>
+  <li><%= link_to 'Phone numbers', admin_contact_phone_numbers_path(@contact) %></li>
+  <li class="active">Add phone number</li>
+</ol>
 
-      <%= render 'admin/contacts/contact_nav', contact: @contact %>
-    </div>
-
-    <%= render 'form', contact: @contact, phone_number: @phone_number %>
-  </div>
+<div class="page-title">
+  <h1>
+    <small><%= @contact %></small><br />
+    Add phone number
+  </h1>
 </div>
+
+<%= render 'form', contact: @contact, phone_number: @phone_number %>

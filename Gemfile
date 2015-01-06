@@ -3,9 +3,8 @@ source "https://rubygems.org"
 gem "rails", "4.0.5"
 
 gem "active_hash", "~> 1.2.0"
-gem "bootstrap-sass", "2.3.2.2"
 gem "mysql2", "~> 0.3.13"
-gem "simple_form", "3.1.0.rc1"
+gem "simple_form", "3.1.0"
 gem "slimmer", "~> 3.27.0"
 gem "friendly_id", "5.0.2"
 gem "unicorn", "~> 4.6.3"
@@ -17,6 +16,7 @@ gem "gds-api-adapters", '~> 14.0'
 gem "lrucache", "0.1.4"
 gem "rummageable", ">= 1.0.1", "< 2.0.0"
 gem "plek", ">= 1.0.0"
+gem "govuk_admin_template", "1.4.3"
 
 gem "airbrake", "3.1.15"
 
@@ -32,8 +32,6 @@ gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.0.0"
 gem "therubyracer", platforms: :ruby
 gem "govuk_frontend_toolkit", "0.46.1"
-gem "jquery-rails"
-
 gem "select2-rails", "3.5.5"
 
 # development

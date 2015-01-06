@@ -1,9 +1,10 @@
-<div class="row">
-  <div class="span12 first-child">
-    <div class='page-header'>
-      <h2>New Contact</h2>
-    </div>
+<% content_for :page_title, 'Add contact' %>
+<ol class="breadcrumb">
+  <li><%= link_to 'Contacts', admin_contacts_path  %></li>
+  <li class="active">Add contact</li>
+</ol>
 
-    <%= render 'form', contact: @contact %>
-  </div>
+<div class="page-title">
+  <h1>Add contact</h1>
 </div>
+<%= render 'form', contact: @contact %>

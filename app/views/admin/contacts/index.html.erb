@@ -1,20 +1,13 @@
+<% content_for :page_title, "Contacts" %>
+<div class="page-title">
+  <h1>Contacts</h1>
+</div>
+
 <% if @contacts.any? %>
   <%= render "search_form" %>
-
-  <table class='table table-striped table-hover contacts-table'>
-    <colgroup>
-      <col width="100"></col>
-      <col width="*"></col>
-      <col width="120"></col>
-      <col width="*"></col>
-      <col width="*"></col>
-      <col width="*"></col>
-      <col width="*"></col>
-      <col width="*"></col>
-      <col width="120"></col>
-    </colgroup>
+  <table class="table table-striped table-hover table-bordered contacts-table">
     <thead>
-      <tr>
+      <tr class="table-header">
         <% if search.organisation_id.blank? %>
           <th>Organisation</th>
         <% end %>
@@ -26,7 +19,7 @@
         <th>Postal addresses</th>
         <th>Phone numbers</th>
         <th>
-          <%= link_to "+ Add Contact", new_admin_contact_path, class: 'btn btn-small pull-right' %>
+          <%= link_to "Add contact", new_admin_contact_path, class: 'btn btn-success pull-right' %>
         </th>
       </tr>
     </thead>

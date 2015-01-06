@@ -1,270 +1,19 @@
-@import "bootstrap";
-@import "_colours.scss";
-@import "_conditionals.scss";
-@import "_typography.scss";
-@import "_shims.scss";
-@import "_css3.scss";
-@import "_device-pixels.scss";
-@import "./frontend/styleguide/_colours.scss";
-
+@import 'govuk_admin_template';
 
 /* variables */
 $hover-yellow: #fff8dd;
 
-/* conversion functions */
-
-  @function em($target-px, $current-px) {
-    @return $target-px * (1 / $current-px) * 1em;
-  }
-
-  @function px($value) {
-    @return $value * 1px;
-  }
-
-/* end conversion functions */
-
-.clear {
-  clear: both;
-  zoom: 100%;
-}
-
-.span12 .span12 {
-  margin-left: 0;
-}
-
-@include ie-lte(6) {
-  .alert {
-    padding-top: 4px;
-  }
-
-  .span1,
-  .span2,
-  .span3,
-  .span4,
-  .span5,
-  .span6,
-  .span7,
-  .span8,
-  .span9,
-  .span10,
-  .span11,
-  .span12 {
-    float: left;
-    min-height: 1px;
-    margin-left: 20px;
-
-    &.first-child {
-      margin-left: 10px;
-    }
-  }
-
-  input,
-  textarea,
-  select {
-    &.span1,
-    &.span2,
-    &.span3,
-    &.span4,
-    &.span5,
-    &.span6,
-    &.span7,
-    &.span8,
-    &.span9,
-    &.span10,
-    &.span11,
-    &.span12 {
-      float: none;
-      min-height: 1px;
-      margin-left: 0px;
-
-      &.first-child {
-        margin-left: 0px;
-      }
-    }
-  }
-
-  .form-actions .controls {
-    margin-left: 80px;
-
-    .btn {
-      width: auto;
-    }
-  }
-
-  .open {
-    .dropdown-toggle {
-      background: transparent;
-    }
-
-    .dropdown-menu {
-      display: block;
-      top: 30px;
-      left: 10px;
-
-      li {
-        display: inline;
-
-        a {
-          display: block;
-          padding: 3px 20px;
-          clear: both;
-          font-weight: normal;
-          line-height: 20px;
-          color: #333;
-          white-space: nowrap;
-
-          &:hover {
-            text-decoration: none;
-            color: #FFF;
-          }
-        }
-      }
-    }
-  }
-
-  .page-header h2 .pull-right {
-    position: relative;
-    top: -30px;
-  }
-
-  .ie6-select-iframe {
-    display: none;
-    position: absolute;
-    left: 12px;
-    top: 32px;
-    border: none;
-  }
-
-  .open .ie6-select-iframe {
-    display: block;
-  }
-}
-
-.navbar .navbar-inner {
-  @include border-radius(0);
-
-  @include ie-lte(6) {
-    .nav li{
-      float: left;
-
-      a {
-        color: #999;
-        display: block;
-        padding: 10px 15px 10px;
-      }
-
-      &.active {
-        color: #fff;
-        background: transparent;
-
-        a {
-          background: #000;
-        }
-      }
-    }
-  }
-}
-
-.breadcrumb {
-  background: transparent;
-  padding: 0;
-
-  li, a {
-    font-size: em(13, 14);
-    max-width: 250px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-decoration: none;
-    background: transparent;
-  }
-
-  @include ie-lte(6) {
-    li {
-      float: left;
-      margin-right: 5px;
-    }
-  }
-}
-
 .nav-tabs {
-  margin-bottom: 30px;
-
-  @include ie-lte(6) {
-    border-bottom: 1px solid #ddd;
-    zoom: 1;
-
-    li {
-      background: transparent;
-      float: left;
-      position: relative;
-      top: 1px;
-
-      a {
-        padding-right: 12px;
-        padding-left: 12px;
-        margin-right: 2px;
-        line-height: 14px;
-        padding-top: 8px;
-        padding-bottom: 8px;
-        line-height: 20px;
-        border: 1px solid white;
-        zoom: 100%;
-        height: 19px;
-        overflow: hidden;
-
-        &:hover,
-        &:focus {
-          border-color: #eee;
-          background: #eee;
-          text-decoration: none;
-        }
-      }
-
-      &.active a,
-      &.active a:hover,
-      &.active a:focus {
-        color: #555555;
-        background-color: white;
-        border: 1px solid #ddd;
-        border-bottom-color: white;
-        cursor: default;
-        height: 20px;
-      }
-    }
-  }
-
-  .badge{
+  .badge {
     margin-left: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
     min-width: 8px;
     text-align: center;
   }
 }
 
-a {
-  text-decoration: underline;
-}
-
-abbr[title], abbr[data-original-title] {
+abbr[title],
+abbr[data-original-title] {
   border: none;
-}
-
-.btn,
-.nav a,
-.navbar a,
-.no-underline,
-.no-underline a {
-  text-decoration: none;
-}
-
-.text-red {
-  color: #c00;
-}
-
-textarea {
-  width: 400px;
 }
 
 .table {
@@ -276,6 +25,7 @@ textarea {
     &.text-right {
       text-align: right;
     }
+
     &.text-center {
       text-align: center;
     }
@@ -288,60 +38,12 @@ textarea {
       font-weight: normal;
     }
   }
-
-  @include ie-lte(6) {
-    th {
-      border-top: none;
-    }
-  }
 }
 
 .table-hover tbody tr:hover {
   > td,
   > th {
     background: $hover-yellow;
-  }
-}
-
-.page-header {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-h1, h2, h3 {
-  font-weight: normal;
-
-  .btn {
-    font-weight: normal;
-  }
-}
-
-h2 {
-  font-size: em(24, 14);
-
-  small {
-    margin-left: 10px;
-
-    a {
-      text-decoration: none;
-    }
-
-    .dropdown-toggle .caret {
-      margin-top: 21px;
-
-      @include ie-lte(7) {
-        margin-top: 14px;
-      }
-
-      @include ie-lte(6) {
-        border-color: black white white;
-      }
-    }
-
-    .dropdown-menu a {
-      font-size: em(13, 18);
-    }
   }
 }
 
@@ -354,42 +56,23 @@ fieldset {
 
   legend {
     margin-bottom: 0;
-
-    @include ie-lte(6) {
-      margin-bottom: 20px;
-    }
   }
-}
-
-.control-label {
-  font-weight: bold;
-}
-
-.span-preview {
-  .control-label {
-    width: 100px;
-  }
-  .controls {
-    margin-left: 120px;
-    margin-right: 20px;
-  }
-
-  .well {
-    word-wrap: break-word;
-  }
-}
-
-.form-actions {
-  background: transparent;
-  border: none;
-  padding-left: 0;
 }
 
 table {
-  td.date{
-    width:85px;
+  td.date {
+    width: 85px;
   }
-  td.changeset{
+
+  td.changeset {
     font-size: 11px;
+  }
+}
+
+.error {
+  color: $state-danger-text;
+
+  input {
+    border-color: $state-danger-text;
   }
 }

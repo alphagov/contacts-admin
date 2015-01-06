@@ -1,11 +1,16 @@
-<div class="row">
-  <div class="span12 first-child">
-    <div class='page-header'>
-      <h2>New Contact Form Link for <%= @contact %></h2>
+<% content_for :page_title, 'Add contact form link' %>
+<ol class="breadcrumb">
+  <li><%= link_to 'Contacts', admin_contacts_path  %></li>
+  <li><%= link_to @contact, edit_admin_contact_path(@contact) %></li>
+  <li><%= link_to 'Online links', admin_contact_contact_form_links_path(@contact) %></li>
+  <li class="active">Add link</li>
+</ol>
 
-      <%= render partial: 'admin/contacts/contact_nav', locals: { contact: @contact } %>
-    </div>
-
-    <%= render partial: 'form', locals: { contact: @contact, contact_form_link: @contact_form_link } %>
-  </div>
+<div class="page-title">
+  <h1>
+    <small><%= @contact %></small><br />
+    Add contact form link
+  </h1>
 </div>
+
+<%= render partial: 'form', locals: { contact: @contact, contact_form_link: @contact_form_link } %>

@@ -1,23 +1,22 @@
-<%= simple_form_for [:admin, contact, phone_number] do |f| %>
-  <fieldset class="form-horizontal">
-    <%= f.input :title, input_html: { class: 'span6' } %>
-    <%= f.input :number, input_html: { class: 'span6' } %>
-    <%= f.input :number_options_path, label: 'Call Options (separate with commas)' %>
-    <%= f.input :international_phone %>
-    <%= f.input :international_number_options_path, label: 'International Call Options (separate with commas)' %>
-    <%= f.input :textphone %>
-    <%= f.input :fax %>
-    <%= f.input :open_hours, input_html: { rows: 5, class: 'span6' }, hint: formatting_help_link %>
-    <%= f.input :best_time_to_call, input_html: { rows: 5, class: 'span6' }, hint: "Perhaps as 'Phone lines are less busy between...'" %>
-    <%= f.input :description, input_html: { rows: 8, class: 'span6' }, hint: formatting_help_link %>
-  </fieldset>
-
-  <div class='form-actions form-horizontal'>
-    <div class="control-group">
-      <div class="controls">
-        <%= f.submit id: 'phone-number-submit', class: 'btn btn-small btn-primary', data: { disable_with: 'Working' } %>
-      </div>
-    </div>
-  </div>
-<% end %>
+<% show_delete ||= false %>
+<div class="well">
+  <%= simple_form_for [:admin, contact, phone_number] do |f| %>
+    <fieldset>
+      <%= f.input :title, input_html: { class: 'form-control input-md-6' } %>
+      <%= f.input :number, input_html: { class: 'form-control input-md-6' } %>
+      <%= f.input :number_options_path, label: 'Call Options (separate with commas)', input_html: { class: 'form-control input-md-4' } %>
+      <%= f.input :international_phone, input_html: { class: 'form-control input-md-4' } %>
+      <%= f.input :international_number_options_path, label: 'International Call Options (separate with commas)', input_html: { class: 'form-control input-md-4' }  %>
+      <%= f.input :textphone, input_html: { class: 'form-control input-md-4' }  %>
+      <%= f.input :fax, input_html: { class: 'form-control input-md-4' }  %>
+      <%= f.input :open_hours, input_html: { rows: 5, class: 'form-control input-md-6' }, hint: formatting_help_link %>
+      <%= f.input :best_time_to_call, input_html: { rows: 5, class: 'form-control input-md-6' }, hint: "Perhaps as ‘Phone lines are less busy between…’" %>
+      <%= f.input :description, input_html: { rows: 8, class: 'form-control input-md-6' }, hint: formatting_help_link %>
+    </fieldset>
+    <%= f.submit id: 'phone-number-submit', class: 'btn btn-success', data: { disable_with: 'Working' } %>
+    <% if show_delete %>
+      <%= link_to 'Delete phone number', admin_contact_phone_number_path(@contact, @phone_number), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger add-left-margin' %>
+    <% end %>
+  <% end %>
+</div>
 <%= render "admin/shared/formatting" %>

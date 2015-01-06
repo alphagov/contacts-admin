@@ -1,21 +1,21 @@
-<%= simple_form_for [:admin, contact, post_address] do |f| %>
-  <fieldset class="form-horizontal">
-    <%= f.input :title, input_html: { class: 'span6' } %>
-    <%= f.input :street_address, input_html: { class: 'span6' } %>
-    <%= f.input :locality, input_html: { class: 'span6' } %>
-    <%= f.input :region, input_html: { class: 'span6' } %>
-    <%= f.input :postal_code, input_html: { class: 'span6' } %>
-    <%= f.input :world_location_slug, collection: WorldLocation.all, value_method: :slug, label: "Country", input_html: { rows: 8, class: 'span6' } %>
-    <%= f.input :description, input_html: { rows: 8, class: 'span6' }, hint: formatting_help_link %>
-    <%= f.input :address, label: "Legacy Address - please rewrite", input_html: { rows: 5, class: 'span6' } %>
-  </fieldset>
+<% show_delete ||= false %>
+<div class="well">
+  <%= simple_form_for [:admin, contact, post_address] do |f| %>
+    <fieldset>
+      <%= f.input :title, input_html: { class: 'form-control input-md-6' } %>
+      <%= f.input :street_address, input_html: { class: 'form-control input-md-6' } %>
+      <%= f.input :locality, input_html: { class: 'form-control input-md-6' } %>
+      <%= f.input :region, input_html: { class: 'form-control input-md-6' } %>
+      <%= f.input :postal_code, input_html: { class: 'form-control input-md-6' } %>
+      <%= f.input :world_location_slug, collection: WorldLocation.all, value_method: :slug, label: "Country", input_html: { rows: 8, class: 'form-control input-md-6' } %>
+      <%= f.input :description, input_html: { rows: 8, class: 'form-control input-md-6' }, hint: formatting_help_link %>
+      <%= f.input :address, label: "Legacy Address – please rewrite", input_html: { rows: 5, class: 'form-control input-md-6' } %>
+    </fieldset>
 
-  <div class='form-actions form-horizontal'>
-    <div class="control-group">
-      <div class="controls">
-        <%= f.submit id: 'post-address-submit', class: 'btn btn-small btn-primary', data: { disable_with: 'Working' } %>
-      </div>
-    </div>
-  </div>
-<% end %>
+    <%= f.submit id: 'post-address-submit', class: 'btn btn-success', data: { disable_with: 'Working' } %>
+    <% if show_delete %>
+      <%= link_to 'Delete address', admin_contact_post_address_path(@contact, @post_address), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger add-left-margin' %>
+    <% end %>
+  <% end %>
+</div>
 <%= render "admin/shared/formatting" %>

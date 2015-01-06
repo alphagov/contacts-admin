@@ -6,8 +6,6 @@
   <td><%= contact_group.description %></td>
   <td><%= contact_group.contacts.size %></td>
   <td class='text-right'>
-    <small>
-      <%= link_to "Edit", edit_admin_contact_group_path(contact_group) %>
-    </small>
+    <%= link_to "Edit group", edit_admin_contact_group_path(contact_group), class: 'btn btn-default' %>
   </td>
 </tr>

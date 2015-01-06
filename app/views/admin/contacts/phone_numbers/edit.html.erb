@@ -1,28 +1,29 @@
-<div class="row">
-  <div class="span12 first-child">
-    <div class='page-header'>
-      <h2>
-        Edit Phone Number for <%= @contact %>
-        <%= link_to 'Delete', admin_contact_phone_number_path(@contact, @phone_number), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small text-red pull-right' %>
-      </h2>
+<% content_for :page_title, 'Edit phone number' %>
+<ol class="breadcrumb">
+  <li><%= link_to 'Contacts', admin_contacts_path  %></li>
+  <li><%= link_to @contact, edit_admin_contact_path(@contact) %></li>
+  <li><%= link_to 'Phone numbers', admin_contact_phone_numbers_path(@contact) %></li>
+  <li class="active"><%= @phone_number.number %></li>
+</ol>
 
-      <%= render 'admin/contacts/contact_nav', contact: @contact %>
-    </div>
+<div class="page-title">
+  <h1>
+    <small><%= @contact %></small><br />
+    Edit ‘<%= @phone_number.number %>’
+  </h1>
+</div>
 
-    <%= render 'form', contact: @contact, phone_number: @phone_number %>
-  </div>
-</div>
-<div class="row">
-  <div class="span12">
-    <h3>Audit log</h3>
-    <table class="table table-striped">
-      <tr>
-        <th>Time</th>
-        <th>User</th>
-        <th>Action</th>
-        <th>Changes</th>
-      </tr>
-      <%= render partial: 'admin/versions/version', collection: @phone_number.display_versions, as: :version %>
-    </table>
-  </div>
-</div>
+<%= render 'form', contact: @contact, phone_number: @phone_number, show_delete: true %>
+
+<h3 class="add-bottom-margin">Audit log</h3>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr class="table-header">
+      <th>Time</th>
+      <th>User</th>
+      <th>Action</th>
+      <th>Changes</th>
+    </tr>
+  </thead>
+  <%= render partial: 'admin/versions/version', collection: @phone_number.display_versions, as: :version %>
+</table>

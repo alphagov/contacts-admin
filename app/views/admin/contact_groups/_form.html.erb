@@ -1,19 +1,18 @@
-<%= simple_form_for [:admin, contact_group] do |f| %>
-  <fieldset class="form-horizontal">
-    <%= f.input :title, input_html: { class: 'span6' } %>
-    <%= f.input :description, as: :text, input_html: { rows: 8, class: 'span6' }, hint: formatting_help_link %>
-    <%= f.input :organisation_id, label: "Organisation", collection: Organisation.all, label_method: :to_s, value_method: :id, include_blank: false, input_html: { class: 'span3 js-select2' } %>
-    <%= f.association :contact_group_type, collection: ContactGroupType.all, include_blank: false, input_html: { class: 'span3 js-select2' } %>
-  </fieldset>
+<div class="well">
+  <%= simple_form_for [:admin, contact_group] do |f| %>
+    <fieldset>
+      <%= f.input :title, input_html: { class: 'form-control input-md-6' } %>
+      <%= f.input :description, as: :text, input_html: { rows: 8, class: 'form-control input-md-6' }, hint: formatting_help_link %>
+      <%= f.input :organisation_id, label: "Organisation", collection: Organisation.all, label_method: :to_s, value_method: :id, include_blank: false, input_html: { class: 'form-control input-md-3 js-select2' } %>
+      <%= f.association :contact_group_type, collection: ContactGroupType.all, include_blank: false, input_html: { class: 'form-control input-md-3 js-select2' } %>
+    </fieldset>
 
-  <div class='form-actions form-horizontal'>
-    <div class="control-group">
-      <div class="controls">
-        <%= f.submit id: 'contact-group-submit', class: 'btn btn-small btn-primary', data: { disable_with: 'Working' } %>
-        &nbsp;
-        <%= link_to "cancel", admin_contact_groups_path, class: 'btn btn-small'%>
+    <div class='form-actions'>
+      <div class="form-group">
+        <%= f.submit id: 'contact-group-submit', class: 'btn btn-small btn-success', data: { disable_with: 'Working' } %>
+        <%= link_to "Cancel", admin_contact_groups_path, class: 'add-left-margin btn btn-default'%>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
 <%= render "admin/shared/formatting" %>

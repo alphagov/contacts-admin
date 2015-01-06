@@ -1,30 +1,16 @@
-<div class='page-header'>
-  <h2>
-    Edit <%= @contact %>
-  </h2>
+<%= render 'admin/contacts/edit_contact_header', contact: @contact %>
 
-  <%= render 'admin/contacts/contact_nav', contact: @contact %>
-</div>
-
-<%= render "more_info_form", contact: @contact %>
-
+<h2>Phone numbers</h2>
 <% if @contact.phone_numbers.any? %>
-  <table class='table table-striped table-hover phone-numbers-table'>
-    <colgroup>
-      <col width="120"></col>
-      <col width="200"></col>
-      <col width="*"></col>
-      <col width="150"></col>
-      <col width="160"></col>
-    </colgroup>
+  <table class='table table-striped table-hover table-bordered phone-numbers-table'>
     <thead>
-      <tr>
+      <tr class="table-header">
         <th>Phone Number</th>
         <th>Title</th>
         <th>Description</th>
         <th>Open Hours</th>
         <th>
-          <%= link_to "+ Add phone number", new_admin_contact_phone_number_path(@contact), class: 'btn btn-small pull-right' %>
+          <%= link_to "Add phone number", new_admin_contact_phone_number_path(@contact), class: 'btn btn-success pull-right' %>
         </th>
       </tr>
     </thead>
@@ -33,9 +19,9 @@
     </tbody>
   </table>
 <% else %>
-  <h4>No phone numbers found</h4>
-  <p>
-    We have found no phone numbers.
-    <%= link_to "You should add one.", new_admin_contact_phone_number_path(@contact) %>
-  </p>
+  <div class="no-content no-content-bordered">
+    <%= link_to "Add phone number", new_admin_contact_phone_number_path(@contact) %>
+  </div>
 <% end %>
+
+<%= render "more_info_form", contact: @contact %>

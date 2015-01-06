@@ -1,14 +1,15 @@
 <%= render 'admin/shared/formatting' %>
-
-<%= simple_form_for [:admin, contact] do |f| %>
-  <%= hidden_field_tag :tab, 'email_addresses' %>
-  <fieldset class="form-horizontal">
-    <legend>Extra information for Email Address method</legend>
-    <%= f.input :more_info_email_address,
-                label: "More info for email addresses",
-                placeholder: "This appears below email method",
-                input_html: { rows: 5, class: "span9" },
-                hint: formatting_help_link %>
-    <%= f.submit "Update", class: "btn btn-primary" %>
-  </fieldset>
-<% end %>
+<h3 class="add-bottom-margin">Further information</h3>
+<div class="well">
+  <%= simple_form_for [:admin, contact] do |f| %>
+    <%= hidden_field_tag :tab, 'email_addresses' %>
+    <fieldset>
+      <%= f.input :more_info_email_address,
+                  label: "More information for email addresses",
+                  placeholder: "This appears below email method",
+                  input_html: { rows: 5, class: "input-md-8 form-control" },
+                  hint: formatting_help_link %>
+      <%= f.submit "Update information", class: "btn btn-success" %>
+    </fieldset>
+  <% end %>
+</div>

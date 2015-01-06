@@ -1,49 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Contacts: Admin Interface</title>
-  <%= stylesheet_link_tag    "admin", media: "all" %>
-  <!--[if IE 6]>
-    <%= stylesheet_link_tag "admin/#{local_assigns[:stylesheet] || "base"}-ie6.css" %><script>var ieVersion = 6;</script>
-  <![endif]-->
-  <!--[if IE 7]>
-    <%= stylesheet_link_tag "admin/#{local_assigns[:stylesheet] || "base"}-ie7.css" %><script>var ieVersion = 7;</script>
-  <![endif]-->
-  <!--[if IE 8]>
-    <%= stylesheet_link_tag "admin/#{local_assigns[:stylesheet] || "base"}-ie8.css" %><script>var ieVersion = 8;</script>
-  <![endif]-->
+<% content_for :app_title, 'GOV.UK Contacts' %>
+<% content_for :app_home_path, admin_root_path %>
+<% content_for :page_title, ' | GOV.UK Contacts' %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "admin", :media => "all" %>
+  <%= csrf_meta_tag %>
   <%= javascript_include_tag "admin" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <%= yield :extra_headers %>
+  <% if Rails.env.production? %>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-26179049-6', 'alphagov.co.uk');
+      ga('send', 'pageview');
+    </script>
+  <% end %>
+<% end %>
 
-<div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-    <%= link_to 'Contacts', admin_root_path, class: 'brand'  %>
+<% content_for :navbar_items do %>
+  <li class="<%= 'active' if params[:controller] == 'admin/contacts' || params[:controller] == 'admin/contacts/contact_form_links' || params[:controller] == 'admin/contacts/email_addresses' || params[:controller] == 'admin/contacts/phone_numbers' || params[:controller] == 'admin/contacts/post_addresses' %>">
+    <%= link_to 'Contacts', admin_contacts_path  %>
+  </li>
+  <li class="<%= 'active' if params[:controller] == 'admin/contact_groups' %>">
+    <%= link_to 'Contact groups', admin_contact_groups_path  %>
+  </li>
+<% end %>
 
-    <ul class="nav">
-      <li class="<%= 'active' if params[:controller] == 'admin/contacts' || params[:controller] == 'admin/contacts/contact_form_links' || params[:controller] == 'admin/contacts/email_addresses' || params[:controller] == 'admin/contacts/phone_numbers' || params[:controller] == 'admin/contacts/post_addresses' %>">
-        <%= link_to 'Contacts', admin_contacts_path  %>
-      </li>
-      <li class="<%= 'active' if params[:controller] == 'admin/contact_groups' %>">
-        <%= link_to 'Contact Groups', admin_contact_groups_path  %>
-      </li>
-    </ul>
-    <p class='navbar-text pull-right'>
-      <%= current_user.name %>
-      &nbsp; | &nbsp;
-      <%= link_to "Sign out", gds_sign_out_path %>
-    </p>
-  </div>
-</div>
+<% content_for :navbar_right do %>
+  <%= link_to current_user.name, Plek.current.find('signon') %>
+  &bull; <%= link_to 'Sign out', gds_sign_out_path %>
+<% end %>
 
-<div class="container-fluid">
-  <div class="clear"></div>
+<% content_for :content do %>
   <%= render 'flashes' %>
-
   <%= yield %>
-</div>
+<% end %>
 
-</body>
-</html>
+<% content_for :footer_version, CURRENT_RELEASE_SHA %>
+
+<%# use the govuk_admin_template layout %>
+<%= render :template => 'layouts/govuk_admin_template' %>

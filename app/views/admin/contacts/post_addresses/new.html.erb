@@ -1,11 +1,16 @@
-<div class="row">
-  <div class="span12 first-child">
-    <div class='page-header'>
-      <h2>New Post Address for <%= @contact %></h2>
+<% content_for :page_title, 'Add postal address' %>
+<ol class="breadcrumb">
+  <li><%= link_to 'Contacts', admin_contacts_path  %></li>
+  <li><%= link_to @contact, edit_admin_contact_path(@contact) %></li>
+  <li><%= link_to 'Postal addresses', admin_contact_post_addresses_path(@contact) %></li>
+  <li class="active">Add postal address</li>
+</ol>
 
-      <%= render 'admin/contacts/contact_nav', contact: @contact %>
-    </div>
-
-    <%= render 'form', contact: @contact, post_address: @post_address %>
-  </div>
+<div class="page-title">
+  <h1>
+    <small><%= @contact %></small><br />
+    Add postal address
+  </h1>
 </div>
+
+<%= render 'form', contact: @contact, post_address: @post_address %>
