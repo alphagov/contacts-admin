@@ -34,8 +34,6 @@ alternatively you can load the database schema and use the old initial seed data
 
 Start the application with `./startup.sh` or use bowler.
 
-Set RUMMAGER_API=true and WHITEHALL_API=true to enable API requests in development
-
 open http://contacts.dev.gov.uk/contact/hm-revenue-customs/
 open http://contacts.dev.gov.uk/admin
 
