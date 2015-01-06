@@ -3,7 +3,7 @@
                     as: :select,
                     collection: Organisation.all,
                     label_method: :to_s,
-                    value_method: :slug,
+                    value_method: :id,
                     class: "js-select2 form-control",
                     data: { placeholder: "Organisation" } %>
   <%= f.input_field :title, placeholder: "Title", class: "form-control search-query" %>

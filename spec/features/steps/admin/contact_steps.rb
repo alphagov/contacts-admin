@@ -2,6 +2,22 @@ module Admin
   module ContactSteps
     include ::CommonSteps
 
+    def should_list_contact(contact_title)
+      expect(page).to have_content(contact_title)
+    end
+
+    def should_not_list_contact(contact_title)
+      expect(page).to_not have_content(contact_title)
+    end
+
+    def filter_by_organisation(organisation_name)
+      select organisation_name, from: 'search_organisation_id'
+    end
+
+    def submit_filter_form
+      click_button "Filter contacts"
+    end
+
     def contact_exists(contact)
       ensure_on admin_contacts_path
 
