@@ -39,10 +39,6 @@ Contacts::Application.configure do
 
     Contacts.worldwide_api = GdsApi::Worldwide.new( Plek.current.find('whitehall-admin') )
 
-    Contacts.rummager_client = if ENV['RUMMAGER_API']
-      Rummageable::Index.new( Plek.current.find('search'), 'mainstream', logger: Rails.logger )
-    else
-      FakeRummageableIndex.new("http://localhost", 'mainstream', logger: Rails.logger)
-    end
+    Contacts.rummager_client = Rummageable::Index.new( Plek.current.find('search'), 'mainstream', logger: Rails.logger )
   end
 end
