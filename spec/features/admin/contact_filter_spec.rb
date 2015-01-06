@@ -19,4 +19,17 @@ feature "Contact filtering", auth: :user do
     should_list_contact("Entranced")
     should_not_list_contact("Mellowed")
   end
+
+  scenario "filtering by title" do
+    visit "/admin/contacts"
+
+    should_list_contact("Entranced")
+    should_list_contact("Mellowed")
+
+    filter_by_title_or_description("trance")
+    submit_filter_form
+
+    should_list_contact("Entranced")
+    should_not_list_contact("Mellowed")
+  end
 end

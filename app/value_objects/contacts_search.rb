@@ -1,14 +1,14 @@
 class ContactsSearch < Searchlight::Search
   search_on Contact.includes(:contact_memberships)
 
-  searches :title, :description, :name, :organisation_id, :contact_group_id
+  searches :q, :organisation_id, :contact_group_id
 
-  def name
+  def q
     (super || "").strip
   end
 
-  def search_name
-    search.where("contacts.title LIKE :name OR contacts.description LIKE :name", name: "%#{name}%")
+  def search_q
+    search.where("contacts.title LIKE :q OR contacts.description LIKE :q", q: "%#{q}%")
   end
 
   def search_organisation_id

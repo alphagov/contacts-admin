@@ -14,6 +14,10 @@ module Admin
       select organisation_name, from: 'search_organisation_id'
     end
 
+    def filter_by_title_or_description(title_or_description)
+      fill_in 'search_q', with: title_or_description
+    end
+
     def submit_filter_form
       click_button "Filter contacts"
     end
