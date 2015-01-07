@@ -12,11 +12,21 @@ module Public
     end
 
     def should_list_contact(contact)
-      expect(page).to have_content(contact.title)
+      expect(page).to have_link(contact.title, :href => "/government/organisations/#{hmrc.slug}/contact/#{contact.slug}")
     end
 
     def should_not_list_contact(contact)
-      expect(page).to_not have_content(contact.title)
+      expect(page).to_not have_link(contact.title, :href => "/government/organisations/#{hmrc.slug}/contact/#{contact.slug}")
+    end
+
+    def should_have_page_heading(text)
+      within('header h1') do
+        expect(page).to have_content(text)
+      end
+    end
+
+    def should_have_title(text)
+      expect(page).to have_title(text)
     end
 
     def contacts_page_selector
