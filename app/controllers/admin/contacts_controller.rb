@@ -7,7 +7,7 @@ class Admin::ContactsController < AdminController
   end
 
   def index
-    @contacts = search.results.by_title
+    @contacts = search.results.includes(:contact_groups, :organisation).by_title
   end
 
   def update
