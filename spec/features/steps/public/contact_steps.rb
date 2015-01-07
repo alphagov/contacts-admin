@@ -2,15 +2,6 @@ module Public
   module ContactSteps
     include ::CommonSteps
 
-    def contacts_exist(contacts)
-      has_selector?(contacts_page_selector) &&
-        within(contacts_list_selector) do
-          contacts.each do |contact|
-            has_content? contact.title
-          end
-        end
-    end
-
     def should_list_contact(contact)
       expect(page).to have_link(contact.title, :href => "/government/organisations/#{hmrc.slug}/contact/#{contact.slug}")
     end
@@ -29,12 +20,16 @@ module Public
       expect(page).to have_title(text)
     end
 
-    def contacts_page_selector
-      "div.contacts-page"
+    def search_for(text)
+      fill_in("Contains", with: text)
     end
 
-    def contacts_list_selector
-      "ol.document-list"
+    def select_topic(topic_title)
+      select(topic_title, from: "Topic")
+    end
+
+    def refresh_results
+      click_on("Refresh results")
     end
   end
 end
