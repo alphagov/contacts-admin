@@ -3,10 +3,9 @@
                     as: :select,
                     collection: Organisation.all,
                     label_method: :to_s,
-                    value_method: :slug,
+                    value_method: :id,
                     class: "js-select2 form-control",
                     data: { placeholder: "Organisation" } %>
-  <%= f.input_field :title, placeholder: "Title", class: "form-control search-query" %>
-  <%= f.input_field :description, placeholder: "Description", class: "form-control search-query" %>
+  <%= f.input_field :q, placeholder: "Title or description", class: "form-control search-query" %>
   <%= f.submit "Filter contacts", class: "add-left-margin btn btn-default", data: { disable_with: "Working" } %>
 <% end %>
