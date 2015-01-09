@@ -30,6 +30,7 @@ Contacts::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  # FIXME: Stop setting asset_host when we split the frontend off into a finder
   if ENV['GOVUK_ASSET_ROOT'].present?
     config.asset_host = ENV['GOVUK_ASSET_ROOT']
   end
