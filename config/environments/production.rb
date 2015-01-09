@@ -57,14 +57,8 @@ Contacts::Application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # Use a separate asset host for public-facing requests, but not for requests
-  # to the admin pages.
   # FIXME: Stop setting asset_host when we split the frontend off into a finder
-  config.action_controller.asset_host = Proc.new do |source, request, *_|
-    unless request.original_fullpath.start_with?('/admin')
-      ENV['GOVUK_ASSET_HOST']
-    end
-  end
+  config.action_controller.asset_host = ENV['GOVUK_ASSET_HOST']
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
