@@ -15,16 +15,6 @@ describe Contact do
     contact.save
   end
 
-  it "should be deregistered after being destroyed" do
-    contact = create(:contact)
-
-    presenter = double("ContactGonePresenter")
-    ContactGonePresenter.should_receive(:new).with(contact).and_return(presenter)
-    Contacts::Publisher.should_receive(:publish).with(presenter)
-
-    contact.destroy
-  end
-
   context "content ID" do
 
     it "should be set on a new contact" do
