@@ -1,8 +1,8 @@
 module Admin
   class DestroyContactGroup
-    include ::Contacts::Interactor
-
-    takes(:contact_group)
+    def initialize(contact_group)
+      @contact_group = contact_group
+    end
 
     def destroy
       if @contact_group.contacts.none?
