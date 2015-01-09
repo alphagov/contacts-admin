@@ -6,7 +6,10 @@ module Admin
 
     def destroy
       @contact.transaction do
-        ::Contacts.rummager_client.delete(@contact.slug)
+        # Remove from site search
+        rummager_id = @contact.link.gsub(%r{^/}, '')
+        ::Contacts.rummager_client.delete(rummager_id)
+
         @contact.destroy
       end
       rescue RestClient::RequestFailed, RestClient::RequestTimeout, RestClient::ServerBrokeConnection, SocketError

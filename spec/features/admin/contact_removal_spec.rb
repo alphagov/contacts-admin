@@ -9,6 +9,8 @@ describe "Contact removal", auth: :user do
   before { Contact.count.should eq(1) }
 
   specify "it can be removed" do
+    it_should_remove_the_page_from_search(contact)
+
     expect {
       delete_contact(contact)
     }.to change { Contact.count }.by(-1)
