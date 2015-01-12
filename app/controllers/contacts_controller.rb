@@ -9,7 +9,11 @@ class ContactsController < ApplicationController
 
   def search_params
     filter = { organisation_id: organisation.id }
-    filter.merge(params.fetch(:search, {}))
+    filter = filter.merge(params.fetch(:search, {}))
+    # rewrite requests using older search parameter name
+    filter[:q] = filter['name']
+    filter.delete('name')
+    filter
   end
 
   def organisation
