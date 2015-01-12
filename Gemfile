@@ -17,6 +17,7 @@ gem "lrucache", "0.1.4"
 gem "rummageable", ">= 1.0.1", "< 2.0.0"
 gem "plek", ">= 1.0.0"
 gem "govuk_admin_template", "1.4.3"
+gem "mlanett-redis-lock", "0.2.6"
 
 gem "airbrake", "3.1.15"
 
