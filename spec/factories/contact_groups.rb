@@ -15,5 +15,11 @@ FactoryGirl.define do
         contact_group.contacts << FactoryGirl.create(:contact)
       end
     end
+
+    trait :with_organisation do
+      before(:create) do |contact_group|
+        contact_group.organisation = FactoryGirl.create(:organisation)
+      end
+    end
   end
 end

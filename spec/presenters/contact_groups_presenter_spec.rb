@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe ContactGroupsPresenter do
-  let(:group) { create :contact_group, :with_contacts }
+  let(:group) { create :contact_group, :with_contacts, :with_organisation }
 
   it "transforms a contact to the correct format" do
     presented = ContactGroupsPresenter.new([group]).present.first
