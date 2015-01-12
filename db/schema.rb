@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 20150112114153) do
   end
 
   add_index "organisations", ["ancestry"], name: "index_organisations_on_ancestry", using: :btree
+  add_index "organisations", ["slug"], name: "index_organisations_on_slug", unique: true, using: :btree
 
   create_table "phone_numbers", force: true do |t|
     t.integer  "contact_id"
