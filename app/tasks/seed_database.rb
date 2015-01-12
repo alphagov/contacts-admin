@@ -5,6 +5,7 @@ class SeedDatabase
 
   def run
     create_users
+    create_organisation
     create_contact_groups
   end
 
@@ -16,6 +17,10 @@ class SeedDatabase
       u.email = "winston@alphagov.co.uk"
       u.permissions = ["signin"]
     }.save
+  end
+
+  def create_organisation
+    Organisation.create!(slug: "hm-revenue-customs")
   end
 
   CONTACT_GROUPS = [
@@ -97,7 +102,7 @@ class SeedDatabase
         contact_group_type_id: contact_group[:contact_group_type].id,
         title: contact_group[:title],
         description: contact_group[:description],
-        organisation_id: Organisation.find_or_create_by(slug: "hm-revenue-customs").id
+        organisation_id: Organisation.find_by(slug: "hm-revenue-customs").id,
       )
     end
   end
