@@ -1,4 +1,4 @@
-require "contacts/publish_finder"
+require "contacts/publisher"
 
 class ContactGroup < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -36,6 +36,6 @@ private
 
   def publish_finder
     presenter = ContactsFinderPresenter.new(self.organisation)
-    Contacts::PublishFinder.publish(presenter)
+    Contacts::Publisher.publish(presenter)
   end
 end

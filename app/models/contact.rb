@@ -1,5 +1,4 @@
-require "contacts/register_contact"
-require "contacts/deregister_contact"
+require "contacts/publisher"
 
 class Contact < ActiveRecord::Base
   include Versioning
@@ -79,11 +78,11 @@ class Contact < ActiveRecord::Base
 
   def register_contact
     presenter = ContactPresenter.new(self)
-    Contacts::RegisterContact.register(presenter)
+    Contacts::Publisher.publish(presenter)
   end
 
   def deregister_contact
     presenter = ContactGonePresenter.new(self)
-    Contacts::DeregisterContact.deregister(presenter)
+    Contacts::Publisher.publish(presenter)
   end
 end
