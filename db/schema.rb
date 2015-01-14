@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112114153) do
+ActiveRecord::Schema.define(version: 20150114102401) do
 
   create_table "contact_groups", force: true do |t|
     t.integer  "contact_group_type_id"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20150112114153) do
     t.datetime "updated_at"
     t.string   "ancestry"
     t.string   "contact_index_content_id"
+    t.string   "content_id"
   end
 
   add_index "organisations", ["ancestry"], name: "index_organisations_on_ancestry", using: :btree
