@@ -91,7 +91,7 @@ private
   end
 
   def organisations
-    []
+    [organisation.content_id].compact
   end
 
   def public_updated_at
