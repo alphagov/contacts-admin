@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Contacts::DeregisterContact do
+describe Contacts::Publisher do
   let!(:presenter) { double("ContactPresenter") }
   let!(:presented_contact) { { base_path: '/base-path', format: 'gone' } }
 
@@ -8,6 +8,6 @@ describe Contacts::DeregisterContact do
     presenter.should_receive(:present).and_return(presented_contact)
     Contacts.publishing_api.should_receive(:put_content_item).with('/base-path', presented_contact)
 
-    Contacts::DeregisterContact.deregister(presenter)
+    Contacts::Publisher.publish(presenter)
   end
 end

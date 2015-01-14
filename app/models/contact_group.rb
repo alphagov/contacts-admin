@@ -1,9 +1,13 @@
+require "contacts/publisher"
+
 class ContactGroup < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
   include Versioning
   include FriendlyId
 
   belongs_to :organisation
+
+  after_save :publish_finder
 
   friendly_id :title, use: :history
 
@@ -26,5 +30,12 @@ class ContactGroup < ActiveRecord::Base
 
   def to_s
     title
+  end
+
+private
+
+  def publish_finder
+    presenter = ContactsFinderPresenter.new(self.organisation)
+    Contacts::Publisher.publish(presenter)
   end
 end

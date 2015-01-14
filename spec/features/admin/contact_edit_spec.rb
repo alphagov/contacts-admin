@@ -3,7 +3,7 @@ require "spec_helper"
 describe "Contact editing", auth: :user do
   include Admin::ContactSteps
 
-  let!(:contact_group) { create(:contact_group, title: "new contact type") }
+  let!(:contact_group) { create(:contact_group, :with_organisation, title: "new contact type") }
   let!(:contact)       { create :contact }
 
   specify "it can be updated" do

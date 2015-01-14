@@ -7,5 +7,6 @@ FactoryGirl.define do
     format "Non-ministerial department"
     sequence(:abbreviation) { |n| "ORG#{n}" }
     govuk_status "live"
+    contact_index_content_id SecureRandom.uuid
   end
 end

@@ -1,12 +1,16 @@
 class Organisation < ActiveRecord::Base
   include FriendlyId
 
+  before_validation :set_contact_index_content_id, on: :create
+
   friendly_id :slug
 
   has_ancestry
 
   has_many :contacts
   has_many :contact_groups
+
+  validates :contact_index_content_id, presence: true
 
   def title_with_abbreviation
     if abbreviation.present? && abbreviation != title
@@ -43,6 +47,12 @@ class Organisation < ActiveRecord::Base
       abbreviation: abbreviation,
       govuk_status: govuk_status
     }
+  end
+
+private
+
+  def set_contact_index_content_id
+    self.contact_index_content_id = SecureRandom.uuid
   end
 
 end

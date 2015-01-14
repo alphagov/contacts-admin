@@ -9,7 +9,7 @@ describe Contact do
 
     presenter = double("ContactPresenter")
     ContactPresenter.should_receive(:new).with(contact).and_return(presenter)
-    Contacts::RegisterContact.should_receive(:register).with(presenter)
+    Contacts::Publisher.should_receive(:publish).with(presenter)
 
     contact.title = "Winter is coming"
     contact.save
@@ -20,7 +20,7 @@ describe Contact do
 
     presenter = double("ContactGonePresenter")
     ContactGonePresenter.should_receive(:new).with(contact).and_return(presenter)
-    Contacts::DeregisterContact.should_receive(:deregister).with(presenter)
+    Contacts::Publisher.should_receive(:publish).with(presenter)
 
     contact.destroy
   end

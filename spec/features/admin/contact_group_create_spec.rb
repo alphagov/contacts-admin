@@ -3,9 +3,12 @@ require "spec_helper"
 describe "Contact Group creation", auth: :user do
   include Admin::ContactGroupSteps
 
-  let(:contact_group) { build :contact_group  }
+  let(:organisation) { create :organisation }
+
+  let(:contact_group) { build :contact_group }
 
   before {
+    contact_group.organisation = organisation
     verify !contact_group_exists(contact_group)
   }
 
