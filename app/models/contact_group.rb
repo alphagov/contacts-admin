@@ -7,7 +7,10 @@ class ContactGroup < ActiveRecord::Base
 
   belongs_to :organisation
 
-  after_save :publish_finder
+  # The line below is commented out in order to disable publishing of
+  # Finders until we have Contacts within the Elastic Search index.
+  #
+  # after_save :publish_finder
 
   friendly_id :title, use: :history
 
