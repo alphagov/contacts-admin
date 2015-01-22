@@ -1,3 +1,5 @@
+require "contacts/publisher"
+
 module Admin
   class DestroyContact
     def initialize(contact)
@@ -6,10 +8,15 @@ module Admin
 
     def destroy
       @contact.transaction do
+        # Overwrite with a gone item in content-store
+        presenter = ContactGonePresenter.new(@contact)
+        ::Contacts::Publisher.publish(presenter)
+
         # Remove from site search
         rummager_id = @contact.link.gsub(%r{^/}, '')
         ::Contacts.rummager_client.delete(rummager_id)
 
+        # Remove from our database
         @contact.destroy
       end
       rescue RestClient::RequestFailed, RestClient::RequestTimeout, RestClient::ServerBrokeConnection, SocketError

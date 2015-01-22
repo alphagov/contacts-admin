@@ -8,7 +8,6 @@ class Contact < ActiveRecord::Base
   attr_readonly :content_id
 
   after_save :register_contact
-  before_destroy :deregister_contact
 
   friendly_id :title, use: :history
 
@@ -78,11 +77,6 @@ class Contact < ActiveRecord::Base
 
   def register_contact
     presenter = ContactPresenter.new(self)
-    Contacts::Publisher.publish(presenter)
-  end
-
-  def deregister_contact
-    presenter = ContactGonePresenter.new(self)
     Contacts::Publisher.publish(presenter)
   end
 end
