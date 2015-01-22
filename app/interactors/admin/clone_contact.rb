@@ -1,8 +1,8 @@
 module Admin
   class CloneContact
-    include ::Contacts::Interactor
-
-    takes(:contact)
+    def initialize(contact)
+      @contact = contact
+    end
 
     def clone
       clone = @contact.dup
