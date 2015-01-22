@@ -3,6 +3,7 @@ require "spec_helper"
 describe "Contact removal", auth: :user do
   include Admin::ContactSteps
   include Admin::PublishingApiSteps
+  include Admin::SiteSearchSteps
 
   let!(:contact) { create :contact }
 
