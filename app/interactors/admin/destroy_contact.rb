@@ -19,9 +19,9 @@ module Admin
         # Remove from our database
         @contact.destroy
       end
-      rescue RestClient::RequestFailed, RestClient::RequestTimeout, RestClient::ServerBrokeConnection, SocketError
-        @contact.errors.add(:base, "There was a system error trying to delete this, please try again later")
-        false
+    rescue RestClient::RequestFailed, RestClient::RequestTimeout, RestClient::ServerBrokeConnection, SocketError
+      @contact.errors.add(:base, "There was a system error trying to delete this, please try again later")
+      false
     end
   end
 end

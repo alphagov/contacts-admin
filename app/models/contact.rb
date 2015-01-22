@@ -59,14 +59,7 @@ class Contact < ActiveRecord::Base
   end
 
   def to_indexed_json
-    {
-      title: title,
-      description: description,
-      link: link,
-      format: "contact",
-      indexable_content: "#{title} #{description} #{contact_groups.map(&:title).join}",
-      organisation: organisation.as_json
-    }
+    ContactSearchPresenter.new(self).present
   end
 
   private
