@@ -11,7 +11,6 @@ describe Contact do
     ContactPresenter.should_receive(:new).with(contact).and_return(presenter)
     Contacts::Publisher.should_receive(:publish).with(presenter)
 
-    contact.title = "Winter is coming"
     contact.save
   end
 
