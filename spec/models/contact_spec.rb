@@ -11,6 +11,8 @@ describe Contact do
     ContactPresenter.should_receive(:new).with(contact).and_return(presenter)
     Contacts::Publisher.should_receive(:publish).with(presenter)
 
+    FakeRummageableIndex.any_instance.should_receive(:add).with(contact.to_indexed_json)
+
     contact.save
   end
 
