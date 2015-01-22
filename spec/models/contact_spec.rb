@@ -44,4 +44,27 @@ describe Contact do
       }.not_to change { contact.content_id }
     end
   end
+
+  describe "to_indexed_json" do
+    it "should generate a Rummager format" do
+      organisation = create(:organisation, slug: 'bowie')
+      contact = create(:contact,
+                        :with_contact_group,
+                        title: "Major Tom",
+                        description: "Back to Earth",
+                        organisation: organisation)
+
+      expected = {
+        title:             "Major Tom",
+        description:       "Back to Earth",
+        link:              "/government/organisations/bowie/contact/major-tom",
+        format:            'contact',
+        indexable_content: "Major Tom Back to Earth #{contact.contact_groups.first.title}",
+        organisations:     ['bowie'],
+        last_update:       contact.updated_at,
+      }
+
+      expect(contact.to_indexed_json).to eql(expected)
+    end
+  end
 end

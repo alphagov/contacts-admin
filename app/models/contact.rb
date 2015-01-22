@@ -65,7 +65,8 @@ class Contact < ActiveRecord::Base
       link: link,
       format: "contact",
       indexable_content: "#{title} #{description} #{contact_groups.map(&:title).join}",
-      organisation: organisation.as_json
+      organisations: [organisation.slug],
+      last_update: self.updated_at,
     }
   end
 
