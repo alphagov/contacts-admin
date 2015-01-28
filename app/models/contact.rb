@@ -72,7 +72,8 @@ class Contact < ActiveRecord::Base
   end
 
   def register_contact
-    ::Contacts.rummager_client.add(to_indexed_json)
+    rummager_id = link.gsub(%r{^/}, '')
+    ::Contacts.rummager_client.add_document("contact", rummager_id, to_indexed_json)
 
     presenter = ContactPresenter.new(self)
     Contacts::Publisher.publish(presenter)

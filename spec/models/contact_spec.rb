@@ -11,7 +11,8 @@ describe Contact do
     ContactPresenter.should_receive(:new).with(contact).and_return(presenter)
     Contacts::Publisher.should_receive(:publish).with(presenter)
 
-    FakeRummageableIndex.any_instance.should_receive(:add).with(contact.to_indexed_json)
+    expected_json = JSON.parse(contact.to_indexed_json.to_json)
+    assert_rummager_posted_item(expected_json)
 
     contact.save
   end

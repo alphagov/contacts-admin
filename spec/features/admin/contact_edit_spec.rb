@@ -40,12 +40,14 @@ describe "Contact editing", auth: :user do
   end
 
   specify "updating a contact sends the data to Rummager" do
-    it_should_add_the_page_to_search
+    stub_any_rummager_post
 
     update_contact(contact,
                    title: "newer title",
                    description: "newer description"
                   )
+
+    it_should_have_added_the_page_to_search(contact)
   end
 
   specify "updating more info fields from tabs redirects the user back to the tab" do
