@@ -30,16 +30,11 @@ class Contact < ActiveRecord::Base
 
   scope :by_title, -> { order("title ASC") }
   scope :ungrouped, -> { where(contact_group_id: nil) }
-  scope :with_needs, -> { where.not(need_id: nil) }
   scope :for_listing, -> {
     where(
       "`contacts`.`phone_numbers_count` > 0 OR `contacts`.`post_addresses_count` > 0 OR `contacts`.`email_addresses_count` > 0 OR `contacts`.`contact_form_links_count` > 0"
     ).order("contacts.popularity DESC, contacts.title")
   }
-
-  def self.index_for_search
-    Contact.includes(:contact_groups).with_needs.map(&:to_indexed_json)
-  end
 
   def quick_links
     links = [
@@ -65,7 +60,8 @@ class Contact < ActiveRecord::Base
       link: link,
       format: "contact",
       indexable_content: "#{title} #{description} #{contact_groups.map(&:title).join}",
-      organisation: organisation.as_json
+      organisations: [organisation.slug],
+      last_update: self.updated_at,
     }
   end
 
@@ -76,6 +72,9 @@ class Contact < ActiveRecord::Base
   end
 
   def register_contact
+    rummager_id = link.gsub(%r{^/}, '')
+    ::Contacts.rummager_client.add_document("contact", rummager_id, to_indexed_json)
+
     presenter = ContactPresenter.new(self)
     Contacts::Publisher.publish(presenter)
   end

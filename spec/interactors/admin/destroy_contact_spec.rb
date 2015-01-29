@@ -2,6 +2,10 @@ require "spec_helper"
 
 describe Admin::DestroyContact do
   describe "#destroy" do
+    before do
+      stub_any_rummager_delete
+    end
+
     context "rummager does not throw an error" do
       let(:contact) { create :contact }
 

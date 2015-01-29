@@ -38,17 +38,6 @@ class Organisation < ActiveRecord::Base
     govuk_status == "exempt"
   end
 
-  def as_json(options={})
-    {
-      id: id,
-      title: title,
-      format: format,
-      slug: slug,
-      abbreviation: abbreviation,
-      govuk_status: govuk_status
-    }
-  end
-
 private
 
   def set_contact_index_content_id

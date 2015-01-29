@@ -14,14 +14,11 @@ module Admin
 
         # Remove from site search
         rummager_id = @contact.link.gsub(%r{^/}, '')
-        ::Contacts.rummager_client.delete(rummager_id)
+        ::Contacts.rummager_client.delete_document("contact", rummager_id)
 
         # Remove from our database
         @contact.destroy
       end
-      rescue RestClient::RequestFailed, RestClient::RequestTimeout, RestClient::ServerBrokeConnection, SocketError
-        @contact.errors.add(:base, "There was a system error trying to delete this, please try again later")
-        false
     end
   end
 end

@@ -41,18 +41,6 @@ By default, this application uses the GOV.UK preview environment for assets. To
 run against a local version of static you need to set `STATIC_DEV` to
 "http://static.dev.gov.uk".
 
-## Including Contacts in GOV.UK site search
-
-You can manually add contacts to the GOV.UK search index with a rake task:
-
-    ````
-    bundle exec rake contacts:index
-
-    ````
-
-This rake task only indexes contacts with a need ID. There are currently no
-contacts with need IDs and there is no user interface to do so.
-
 
 ## Development notes
 

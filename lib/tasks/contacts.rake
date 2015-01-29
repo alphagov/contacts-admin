@@ -6,13 +6,6 @@ namespace :contacts do
     ImportContacts.new(ENV['DATA_FILE']).import
   end
 
-  desc "Index Contacts in rummager"
-  task index: :environment do
-    index = Contact.index_for_search
-    Contacts.rummager_client.add_batch index
-    Contacts.rummager_client.commit
-  end
-
   desc "Crude implementation of splitting the address"
   task split_address: :environment do
     PostAddress.all.to_a.each do |address|
