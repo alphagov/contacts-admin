@@ -9,7 +9,7 @@ describe Contact do
 
     presenter = double("ContactPresenter")
     ContactPresenter.should_receive(:new).with(contact).and_return(presenter)
-    Contacts::Publisher.should_receive(:publish).with(presenter)
+    Contacts::Publisher.should_receive(:publish).with(contact.link, presenter)
 
     expected_json = JSON.parse(contact.to_indexed_json.to_json)
     assert_rummager_posted_item(expected_json)

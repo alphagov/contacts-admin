@@ -39,6 +39,6 @@ private
 
   def publish_finder
     presenter = ContactsFinderPresenter.new(self.organisation)
-    Contacts::Publisher.publish(presenter)
+    Contacts::Publisher.publish(presenter.base_path, presenter)
   end
 end

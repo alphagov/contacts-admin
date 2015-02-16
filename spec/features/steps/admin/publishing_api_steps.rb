@@ -2,7 +2,6 @@ module Admin
   module PublishingApiSteps
     def gone_item_for(contact)
       {
-        "base_path" => contact.link,
         "format" => "gone",
         "publishing_app" => "contacts",
         "update_type" => "major",

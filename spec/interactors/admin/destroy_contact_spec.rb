@@ -18,7 +18,7 @@ describe Admin::DestroyContact do
       it "should replace the item in content store with a gone item" do
         presenter = double("ContactGonePresenter")
         ContactGonePresenter.should_receive(:new).with(contact).and_return(presenter)
-        Contacts::Publisher.should_receive(:publish).with(presenter)
+        Contacts::Publisher.should_receive(:publish).with(contact.link, presenter)
 
         described_class.new(contact).destroy
       end

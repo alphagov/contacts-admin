@@ -76,6 +76,6 @@ class Contact < ActiveRecord::Base
     ::Contacts.rummager_client.add_document("contact", rummager_id, to_indexed_json)
 
     presenter = ContactPresenter.new(self)
-    Contacts::Publisher.publish(presenter)
+    Contacts::Publisher.publish(link, presenter)
   end
 end
