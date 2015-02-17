@@ -6,6 +6,6 @@ module RegisterParent
 
   def register_parent
     presenter = ContactPresenter.new(self.contact)
-    Contacts::Publisher.publish(contact.link, presenter)
+    ::Contacts.publishing_api.put_content_item(contact.link, presenter.present)
   end
 end

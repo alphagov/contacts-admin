@@ -34,7 +34,7 @@ namespace :contacts do
   task :register_in_content_store => :environment do
     Contact.find_each do |contact|
       p = ContactPresenter.new(contact)
-      Contacts::Publisher.publish(contact.link, p)
+      ::Contacts.publishing_api.put_content_item(contact.link, p.present)
     end
   end
 end

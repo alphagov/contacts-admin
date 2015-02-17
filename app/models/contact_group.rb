@@ -1,5 +1,3 @@
-require "contacts/publisher"
-
 class ContactGroup < ActiveRecord::Base
   extend ActiveHash::Associations::ActiveRecordExtensions
   include Versioning
@@ -39,6 +37,6 @@ private
 
   def publish_finder
     presenter = ContactsFinderPresenter.new(self.organisation)
-    Contacts::Publisher.publish(presenter.base_path, presenter)
+    ::Contacts.publishing_api.put_content_item(presenter.base_path, presenter.present)
   end
 end

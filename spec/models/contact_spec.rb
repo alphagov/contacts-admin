@@ -7,9 +7,9 @@ describe Contact do
   it "should be registered after saving" do
     contact = create(:contact)
 
-    presenter = double("ContactPresenter")
+    presenter = double("ContactPresenter", present: { some: "JSON" })
     ContactPresenter.should_receive(:new).with(contact).and_return(presenter)
-    Contacts::Publisher.should_receive(:publish).with(contact.link, presenter)
+    ::Contacts.publishing_api.should_receive(:put_content_item).with(contact.link, { some: "JSON" })
 
     expected_json = JSON.parse(contact.to_indexed_json.to_json)
     assert_rummager_posted_item(expected_json)
