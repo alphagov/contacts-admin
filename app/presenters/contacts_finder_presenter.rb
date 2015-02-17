@@ -6,7 +6,6 @@ class ContactsFinderPresenter
 
   def present
     {
-      base_path: base_path,
       format: "finder",
       content_id: content_id,
       title: title,
@@ -25,6 +24,10 @@ class ContactsFinderPresenter
     }
   end
 
+  def base_path
+    "/government/organisations/#{organisation.slug}/contact"
+  end
+
 private
   attr_reader :organisation
 
@@ -34,10 +37,6 @@ private
 
   def content_id
     organisation.contact_index_content_id
-  end
-
-  def base_path
-    "/government/organisations/#{organisation.slug}/contact"
   end
 
   def description

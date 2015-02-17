@@ -9,7 +9,6 @@ class ContactPresenter
 
   def present
     {
-      base_path: contact.link,
       content_id: contact.content_id,
       title: contact.title,
       description: contact.description,

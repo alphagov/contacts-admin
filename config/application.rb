@@ -47,7 +47,7 @@ module Contacts
 
       Contacts.rummager_client = GdsApi::Rummager.new(Plek.current.find('search'))
 
-      Contacts.publishing_api = GdsApi::PublishingApi.new(Plek.current.find('publishing-api'))
+      ::Contacts.publishing_api = GdsApi::PublishingApi.new(Plek.current.find('publishing-api'))
     end
   end
 end

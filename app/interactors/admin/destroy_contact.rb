@@ -1,5 +1,3 @@
-require "contacts/publisher"
-
 module Admin
   class DestroyContact
     def initialize(contact)
@@ -10,7 +8,7 @@ module Admin
       @contact.transaction do
         # Overwrite with a gone item in content-store
         presenter = ContactGonePresenter.new(@contact)
-        ::Contacts::Publisher.publish(presenter)
+        ::Contacts.publishing_api.put_content_item(@contact.link, presenter.present)
 
         # Remove from site search
         rummager_id = @contact.link.gsub(%r{^/}, '')

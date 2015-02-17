@@ -1,5 +1,3 @@
-require "contacts/publisher"
-
 class Contact < ActiveRecord::Base
   include Versioning
   include FriendlyId
@@ -76,6 +74,6 @@ class Contact < ActiveRecord::Base
     ::Contacts.rummager_client.add_document("contact", rummager_id, to_indexed_json)
 
     presenter = ContactPresenter.new(self)
-    Contacts::Publisher.publish(presenter)
+    ::Contacts.publishing_api.put_content_item(link, presenter.present)
   end
 end

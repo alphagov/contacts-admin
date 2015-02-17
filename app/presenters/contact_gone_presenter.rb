@@ -9,7 +9,6 @@ class ContactGonePresenter
 
   def present
     {
-      base_path: contact.link,
       format: "gone",
       publishing_app: "contacts",
       update_type: "major",
