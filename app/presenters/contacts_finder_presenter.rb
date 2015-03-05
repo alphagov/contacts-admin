@@ -61,7 +61,9 @@ private
       {
         key: "contact_group",
         name: "Topic",
-        type: "multi-select",
+        filterable: true,
+        type: "text",
+        display_in_result_metadata: true,
         preposition: "in topic",
         allowed_values: contact_groups_to_facet,
       }
