@@ -46,7 +46,12 @@ private
   def details
     {
       document_noun: "contact",
-      document_type: "contact",
+      filter: {
+        document_type: "contact",
+        organisations: [
+          organisation.slug
+        ],
+      },
       facets: facets,
     }
   end
