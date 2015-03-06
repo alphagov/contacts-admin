@@ -59,4 +59,5 @@ group :test do
   gem "simplecov"
   gem "simplecov-rcov"
   gem 'webmock', '1.17.3'
+  gem 'json-schema', '2.5.1'
 end
