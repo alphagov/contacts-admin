@@ -48,6 +48,9 @@ run against a local version of static you need to set `STATIC_DEV` to
 
 ## Tests
 
+The tests in this project rely upon [govuk-content-schemas](http://github.com/alphagov/govuk-content-schemas). By default these should be in the parent directory, otherwise you can specify their location with the `GOVUK_CONTENT_SCHEMAS_PATH` environment variable.
+
+Assuming you already have govuk-content-schemas cloned:
     ```
     bundle exec rake db:test:prepare RAILS_ENV=test
     bundle exec rspec .

@@ -21,6 +21,7 @@ class ContactsFinderPresenter
         topics: [],
         related: [],
       },
+      locale: "en",
     }
   end
 
@@ -63,7 +64,7 @@ private
         name: "Topic",
         filterable: true,
         type: "text",
-        display_in_result_metadata: true,
+        display_as_result_metadata: true,
         preposition: "in topic",
         allowed_values: contact_groups_to_facet,
       }
