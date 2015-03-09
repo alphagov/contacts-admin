@@ -38,6 +38,7 @@ git checkout $SCHEMA_GIT_COMMIT
 cd ../..
 
 time bundle install --path "${HOME}/bundles/${JOB_NAME}" --deployment
+RAILS_ENV=test bundle exec rake db:reset
 # TODO as schemas are added for them, change this to include more formats
 RAILS_ENV=test GOVUK_CONTENT_SCHEMAS_PATH=tmp/govuk-content-schemas time bundle exec rspec spec/presenters/contacts_finder_presenter_spec.rb
 
