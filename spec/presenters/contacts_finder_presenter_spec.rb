@@ -1,7 +1,8 @@
 require "spec_helper"
+require 'govuk-content-schema-test-helpers/rspec_matchers'
 
 describe ContactsFinderPresenter do
-  include GovukContentSchemaHelpers
+  include GovukContentSchemaTestHelpers::RSpecMatchers
 
   let(:group) { create :contact_group, :with_organisation }
 
@@ -10,6 +11,6 @@ describe ContactsFinderPresenter do
 
     expect(presented[:title]).to             include(group.organisation.title)
     expect(presented[:public_updated_at]).to eq(group.updated_at.to_s)
-    assert_valid_against_schema(presented, 'finder')
+    expect(presented.to_json).to be_valid_against_schema('finder')
   end
 end
