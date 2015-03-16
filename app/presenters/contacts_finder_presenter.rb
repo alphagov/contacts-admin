@@ -18,8 +18,6 @@ class ContactsFinderPresenter
       details: details,
       links: {
         organisations: organisations,
-        topics: [],
-        related: [],
       },
       locale: "en",
     }
