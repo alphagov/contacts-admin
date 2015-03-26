@@ -14,12 +14,12 @@ describe PhoneNumbersPresenter do
     expect(presented[:number]).to eq(phone.number)
 
     govspeak_description = "<p>#{phone.description}</p>"
-    expect(presented[:description]).to eq(govspeak_description)
+    expect(presented[:description].strip).to eq(govspeak_description)
 
     govspeak_open_hours = "<p>#{phone.open_hours}</p>"
-    expect(presented[:open_hours]).to eq(govspeak_open_hours)
+    expect(presented[:open_hours].strip).to eq(govspeak_open_hours)
 
     govspeak_best_time = "<p>#{phone.best_time_to_call}</p>"
-    expect(presented[:best_time_to_call]).to eq(govspeak_best_time)
+    expect(presented[:best_time_to_call].strip).to eq(govspeak_best_time)
   end
 end
