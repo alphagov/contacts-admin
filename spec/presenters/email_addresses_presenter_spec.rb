@@ -10,6 +10,6 @@ describe EmailAddressesPresenter do
     expect(presented[:email]).to eq(email.email)
 
     govspeak_description = "<p>#{email.description}</p>"
-    expect(presented[:description]).to eq(govspeak_description)
+    expect(presented[:description].strip).to eq(govspeak_description)
   end
 end

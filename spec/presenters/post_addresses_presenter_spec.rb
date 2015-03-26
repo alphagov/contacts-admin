@@ -16,6 +16,6 @@ describe PostAddressesPresenter do
     expect(presented[:world_location]).to eq(post.world_location.title)
 
     govspeak_description = "<p>#{post.description}</p>"
-    expect(presented[:description]).to eq(govspeak_description)
+    expect(presented[:description].strip).to eq(govspeak_description)
   end
 end
