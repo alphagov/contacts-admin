@@ -55,25 +55,6 @@
   }
 }
 
-p.report-a-problem-toggle {
-  clear: both;
-  margin: $gutter-half;
-  direction: ltr;
-  padding-top: $gutter;
-  @include media(tablet){
-    margin: $gutter;
-  }
-
-  a {
-    color: $secondary-text-colour;
-    text-decoration: underline;
-  }
-}
-
-.report-a-problem-container {
-  max-width: 33em;
-}
-
 @include media(mobile){
   .block-1 {
     width: 100%;
