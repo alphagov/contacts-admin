@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "4.1.9"
+gem "rails", "4.1.11"
 
 gem "active_hash", "1.4.0"
 gem "mysql2", "~> 0.3.13"
@@ -15,7 +15,7 @@ gem "gds-sso", "~> 9.3.0"
 gem "gds-api-adapters", '17.4.0'
 gem "lrucache", "0.1.4"
 gem "plek", ">= 1.0.0"
-gem "govuk_admin_template", "2.2.0"
+gem "govuk_admin_template", "2.3.1"
 gem "mlanett-redis-lock", "0.2.6"
 
 gem "airbrake", "3.1.15"
