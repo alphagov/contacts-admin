@@ -12,7 +12,7 @@ gem "virtus", "~> 1.0.0.beta8"
 gem "paper_trail", ">= 3.0.0.beta1"
 gem "govspeak", "1.2.3"
 gem "gds-sso", "~> 9.3.0"
-gem "gds-api-adapters", '17.4.0'
+gem "gds-api-adapters", '20.1.1'
 gem "lrucache", "0.1.4"
 gem "plek", ">= 1.0.0"
 gem "govuk_admin_template", "2.3.1"
@@ -30,7 +30,7 @@ gem 'ancestry', '2.0.0'
 gem "sass-rails", "~> 4.0.0"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.0.0"
-gem "therubyracer", platforms: :ruby
+gem "therubyracer", "0.12.2", platforms: :ruby
 gem "govuk_frontend_toolkit", "0.46.1"
 gem "select2-rails", "3.5.5"
 
