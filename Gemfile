@@ -30,7 +30,7 @@ gem 'ancestry', '2.0.0'
 gem "sass-rails", "~> 4.0.0"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.0.0"
-gem "therubyracer", platforms: :ruby
+gem "therubyracer", "0.12.2", platforms: :ruby
 gem "govuk_frontend_toolkit", "0.46.1"
 gem "select2-rails", "3.5.5"
 
