@@ -62,4 +62,10 @@ feature "Public Contacts index page" do
     expect(page).to have_link(contact.title, :href => "/government/organisations/#{hmrc.slug}/contact/#{contact.slug}")
     expect(page).to_not have_link(contact2.title, :href => "/government/organisations/#{hmrc.slug}/contact/#{contact2.slug}")
   end
+
+  it "should have a meta-description to aid external search engine results" do
+    visit "/government/organisations/#{hmrc.slug}/contact"
+
+    expect(page).to have_selector("meta[name='description'][content='Contact details and helplines for enquiries with HMRC']", visible: false)
+  end
 end

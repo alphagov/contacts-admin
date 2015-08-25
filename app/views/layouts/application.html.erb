@@ -13,6 +13,7 @@
     <%= stylesheet_link_tag "frontend/base-ie8.css" %><script>var ieVersion = 8;</script>
   <![endif]-->
   <%= csrf_meta_tags %>
+  <%= yield :extra_headers %>
 </head>
 <body class="hmrc-contacts-body">
 <% unless local_assigns[:show_breadcrumbs] %>
