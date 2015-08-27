@@ -59,7 +59,7 @@ class Contact < ActiveRecord::Base
       format: "contact",
       indexable_content: "#{title} #{description} #{contact_groups.map(&:title).join}",
       organisations: [organisation.slug],
-      last_update: self.updated_at,
+      public_timestamp: self.updated_at,
     }
   end
 

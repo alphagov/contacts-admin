@@ -63,7 +63,7 @@ describe Contact do
         format:            'contact',
         indexable_content: "Major Tom Back to Earth #{contact.contact_groups.first.title}",
         organisations:     ['bowie'],
-        last_update:       contact.updated_at,
+        public_timestamp:  contact.updated_at,
       }
 
       expect(contact.to_indexed_json).to eql(expected)

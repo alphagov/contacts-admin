@@ -7,7 +7,7 @@ module Admin
       expected_json = contact.to_indexed_json.merge(
         _type: 'contact',
       )
-      # export to JSON so that the last_update timestamp is in a string and can
+      # export to JSON so that the public_timestamp timestamp is in a string and can
       # be compared to the JSON captured by Webmock
       expected_json = JSON.parse(expected_json.to_json)
       assert_rummager_posted_item(expected_json)
