@@ -3,10 +3,11 @@ class ApplicationController < ActionController::Base
   include Slimmer::Headers
   include Slimmer::Template
 
+  slimmer_template 'header_footer_only'
+
   protect_from_forgery with: :exception
 
   after_filter :dev_skip_slimmer
-  before_filter :set_slimmer_headers
 
   def dev_skip_slimmer
     response.headers[Slimmer::Headers::SKIP_HEADER] = "true" if params[:skip_slimmer]
@@ -14,9 +15,5 @@ class ApplicationController < ActionController::Base
 
   def skip_slimmer
     response.headers[Slimmer::Headers::SKIP_HEADER] = "true"
-  end
-
-   def set_slimmer_headers
-    response.headers[Slimmer::Headers::TEMPLATE_HEADER] = "header_footer_only"
   end
 end
