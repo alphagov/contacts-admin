@@ -37,4 +37,23 @@ namespace :contacts do
       ::Contacts.publishing_api.put_content_item(contact.link, p.present)
     end
   end
+
+  desc "Remove a contact and redirect it"
+  task :remove_with_redirect, [:contact_slug, :redirect_to_location] => :environment do |_task, args|
+    if args.contact_slug.blank? || args.redirect_to_location.blank?
+      puts "Usage: rake contacts:remove_with_redirect[contact-to-remove-slug,path-to-redirect-to]"
+    else
+      contact = Contact.find_by_slug(args.contact_slug)
+      if contact.nil?
+        puts "Contact #{args.contact_slug} doesn't exist."
+      else
+        print "Contact #{contact.link} removed with redirect to #{args.redirect_to_location} "
+        if Admin::DestroyAndRedirectContact.new(contact, args.redirect_to_location).destroy_and_redirect
+          puts "SUCCESS"
+        else
+          puts "ERROR"
+        end
+      end
+    end
+  end
 end
