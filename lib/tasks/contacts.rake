@@ -45,13 +45,57 @@ namespace :contacts do
     else
       contact = Contact.find_by_slug(args.contact_slug)
       if contact.nil?
-        puts "Contact #{args.contact_slug} doesn't exist."
+        puts "Contact #{args.contact_slug} doesn't exist, consider using rake contacts:replace_gone_with_redirect"
       else
         print "Contact #{contact.link} removed with redirect to #{args.redirect_to_location} "
         if Admin::DestroyAndRedirectContact.new(contact, args.redirect_to_location).destroy_and_redirect
           puts "SUCCESS"
         else
           puts "ERROR"
+        end
+      end
+    end
+  end
+
+  desc "Put in place a redirect for an already removed contact"
+  task :replace_gone_with_redirect, [:contact_slug, :organisation_slug, :redirect_to_location] => :environment do |_task, args|
+    require 'gds_api/content_store'
+
+    def content_store
+      GdsApi::ContentStore.new(Plek.current.find('content-store'))
+    end
+
+    def build_contact(organisation_slug, contact_slug)
+      organisation = Organisation.find(organisation_slug)
+      Contact.new(slug: contact_slug, organisation: organisation)
+    end
+
+    def redirect_contact(contact, redirect_to_location)
+      redirect_content_item = ContactRedirectPresenter.new(contact, redirect_to_location).present
+      ::Contacts.publishing_api.put_content_item(contact.link, redirect_content_item)
+    end
+
+    if args.contact_slug.blank? || args.organisation_slug.blank? || args.redirect_to_location.blank?
+      puts "Usage: rake contacts:replace_gone_with_redirect[removed-contact-slug,organisation-slug,path-to-redirect-to]"
+    else
+      contact = Contact.find_by_slug(args.contact_slug)
+      if contact.present?
+        puts "Contact #{args.contact_slug} has not been removed, consider using 'rake contacts:remove_with_redirect'"
+      else
+        contact = build_contact(args.organisation_slug, args.contact_slug)
+        published_contact = content_store.content_item(contact.link)
+        if published_contact.nil?
+          puts "Contact #{contact.link} has never been published, consider creating it first then using 'rake contacts:remove_with_redirect'"
+        elsif published_contact.format != 'gone'
+          puts "Contact #{contact.link} is not 'gone' - it's published as a #{published_contact.format}."
+        else
+          print "Contact #{contact.link} removed with redirect to #{args.redirect_to_location} "
+          response = redirect_contact(contact, args.redirect_to_location)
+          if response.code == 200
+            puts "SUCCESS"
+          else
+            puts "ERROR"
+          end
         end
       end
     end
