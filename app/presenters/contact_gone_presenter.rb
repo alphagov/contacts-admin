@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class ContactGonePresenter
   include GovspeakHelper
 
@@ -15,6 +17,12 @@ class ContactGonePresenter
       routes: [
         { path: contact.link, type: "exact" }
       ],
+      content_id: content_id,
     }
+  end
+
+private
+  def content_id
+    @_content_id ||= SecureRandom.uuid
   end
 end

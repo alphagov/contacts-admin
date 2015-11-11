@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class ContactRedirectPresenter
   attr_reader :contact, :redirect_to_location
 
@@ -19,6 +21,12 @@ class ContactRedirectPresenter
           destination: redirect_to_location
         }
       ],
+      content_id: content_id,
     }
+  end
+
+private
+  def content_id
+    @_content_id ||= SecureRandom.uuid
   end
 end
