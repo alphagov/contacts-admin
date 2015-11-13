@@ -13,6 +13,7 @@ describe ContactGonePresenter do
     expect(payload[:publishing_app]).to eq("contacts")
     expect(payload[:update_type]).to eq("major")
     expect(payload[:routes].first[:path]).to eq(contact.link)
+    expect(payload[:base_path]).to eq(contact.link)
   end
 
   it 'includes a content_id that is not the same as contact.content_id' do

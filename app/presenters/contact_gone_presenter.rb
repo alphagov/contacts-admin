@@ -14,6 +14,7 @@ class ContactGonePresenter
       format: "gone",
       publishing_app: "contacts",
       update_type: "major",
+      base_path: contact.link,
       routes: [
         { path: contact.link, type: "exact" }
       ],
