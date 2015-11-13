@@ -80,6 +80,8 @@ namespace :contacts do
           puts "Contact #{result.full_contact_path} has never been published, consider creating it first then using 'rake contacts:remove_with_redirect'"
         when :not_gone
           puts "Contact #{result.full_contact_path} is not 'gone' - it's published as a #{result.existing.format}."
+        when :not_published_by_contacts
+          puts "Contact #{result.full_contact_path} is 'gone' but it wasn't published by contacts-admin - it was published by #{result.existing.publishing_app}."
         when :redirect_failed
           puts "Contact #{result.full_contact_path} could not be redirected to #{args.redirect_to_location} (Publishing API Failure - #{result.error})"
         else
