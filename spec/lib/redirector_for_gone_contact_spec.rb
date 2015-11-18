@@ -77,83 +77,55 @@ describe RedirectorForGoneContact do
     context 'and refers to a "gone" object in the content-store' do
       include GdsApi::TestHelpers::PublishingApi
 
-      context 'not published by contacts' do
-        let(:gone_item) do
-          content_item_for_base_path(path_in_content_store).
-            merge(
-              "format" => "gone",
-              "publishing_app" => 'some-other-app'
-            )
+      let(:gone_item) do
+        content_item_for_base_path(path_in_content_store).
+          merge(
+            "format" => "gone",
+          )
+      end
+
+      before { content_store_has_item path_in_content_store, gone_item }
+
+      it 'sends a redirect to the publishing-api for the contact' do
+        subject.redirect_gone_contact
+
+        assert_publishing_api_put_item(
+          path_in_content_store,
+          ->(request) do
+            data = JSON.parse(request.body)
+            # RSpec 2.14 doesn't have a fluent interface for this kind of match
+            expect(data).to have_key('format')
+            expect(data['format']).to eq('redirect')
+            expect(data).to have_key('redirects')
+            expect(data['redirects'].size).to eq(1)
+            redirect = data['redirects'].first
+            expect(redirect).to have_key('destination')
+            expect(redirect['destination']).to eq(redirect_to_location)
+          end
+        )
+      end
+
+      context 'and communicating with the publishing-api is succesful' do
+        before { stub_default_publishing_api_put }
+
+        it 'is successful when doing the redirect' do
+          expect(subject.redirect_gone_contact).to be_successful
         end
+      end
 
-        before { content_store_has_item path_in_content_store, gone_item }
+      context 'and communicating with the publishing-api fails' do
+        before { stub_default_publishing_api_put.to_return(status: 422, body: "Uh oh!") }
 
-        it 'is not successful when doing the redirect' do
+        it 'is unsuccessful when doing the redirect' do
           expect(subject.redirect_gone_contact).not_to be_successful
         end
 
         it 'provides a reason for the failure' do
-          expect(subject.redirect_gone_contact.reason).to eq(:not_published_by_contacts)
+          expect(subject.redirect_gone_contact.reason).to eq(:redirect_failed)
         end
 
-        it 'does not publish a redirect' do
-          ::Contacts.publishing_api.should_not_receive(:put_content_item)
-          subject.redirect_gone_contact
-        end
-      end
-
-      context 'published by contacts' do
-        let(:gone_item) do
-          content_item_for_base_path(path_in_content_store).
-            merge(
-              "format" => "gone",
-              "publishing_app" => 'contacts'
-            )
-        end
-
-        before { content_store_has_item path_in_content_store, gone_item }
-
-        it 'sends a redirect to the publishing-api for the contact' do
-          subject.redirect_gone_contact
-
-          assert_publishing_api_put_item(
-            path_in_content_store,
-            ->(request) do
-              data = JSON.parse(request.body)
-              # RSpec 2.14 doesn't have a fluent interface for this kind of match
-              expect(data).to have_key('format')
-              expect(data['format']).to eq('redirect')
-              expect(data).to have_key('redirects')
-              expect(data['redirects'].size).to eq(1)
-              redirect = data['redirects'].first
-              expect(redirect).to have_key('destination')
-              expect(redirect['destination']).to eq(redirect_to_location)
-            end
-          )
-        end
-
-        context 'and communicating with the publishing-api is succesful' do
-          before { stub_default_publishing_api_put }
-
-          it 'is successful when doing the redirect' do
-            expect(subject.redirect_gone_contact).to be_successful
-          end
-        end
-
-        context 'and communicating with the publishing-api fails' do
-          before { stub_default_publishing_api_put.to_return(status: 422, body: "Uh oh!") }
-
-          it 'is unsuccessful when doing the redirect' do
-            expect(subject.redirect_gone_contact).not_to be_successful
-          end
-
-          it 'provides a reason for the failure' do
-            expect(subject.redirect_gone_contact.reason).to eq(:redirect_failed)
-          end
-
-          it 'includes the failed response from the api' do
-            expect(subject.redirect_gone_contact.error).to be_a(GdsApi::HTTPErrorResponse)
-          end
+        it 'includes the failed response from the api' do
+          expect(subject.redirect_gone_contact.error).to be_a(GdsApi::HTTPErrorResponse)
         end
       end
     end

@@ -15,8 +15,6 @@ class RedirectorForGoneContact
       Failure.new(:unpublished_contact, contact.link)
     elsif contact_not_gone?
       Failure.new(:not_gone, contact.link, existing: published_contact)
-    elsif contact_not_published_by_contacts?
-      Failure.new(:not_published_by_contacts, contact.link, existing: published_contact)
     elsif redirect_failed?
       Failure.new(:redirect_failed, contact.link, error: redirect_contact_response)
     else
@@ -36,10 +34,6 @@ class RedirectorForGoneContact
 
   def contact_not_gone?
     published_contact.format != 'gone'
-  end
-
-  def contact_not_published_by_contacts?
-    published_contact.publishing_app != 'contacts'
   end
 
   def redirect_failed?
