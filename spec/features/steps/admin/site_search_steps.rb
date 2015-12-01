@@ -4,7 +4,8 @@ module Admin
   module SiteSearchSteps
     def it_should_have_added_the_page_to_search(contact)
       # Check that it's being added as the correct document type
-      expected_json = contact.to_indexed_json.merge(
+      rummager_presenter = ContactRummagerPresenter.new(contact)
+      expected_json = rummager_presenter.present.merge(
         _type: 'contact',
       )
       # export to JSON so that the public_timestamp timestamp is in a string and can

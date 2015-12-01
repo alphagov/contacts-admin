@@ -11,7 +11,7 @@ describe Contact do
     ContactPresenter.should_receive(:new).with(contact).and_return(presenter)
     ::Contacts.publishing_api.should_receive(:put_content_item).with(contact.link, { some: "JSON" })
 
-    expected_json = JSON.parse(contact.to_indexed_json.to_json)
+    expected_json = JSON.parse(ContactRummagerPresenter.new(contact).present.to_json)
     assert_rummager_posted_item(expected_json)
 
     contact.save
@@ -44,29 +44,6 @@ describe Contact do
         contact.save!
         contact.reload
       }.not_to change { contact.content_id }
-    end
-  end
-
-  describe "to_indexed_json" do
-    it "should generate a Rummager format" do
-      organisation = create(:organisation, slug: 'bowie')
-      contact = create(:contact,
-                        :with_contact_group,
-                        title: "Major Tom",
-                        description: "Back to Earth",
-                        organisation: organisation)
-
-      expected = {
-        title:             "Major Tom",
-        description:       "Back to Earth",
-        link:              "/government/organisations/bowie/contact/major-tom",
-        format:            'contact',
-        indexable_content: "Major Tom Back to Earth #{contact.contact_groups.first.title}",
-        organisations:     ['bowie'],
-        public_timestamp:  contact.updated_at,
-      }
-
-      expect(contact.to_indexed_json).to eql(expected)
     end
   end
 end
