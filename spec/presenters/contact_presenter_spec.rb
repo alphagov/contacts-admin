@@ -1,7 +1,13 @@
 require "spec_helper"
+require 'govuk-content-schema-test-helpers/rspec_matchers'
 
 describe ContactPresenter do
   let(:contact) { create :contact }
+
+  it "presents the contact correctly against the schema" do
+    presented = ContactPresenter.new(contact).present
+    expect(presented.to_json).to be_valid_against_schema('contact')
+  end
 
   it "transforms a contact to the correct format" do
     payload = ContactPresenter.new(contact).present
@@ -9,7 +15,6 @@ describe ContactPresenter do
     expect(payload[:content_id]).to eq(contact.content_id)
     expect(payload[:title]).to eq(contact.title)
     expect(payload[:description]).to eq(contact.description)
-    expect(payload[:format]).to eq('contact')
     expect(payload[:publishing_app]).to eq("contacts")
     expect(payload[:rendering_app]).to eq("contacts-frontend")
     expect(payload[:update_type]).to eq("major")
