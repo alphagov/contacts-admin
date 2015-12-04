@@ -13,6 +13,7 @@ class ContactPresenter
       title: contact.title,
       description: contact.description,
       format: "contact",
+      locale: "en",
       publishing_app: "contacts",
       rendering_app: "contacts-frontend",
       update_type: "major",
