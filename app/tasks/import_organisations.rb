@@ -26,7 +26,8 @@ private
       title: organisation_data.title,
       format: organisation_data.format,
       abbreviation: organisation_data.details.abbreviation,
-      govuk_status: organisation_data.details.govuk_status
+      govuk_status: organisation_data.details.govuk_status,
+      content_id: organisation_data.details.content_id
     }
     organisation.update_attributes!(update_data)
   end
