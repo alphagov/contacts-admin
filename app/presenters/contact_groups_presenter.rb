@@ -9,7 +9,7 @@ class ContactGroupsPresenter
     @contact_groups.map do |group|
       {
         title: group.title,
-        organisation: group.organisation.as_json,
+        organisation: ContactOrganisationPresenter.new(group.organisation).present,
         description: govspeak(group.description),
         contacts: group.contacts.map do |contact|
           { description: govspeak(contact.description) }

@@ -51,18 +51,6 @@ class Contact < ActiveRecord::Base
     "/government/organisations/#{organisation.slug}/contact/#{slug}"
   end
 
-  def to_indexed_json
-    {
-      title: title,
-      description: description,
-      link: link,
-      format: "contact",
-      indexable_content: "#{title} #{description} #{contact_groups.map(&:title).join}",
-      organisations: [organisation.slug],
-      public_timestamp: self.updated_at,
-    }
-  end
-
   private
 
   def set_content_id
@@ -71,7 +59,8 @@ class Contact < ActiveRecord::Base
 
   def register_contact
     rummager_id = link.gsub(%r{^/}, '')
-    ::Contacts.rummager_client.add_document("contact", rummager_id, to_indexed_json)
+    rummager_presenter = ContactRummagerPresenter.new(self)
+    ::Contacts.rummager_client.add_document("contact", rummager_id, rummager_presenter.present)
 
     presenter = ContactPresenter.new(self)
     ::Contacts.publishing_api.put_content_item(link, presenter.present)

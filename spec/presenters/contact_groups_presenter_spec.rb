@@ -7,7 +7,7 @@ describe ContactGroupsPresenter do
     presented = ContactGroupsPresenter.new([group]).present.first
 
     expect(presented[:title]).to eq(group.title)
-    expect(presented[:organisation]).to eq(group.organisation.as_json)
+    expect(presented[:organisation]).to eq(ContactOrganisationPresenter.new(group.organisation).present)
 
     govspeak_description = "<p>#{group.description}</p>"
     expect(presented[:description].strip).to eq(govspeak_description)
