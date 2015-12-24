@@ -7,7 +7,7 @@ class ConvertTablesToUtf8 < ActiveRecord::Migration
     connection = ActiveRecord::Base.connection
     text_cols = {}
     connection.tables.each do |t|
-      columns = connection.schema_cache.columns[t].select {|c| c.type == :text}
+      columns = connection.schema_cache.columns(t).select {|c| c.type == :text}
       text_cols[t] = columns if !columns.empty?
     end
 
