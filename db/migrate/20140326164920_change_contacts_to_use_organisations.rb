@@ -1,12 +1,12 @@
 class ChangeContactsToUseOrganisations < ActiveRecord::Migration
   def up
-    Organisation.create(
+    Organisation.new(
       slug: "hm-revenue-customs",
       title: "HM Revenue & Customs",
       format: "Non-ministerial department",
       abbreviation: "HMRC",
       govuk_status: "live"
-    )
+    ).save!(validate: false)
 
     add_column :contacts, :organisation_id, :integer
     add_column :contact_groups, :organisation_id, :integer
