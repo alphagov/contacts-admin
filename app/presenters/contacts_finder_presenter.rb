@@ -12,7 +12,7 @@ class ContactsFinderPresenter
       description: description,
       public_updated_at: public_updated_at,
       update_type: "minor",
-      publishing_app: "contacts-admin",
+      publishing_app: "contacts",
       rendering_app: "finder-frontend",
       routes: routes,
       details: details,
