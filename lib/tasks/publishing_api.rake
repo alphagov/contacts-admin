@@ -12,7 +12,7 @@ namespace :publishing_api do
       content_id: 'b110c03c-3f8d-4327-906b-17ebd872e6a6',
       base_path: '/government/organisations/hm-revenue-customs/contact',
       type: 'exact',
-      publishing_app: 'contacts-admin',
+      publishing_app: 'contacts',
       rendering_app: 'contacts-frontend-old',
     )
   end
