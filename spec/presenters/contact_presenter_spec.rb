@@ -30,6 +30,10 @@ describe ContactPresenter do
     expect(details[:contact_form_links]).to eq(contact.contact_form_links.map(&:as_json))
     expect(details[:more_info_email_address]).to include("<li>")
     expect(details[:more_info_phone_number]).to include("<li>")
+
+    links = payload[:links]
+    expect(links["organisations"].length).to eq(1)
+    expect(links["organisations"].first).to eq(contact.organisation.content_id)
   end
 
   context "with related contacts" do
