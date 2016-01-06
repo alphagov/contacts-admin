@@ -32,11 +32,10 @@ namespace :contacts do
     end
   end
 
-  desc "Register all contacts with the publishing-api"
-  task :register_in_content_store => :environment do
+  desc "Republish contacts"
+  task :republish => :environment do
     Contact.find_each do |contact|
-      p = ContactPresenter.new(contact)
-      ::Contacts.publishing_api.put_content_item(contact.link, p.present)
+      contact.republish
     end
   end
 
