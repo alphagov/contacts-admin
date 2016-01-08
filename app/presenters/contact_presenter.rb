@@ -48,7 +48,6 @@ class ContactPresenter
       slug: contact.slug,
       title: contact.title,
       description: contact.description,
-      organisation: ContactOrganisationPresenter.new(contact.organisation).present,
       quick_links: contact.quick_links.map {|q| {title: q.title, url: q.url} },
       query_response_time: (contact.query_response_time or false),
 

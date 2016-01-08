@@ -31,8 +31,6 @@ describe ContactPresenter do
       expect(payload[:need_ids]).to be_empty
 
       details = payload[:details]
-      expect(details[:slug]).to eq(contact.slug)
-      expect(details[:title]).to eq(contact.title)
       expect(details[:description]).to eq(contact.description)
       expect(details[:quick_links]).to eq(contact.quick_links.map {|q| {title: q.title, url: q.url} })
       expect(details[:contact_form_links]).to eq(contact.contact_form_links.map(&:as_json))
