@@ -51,6 +51,10 @@ class Contact < ActiveRecord::Base
     "/government/organisations/#{organisation.slug}/contact/#{slug}"
   end
 
+  def republish
+    register_contact
+  end
+
   private
 
   def set_content_id
