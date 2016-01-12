@@ -14,6 +14,9 @@ namespace :publishing_api do
       type: 'exact',
       publishing_app: 'contacts',
       rendering_app: 'contacts-frontend-old',
+      links: {
+        organisations: [Organisation.find_by(title: 'HM Revenue & Customs').content_id],
+      }
     )
   end
 end
