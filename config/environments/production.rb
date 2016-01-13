@@ -57,7 +57,6 @@ Contacts::Application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # FIXME: Stop setting asset_host when we split the frontend off into a finder
   config.action_controller.asset_host = ENV['GOVUK_ASSET_HOST']
 
   # Precompile additional assets.
