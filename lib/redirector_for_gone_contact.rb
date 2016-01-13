@@ -1,4 +1,5 @@
 require 'gds_api/content_store'
+require 'publisher'
 
 class RedirectorForGoneContact
 
@@ -16,12 +17,10 @@ class RedirectorForGoneContact
     elsif contact_not_gone?
       Failure.new(:not_gone, contact.link, existing: published_contact)
     elsif redirect_failed?
-      Failure.new(:redirect_failed, contact.link, error: redirect_contact_response)
+      Failure.new(:redirect_failed, contact.link, message: "PublishingApi Error: Redirect failed")
     else
       Success.new(contact.link)
     end
-  rescue GdsApi::HTTPErrorResponse => e
-    Failure.new(:redirect_failed, contact.link, error: e)
   end
 
   def contact_already_exists?
@@ -37,7 +36,7 @@ class RedirectorForGoneContact
   end
 
   def redirect_failed?
-    redirect_contact_response.code != 200
+    !redirect_contact_response
   end
 
   class Success
@@ -50,14 +49,18 @@ class RedirectorForGoneContact
   end
 
   class Failure
-    attr_reader :full_contact_path, :reason, :existing, :error
-    def initialize(reason, full_contact_path, existing: nil, error: nil)
+    attr_reader :full_contact_path, :reason, :existing, :message
+    def initialize(reason, full_contact_path, existing: nil, message: nil)
       @reason = reason
       @existing = existing
-      @error = error
+      @message = message
       @full_contact_path = full_contact_path
     end
     def successful?; false; end
+  end
+
+  def redirect_content_item_content_id
+    redirect_content_item_presenter.content_id
   end
 
 private
@@ -80,11 +83,11 @@ private
   end
 
   def redirect_contact_response
-    @redirect_contact_response ||= ::Contacts.publishing_api.put_content_item(contact.link, redirect_content_item)
+    @redirect_contact_response ||= Publisher.publish(redirect_content_item_presenter)
   end
 
-  def redirect_content_item
-    @redirect_content_item ||= ContactRedirectPresenter.new(contact, redirect_to_location).present
+  def redirect_content_item_presenter
+    @redirect_content_item ||= ContactRedirectPresenter.new(contact, redirect_to_location)
   end
 
 end

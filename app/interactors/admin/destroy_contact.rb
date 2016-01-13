@@ -8,7 +8,7 @@ module Admin
       @contact.transaction do
         # Overwrite with a gone item in content-store
         presenter = ContactGonePresenter.new(@contact)
-        ::Contacts.publishing_api.put_content_item(@contact.link, presenter.present)
+        Publisher.publish(presenter)
 
         # Remove from site search
         rummager_id = @contact.link.gsub(%r{^/}, '')

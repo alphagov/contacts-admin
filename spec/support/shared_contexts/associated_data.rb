@@ -1,8 +1,9 @@
 shared_context "an associated data model" do
   it "registers its parent contact on save" do
-    ::Contacts.publishing_api.should_receive(:put_content_item)
-                             .with(item.contact.link, hash_including(:content_id))
-                             .at_least(1)
+    presenter = ContactPresenter.new(item.contact)
+
+    ContactPresenter.should_receive(:new).with(item.contact).and_return(presenter)
+    Publisher.should_receive(:publish).with(presenter)
 
     item.title = "Winter is coming"
     item.save

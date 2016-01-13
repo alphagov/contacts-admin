@@ -10,7 +10,7 @@ module Admin
     def destroy_and_redirect
       contact.transaction do
         # Overwrite with a redirect item in content-store
-        ::Contacts.publishing_api.put_content_item(contact.link, redirect_content_item)
+        Publisher.publish(redirect_content_item_presenter)
 
         # Remove from site search
         rummager_id = contact.link.gsub(%r{^/}, '')
@@ -22,8 +22,8 @@ module Admin
     end
 
   private
-    def redirect_content_item
-      ContactRedirectPresenter.new(contact, redirect_to_location).present
+    def redirect_content_item_presenter
+      ContactRedirectPresenter.new(contact, redirect_to_location)
     end
   end
 end

@@ -29,7 +29,7 @@ describe RedirectorForGoneContact do
     end
 
     it 'does not publish a redirect' do
-      ::Contacts.publishing_api.should_not_receive(:put_content_item)
+      expect(Publisher).to_not receive(:publish)
       subject.redirect_gone_contact
     end
   end
@@ -52,7 +52,7 @@ describe RedirectorForGoneContact do
       end
 
       it 'does not publish a redirect' do
-        ::Contacts.publishing_api.should_not_receive(:put_content_item)
+        expect(Publisher).to_not receive(:publish)
         subject.redirect_gone_contact
       end
     end
@@ -69,7 +69,7 @@ describe RedirectorForGoneContact do
       end
 
       it 'does not publish a redirect' do
-        ::Contacts.publishing_api.should_not_receive(:put_content_item)
+        expect(Publisher).to_not receive(:publish)
         subject.redirect_gone_contact
       end
     end
@@ -124,8 +124,8 @@ describe RedirectorForGoneContact do
           expect(subject.redirect_gone_contact.reason).to eq(:redirect_failed)
         end
 
-        it 'includes the failed response from the api' do
-          expect(subject.redirect_gone_contact.error).to be_a(GdsApi::HTTPErrorResponse)
+        it 'includes the error message' do
+          expect(subject.redirect_gone_contact.message).to eq("PublishingApi Error: Redirect failed")
         end
       end
     end
