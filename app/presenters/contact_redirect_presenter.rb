@@ -21,12 +21,16 @@ class ContactRedirectPresenter
           destination: redirect_to_location
         }
       ],
-      content_id: content_id,
     }
   end
 
-private
   def content_id
     @_content_id ||= SecureRandom.uuid
   end
+
+  def links
+    nil
+  end
+
+  alias_method :payload, :present
 end
