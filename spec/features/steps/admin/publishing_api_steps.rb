@@ -1,6 +1,6 @@
 module Admin
   module PublishingApiSteps
-    def gone_item_for(contact)
+    def gone_item_for(gone_uuid, contact)
       {
         "format" => "gone",
         "publishing_app" => "contacts",
@@ -14,8 +14,8 @@ module Admin
       }
     end
 
-    def it_should_have_archived_the_page(contact)
-      assert_publishing_api_put_item(contact.link, gone_item_for(contact))
+    def it_should_have_archived_the_page(gone_uuid, contact)
+      assert_publishing_api_put_content(gone_uuid, gone_item_for(gone_uuid, contact))
     end
   end
 end
