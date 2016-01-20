@@ -17,7 +17,7 @@ describe ContactGonePresenter do
   end
 
   it 'includes a content_id that is not the same as contact.content_id' do
-    content_id = payload[:content_id]
+    content_id = presenter.content_id
 
     expect(content_id).not_to be_blank
     expect(content_id).not_to eq(contact.content_id)

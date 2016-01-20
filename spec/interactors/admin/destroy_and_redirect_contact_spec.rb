@@ -26,19 +26,10 @@ describe Admin::DestroyAndRedirectContact do
       end
 
       it "replaces the item in content store with a redirect item" do
-        ::Contacts.publishing_api.
-          should_receive(:put_content_item).
-          with(
-            contact.link,
-            hash_including(
-              format: 'redirect',
-              redirects: [
-                hash_including(
-                  destination: redirect_to_location
-                )
-              ]
-            )
-          )
+        presenter = ContactRedirectPresenter.new(contact, redirect_to_location)
+
+        ContactRedirectPresenter.should_receive(:new).with(contact, redirect_to_location).and_return(presenter)
+        Publisher.should_receive(:publish).with(presenter)
 
         subject.destroy_and_redirect
       end

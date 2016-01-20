@@ -5,11 +5,6 @@ class ContactGroup < ActiveRecord::Base
 
   belongs_to :organisation
 
-  # The line below is commented out in order to disable publishing of
-  # Finders until we have Contacts within the Elastic Search index.
-  #
-  # after_save :publish_finder
-
   friendly_id :title, use: :history
 
   has_many :contacts, through: :contact_memberships
@@ -31,12 +26,5 @@ class ContactGroup < ActiveRecord::Base
 
   def to_s
     title
-  end
-
-private
-
-  def publish_finder
-    presenter = ContactsFinderPresenter.new(self.organisation)
-    ::Contacts.publishing_api.put_content_item(presenter.base_path, presenter.present)
   end
 end

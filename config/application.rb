@@ -4,7 +4,7 @@ require 'rails/all'
 require 'gds_api/worldwide'
 require 'gds_api/organisations'
 require 'gds_api/rummager'
-require 'gds_api/publishing_api'
+require 'gds_api/publishing_api_v2'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -47,7 +47,7 @@ module Contacts
 
       Contacts.rummager_client = GdsApi::Rummager.new(Plek.current.find('search'))
 
-      ::Contacts.publishing_api = GdsApi::PublishingApi.new(
+      ::Contacts.publishing_api = GdsApi::PublishingApiV2.new(
         Plek.current.find('publishing-api'),
         bearer_token: ENV['PUBLISHING_API_BEARER_TOKEN'] || 'example'
       )

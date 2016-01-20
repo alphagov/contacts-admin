@@ -12,7 +12,7 @@ gem "virtus", "~> 1.0.0.beta8"
 gem "paper_trail", ">= 3.0.0.beta1"
 gem "govspeak", "1.2.3"
 gem "gds-sso", "~> 9.3.0"
-gem "gds-api-adapters", '23.2.0'
+gem "gds-api-adapters", '26.7.0'
 gem "lrucache", "0.1.4"
 gem "plek", ">= 1.0.0"
 gem 'govuk_admin_template', '3.0.0'
@@ -60,5 +60,5 @@ group :test do
   gem "simplecov-rcov"
   gem 'webmock', '1.17.3'
   gem 'json-schema', '2.5.1'
-  gem 'govuk-content-schema-test-helpers', '1.3.0'
+  gem 'govuk-content-schema-test-helpers', '1.4.0'
 end

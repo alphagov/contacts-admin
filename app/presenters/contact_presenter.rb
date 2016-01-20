@@ -7,9 +7,12 @@ class ContactPresenter
     @contact = contact
   end
 
+  def content_id
+    contact.content_id
+  end
+
   def present
     {
-      content_id: contact.content_id,
       title: contact.title,
       description: contact.description,
       format: "contact",
@@ -17,24 +20,28 @@ class ContactPresenter
       publishing_app: "contacts",
       rendering_app: "contacts-frontend",
       update_type: "major",
+      base_path: contact.link,
       public_updated_at: contact.updated_at,
       routes: [
         { path: contact.link, type: "exact" }
       ],
       details: contact_details.merge(language: "en"),
       need_ids: [],
-      links: links,
     }
   end
-
-  private
 
   def links
     {
-      "related" => @contact.related_contacts.pluck(:content_id),
-      "organisations" => Array(@contact.organisation.content_id)
-    }
+      links: {
+        "related" => @contact.related_contacts.pluck(:content_id),
+        "organisations" => Array(@contact.organisation.content_id)
+      } 
+    } 
   end
+
+  alias_method :payload, :present
+
+  private
 
   def contact_details
     {
