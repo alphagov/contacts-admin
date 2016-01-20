@@ -54,7 +54,7 @@ describe ContactPresenter do
   end
 
   context "with related contacts" do
-    let (:contact) { create(:contact, :with_related_contacts) }
+    let(:contact) { create(:contact, :with_related_contacts) }
 
     it "links to their content IDs" do
       links = ContactPresenter.new(contact).links

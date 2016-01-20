@@ -3,8 +3,8 @@ class ImportContacts
     include Virtus.value_object
 
     class MarkdownRenderer
-      URL_PART         = %Q{[%{url_title}](%{url})}
-      DESCRIPTION_PART = %Q{%{url_description}}
+      URL_PART         = %{[%{url_title}](%{url})}
+      DESCRIPTION_PART = %{%{url_description}}
 
       delegate :url, :description, :title, to: :@more_info_url
 

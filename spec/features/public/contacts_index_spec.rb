@@ -3,7 +3,7 @@ require 'spec_helper'
 feature "Public Contacts index page" do
   include Public::ContactSteps
 
-  let!(:hmrc)     { create :organisation, :title => "HM Revenue & Customs" }
+  let!(:hmrc)     { create :organisation, title: "HM Revenue & Customs" }
   let!(:alpha)    { create(:contact_group, title: "Alpha", organisation: hmrc) }
   let!(:beta)     { create(:contact_group, title: "Beta",  organisation: hmrc) }
   let!(:contact)  { create(:contact, :with_phone_numbers, title: "General", description: "Ordinary", contact_groups: [alpha], organisation: hmrc) }
@@ -59,8 +59,8 @@ feature "Public Contacts index page" do
     # This could happen if users followed an old bookmark or link
     visit "/government/organisations/hm-revenue-customs/contact?search%5Bname%5D=general"
 
-    expect(page).to have_link(contact.title, :href => "/government/organisations/#{hmrc.slug}/contact/#{contact.slug}")
-    expect(page).to_not have_link(contact2.title, :href => "/government/organisations/#{hmrc.slug}/contact/#{contact2.slug}")
+    expect(page).to have_link(contact.title, href: "/government/organisations/#{hmrc.slug}/contact/#{contact.slug}")
+    expect(page).to_not have_link(contact2.title, href: "/government/organisations/#{hmrc.slug}/contact/#{contact2.slug}")
   end
 
   it "should have a meta-description to aid external search engine results" do

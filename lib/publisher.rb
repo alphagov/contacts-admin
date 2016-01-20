@@ -22,7 +22,7 @@ class Publisher
     ::Contacts.publishing_api
   end
 
-  private
+private
 
   def send_item_to_draft_stack
     Publisher.client.put_content(presenter.content_id, presenter.payload)

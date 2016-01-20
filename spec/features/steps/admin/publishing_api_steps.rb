@@ -1,6 +1,6 @@
 module Admin
   module PublishingApiSteps
-    def gone_item_for(gone_uuid, contact)
+    def gone_item_for(_gone_uuid, contact)
       {
         "format" => "gone",
         "publishing_app" => "contacts",

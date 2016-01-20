@@ -1,6 +1,6 @@
 ENV["RAILS_ENV"] ||= "test"
 
-if( ENV['COVERAGE'] == 'on' )
+if(ENV['COVERAGE'] == 'on')
   require "simplecov"
   require "simplecov-rcov"
 
@@ -18,13 +18,13 @@ require "webmock/rspec"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
-Dir[Rails.root.join("spec/features/steps/*.rb")].sort.reverse.each { |f| require f }
-Dir[Rails.root.join("spec/features/steps/admin/*.rb")].sort.reverse.each { |f| require f }
-Dir[Rails.root.join("spec/features/steps/public/*.rb")].sort.reverse.each { |f| require f }
+Dir[Rails.root.join("spec/features/steps/*.rb")].sort.reverse_each { |f| require f }
+Dir[Rails.root.join("spec/features/steps/admin/*.rb")].sort.reverse_each { |f| require f }
+Dir[Rails.root.join("spec/features/steps/public/*.rb")].sort.reverse_each { |f| require f }
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
-WebMock.disable_net_connect!(:allow_localhost => true)
+WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
   config.mock_with :rspec

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe OrganisationSlugUpdater do
-
   let(:new_slug) { 'my-new-slug' }
   let(:old_slug) { 'my-old-slug' }
   let!(:organisation) { FactoryGirl.create(:organisation, slug: old_slug) }

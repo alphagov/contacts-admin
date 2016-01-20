@@ -57,7 +57,7 @@ class Contact < ActiveRecord::Base
     register_contact
   end
 
-  private
+private
 
   def set_content_id
     self.content_id ||= SecureRandom.uuid

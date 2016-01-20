@@ -7,7 +7,7 @@ class MockMainstreamSearchClient
     @results = results.map { |result| OpenStruct.new(result) }
   end
 
-  def search(query, query_options = {})
+  def search(_query, _query_options = {})
     self
   end
 end

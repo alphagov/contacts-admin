@@ -9,7 +9,7 @@ describe ImportContacts::PhoneNumberBuilder do
     let(:number_telephone)  { "555-111-55551" }
     let(:number_textphone)  { "0845 302 1408" }
     let(:number_international) { "+44 135 535 9022" }
-    let(:number_fax)        { "+44 1274 204198" }
+    let(:number_fax) { "+44 1274 204198" }
 
     context "with primary phone number record" do
       let(:input_attributes) {

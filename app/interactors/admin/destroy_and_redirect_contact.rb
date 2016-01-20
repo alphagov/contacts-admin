@@ -22,6 +22,7 @@ module Admin
     end
 
   private
+
     def redirect_content_item_presenter
       ContactRedirectPresenter.new(contact, redirect_to_location)
     end

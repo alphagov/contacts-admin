@@ -2,7 +2,6 @@ require 'gds_api/content_store'
 require 'publisher'
 
 class RedirectorForGoneContact
-
   def initialize(contact_slug:, organisation_slug:, redirect_to_location:)
     @contact_slug = contact_slug
     @organisation_slug = organisation_slug
@@ -56,6 +55,7 @@ class RedirectorForGoneContact
       @message = message
       @full_contact_path = full_contact_path
     end
+
     def successful?; false; end
   end
 
@@ -64,6 +64,7 @@ class RedirectorForGoneContact
   end
 
 private
+
   attr_reader :contact_slug, :organisation_slug, :redirect_to_location
 
   def content_store
@@ -89,5 +90,4 @@ private
   def redirect_content_item_presenter
     @redirect_content_item ||= ContactRedirectPresenter.new(contact, redirect_to_location)
   end
-
 end

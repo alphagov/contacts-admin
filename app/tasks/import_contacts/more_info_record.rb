@@ -3,7 +3,7 @@ class ImportContacts
     include Virtus.value_object
 
     class MarkdownRenderer
-      CONTENT_PART = %Q{%{content}}
+      CONTENT_PART = %{%{content}}
 
       delegate :content, to: :@more_info_record
 
@@ -12,7 +12,7 @@ class ImportContacts
       end
 
       def render
-        CONTENT_PART % { content: content  }
+        CONTENT_PART % { content: content }
       end
     end
 
@@ -32,7 +32,7 @@ class ImportContacts
       super.presence || NullMoreInfoUrl.new
     end
 
-    private
+  private
 
     def markdown_parts
       [more_info_url.to_markdown, MarkdownRenderer.new(self).render]

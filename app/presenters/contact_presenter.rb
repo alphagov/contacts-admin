@@ -35,13 +35,13 @@ class ContactPresenter
       links: {
         "related" => @contact.related_contacts.pluck(:content_id),
         "organisations" => Array(@contact.organisation.content_id)
-      } 
-    } 
+      }
+    }
   end
 
   alias_method :payload, :present
 
-  private
+private
 
   def contact_details
     {
@@ -49,7 +49,7 @@ class ContactPresenter
       title: contact.title,
       description: contact.description,
       quick_links: contact.quick_links.map {|q| {title: q.title, url: q.url} },
-      query_response_time: (contact.query_response_time or false),
+      query_response_time: (contact.query_response_time || false),
 
       contact_groups: ContactGroupsPresenter.new(contact.contact_groups).present,
 

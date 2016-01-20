@@ -1,11 +1,12 @@
 require "spec_helper"
 
 describe PhoneNumbersPresenter do
-  let(:phone) { create :phone_number,
+  let(:phone) {
+    create :phone_number,
                        description: "email description",
                        open_hours: "line open hours",
                        best_time_to_call: "best time to call"
-              }
+  }
 
   it "transforms a contact to the correct format" do
     presented = PhoneNumbersPresenter.new([phone]).present.first

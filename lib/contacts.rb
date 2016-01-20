@@ -6,6 +6,4 @@ module Contacts
   mattr_accessor :organisations_api
   mattr_accessor :enable_admin_routes
   mattr_accessor :publishing_api
-
-  module_function
 end

@@ -11,7 +11,7 @@ FactoryGirl.define do
   end
 
   factory :contact_form_link, parent: :website, class: ContactFormLink do
-    description  { generate(:contact_form_link_description) }
+    description { generate(:contact_form_link_description) }
     contact
   end
 end

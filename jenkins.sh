@@ -13,3 +13,4 @@ git clone git@github.com:alphagov/govuk-content-schemas.git tmp/govuk-content-sc
 
 GOVUK_CONTENT_SCHEMAS_PATH=tmp/govuk-content-schemas COVERAGE=on bundle exec rake ci:setup:rspec spec --trace
 
+bundle exec govuk-lint-ruby app lib spec

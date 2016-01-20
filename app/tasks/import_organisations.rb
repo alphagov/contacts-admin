@@ -1,7 +1,6 @@
 require 'gds_api/organisations'
 
 class ImportOrganisations
-
   def call
     organisation_relationships = {}
     organisations.each do |organisation_data|
@@ -43,5 +42,4 @@ private
       end
     end
   end
-
 end
