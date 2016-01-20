@@ -22,6 +22,7 @@ updated and reregistered with the content store.")
   end
 
 private
+
   attr_reader(
     :old_slug,
     :new_slug,

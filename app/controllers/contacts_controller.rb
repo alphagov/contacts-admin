@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
     @contacts = search.results.includes(:contact_groups).for_listing
   end
 
-  private
+private
 
   def search_params
     filter = { organisation_id: organisation.id }

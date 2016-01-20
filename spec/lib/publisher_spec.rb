@@ -11,23 +11,23 @@ describe Publisher do
 
       it 'calls put_content' do
         expect(Publisher.client).to receive(:put_content)
-        .with(contact.content_id, presenter.payload)
-        .and_call_original
+          .with(contact.content_id, presenter.payload)
+          .and_call_original
 
         Publisher.new(presenter).publish
       end
 
       it 'calls put_links' do
         Publisher.client.should_receive(:put_links)
-        .with(contact.content_id, presenter.links)
-        .and_call_original
+          .with(contact.content_id, presenter.links)
+          .and_call_original
 
         Publisher.new(presenter).publish
       end
 
       it 'calls publish' do
         Publisher.client.should_receive(:publish)
-        .with(contact.content_id,
+          .with(contact.content_id,
               update_type: presenter.payload[:update_type],
               locale: presenter.payload[:locale])
 

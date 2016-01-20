@@ -1,7 +1,6 @@
 require "spec_helper"
 
 describe UUIDValidator do
-
   class PieceOfContent
     include ActiveModel::Model
 

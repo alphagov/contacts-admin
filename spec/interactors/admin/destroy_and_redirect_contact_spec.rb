@@ -9,7 +9,7 @@ describe Admin::DestroyAndRedirectContact do
     it 'removes the item from rummager' do
       ::Contacts.rummager_client.
         should_receive(:delete_document).
-        with("contact", contact.link.gsub(%r{^/},''))
+        with("contact", contact.link.gsub(%r{^/}, ''))
 
       subject.destroy_and_redirect
     end

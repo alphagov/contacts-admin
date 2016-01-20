@@ -43,5 +43,4 @@ private
   def set_contact_index_content_id
     self.contact_index_content_id = SecureRandom.uuid
   end
-
 end

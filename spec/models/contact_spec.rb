@@ -22,7 +22,6 @@ describe Contact do
   end
 
   context "content ID" do
-
     it "should be set on a new contact" do
       contact = build(:contact)
       contact.valid?

@@ -14,7 +14,7 @@ describe "Phone Number creation", auth: :user do
     create_phone_number(contact,
                         number: number.number,
                         title: number.title
-    )
+                       )
 
     verify phone_number_exists(contact, number)
   end

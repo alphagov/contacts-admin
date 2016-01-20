@@ -3,11 +3,11 @@ module Public
     include ::CommonSteps
 
     def should_list_contact(contact)
-      expect(page).to have_link(contact.title, :href => "/government/organisations/#{hmrc.slug}/contact/#{contact.slug}")
+      expect(page).to have_link(contact.title, href: "/government/organisations/#{hmrc.slug}/contact/#{contact.slug}")
     end
 
     def should_not_list_contact(contact)
-      expect(page).to_not have_link(contact.title, :href => "/government/organisations/#{hmrc.slug}/contact/#{contact.slug}")
+      expect(page).to_not have_link(contact.title, href: "/government/organisations/#{hmrc.slug}/contact/#{contact.slug}")
     end
 
     def should_have_page_heading(text)

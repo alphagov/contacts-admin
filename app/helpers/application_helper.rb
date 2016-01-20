@@ -3,7 +3,7 @@ module ApplicationHelper
     if title_parts.any?
       title_parts.push("Admin") if params[:controller] =~ /^admin\//
       title_parts.push("GOV.UK")
-      @page_title = title_parts.reject { |p| p.blank? }.join(" - ")
+      @page_title = title_parts.reject(&:blank?).join(" - ")
     else
       @page_title
     end

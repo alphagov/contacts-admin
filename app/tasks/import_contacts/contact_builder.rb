@@ -37,7 +37,7 @@ class ImportContacts
       @contact
     end
 
-    private
+  private
 
     # In the CSV we have many offices, we will just pick the first one
     # it seems offices are like alias to help people search for contacts

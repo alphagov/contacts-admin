@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe ImportContacts::PostAddressBuilder do
   describe ".build" do
-    let(:contact)    { build :contact }
+    let(:contact) { build :contact }
     let(:posttitle)         { "post title" }
     let(:postaddress_desc)  { "post description" }
     let(:postaddress)       { "some address" }

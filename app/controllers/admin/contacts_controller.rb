@@ -42,7 +42,7 @@ class Admin::ContactsController < AdminController
     redirect_to admin_contacts_path
   end
 
-  private
+private
 
   def successful_update_url
     if params[:tab].present?

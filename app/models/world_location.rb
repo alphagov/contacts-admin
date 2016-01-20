@@ -13,9 +13,9 @@ class WorldLocation
 
   def self.all
     cache_fetch("all") do
-      Contacts.worldwide_api.world_locations.with_subsequent_pages.map do |l|
-        new(l) if l.format == "World location" && l.details && l.details.slug.present?
-      end.compact
+      Contacts.worldwide_api.world_locations.with_subsequent_pages
+        .map { |l| new(l) if l.format == "World location" && l.details && l.details.slug.present? }
+        .compact
     end
   end
 
