@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "4.1.11"
+gem "rails", "4.1.14.1"
 
 gem "active_hash", "1.4.0"
 gem "mysql2", "~> 0.3.13"
@@ -28,7 +28,7 @@ gem 'ancestry', '2.0.0'
 
 # assets
 gem "sass-rails", "~> 4.0.0"
-gem "uglifier", ">= 1.3.0"
+gem "uglifier", ">= 2.7.2"
 gem "coffee-rails", "~> 4.0.0"
 gem "therubyracer", "0.12.2", platforms: :ruby
 gem "govuk_frontend_toolkit", "0.46.1"
