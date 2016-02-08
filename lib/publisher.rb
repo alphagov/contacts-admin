@@ -19,7 +19,7 @@ class Publisher
   end
 
   def self.client
-    ::Contacts.publishing_api
+    Services.publishing_api
   end
 
 private

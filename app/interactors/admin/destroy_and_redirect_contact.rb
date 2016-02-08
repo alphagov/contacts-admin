@@ -14,7 +14,7 @@ module Admin
 
         # Remove from site search
         rummager_id = contact.link.gsub(%r{^/}, '')
-        ::Contacts.rummager_client.delete_document("contact", rummager_id)
+        Services.rummager_client.delete_document("contact", rummager_id)
 
         # Remove from our database
         contact.destroy
