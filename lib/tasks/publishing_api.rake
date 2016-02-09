@@ -7,7 +7,7 @@ namespace :publishing_api do
   task publish_special_routes: :environment do
     special_route_publisher = GdsApi::PublishingApi::SpecialRoutePublisher.new(
       logger: Logger.new(STDOUT),
-      publishing_api: Contacts.publishing_api
+      publishing_api: Services.publishing_api
     )
     special_route_publisher.publish(
       title: 'HMRC contacts finder',

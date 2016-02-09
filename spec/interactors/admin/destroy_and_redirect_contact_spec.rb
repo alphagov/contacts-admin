@@ -7,7 +7,7 @@ describe Admin::DestroyAndRedirectContact do
     subject!(:interactor) { described_class.new(contact, redirect_to_location) }
 
     it 'removes the item from rummager' do
-      ::Contacts.rummager_client.
+      Services.rummager_client.
         should_receive(:delete_document).
         with("contact", contact.link.gsub(%r{^/}, ''))
 
