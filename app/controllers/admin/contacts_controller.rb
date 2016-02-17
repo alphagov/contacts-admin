@@ -1,3 +1,5 @@
+require './app/commands/rummager.rb'
+
 class Admin::ContactsController < AdminController
   before_filter :load_contact, only: [:edit, :update, :clone, :destroy]
   helper_method :search
@@ -27,6 +29,7 @@ class Admin::ContactsController < AdminController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+      Commands::Rummager.new(@contact).call
       redirect_to admin_contacts_path, notice: "Contact successfully created"
     else
       render :new

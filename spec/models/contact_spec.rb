@@ -14,13 +14,6 @@ describe Contact do
     contact.save
   end
 
-  it "should be in rummager after being created" do
-    contact = create(:contact)
-
-    expected_json = JSON.parse(ContactRummagerPresenter.new(contact).present.to_json)
-    assert_rummager_posted_item(expected_json)
-  end
-
   context "content ID" do
     it "should be set on a new contact" do
       contact = build(:contact)
