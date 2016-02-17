@@ -16,7 +16,7 @@ describe Admin::DestroyContact do
       end
 
       it "should replace the item in content store with a gone item" do
-        presenter = double("ContactGonePresenter", present: { some: "JSON" })
+        presenter = double(ContactGonePresenter, present: { some: "JSON" })
         ContactGonePresenter.should_receive(:new).with(contact).and_return(presenter)
         expect(Publisher).to receive(:publish).with(presenter)
 
