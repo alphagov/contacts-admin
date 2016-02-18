@@ -36,7 +36,7 @@ describe "Contact editing", auth: :user do
                    description: "new description"
                   )
 
-    assert_publishing_api_put_content(contact.content_id, title: "new title", description: "new description")
+    assert_publishing_api_put_content(contact.content_id, request_json_includes(title: "new title", description: "new description"))
   end
 
   specify "updating a contact sends the data to Rummager" do
