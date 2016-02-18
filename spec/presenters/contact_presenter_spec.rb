@@ -46,10 +46,12 @@ describe ContactPresenter do
     end
 
     it "returns links data" do
+      content_id = SecureRandom.uuid
+      contact.related_contacts << create(:contact, content_id: content_id)
+
       links = ContactPresenter.new(contact).links
 
-      expect(links[:links]["organisations"].length).to eq(1)
-      expect(links[:links]["organisations"].first).to eq(contact.organisation.content_id)
+      expect(links[:links]["related"]).to eq([content_id])
     end
   end
 

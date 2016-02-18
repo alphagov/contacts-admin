@@ -34,7 +34,6 @@ class ContactPresenter
     {
       links: {
         "related" => @contact.related_contacts.pluck(:content_id),
-        "organisations" => Array(@contact.organisation.content_id)
       }
     }
   end
