@@ -1,4 +1,4 @@
-module Commands
+module Admin
   class Rummager
     def initialize(contact)
       @contact = contact
