@@ -7,8 +7,6 @@ class Contact < ActiveRecord::Base
   before_validation :set_content_id, on: :create
   attr_readonly :content_id
 
-  after_save :register_contact
-
   friendly_id :title, use: :history
 
   belongs_to :organisation
@@ -61,14 +59,5 @@ private
 
   def set_content_id
     self.content_id ||= SecureRandom.uuid
-  end
-
-  def register_contact
-    rummager_id = link.gsub(%r{^/}, '')
-    rummager_presenter = ContactRummagerPresenter.new(self)
-    Services.rummager_client.add_document("contact", rummager_id, rummager_presenter.present)
-
-    presenter = ContactPresenter.new(self)
-    Publisher.publish(presenter)
   end
 end

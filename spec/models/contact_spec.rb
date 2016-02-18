@@ -4,23 +4,6 @@ describe Contact do
   it { should validate_presence_of :title }
   it { should validate_presence_of :description }
 
-  it "should be registered after saving" do
-    contact = build(:contact)
-    presenter = ContactPresenter.new(contact)
-
-    ContactPresenter.should_receive(:new).with(contact).and_return(presenter)
-    Publisher.should_receive(:publish).with(presenter)
-
-    contact.save
-  end
-
-  it "should be in rummager after being created" do
-    contact = create(:contact)
-
-    expected_json = JSON.parse(ContactRummagerPresenter.new(contact).present.to_json)
-    assert_rummager_posted_item(expected_json)
-  end
-
   context "content ID" do
     it "should be set on a new contact" do
       contact = build(:contact)

@@ -16,7 +16,7 @@ describe ContactRummagerPresenter do
       format:            'contact',
       indexable_content: "Major Tom Back to Earth #{contact.contact_groups.first.title}",
       organisations:     ['bowie'],
-      public_timestamp:  contact.updated_at,
+      public_timestamp:  contact.updated_at.iso8601,
     }
 
     expect(ContactRummagerPresenter.new(contact).present).to eql(expected)

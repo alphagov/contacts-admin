@@ -47,7 +47,7 @@ describe "Contact editing", auth: :user do
                    description: "newer description"
                   )
 
-    it_should_have_added_the_page_to_search(contact)
+    it_should_have_added_the_page_to_search(contact.reload)
   end
 
   specify "updating more info fields from tabs redirects the user back to the tab" do

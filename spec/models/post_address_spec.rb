@@ -1,7 +1,16 @@
 require "spec_helper"
+require 'gds_api/test_helpers/worldwide'
 
 describe PostAddress do
-  let(:item) { create(:post_address) }
+  include GdsApi::TestHelpers::Worldwide
+
+  let(:item) { build(:post_address) }
+
+  before do
+    worldwide_api_has_location(item.world_location_slug)
+    item.save
+  end
+
   it_behaves_like "an associated data model"
 
   it { should validate_presence_of :contact }

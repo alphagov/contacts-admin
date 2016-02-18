@@ -12,6 +12,7 @@ class Admin::ContactsController < AdminController
 
   def update
     if @contact.update_attributes(contact_params)
+      register_contact
       redirect_to successful_update_url, notice: "Contact successfully updated"
     else
       render :edit
@@ -27,6 +28,7 @@ class Admin::ContactsController < AdminController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
+      register_contact
       redirect_to admin_contacts_path, notice: "Contact successfully created"
     else
       render :new
@@ -43,6 +45,11 @@ class Admin::ContactsController < AdminController
   end
 
 private
+
+  def register_contact
+    Admin::ContactPublisher.new(@contact).call
+    Admin::Rummager.new(@contact).call
+  end
 
   def successful_update_url
     if params[:tab].present?
