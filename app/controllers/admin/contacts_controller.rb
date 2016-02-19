@@ -25,10 +25,11 @@ class Admin::ContactsController < AdminController
   end
 
   def create
-    @contact = Contact.new(contact_params)
-    if @contact.save
+    contact_creator = Admin::CreateContact.new(contact_params)
+    if contact_creator.save
       redirect_to admin_contacts_path, notice: "Contact successfully created"
     else
+      @contact = contact_creator.contact
       render :new
     end
   end

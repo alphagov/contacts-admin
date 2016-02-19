@@ -5,6 +5,14 @@ module Admin
     end
 
     def clone
+      clone = create_record
+      send_links_to_publishing_api(clone)
+      clone
+    end
+
+  private
+
+    def create_record
       clone = @contact.dup
       clone.save
 
@@ -40,6 +48,13 @@ module Admin
       Contact.reset_counters(clone.id, :email_addresses)
       Contact.reset_counters(clone.id, :post_addresses)
       clone
+    end
+
+    def send_links_to_publishing_api(clone)
+      Publisher.client.put_links(
+        clone.content_id,
+        links: { organisations: [clone.organisation.content_id] }
+      )
     end
   end
 end
