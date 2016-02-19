@@ -28,6 +28,8 @@ class Contact < ActiveRecord::Base
   validates :description, presence: true
   validates :content_id, uuid: true
 
+  validate :organisation_should_never_change
+
   scope :by_title, -> { order("title ASC") }
   scope :ungrouped, -> { where(contact_group_id: nil) }
   scope :for_listing, -> {
@@ -70,5 +72,11 @@ private
 
     presenter = ContactPresenter.new(self)
     Publisher.publish(presenter)
+  end
+
+  def organisation_should_never_change
+    if persisted? && organisation_id_changed?
+      errors[:organisation] << "can't be changed"
+    end
   end
 end

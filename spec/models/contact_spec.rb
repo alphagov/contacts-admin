@@ -49,4 +49,28 @@ describe Contact do
       }.not_to change { contact.content_id }
     end
   end
+
+  describe '#organisation' do
+    it "can be set on create" do
+      contact = create(:contact, organisation: create(:organisation))
+
+      expect(contact).to be_valid
+    end
+
+    it "can not be changed" do
+      contact = create(:contact)
+
+      contact.organisation = create(:organisation)
+
+      expect(contact).not_to be_valid
+    end
+
+    it "can not be changed via `organisation_id`" do
+      contact = create(:contact)
+
+      contact.organisation_id = 1212
+
+      expect(contact).not_to be_valid
+    end
+  end
 end
