@@ -14,7 +14,8 @@ class Publisher
     publish_links if presenter.links
     publish_item
     true
-  rescue GdsApi::HTTPErrorResponse
+  rescue GdsApi::HTTPErrorResponse => e
+    Airbrake.notify_or_ignore(e)
     false
   end
 
@@ -34,7 +35,7 @@ private
 
   def publish_item
     Publisher.client.publish(presenter.content_id,
-                   update_type: presenter.payload[:update_type],
-                   locale: presenter.payload[:locale])
+                             presenter.payload[:update_type],
+                             locale: presenter.payload[:locale])
   end
 end
