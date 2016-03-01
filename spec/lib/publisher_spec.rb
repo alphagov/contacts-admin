@@ -28,8 +28,8 @@ describe Publisher do
       it 'calls publish' do
         Publisher.client.should_receive(:publish)
           .with(contact.content_id,
-              update_type: presenter.payload[:update_type],
-              locale: presenter.payload[:locale])
+                presenter.payload[:update_type],
+                locale: presenter.payload[:locale])
 
         Publisher.new(presenter).publish
       end
@@ -57,7 +57,8 @@ describe Publisher do
       context 'with unsuccessful put_content to draft' do
         before { stub_any_publishing_api_put_content.to_return(status: 422, body: "Failed put content") }
 
-        it "returns false" do
+        it "returns false and logs an error in Errbit" do
+          expect(Airbrake).to receive(:notify_or_ignore)
           response = Publisher.new(presenter).publish
 
           expect(response).to be_false
@@ -67,7 +68,8 @@ describe Publisher do
       context 'with unsuccessful put_links' do
         before { stub_any_publishing_api_put_links.to_return(status: 422, body: "Failed put links") }
 
-        it "returns false" do
+        it "returns false and logs an error in Errbit" do
+          expect(Airbrake).to receive(:notify_or_ignore)
           response = Publisher.new(presenter).publish
 
           expect(response).to be_false
@@ -77,7 +79,8 @@ describe Publisher do
       context 'with unsuccessful publish' do
         before { stub_any_publishing_api_call.to_return(status: 422, body: "Failed publish") }
 
-        it "returns false" do
+        it "returns false and logs an error in Errbit" do
+          expect(Airbrake).to receive(:notify_or_ignore)
           response = Publisher.new(presenter).publish
 
           expect(response).to be_false
