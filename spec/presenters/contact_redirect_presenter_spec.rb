@@ -12,7 +12,6 @@ describe ContactRedirectPresenter do
   it "transforms a contact to the redirect format" do
     expect(payload[:format]).to eq('redirect')
     expect(payload[:publishing_app]).to eq("contacts")
-    expect(payload[:update_type]).to eq("major")
     expect(payload[:redirects].size).to eq(1)
     expect(payload[:base_path]).to eq(contact.link)
     expect(payload).not_to have_key(:routes)
