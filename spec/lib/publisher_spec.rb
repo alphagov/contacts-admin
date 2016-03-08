@@ -28,7 +28,7 @@ describe Publisher do
       it 'calls publish' do
         Publisher.client.should_receive(:publish)
           .with(contact.content_id,
-                presenter.payload[:update_type],
+                "major",
                 locale: presenter.payload[:locale])
 
         Publisher.new(presenter).publish

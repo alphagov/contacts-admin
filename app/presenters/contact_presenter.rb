@@ -19,7 +19,6 @@ class ContactPresenter
       locale: "en",
       publishing_app: "contacts",
       rendering_app: "contacts-frontend",
-      update_type: "major",
       base_path: contact.link,
       public_updated_at: contact.updated_at,
       routes: [

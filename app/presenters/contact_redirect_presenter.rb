@@ -12,7 +12,6 @@ class ContactRedirectPresenter
     {
       format: "redirect",
       publishing_app: "contacts",
-      update_type: "major",
       base_path: contact.link,
       redirects: [
         {

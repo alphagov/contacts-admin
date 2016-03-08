@@ -13,7 +13,6 @@ module Admin
       {
         "format" => "gone",
         "publishing_app" => "contacts",
-        "update_type" => "major",
         "routes" => [
           {
             "path" =>  contact.link,
