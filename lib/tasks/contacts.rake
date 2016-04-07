@@ -1,5 +1,3 @@
-require 'redirector_for_gone_contact'
-
 namespace :contacts do
   desc "Import contact data from CSV file"
   task import_hmrc: :environment do
