@@ -30,6 +30,13 @@ class ContactPresenter
   end
 
   def links
+    # The Contact model uses the organisation to determine its base path, for this reason,
+    # we decided not to send the organisation data to publishing-api here but only on creation.
+    # - Users can only select the organisation for the contact on creation
+    # - After creation, we send the organisation to the publishing-api once
+    # This means that if the `organisations` in the links is modified, contacts-admin will not
+    # accidentally overwrite it - and we can start tagging contact pages with content-tagger.
+    # See: https://github.com/alphagov/contacts-admin/pull/231.
     {
       links: {
         "related" => @contact.related_contacts.pluck(:content_id),
