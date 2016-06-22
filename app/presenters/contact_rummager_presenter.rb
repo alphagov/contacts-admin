@@ -12,7 +12,6 @@ class ContactRummagerPresenter
       link: contact.link,
       format: "contact",
       indexable_content: "#{contact.title} #{contact.description} #{contact.contact_groups.map(&:title).join}",
-      organisations: [contact.organisation.slug],
       public_timestamp: contact.updated_at,
     }
   end
