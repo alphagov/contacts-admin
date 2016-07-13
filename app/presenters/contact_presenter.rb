@@ -15,7 +15,8 @@ class ContactPresenter
     {
       title: contact.title,
       description: contact.description,
-      format: "contact",
+      document_type: "contact",
+      schema_name: "contact",
       locale: "en",
       publishing_app: "contacts",
       rendering_app: "contacts-frontend",
