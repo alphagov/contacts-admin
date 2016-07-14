@@ -9,7 +9,6 @@ describe ContactGonePresenter do
   let(:payload) { subject.present }
 
   it "transforms a contact to the correct format" do
-    expect(payload[:format]).to eq('gone')
     expect(payload[:publishing_app]).to eq("contacts")
     expect(payload[:routes].first[:path]).to eq(contact.link)
     expect(payload[:base_path]).to eq(contact.link)

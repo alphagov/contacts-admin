@@ -11,7 +11,8 @@ module Admin
 
     def contact_content(contact)
       {
-        "format" => "gone",
+        "document_type" => "gone",
+        "schema_name" => "gone",
         "publishing_app" => "contacts",
         "routes" => [
           {

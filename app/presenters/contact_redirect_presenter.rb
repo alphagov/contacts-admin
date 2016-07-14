@@ -10,7 +10,8 @@ class ContactRedirectPresenter
 
   def present
     {
-      format: "redirect",
+      document_type: "redirect",
+      schema_name: "redirect",
       publishing_app: "contacts",
       base_path: contact.link,
       redirects: [

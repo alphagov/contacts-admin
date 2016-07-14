@@ -94,8 +94,6 @@ describe RedirectorForGoneContact do
           ->(request) do
             data = JSON.parse(request.body)
             # RSpec 2.14 doesn't have a fluent interface for this kind of match
-            expect(data).to have_key('format')
-            expect(data['format']).to eq('redirect')
             expect(data).to have_key('redirects')
             expect(data['redirects'].size).to eq(1)
             redirect = data['redirects'].first

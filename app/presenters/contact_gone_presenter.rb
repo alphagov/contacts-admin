@@ -11,7 +11,8 @@ class ContactGonePresenter
 
   def present
     {
-      format: "gone",
+      document_type: "gone",
+      schema_name: "gone",
       publishing_app: "contacts",
       base_path: contact.link,
       routes: [
