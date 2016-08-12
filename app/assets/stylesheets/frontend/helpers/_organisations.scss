@@ -137,7 +137,9 @@
   }
 }
 
+.organisation-logo-no-identity,
 .organisation-logo-stacked-no-identity {
+  -sass-extend: keep;
 }
 .organisation-logo-identity {
   border-left: 2px solid;
@@ -494,6 +496,7 @@
 
 // Non-cornforming Medium
 .organisation-logo-no-identity-medium {
+  -sass-extend: keep;
   @include media(tablet){
     font-size: 18px;
     line-height: 20px;
@@ -1273,7 +1276,7 @@
     background-position: 9px top;
     background-size: auto 40px;
   }
-  
+
   @include ie-lte(6){
     padding: 40px 0 0 10px;
     background-image: image-url("crests/hmrc_crest_27px.png");
