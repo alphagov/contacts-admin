@@ -4,7 +4,7 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
+Bundler.require(*Rails.groups)
 
 SLUG_FORMAT = /[A-Za-z0-9\-_]+/
 
@@ -30,6 +30,9 @@ module Contacts
     config.assets.prefix = '/contacts-assets'
 
     config.i18n.enforce_available_locales = true
+
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
 
     # Generators
     config.generators do |g|
