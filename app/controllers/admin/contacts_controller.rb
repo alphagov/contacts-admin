@@ -58,7 +58,12 @@ private
   end
 
   def search
-    @search ||= ContactsSearch.new params[:search]
+    @search ||= ContactsSearch.new search_params
+  end
+
+  def search_params
+    return {} unless params.key? :contacts_search
+    params.require(:contacts_search).permit(:q, :organisation_id)
   end
 
   def contact_params

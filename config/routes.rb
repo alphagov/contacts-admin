@@ -4,7 +4,7 @@ class AdminRequest
   end
 end
 
-Contacts::Application.routes.draw do
+Rails.application.routes.draw do
   get "healthcheck" => "healthcheck#check"
 
   constraints(AdminRequest) do
