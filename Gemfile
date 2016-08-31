@@ -58,7 +58,7 @@ group :test do
   gem 'capybara', '~> 2.8.1'
   gem "simplecov"
   gem "simplecov-rcov"
-  gem 'webmock', '1.17.3'
+  gem 'webmock', '2.1.0'
   gem 'json-schema', '2.5.2'
   gem 'govuk-content-schema-test-helpers', '1.4.0'
 end
