@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe PhoneNumber, type: :model do
   let(:item) { create(:phone_number) }

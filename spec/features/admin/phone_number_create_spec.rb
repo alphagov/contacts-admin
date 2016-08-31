@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 feature "Phone Number creation", auth: :user do
   include Admin::PhoneNumberSteps

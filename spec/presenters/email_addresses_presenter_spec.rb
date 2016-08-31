@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 describe EmailAddressesPresenter do
   let(:email) { create :email_address, description: "email description" }

@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe ContactFormLink, type: :model do
   let(:item) { create(:contact_form_link) }

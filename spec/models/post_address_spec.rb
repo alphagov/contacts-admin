@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe PostAddress, type: :model do
   let(:item) { create(:post_address) }

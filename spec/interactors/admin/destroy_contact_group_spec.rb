@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 describe Admin::DestroyContactGroup do
   describe "#destroy" do

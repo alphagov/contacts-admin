@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "rails_helper"
 
 describe OrganisationSlugUpdater do
   let(:new_slug) { 'my-new-slug' }

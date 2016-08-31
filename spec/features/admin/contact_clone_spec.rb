@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 feature "Contact cloning", auth: :user do
   specify "it can be cloned" do

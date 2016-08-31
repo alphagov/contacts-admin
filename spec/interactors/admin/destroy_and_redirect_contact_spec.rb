@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 describe Admin::DestroyAndRedirectContact do
   describe "#destroy_and_redirect" do

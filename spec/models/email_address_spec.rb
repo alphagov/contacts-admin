@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe EmailAddress, type: :model do
   let(:item) { create(:email_address) }

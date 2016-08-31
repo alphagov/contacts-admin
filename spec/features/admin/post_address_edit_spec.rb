@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 feature "Post Address editing", auth: :user, mock_world_location: true do
   include Admin::PostAddressSteps

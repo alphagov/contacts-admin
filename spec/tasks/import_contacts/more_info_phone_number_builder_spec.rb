@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 describe ImportContacts::MoreInfoPhoneNumberBuilder do
   describe ".build" do

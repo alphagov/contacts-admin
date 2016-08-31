@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 feature "Contact removal", auth: :user do
   include Admin::ContactSteps

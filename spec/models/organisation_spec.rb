@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe Organisation, type: :model do
   subject(:organisation) { create :organisation, abbreviation: abbreviation, title: title }

@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 feature "Email Address editing", auth: :user do
   include Admin::EmailAddressSteps
