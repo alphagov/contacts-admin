@@ -99,10 +99,10 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.7.0)
-    factory_girl (4.4.0)
+    factory_girl (4.7.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.4.1)
-      factory_girl (~> 4.4.0)
+    factory_girl_rails (4.7.0)
+      factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
     fakefs (0.5.2)
     faraday (0.9.0)
@@ -375,7 +375,7 @@ DEPENDENCIES
   capybara (~> 2.8.1)
   ci_reporter
   coffee-rails (~> 4.0.0)
-  factory_girl_rails
+  factory_girl_rails (~> 4.7)
   fakefs
   friendly_id (= 5.1.0)
   gds-api-adapters (= 28.1.0)
