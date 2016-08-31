@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Contact creation", auth: :user do
+feature "Contact creation", auth: :user do
   include Admin::ContactSteps
 
   let!(:contact_group)       { create(:contact_group, :with_organisation, title: "new contact type") }

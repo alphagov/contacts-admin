@@ -51,11 +51,11 @@ end
 # testing
 group :test do
   gem "ci_reporter"
-  gem "rspec-rails", "~> 2.99"
+  gem "rspec-rails", "~> 3.5.2"
   gem "factory_girl_rails"
   gem "shoulda-matchers", "2.7.0"
   gem "fakefs", require: "fakefs/safe"
-  gem "capybara"
+  gem 'capybara', '~> 2.8.1'
   gem "simplecov"
   gem "simplecov-rcov"
   gem 'webmock', '1.17.3'

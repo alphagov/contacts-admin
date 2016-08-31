@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Contact removal", auth: :user do
+feature "Contact removal", auth: :user do
   include Admin::ContactSteps
   include Admin::PublishingApiSteps
   include Admin::SiteSearchSteps
@@ -14,7 +14,7 @@ describe "Contact removal", auth: :user do
 
   specify "it can be removed" do
     gone_uuid = SecureRandom.uuid
-    SecureRandom.stub(uuid: gone_uuid)
+    allow(SecureRandom).to receive_messages(uuid: gone_uuid)
 
     expect {
       delete_contact(contact)

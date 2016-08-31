@@ -18,7 +18,7 @@ describe Admin::DestroyContactGroup do
       it "destroys the contact group" do
         described_class.new(contact_group).destroy
 
-        expect { contact_group.reload }.to raise_error
+        expect { contact_group.reload }.to raise_error ActiveRecord::RecordNotFound
       end
     end
   end

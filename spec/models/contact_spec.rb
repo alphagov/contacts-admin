@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Contact do
+RSpec.describe Contact, type: :model do
   it { is_expected.to validate_presence_of :title }
   it { is_expected.to validate_presence_of :description }
 

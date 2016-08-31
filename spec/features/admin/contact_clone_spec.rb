@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Contact cloning", auth: :user do
+feature "Contact cloning", auth: :user do
   specify "it can be cloned" do
     contact = create(:contact)
     visit edit_admin_contact_path(contact)

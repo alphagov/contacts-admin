@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Post Address removal", auth: :user, mock_world_location: true do
+feature "Post Address removal", auth: :user, mock_world_location: true do
   include Admin::PostAddressSteps
 
   let!(:contact)      { create :contact }

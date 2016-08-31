@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe PhoneNumber do
+RSpec.describe PhoneNumber, type: :model do
   let(:item) { create(:phone_number) }
   it_behaves_like "an associated data model"
 

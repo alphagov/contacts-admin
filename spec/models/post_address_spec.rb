@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe PostAddress do
+RSpec.describe PostAddress, type: :model do
   let(:item) { create(:post_address) }
   it_behaves_like "an associated data model"
 

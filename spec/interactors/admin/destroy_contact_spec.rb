@@ -12,7 +12,7 @@ describe Admin::DestroyContact do
       it "destroys the contact" do
         described_class.new(contact).destroy
 
-        expect { contact.reload }.to raise_error
+        expect { contact.reload }.to raise_error ActiveRecord::RecordNotFound
       end
 
       it "should replace the item in content store with a gone item" do

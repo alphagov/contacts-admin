@@ -91,15 +91,15 @@ describe RedirectorForGoneContact do
 
         assert_publishing_api_put_content(
           subject.redirect_content_item_content_id,
-          ->(request) do
-            data = JSON.parse(request.body)
-            # RSpec 2.14 doesn't have a fluent interface for this kind of match
-            expect(data).to have_key('redirects')
-            expect(data['redirects'].size).to eq(1)
-            redirect = data['redirects'].first
-            expect(redirect).to have_key('destination')
-            expect(redirect['destination']).to eq(redirect_to_location)
-          end
+          request_json_includes(
+            redirects: [
+              {
+                path: path_in_content_store,
+                type: "exact",
+                destination: redirect_to_location,
+              }
+            ]
+          )
         )
       end
 

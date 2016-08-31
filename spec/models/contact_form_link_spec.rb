@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe ContactFormLink do
+RSpec.describe ContactFormLink, type: :model do
   let(:item) { create(:contact_form_link) }
   it_behaves_like "an associated data model"
 

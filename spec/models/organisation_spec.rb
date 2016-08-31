@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Organisation do
+RSpec.describe Organisation, type: :model do
   subject(:organisation) { create :organisation, abbreviation: abbreviation, title: title }
   let(:title) { "HM Revenue & Customs" }
   let(:abbreviation) { "HMRC" }

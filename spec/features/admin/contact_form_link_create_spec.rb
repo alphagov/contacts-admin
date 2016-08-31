@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Contact Form Link creation", auth: :user do
+feature "Contact Form Link creation", auth: :user do
   include Admin::ContactFormLinkSteps
 
   let(:contact)           { create :contact }

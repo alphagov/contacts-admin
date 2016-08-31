@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Phone Number creation", auth: :user do
+feature "Phone Number creation", auth: :user do
   include Admin::PhoneNumberSteps
 
   let(:contact) { create :contact }

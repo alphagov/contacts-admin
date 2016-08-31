@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe EmailAddress do
+RSpec.describe EmailAddress, type: :model do
   let(:item) { create(:email_address) }
   it_behaves_like "an associated data model"
 

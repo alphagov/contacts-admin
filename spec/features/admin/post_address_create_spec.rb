@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Post Address creation", auth: :user, mock_world_location: true do
+feature "Post Address creation", auth: :user, mock_world_location: true do
   include Admin::PostAddressSteps
 
   let(:contact)      { create :contact }
