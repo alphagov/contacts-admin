@@ -51,7 +51,7 @@ end
 # testing
 group :test do
   gem "ci_reporter"
-  gem "rspec-rails", "~> 2.14"
+  gem "rspec-rails", "~> 2.99"
   gem "factory_girl_rails"
   gem "shoulda-matchers", "2.7.0"
   gem "fakefs", require: "fakefs/safe"

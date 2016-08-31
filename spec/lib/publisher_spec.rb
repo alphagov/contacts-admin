@@ -18,7 +18,7 @@ describe Publisher do
       end
 
       it 'calls put_links' do
-        Publisher.client.should_receive(:put_links)
+        expect(Publisher.client).to receive(:put_links)
           .with(contact.content_id, presenter.links)
           .and_call_original
 
@@ -26,7 +26,7 @@ describe Publisher do
       end
 
       it 'calls publish' do
-        Publisher.client.should_receive(:publish)
+        expect(Publisher.client).to receive(:publish)
           .with(contact.content_id,
                 "major",
                 locale: presenter.payload[:locale])
@@ -37,7 +37,7 @@ describe Publisher do
       it 'returns a succesful response' do
         response = Publisher.new(presenter).publish
 
-        expect(response).to be_true
+        expect(response).to be_truthy
       end
     end
 
@@ -45,7 +45,7 @@ describe Publisher do
       let(:gone_presenter) { ContactGonePresenter.new(contact) }
 
       it 'does not call put_links' do
-        Publisher.client.should_not_receive(:put_links)
+        expect(Publisher.client).not_to receive(:put_links)
 
         Publisher.new(gone_presenter).publish
       end
@@ -61,7 +61,7 @@ describe Publisher do
           expect(Airbrake).to receive(:notify_or_ignore)
           response = Publisher.new(presenter).publish
 
-          expect(response).to be_false
+          expect(response).to be_falsey
         end
       end
 
@@ -72,7 +72,7 @@ describe Publisher do
           expect(Airbrake).to receive(:notify_or_ignore)
           response = Publisher.new(presenter).publish
 
-          expect(response).to be_false
+          expect(response).to be_falsey
         end
       end
 
@@ -83,7 +83,7 @@ describe Publisher do
           expect(Airbrake).to receive(:notify_or_ignore)
           response = Publisher.new(presenter).publish
 
-          expect(response).to be_false
+          expect(response).to be_falsey
         end
       end
     end

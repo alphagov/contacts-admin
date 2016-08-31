@@ -8,7 +8,7 @@ describe "Contact removal", auth: :user do
   let!(:contact) { create :contact }
 
   before do
-    Contact.count.should eq(1)
+    expect(Contact.count).to eq(1)
     stub_any_rummager_delete
   end
 
