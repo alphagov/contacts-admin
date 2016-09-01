@@ -54,7 +54,7 @@ group :test do
   gem "rspec-rails", "~> 3.5.2"
   gem 'factory_girl_rails', '~> 4.7'
   gem "shoulda-matchers", "3.1.1"
-  gem "fakefs", require: "fakefs/safe"
+  gem "fakefs", "0.9.1", require: "fakefs/safe"
   gem 'capybara', '~> 2.8.1'
   gem "simplecov"
   gem "simplecov-rcov"

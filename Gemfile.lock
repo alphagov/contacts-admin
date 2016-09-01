@@ -107,7 +107,7 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
-    fakefs (0.5.2)
+    fakefs (0.9.1)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     friendly_id (5.1.0)
@@ -385,7 +385,7 @@ DEPENDENCIES
   ci_reporter_rspec (~> 1.0)
   coffee-rails (~> 4.0.0)
   factory_girl_rails (~> 4.7)
-  fakefs
+  fakefs (= 0.9.1)
   friendly_id (= 5.1.0)
   gds-api-adapters (= 28.1.0)
   gds-sso (~> 9.3.0)
