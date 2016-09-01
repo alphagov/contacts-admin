@@ -16,6 +16,7 @@ require "rspec/rails"
 require "capybara/rails"
 require "slimmer/test"
 require "fakefs/spec_helpers"
+require 'paper_trail/frameworks/rspec'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 

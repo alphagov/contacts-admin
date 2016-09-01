@@ -9,7 +9,7 @@ gem 'slimmer', "~> 9.5.0"
 gem "friendly_id", "5.1.0"
 gem "unicorn", "~> 5.1.0"
 gem "virtus", "~> 1.0.5"
-gem "paper_trail", ">= 3.0.0.beta1"
+gem "paper_trail", "~> 5.2.0"
 gem "govspeak", "~> 3.6.0"
 gem "gds-sso", "~> 9.3.0"
 gem "gds-api-adapters", '28.1.0'
