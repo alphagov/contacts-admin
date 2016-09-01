@@ -13,7 +13,7 @@ feature "Contact cloning", auth: :user do
 
     assert_publishing_api_put_links(
       cloned_contact.content_id,
-      { links: { organisations: [cloned_contact.organisation.content_id] } }
+      links: { organisations: [cloned_contact.organisation.content_id] }
     )
   end
 end

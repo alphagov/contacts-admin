@@ -40,7 +40,7 @@ group :development do
   gem "binding_of_caller"
   gem "quiet_assets", "1.1.0"
   gem "railroady"
-  gem "govuk-lint", "0.5.1"
+  gem "govuk-lint", "1.2.1"
   gem "thin"
 end
 
