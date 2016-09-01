@@ -72,8 +72,11 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     chronic (0.10.2)
-    ci_reporter (1.9.1)
+    ci_reporter (2.0.0)
       builder (>= 2.1.2)
+    ci_reporter_rspec (1.0.0)
+      ci_reporter (~> 2.0)
+      rspec (>= 2.14, < 4)
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -257,6 +260,10 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
     rspec-core (3.5.2)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -375,7 +382,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capybara (~> 2.8.1)
-  ci_reporter
+  ci_reporter_rspec (~> 1.0)
   coffee-rails (~> 4.0.0)
   factory_girl_rails (~> 4.7)
   fakefs
