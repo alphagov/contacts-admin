@@ -11,7 +11,7 @@ gem "unicorn", "~> 5.1.0"
 gem "virtus", "~> 1.0.5"
 gem "paper_trail", "~> 5.2.0"
 gem "govspeak", "~> 3.6.0"
-gem "gds-sso", "~> 9.3.0"
+gem "gds-sso", "~> 12.1.0"
 gem "gds-api-adapters", '28.1.0'
 gem "lrucache", "0.1.4"
 gem "plek", ">= 1.0.0"
