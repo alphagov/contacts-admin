@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "rails", "4.2.7.1"
 
-gem "active_hash", "1.4.0"
+gem "active_hash", "1.4.1"
 gem "mysql2", "~> 0.3.13"
 gem "simple_form", "3.1.0"
 gem "slimmer", "9.0.0"

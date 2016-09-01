@@ -21,7 +21,7 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    active_hash (1.4.0)
+    active_hash (1.4.1)
       activesupport (>= 2.2.2)
     activejob (4.2.7.1)
       activesupport (= 4.2.7.1)
@@ -179,7 +179,7 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    mysql2 (0.3.15)
+    mysql2 (0.3.21)
     netrc (0.11.0)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -377,7 +377,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_hash (= 1.4.0)
+  active_hash (= 1.4.1)
   airbrake (= 3.1.15)
   ancestry (= 2.0.0)
   better_errors
