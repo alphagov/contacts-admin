@@ -11,7 +11,7 @@ feature "Contact cloning", auth: :user do
 
     cloned_contact = Contact.last
 
-    assert_publishing_api_put_links(
+    assert_publishing_api_patch_links(
       cloned_contact.content_id,
       links: { organisations: [cloned_contact.organisation.content_id] }
     )

@@ -8,7 +8,7 @@ module Services
   end
 
   def self.rummager_client
-    @rummager_client ||= GdsApi::Rummager.new(Plek.current.find('search'))
+    @rummager_client ||= GdsApi::Rummager.new(Plek.new.find('rummager'))
   end
 
   def self.publishing_api

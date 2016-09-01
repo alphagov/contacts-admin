@@ -34,7 +34,7 @@ feature "Contact creation", auth: :user do
 
     created_contact = Contact.last
 
-    assert_publishing_api_put_links(
+    assert_publishing_api_patch_links(
       created_contact.content_id,
       links: { organisations: [contact_organisation.content_id] }
     )

@@ -17,8 +17,8 @@ describe Publisher do
         Publisher.new(presenter).publish
       end
 
-      it 'calls put_links' do
-        expect(Publisher.client).to receive(:put_links)
+      it 'calls patch_links' do
+        expect(Publisher.client).to receive(:patch_links)
           .with(contact.content_id, presenter.links)
           .and_call_original
 
@@ -44,8 +44,8 @@ describe Publisher do
     context 'with no links' do
       let(:gone_presenter) { ContactGonePresenter.new(contact) }
 
-      it 'does not call put_links' do
-        expect(Publisher.client).not_to receive(:put_links)
+      it 'does not call patch_links' do
+        expect(Publisher.client).not_to receive(:patch_links)
 
         Publisher.new(gone_presenter).publish
       end
@@ -65,8 +65,8 @@ describe Publisher do
         end
       end
 
-      context 'with unsuccessful put_links' do
-        before { stub_any_publishing_api_put_links.to_return(status: 422, body: "Failed put links") }
+      context 'with unsuccessful patch_links' do
+        before { stub_any_publishing_api_patch_links.to_return(status: 422, body: "Failed put links") }
 
         it "returns false and logs an error in Errbit" do
           expect(Airbrake).to receive(:notify_or_ignore)
