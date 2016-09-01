@@ -4,7 +4,7 @@ gem "rails", "4.2.7.1"
 
 gem "active_hash", "1.4.1"
 gem "mysql2", "~> 0.4.4"
-gem "simple_form", "3.1.0"
+gem "simple_form", "3.3.1"
 gem "slimmer", "9.0.0"
 gem "friendly_id", "5.1.0"
 gem "unicorn", "~> 4.6.3"
