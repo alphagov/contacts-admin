@@ -77,14 +77,7 @@ describe RedirectorForGoneContact do
     context 'and refers to a "gone" object in the content-store' do
       include GdsApi::TestHelpers::PublishingApiV2
 
-      let(:gone_item) do
-        content_item_for_base_path(path_in_content_store).
-          merge(
-            "format" => "gone",
-          )
-      end
-
-      before { content_store_has_item path_in_content_store, gone_item }
+      before { content_store_has_gone_item path_in_content_store }
 
       it 'sends a redirect to the publishing-api for the contact' do
         subject.redirect_gone_contact
