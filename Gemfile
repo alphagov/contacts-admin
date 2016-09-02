@@ -15,7 +15,7 @@ gem "gds-sso", "~> 12.1.0"
 gem 'gds-api-adapters', "35.0.0"
 gem "lrucache", "0.1.4"
 gem "plek", ">= 1.12.0"
-gem 'govuk_admin_template', '4.2.0'
+gem 'govuk_admin_template', '4.3.0'
 gem "mlanett-redis-lock", "0.2.6"
 gem "airbrake", "3.1.15"
 gem "whenever", "~> 0.8.4"
