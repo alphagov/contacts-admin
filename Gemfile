@@ -18,7 +18,7 @@ gem "plek", ">= 1.12.0"
 gem 'govuk_admin_template', '4.3.0'
 gem "mlanett-redis-lock", "0.2.7"
 gem "airbrake", "4.3.5"
-gem "whenever", "~> 0.8.4"
+gem "whenever", "~> 0.9.7"
 gem "searchlight"
 gem 'ancestry', '2.0.0'
 
