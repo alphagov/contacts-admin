@@ -28,6 +28,6 @@ module ContactsHelper
   end
 
   def contact_url(organisation, contact)
-    URI::join(Plek.current.website_root, contact_path(organisation, contact)).to_s
+    URI::join(Plek.new.website_root, contact_path(organisation, contact)).to_s
   end
 end

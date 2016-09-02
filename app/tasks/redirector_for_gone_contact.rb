@@ -68,7 +68,7 @@ private
   attr_reader :contact_slug, :organisation_slug, :redirect_to_location
 
   def content_store
-    GdsApi::ContentStore.new(Plek.current.find('content-store'))
+    GdsApi::ContentStore.new(Plek.new.find('content-store'))
   end
 
   def organisation

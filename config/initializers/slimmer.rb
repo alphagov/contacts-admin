@@ -7,7 +7,7 @@ Contacts::Application.configure do
 
   if Rails.env.development?
     config.slimmer.asset_host = if ENV["STATIC_DEV"]
-      Plek.current.find('static')
+      Plek.new.find('static')
     else
       "https://assets-origin.preview.alphagov.co.uk"
     end
