@@ -43,7 +43,7 @@ GEM
     airbrake (4.3.5)
       builder
       multi_json
-    ancestry (2.0.0)
+    ancestry (2.1.0)
       activerecord (>= 3.0.0)
     arel (6.0.3)
     ast (2.3.0)
@@ -372,7 +372,7 @@ PLATFORMS
 DEPENDENCIES
   active_hash (= 1.4.1)
   airbrake (= 4.3.5)
-  ancestry (= 2.0.0)
+  ancestry (= 2.1.0)
   better_errors
   binding_of_caller
   capybara (~> 2.8.1)

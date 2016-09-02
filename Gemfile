@@ -20,7 +20,7 @@ gem "mlanett-redis-lock", "0.2.7"
 gem "airbrake", "4.3.5"
 gem "whenever", "~> 0.9.7"
 gem "searchlight", "4.1.0"
-gem 'ancestry', '2.0.0'
+gem 'ancestry', '2.1.0'
 
 # assets
 gem "sass-rails", "~> 5.0"
