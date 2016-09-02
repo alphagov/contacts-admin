@@ -33,7 +33,6 @@ gem "select2-rails", "3.5.5"
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
-  gem "quiet_assets", "1.1.0"
   gem "railroady"
   gem "govuk-lint", "1.2.1"
   gem "thin"
