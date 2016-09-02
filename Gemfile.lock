@@ -40,7 +40,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    airbrake (3.1.15)
+    airbrake (4.3.5)
       builder
       multi_json
     ancestry (2.0.0)
@@ -378,7 +378,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash (= 1.4.1)
-  airbrake (= 3.1.15)
+  airbrake (= 4.3.5)
   ancestry (= 2.0.0)
   better_errors
   binding_of_caller
