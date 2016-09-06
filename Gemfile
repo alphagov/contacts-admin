@@ -27,7 +27,7 @@ gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 2.7.2"
 gem "therubyracer", "0.12.2", platforms: :ruby
 gem "govuk_frontend_toolkit", "~> 4.17.0"
-gem "select2-rails", "3.5.5"
+gem "select2-rails", "~> 4.0.0"
 
 # development
 group :development do
