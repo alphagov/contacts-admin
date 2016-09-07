@@ -1,3 +1,0 @@
-# This file is overwritten at deploy-time from alphagov-deployment
-host: 127.0.0.1
-port: 6379
