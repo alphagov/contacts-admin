@@ -1,6 +1,6 @@
 class AdminRequest
   def self.matches?(request)
-    Contacts.enable_admin_routes
+    Contacts.enable_admin_routes || ENV["ENABLE_ADMIN_ROUTES"].present?
   end
 end
 
