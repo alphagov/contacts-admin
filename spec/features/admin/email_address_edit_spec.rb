@@ -1,6 +1,6 @@
-require "spec_helper"
+require "rails_helper"
 
-describe "Email Address editing", auth: :user do
+feature "Email Address editing", auth: :user do
   include Admin::EmailAddressSteps
 
   let!(:contact)       { create :contact }

@@ -4,7 +4,7 @@ RSpec.configure do |config|
   config.include GdsApi::TestHelpers::PublishingApiV2
   config.before(:each) do
     stub_any_publishing_api_put_content
-    stub_any_publishing_api_put_links
+    stub_any_publishing_api_patch_links
     stub_any_publishing_api_call
   end
 end

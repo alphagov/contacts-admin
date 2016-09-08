@@ -1,6 +1,6 @@
-require "spec_helper"
+require "rails_helper"
 
-describe "Contact group edit", auth: :user do
+feature "Contact group edit", auth: :user do
   include Admin::ContactGroupSteps
 
   let(:contact_group) { create :contact_group, :with_organisation }

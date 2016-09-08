@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "rails_helper"
 
 describe OrganisationSlugUpdater do
   let(:new_slug) { 'my-new-slug' }
@@ -6,7 +6,7 @@ describe OrganisationSlugUpdater do
   let!(:organisation) { FactoryGirl.create(:organisation, slug: old_slug) }
 
   it 'returns true if updated' do
-    expect(OrganisationSlugUpdater.new(old_slug, new_slug).call).to be_true
+    expect(OrganisationSlugUpdater.new(old_slug, new_slug).call).to be_truthy
   end
 
   it 'updates the organisation slug' do
@@ -20,7 +20,7 @@ describe OrganisationSlugUpdater do
   end
 
   it 'returns false if not updated' do
-    expect(OrganisationSlugUpdater.new('anything', new_slug).call).to be_false
+    expect(OrganisationSlugUpdater.new('anything', new_slug).call).to be_falsey
   end
 
   context 'when the organisation has associated contacts' do
@@ -36,7 +36,7 @@ describe OrganisationSlugUpdater do
     end
 
     it 'returns true in order to exit rake with a 0 exit code' do
-      expect(OrganisationSlugUpdater.new(old_slug, new_slug).call).to be_true
+      expect(OrganisationSlugUpdater.new(old_slug, new_slug).call).to be_truthy
     end
   end
 end

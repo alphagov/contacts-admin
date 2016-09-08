@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 describe Admin::DestroyAndRedirectContact do
   describe "#destroy_and_redirect" do
@@ -7,8 +7,8 @@ describe Admin::DestroyAndRedirectContact do
     subject!(:interactor) { described_class.new(contact, redirect_to_location) }
 
     it 'removes the item from rummager' do
-      Services.rummager_client.
-        should_receive(:delete_document).
+      expect(Services.rummager_client).
+        to receive(:delete_document).
         with("contact", contact.link.gsub(%r{^/}, ''))
 
       subject.destroy_and_redirect
@@ -22,14 +22,14 @@ describe Admin::DestroyAndRedirectContact do
       it "destroys the contact" do
         subject.destroy_and_redirect
 
-        expect(Contact.exists?(contact.id)).to be_false
+        expect(Contact.exists?(contact.id)).to be_falsey
       end
 
       it "replaces the item in content store with a redirect item" do
         presenter = ContactRedirectPresenter.new(contact, redirect_to_location)
 
-        ContactRedirectPresenter.should_receive(:new).with(contact, redirect_to_location).and_return(presenter)
-        Publisher.should_receive(:publish).with(presenter)
+        expect(ContactRedirectPresenter).to receive(:new).with(contact, redirect_to_location).and_return(presenter)
+        expect(Publisher).to receive(:publish).with(presenter)
 
         subject.destroy_and_redirect
       end

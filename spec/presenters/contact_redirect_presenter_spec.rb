@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 require 'govuk-content-schema-test-helpers/rspec_matchers'
 
 describe ContactRedirectPresenter do

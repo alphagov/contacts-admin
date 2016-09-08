@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 describe ContactFormLinksPresenter do
   let(:form_link) { create(:contact_form_link, title: "Abc", description: "* xyz") }

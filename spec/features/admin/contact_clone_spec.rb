@@ -1,6 +1,6 @@
-require "spec_helper"
+require "rails_helper"
 
-describe "Contact cloning", auth: :user do
+feature "Contact cloning", auth: :user do
   specify "it can be cloned" do
     contact = create(:contact)
     visit edit_admin_contact_path(contact)
@@ -11,9 +11,9 @@ describe "Contact cloning", auth: :user do
 
     cloned_contact = Contact.last
 
-    assert_publishing_api_put_links(
+    assert_publishing_api_patch_links(
       cloned_contact.content_id,
-      { links: { organisations: [cloned_contact.organisation.content_id] } }
+      links: { organisations: [cloned_contact.organisation.content_id] }
     )
   end
 end

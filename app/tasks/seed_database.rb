@@ -89,7 +89,7 @@ class SeedDatabase
       title: "Bereavement",
       description: "What to do about Tax after a death"
     }
-  ]
+  ].freeze
 
   def create_contact_groups
     CONTACT_GROUPS.each do |contact_group|

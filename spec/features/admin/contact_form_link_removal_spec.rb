@@ -1,6 +1,6 @@
-require "spec_helper"
+require "rails_helper"
 
-describe "Contact Form Link removal", auth: :user do
+feature "Contact Form Link removal", auth: :user do
   include Admin::ContactFormLinkSteps
 
   let!(:contact)           { create :contact }

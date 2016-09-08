@@ -1,10 +1,10 @@
 module FeaturesHelpers
   def verify(call)
-    expect(call).to be_true
+    expect(call).to be_truthy
   end
 
   def refute(call)
-    expect(call).to be_false
+    expect(call).to be_falsey
   end
 
   def dom_id_for(*args)

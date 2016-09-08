@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 require 'redirector_for_gone_contact'
 require 'gds_api/test_helpers/content_store'
 require 'gds_api/test_helpers/publishing_api'
@@ -77,29 +77,22 @@ describe RedirectorForGoneContact do
     context 'and refers to a "gone" object in the content-store' do
       include GdsApi::TestHelpers::PublishingApiV2
 
-      let(:gone_item) do
-        content_item_for_base_path(path_in_content_store).
-          merge(
-            "format" => "gone",
-          )
-      end
-
-      before { content_store_has_item path_in_content_store, gone_item }
+      before { content_store_has_gone_item path_in_content_store }
 
       it 'sends a redirect to the publishing-api for the contact' do
         subject.redirect_gone_contact
 
         assert_publishing_api_put_content(
           subject.redirect_content_item_content_id,
-          ->(request) do
-            data = JSON.parse(request.body)
-            # RSpec 2.14 doesn't have a fluent interface for this kind of match
-            expect(data).to have_key('redirects')
-            expect(data['redirects'].size).to eq(1)
-            redirect = data['redirects'].first
-            expect(redirect).to have_key('destination')
-            expect(redirect['destination']).to eq(redirect_to_location)
-          end
+          request_json_includes(
+            redirects: [
+              {
+                path: path_in_content_store,
+                type: "exact",
+                destination: redirect_to_location,
+              }
+            ]
+          )
         )
       end
 

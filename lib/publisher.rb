@@ -30,7 +30,7 @@ private
   end
 
   def publish_links
-    Publisher.client.put_links(presenter.content_id, presenter.links)
+    Publisher.client.patch_links(presenter.content_id, presenter.links)
   end
 
   def publish_item

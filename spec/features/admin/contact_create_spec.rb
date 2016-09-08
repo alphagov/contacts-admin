@@ -1,6 +1,6 @@
-require "spec_helper"
+require "rails_helper"
 
-describe "Contact creation", auth: :user do
+feature "Contact creation", auth: :user do
   include Admin::ContactSteps
 
   let!(:contact_group)       { create(:contact_group, :with_organisation, title: "new contact type") }
@@ -34,9 +34,9 @@ describe "Contact creation", auth: :user do
 
     created_contact = Contact.last
 
-    assert_publishing_api_put_links(
+    assert_publishing_api_patch_links(
       created_contact.content_id,
-      { links: { organisations: [contact_organisation.content_id] } }
+      links: { organisations: [contact_organisation.content_id] }
     )
   end
 end

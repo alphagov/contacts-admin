@@ -48,4 +48,6 @@ Rails.application.configure do
   config.after_initialize do
     Contacts.enable_admin_routes = true
   end
+
+  config.assets.quiet = true
 end

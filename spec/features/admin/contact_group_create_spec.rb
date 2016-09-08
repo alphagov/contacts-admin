@@ -1,6 +1,6 @@
-require "spec_helper"
+require "rails_helper"
 
-describe "Contact Group creation", auth: :user do
+feature "Contact Group creation", auth: :user do
   include Admin::ContactGroupSteps
 
   let(:organisation) { create :organisation }

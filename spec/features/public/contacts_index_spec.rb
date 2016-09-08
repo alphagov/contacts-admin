@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "rails_helper"
 
 feature "Public Contacts index page" do
   include Public::ContactSteps

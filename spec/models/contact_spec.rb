@@ -1,15 +1,18 @@
-require "spec_helper"
+require "rails_helper"
 
-describe Contact do
-  it { should validate_presence_of :title }
-  it { should validate_presence_of :description }
+RSpec.describe Contact, type: :model do
+  let(:item) { create(:contact) }
+  it_behaves_like "a versioned data model"
+
+  it { is_expected.to validate_presence_of :title }
+  it { is_expected.to validate_presence_of :description }
 
   it "should be registered after saving" do
     contact = build(:contact)
     presenter = ContactPresenter.new(contact)
 
-    ContactPresenter.should_receive(:new).with(contact).and_return(presenter)
-    Publisher.should_receive(:publish).with(presenter)
+    expect(ContactPresenter).to receive(:new).with(contact).and_return(presenter)
+    expect(Publisher).to receive(:publish).with(presenter)
 
     contact.save
   end

@@ -17,7 +17,7 @@ module Admin
   private
 
     def send_links_to_publishing_api
-      Publisher.client.put_links(
+      Publisher.client.patch_links(
         contact.content_id,
         links: { organisations: [contact.organisation.content_id] }
       )

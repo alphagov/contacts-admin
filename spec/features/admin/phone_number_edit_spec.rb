@@ -1,6 +1,6 @@
-require "spec_helper"
+require "rails_helper"
 
-describe "Phone Number editing", auth: :user do
+feature "Phone Number editing", auth: :user do
   include Admin::PhoneNumberSteps
 
   let!(:contact) { create :contact }

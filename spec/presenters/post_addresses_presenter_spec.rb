@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 require 'gds_api/test_helpers/worldwide'
 
 describe PostAddressesPresenter do

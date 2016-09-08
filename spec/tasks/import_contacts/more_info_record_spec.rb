@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 describe ImportContacts::MoreInfoRecord do
   let(:url_content)   { "http://www.example.com" }

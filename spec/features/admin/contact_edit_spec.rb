@@ -1,6 +1,6 @@
-require "spec_helper"
+require "rails_helper"
 
-describe "Contact editing", auth: :user do
+feature "Contact editing", auth: :user do
   include Admin::ContactSteps
   include Admin::SiteSearchSteps
 

@@ -1,6 +1,6 @@
-require "spec_helper"
+require "rails_helper"
 
-describe "Email Address removal", auth: :user do
+feature "Email Address removal", auth: :user do
   include Admin::EmailAddressSteps
 
   let!(:contact)       { create :contact }

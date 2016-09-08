@@ -1,10 +1,11 @@
-require "spec_helper"
+require "rails_helper"
 
-describe PhoneNumber do
+RSpec.describe PhoneNumber, type: :model do
   let(:item) { create(:phone_number) }
   it_behaves_like "an associated data model"
+  it_behaves_like "a versioned data model"
 
-  it { should validate_presence_of :contact }
-  it { should validate_presence_of :title }
-  it { should validate_presence_of :number }
+  it { is_expected.to validate_presence_of :contact }
+  it { is_expected.to validate_presence_of :title }
+  it { is_expected.to validate_presence_of :number }
 end

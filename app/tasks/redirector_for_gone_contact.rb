@@ -27,11 +27,11 @@ class RedirectorForGoneContact
   end
 
   def contact_not_published?
-    published_contact.nil?
+    published_contact == :not_found
   end
 
   def contact_not_gone?
-    published_contact.format != 'gone'
+    published_contact != :gone
   end
 
   def redirect_failed?
@@ -68,7 +68,7 @@ private
   attr_reader :contact_slug, :organisation_slug, :redirect_to_location
 
   def content_store
-    GdsApi::ContentStore.new(Plek.current.find('content-store'))
+    GdsApi::ContentStore.new(Plek.new.find('content-store'))
   end
 
   def organisation
@@ -81,6 +81,10 @@ private
 
   def published_contact
     @published_contact ||= content_store.content_item(contact.link)
+  rescue GdsApi::HTTPNotFound
+    :not_found
+  rescue GdsApi::HTTPGone
+    :gone
   end
 
   def redirect_contact_response
