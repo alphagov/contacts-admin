@@ -1,8 +1,6 @@
 require "lrucache"
 
 class WorldLocation
-  extend Forwardable
-
   def self.cache
     @cache ||= LRUCache.new(soft_ttl: 24.hours, ttl: 1.week)
   end
@@ -14,7 +12,7 @@ class WorldLocation
   def self.all
     cache_fetch("all") do
       Services.worldwide_api.world_locations.with_subsequent_pages
-        .map { |l| new(l) if l.format == "World location" && l.details && l.details.slug.present? }
+        .map { |l| new(l) if l["format"] == "World location" && l["details"] && l["details"]["slug"].present? }
         .compact
     end
   end
@@ -56,7 +54,11 @@ class WorldLocation
     other.is_a?(self.class) && other.slug == slug
   end
 
-  def_delegators :@data, :title, :details
-  def_delegators :details, :slug
-  alias_method :name, :title
+  def slug
+    @data["details"]["slug"]
+  end
+
+  def title
+    @data["title"]
+  end
 end
