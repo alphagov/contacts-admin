@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420132844) do
+ActiveRecord::Schema.define(version: 20160920172304) do
 
   create_table "contact_groups", force: :cascade do |t|
     t.integer  "contact_group_type_id", limit: 4
@@ -152,15 +152,17 @@ ActiveRecord::Schema.define(version: 20160420132844) do
   add_index "post_addresses", ["contact_id"], name: "index_post_addresses_on_contact_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                limit: 255
-    t.string   "email",               limit: 255
-    t.string   "uid",                 limit: 255
-    t.integer  "version",             limit: 4
-    t.text     "permissions",         limit: 65535
-    t.boolean  "remotely_signed_out",               default: false
+    t.string   "name",                    limit: 255
+    t.string   "email",                   limit: 255
+    t.string   "uid",                     limit: 255
+    t.integer  "version",                 limit: 4
+    t.text     "permissions",             limit: 65535
+    t.boolean  "remotely_signed_out",                   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "organisation_slug",   limit: 255
+    t.string   "organisation_slug",       limit: 255
+    t.string   "organisation_content_id", limit: 255
+    t.boolean  "disabled",                              default: false
   end
 
   create_table "versions", force: :cascade do |t|
