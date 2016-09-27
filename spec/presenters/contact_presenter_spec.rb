@@ -31,7 +31,7 @@ describe ContactPresenter do
 
       details = payload[:details]
       expect(details[:description]).to eq(contact.description)
-      expect(details[:quick_links]).to eq(contact.quick_links.map { |q| { title: q.title, url: q.url } })
+      expect(details[:quick_links]).to eq(contact.quick_links.map { |q| { title: q[:title], url: q[:url] } })
       expect(details[:contact_form_links]).to eq(contact.contact_form_links.map(&:as_json))
       expect(details[:more_info_email_address]).to include("<li>")
       expect(details[:more_info_phone_number]).to include("<li>")

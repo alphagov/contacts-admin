@@ -54,7 +54,7 @@ private
       slug: contact.slug,
       title: contact.title,
       description: contact.description,
-      quick_links: contact.quick_links.map { |q| { title: q.title, url: q.url } },
+      quick_links: contact.quick_links.map { |q| { title: q[:title], url: q[:url] } },
       query_response_time: (contact.query_response_time || false),
 
       contact_form_links: ContactFormLinksPresenter.new(contact.contact_form_links).present,
