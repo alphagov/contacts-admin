@@ -22,8 +22,12 @@ module Contacts
 
     def redis
       @_redis ||= begin
-        redis_config = YAML.load_file(File.join(Rails.root, "config", "redis.yml"))
-        Redis.new(redis_config.symbolize_keys)
+        redis_config = {
+          host: ENV["REDIS_HOST"] || "127.0.0.1",
+          port: ENV["REDIS_PORT"] || 6379,
+        }
+
+        Redis.new(redis_config)
       end
     end
   end
