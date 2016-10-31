@@ -9,10 +9,6 @@ module ApplicationHelper
     end
   end
 
-  def meta_description_tag
-    tag :meta, name: "description", content: @meta_description
-  end
-
   def page_class(css_class)
     content_for(:page_class, css_class)
   end

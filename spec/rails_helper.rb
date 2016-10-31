@@ -14,7 +14,6 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require "rails_helper"
 require "rspec/rails"
 require "capybara/rails"
-require "slimmer/test"
 require "fakefs/spec_helpers"
 require 'paper_trail/frameworks/rspec'
 
