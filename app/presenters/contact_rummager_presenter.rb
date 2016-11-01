@@ -13,6 +13,7 @@ class ContactRummagerPresenter
       format: "contact",
       indexable_content: "#{contact.title} #{contact.description} #{contact.contact_groups.map(&:title).join}",
       public_timestamp: contact.updated_at,
+      contact_groups: contact.contact_groups.map(&:slug)
     }
   end
 end
