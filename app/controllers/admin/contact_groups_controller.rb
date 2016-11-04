@@ -11,6 +11,7 @@ class Admin::ContactGroupsController < AdminController
 
   def update
     if @contact_group.update_attributes(contact_group_params)
+      republish_finders
       redirect_to admin_contact_groups_path, notice: "Contact Group successfully updated"
     else
       render :edit
@@ -20,6 +21,7 @@ class Admin::ContactGroupsController < AdminController
   def create
     @contact_group = ContactGroup.new(contact_group_params)
     if @contact_group.save
+      republish_finders
       redirect_to admin_contact_groups_path, notice: "Contact Group successfully created"
     else
       render :new
@@ -28,6 +30,7 @@ class Admin::ContactGroupsController < AdminController
 
   def destroy
     if Admin::DestroyContactGroup.new(@contact_group).destroy
+      republish_finders
       flash.notice = "Contact Group successfully deleted"
     else
       flash.alert = @contact_group.errors.full_messages.to_sentence
@@ -49,5 +52,9 @@ private
       :title,
       :organisation_id
     )
+  end
+
+  def republish_finders
+    PublishFinders.call
   end
 end
