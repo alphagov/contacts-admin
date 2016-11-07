@@ -5,3 +5,6 @@ namespace :finders do
     PublishFinders.call
   end
 end
+
+# Alias of the above task for the benefit of` govuk-app-deployment`
+task "publishing_api:publish": "finders:publish"
