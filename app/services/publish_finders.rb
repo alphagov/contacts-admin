@@ -11,6 +11,10 @@ class PublishFinders
       hmrc_contacts_payload
     )
     Services.publishing_api.publish(HMRC_CONTACTS_CONTENT_ID, "major")
+    Services.publishing_api.patch_links(
+      HMRC_CONTACTS_CONTENT_ID,
+      links: hmrc_contacts_parent
+    )
   end
 
 private
@@ -56,6 +60,15 @@ private
           "type": "exact",
           "path": "/government/organisations/hm-revenue-customs/contact.json"
         }
+      ]
+    }
+  end
+
+  def hmrc_contacts_parent
+    # Sets the parent of the HMRC contacts finder to the HMRC organisation page
+    {
+      parent: [
+        "6667cce2-e809-4e21-ae09-cb0bdc1ddda3"
       ]
     }
   end
