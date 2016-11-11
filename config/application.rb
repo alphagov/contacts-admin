@@ -20,11 +20,6 @@ module Contacts
     config.assets.precompile += %w(
       admin.css
       admin.js
-      frontend.css
-      frontend.js
-      frontend/base-ie6.css
-      frontend/base-ie7.css
-      frontend/base-ie8.css
     )
 
     config.assets.prefix = '/contacts-assets'

@@ -310,14 +310,6 @@ GEM
     simplecov-html (0.10.0)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
-    slimmer (9.5.0)
-      activesupport
-      json
-      nokogiri (>= 1.5.0, < 1.7.0)
-      null_logger
-      plek (>= 1.1.0)
-      rack
-      rest-client
     slop (3.6.0)
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
@@ -403,7 +395,6 @@ DEPENDENCIES
   simple_form (= 3.3.1)
   simplecov (= 0.12.0)
   simplecov-rcov (= 0.2.3)
-  slimmer (~> 9.5.0)
   therubyracer (= 0.12.2)
   thin
   uglifier (>= 2.7.2)

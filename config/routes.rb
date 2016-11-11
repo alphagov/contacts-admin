@@ -7,6 +7,9 @@ end
 Rails.application.routes.draw do
   get "healthcheck" => "healthcheck#check"
 
+  # Permanently redirect any requests for the root URL to /admin
+  root :to => redirect("/admin", status: 301)
+
   constraints(AdminRequest) do
     namespace :admin do
       root to: 'contacts#index', via: :get
@@ -25,9 +28,4 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  get "/government/organisations/:organisation_slug/contact" => "contacts#index", :as => :contacts
-
-  # DEFAULT TO HMRC
-  root :to => redirect("/government/organisations/hm-revenue-customs/contact", status: 302)
 end
