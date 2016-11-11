@@ -44,6 +44,5 @@ Rails.application.configure do
 
   config.after_initialize do
     PaperTrail.enabled = false
-    Contacts.enable_admin_routes = true
   end
 end

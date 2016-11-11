@@ -45,9 +45,5 @@ Rails.application.configure do
     config.asset_host = ENV['GOVUK_ASSET_ROOT']
   end
 
-  config.after_initialize do
-    Contacts.enable_admin_routes = true
-  end
-
   config.assets.quiet = true
 end
