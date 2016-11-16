@@ -22,8 +22,6 @@ module Contacts
       admin.js
     )
 
-    config.assets.prefix = '/contacts-assets'
-
     config.i18n.enforce_available_locales = true
 
     # Do not swallow errors in after_commit/after_rollback callbacks.

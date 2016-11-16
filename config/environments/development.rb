@@ -40,10 +40,4 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
-  if ENV['GOVUK_ASSET_ROOT'].present?
-    config.asset_host = ENV['GOVUK_ASSET_ROOT']
-  end
-
-  config.assets.quiet = true
 end
