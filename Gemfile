@@ -33,7 +33,6 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "railroady"
-  gem "govuk-lint", "1.2.1"
   gem "thin"
 end
 
@@ -54,4 +53,5 @@ group :test do
   gem 'webmock', '2.1.0'
   gem 'json-schema', '2.5.2'
   gem 'govuk-content-schema-test-helpers', '1.4.0'
+  gem "govuk-lint", "1.2.1"
 end
