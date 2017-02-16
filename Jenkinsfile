@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-REPOSITORY = 'contacts-admin'
+REPOSITORY = 'contacts'
 DEFAULT_SCHEMA_BRANCH = 'deployed-to-production'
 
 node {
@@ -16,7 +16,7 @@ node {
       limitOneJobWithMatchingParams: true,
       maxConcurrentPerNode: 1,
       maxConcurrentTotal: 0,
-      paramsToUseForLimit: 'contacts-admin',
+      paramsToUseForLimit: 'contacts',
       throttleEnabled: true,
       throttleOption: 'category'],
     [$class: 'ParametersDefinitionProperty',
