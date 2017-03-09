@@ -19,7 +19,7 @@ class ContactPresenter
       schema_name: "contact",
       locale: "en",
       publishing_app: "contacts",
-      rendering_app: "contacts-frontend",
+      rendering_app: "government-frontend",
       base_path: contact.link,
       public_updated_at: contact.updated_at,
       routes: [
