@@ -42,6 +42,8 @@ describe ContactPresenter do
     it "presents the contact correctly against the schema" do
       links = ContactPresenter.new(contact).links
       expect(links.to_json).to be_valid_against_links_schema("contact")
+
+      expect(links[:links]["organisations"]).to eq([contact.organisation.content_id])
     end
 
     it "returns links data" do
