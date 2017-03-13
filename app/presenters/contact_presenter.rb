@@ -41,6 +41,7 @@ class ContactPresenter
     {
       links: {
         "related" => @contact.related_contacts.pluck(:content_id),
+        "parent"  => [PublishFinders::HMRC_CONTACTS_CONTENT_ID]
       }
     }
   end

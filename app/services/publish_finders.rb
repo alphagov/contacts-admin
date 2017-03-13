@@ -1,6 +1,8 @@
 # This service currently only publishes the HMRC contacts finder since this app
 # only contains contacts related to HMRC.
 class PublishFinders
+  HMRC_CONTACTS_CONTENT_ID = "b110c03c-3f8d-4327-906b-17ebd872e6a6".freeze
+
   def self.call
     new.call
   end
@@ -18,8 +20,6 @@ class PublishFinders
   end
 
 private
-
-  HMRC_CONTACTS_CONTENT_ID = "b110c03c-3f8d-4327-906b-17ebd872e6a6".freeze
 
   def hmrc_contacts_payload
     {

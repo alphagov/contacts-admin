@@ -51,6 +51,7 @@ describe ContactPresenter do
       links = ContactPresenter.new(contact).links
 
       expect(links[:links]["related"]).to eq([content_id])
+      expect(links[:links]["parent"]).to eq([PublishFinders::HMRC_CONTACTS_CONTENT_ID])
     end
   end
 
