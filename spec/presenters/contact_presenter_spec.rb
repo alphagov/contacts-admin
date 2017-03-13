@@ -51,6 +51,7 @@ describe ContactPresenter do
       links = ContactPresenter.new(contact).links
 
       expect(links[:links]["related"]).to eq([content_id])
+      expect(links[:links]["organisations"]).to eq([contact.organisation.content_id])
     end
   end
 
