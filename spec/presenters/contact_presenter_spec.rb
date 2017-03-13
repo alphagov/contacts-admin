@@ -24,7 +24,7 @@ describe ContactPresenter do
       expect(payload[:title]).to eq(contact.title)
       expect(payload[:description]).to eq(contact.description)
       expect(payload[:publishing_app]).to eq("contacts")
-      expect(payload[:rendering_app]).to eq("contacts-frontend")
+      expect(payload[:rendering_app]).to eq("government-frontend")
       expect(payload[:routes].first[:path]).to eq(contact.link)
       expect(payload[:public_updated_at]).to be_present
       expect(payload[:need_ids]).to be_empty

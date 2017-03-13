@@ -12,6 +12,7 @@ describe ContactRummagerPresenter do
       link:              "/government/organisations/#{contact.organisation.slug}/contact/major-tom",
       format:            'contact',
       indexable_content: "Major Tom Back to Earth #{contact.contact_groups.first.title}",
+      content_store_document_type: "contact",
       public_timestamp:  contact.updated_at,
       contact_groups:    [contact.contact_groups.first.slug],
     }
