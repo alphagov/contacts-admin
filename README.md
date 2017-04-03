@@ -53,11 +53,35 @@ Rake tasks can be found in the standard location: `lib/tasks`. The implementatio
 
 The best way to get a database with good seed data is to use a dump from preview; alternatively you can load the database schema and use the old initial seed data:
 
-    ```
-    bundle exec rake db:schema:load
-    bundle exec rake db:seed
-    bundle exec rake contacts:import_hmrc DATA_FILE=db/contact-records.csv
-    ```
+```
+bundle exec rake db:schema:load
+bundle exec rake db:seed
+bundle exec rake contacts:import_hmrc DATA_FILE=db/contact-records.csv
+```
+
+## Redirecting removed contacts
+
+The Web UI of the app issues a “gone” item to the publishing api when a contact is deleted. Sometimes the correct thing to do is to issue a “redirect” instead. There is no web UI for this but there are two rake tasks to achieve this depending on the state of the contact to be redirected.
+
+### For contacts that still exist
+
+The rake task is `contacts:remove_with_redirect`, and is invoked as follows:
+```
+$ cd /var/apps/contacts
+$ sudo -u deploy govuk_setenv contacts bundle exec rake contacts:remove_with_redirect[contact-to-remove-slug,path-to-redirect-to]
+```
+
+### For contacts that have been removed already
+
+The rake task is `contacts:replace_gone_with_redirect`, and is invoked as follows:
+```
+$ cd /var/apps/contacts
+$ sudo -u deploy govuk_setenv contacts bundle exec rake contacts:replace_gone_with_redirect[removed-contact-slug,organisation-slug,path-to-redirect-to]
+```
+
+This will fail if any of the following are true
+1. `removed-contact-slug` references a contact object in the Contacts Admin database
+2. the path constructed by `removed-contact-slug` and `organisation-slug` does not refer to a “gone” item in content store
 
 ## Licence
 
