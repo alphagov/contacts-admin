@@ -7,7 +7,7 @@ This app publishes contact information for a given organisation to GOV.UK. It re
 [finder-frontend](https://github.com/alphagov/finder-frontend) displays the index page for an organisation's contacts:
 - https://www.gov.uk/government/organisations/hm-revenue-customs/contact
 
-[contacts-frontend](https://github.com/alphagov/contacts-frontend)
+[government-frontend](https://github.com/alphagov/government-frontend)
 displays the contacts themselves, fetching them from content store:
 - https://www.gov.uk/government/organisations/hm-revenue-customs/contact/alcohol-duties-national-registration-unit
 
@@ -15,7 +15,7 @@ displays the contacts themselves, fetching them from content store:
 
 This is a Ruby on Rails application that provides a private admin UI for signon users with permission to allow them to manage the contacts for their organisation.
 
-The app has its own database (MySQL), which is used by the admin UI. This is in contrast to the separate [contacts-frontend](https://github.com/alphagov/contacts-frontend) app which reads contacts from the [content-store](https://github.com/alphagov/content-store). The admin UI part of this app handles publishing the contacts to the [publishing-api](https://github.com/alphagov/publishing-api) and [rummager](https://github.com/alphagov/rummager) so that they are present for [finder-frontend](https://github.com/alphagov/finder-frontend) and [contacts-frontend](https://github.com/alphagov/contacts-frontend) to read.
+The app has its own database (MySQL), which is used by the admin UI. This is in contrast to the separate [government-frontend](https://github.com/alphagov/government-frontend) app which reads contacts from the [content-store](https://github.com/alphagov/content-store). The admin UI part of this app handles publishing the contacts to the [publishing-api](https://github.com/alphagov/publishing-api) and [rummager](https://github.com/alphagov/rummager) so that they are present for [finder-frontend](https://github.com/alphagov/finder-frontend) and [government-frontend](https://github.com/alphagov/government-frontend) to read.
 
 ### Dependencies
 
