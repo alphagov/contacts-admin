@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 
-gem "rails", "4.2.7.1"
+gem "rails", "~> 5.0.2"
 
 gem "active_hash", "1.4.1"
 gem "mysql2", "~> 0.4.4"
-gem "simple_form", "3.3.1"
+gem "simple_form", "~> 3.3.1"
 gem "friendly_id", "5.1.0"
 gem "unicorn", "~> 5.1.0"
 gem "virtus", "~> 1.0.5"
