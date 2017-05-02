@@ -104,7 +104,7 @@ GEM
     fakefs (0.9.1)
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
-    friendly_id (5.1.0)
+    friendly_id (5.2.1)
       activerecord (>= 4.0.0)
     gds-api-adapters (36.0.1)
       link_header
@@ -370,7 +370,7 @@ DEPENDENCIES
   ci_reporter_rspec (~> 1.0)
   factory_girl_rails (~> 4.7)
   fakefs (= 0.9.1)
-  friendly_id (= 5.1.0)
+  friendly_id (= 5.2.1)
   gds-api-adapters (= 36.0.1)
   gds-sso (~> 13.2.0)
   govspeak (~> 3.6.0)
