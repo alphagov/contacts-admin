@@ -1,6 +1,6 @@
 require 'publisher'
 
-class Contact < ActiveRecord::Base
+class Contact < ApplicationRecord
   include Versioning
   include FriendlyId
 

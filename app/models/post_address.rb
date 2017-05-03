@@ -1,4 +1,4 @@
-class PostAddress < ActiveRecord::Base
+class PostAddress < ApplicationRecord
   include Versioning
   include RegisterParent
 

@@ -1,4 +1,4 @@
-class ContactGroup < ActiveRecord::Base
+class ContactGroup < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   include Versioning
   include FriendlyId
