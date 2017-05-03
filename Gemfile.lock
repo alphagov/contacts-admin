@@ -42,7 +42,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    airbrake (4.3.5)
+    airbrake (4.3.8)
       builder
       multi_json
     ancestry (2.1.0)
@@ -362,7 +362,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash (= 1.4.1)
-  airbrake (= 4.3.5)
+  airbrake (= 4.3.8)
   ancestry (= 2.1.0)
   better_errors
   binding_of_caller

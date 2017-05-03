@@ -16,7 +16,7 @@ gem "lrucache", "0.1.4"
 gem "plek", ">= 1.12.0"
 gem 'govuk_admin_template', '4.3.0'
 gem "mlanett-redis-lock", "0.2.7"
-gem "airbrake", "4.3.5"
+gem "airbrake", "4.3.8"
 gem "whenever", "~> 0.9.7"
 gem "searchlight", "4.1.0"
 gem 'ancestry', '2.1.0'
