@@ -1,6 +1,6 @@
 class Admin::Contacts::EmailAddressesController < AdminController
-  before_filter :load_parent_contact
-  before_filter :load_email_address, only: [:edit, :update, :destroy]
+  before_action :load_parent_contact
+  before_action :load_email_address, only: [:edit, :update, :destroy]
 
   def new
     @email_address = @contact.email_addresses.build
