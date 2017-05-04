@@ -1,4 +1,4 @@
-class Organisation < ActiveRecord::Base
+class Organisation < ApplicationRecord
   include FriendlyId
 
   before_validation :set_contact_index_content_id, on: :create

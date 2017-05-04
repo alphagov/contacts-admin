@@ -1,5 +1,5 @@
 class Admin::ContactGroupsController < AdminController
-  before_filter :load_contact_group, only: [:edit, :update, :destroy]
+  before_action :load_contact_group, only: [:edit, :update, :destroy]
 
   def new
     @contact_group = ContactGroup.new

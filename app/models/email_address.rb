@@ -1,4 +1,4 @@
-class EmailAddress < ActiveRecord::Base
+class EmailAddress < ApplicationRecord
   include Versioning
   include RegisterParent
 

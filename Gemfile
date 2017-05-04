@@ -1,22 +1,22 @@
 source "https://rubygems.org"
 
-gem "rails", "4.2.7.1"
+gem "rails", "~> 5.0.2"
 
 gem "active_hash", "1.4.1"
 gem "mysql2", "~> 0.4.4"
-gem "simple_form", "3.3.1"
-gem "friendly_id", "5.1.0"
+gem "simple_form", "~> 3.3.1"
+gem "friendly_id", "5.2.1"
 gem "unicorn", "~> 5.1.0"
 gem "virtus", "~> 1.0.5"
-gem "paper_trail", "~> 5.2.0"
+gem "paper_trail", "~> 7.0.2"
 gem "govspeak", "~> 3.6.0"
-gem "gds-sso", "~> 12.1.0"
+gem "gds-sso", "~> 13.2.0"
 gem 'gds-api-adapters', "36.0.1"
 gem "lrucache", "0.1.4"
 gem "plek", ">= 1.12.0"
 gem 'govuk_admin_template', '4.3.0'
 gem "mlanett-redis-lock", "0.2.7"
-gem "airbrake", "4.3.5"
+gem "airbrake", "4.3.8"
 gem "whenever", "~> 0.9.7"
 gem "searchlight", "4.1.0"
 gem 'ancestry', '2.1.0'
