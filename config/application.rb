@@ -10,11 +10,8 @@ SLUG_FORMAT = /[A-Za-z0-9\-_]+/
 
 module Contacts
   class Application < Rails::Application
-    require 'contacts'
-
     config.autoload_paths += %W(
       #{config.root}/app/models/website
-      #{config.root}/lib/
     )
 
     config.assets.precompile += %w(

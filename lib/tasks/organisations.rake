@@ -1,5 +1,3 @@
-require 'contacts/distributed_lock'
-
 namespace :organisations do
   desc "Import organisations from Whitehall"
   task import: :environment do
