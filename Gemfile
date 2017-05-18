@@ -9,7 +9,7 @@ gem "friendly_id", "5.2.1"
 gem "unicorn", "~> 5.1.0"
 gem "virtus", "~> 1.0.5"
 gem "paper_trail", "~> 7.0.2"
-gem "govspeak", "~> 3.6.0"
+gem "govspeak", "~> 3.6.2"
 gem "gds-sso", "~> 13.2.0"
 gem 'gds-api-adapters', "36.0.1"
 gem "lrucache", "0.1.4"
@@ -22,7 +22,7 @@ gem "searchlight", "4.1.0"
 gem 'ancestry', '2.1.0'
 
 # assets
-gem "sass-rails", "~> 5.0"
+gem "sass-rails", "~> 5.0", ">= 5.0.6"
 gem "uglifier", ">= 2.7.2"
 gem "therubyracer", "0.12.2", platforms: :ruby
 gem "govuk_frontend_toolkit", "~> 4.17.0"
@@ -44,7 +44,7 @@ end
 group :test do
   gem "ci_reporter_rspec", "~> 1.0"
   gem "rspec-rails", "~> 3.5.2"
-  gem 'factory_girl_rails', '~> 4.7'
+  gem 'factory_girl_rails', '~> 4.7', '>= 4.7.0'
   gem "shoulda-matchers", "3.1.1"
   gem "fakefs", "0.9.1", require: "fakefs/safe"
   gem 'capybara', '~> 2.8.1'
