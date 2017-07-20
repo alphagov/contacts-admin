@@ -11,7 +11,7 @@ gem "virtus", "~> 1.0.5"
 gem "paper_trail", "~> 7.0.2"
 gem "govspeak", "~> 3.6.2"
 gem "gds-sso", "~> 13.2.0"
-gem 'gds-api-adapters', "36.0.1"
+gem 'gds-api-adapters', "~> 47.2"
 gem "lrucache", "0.1.4"
 gem "plek", ">= 1.12.0"
 gem 'govuk_admin_template', '4.3.0'
