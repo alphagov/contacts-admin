@@ -28,7 +28,6 @@ describe Publisher do
       it 'calls publish' do
         expect(Publisher.client).to receive(:publish)
           .with(contact.content_id,
-                "major",
                 locale: presenter.payload[:locale])
 
         Publisher.new(presenter).publish
