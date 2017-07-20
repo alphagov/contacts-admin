@@ -12,7 +12,7 @@ class PublishFinders
       HMRC_CONTACTS_CONTENT_ID,
       hmrc_contacts_payload
     )
-    Services.publishing_api.publish(HMRC_CONTACTS_CONTENT_ID, "major")
+    Services.publishing_api.publish(HMRC_CONTACTS_CONTENT_ID)
     Services.publishing_api.patch_links(
       HMRC_CONTACTS_CONTENT_ID,
       links: hmrc_contacts_parent
@@ -31,6 +31,7 @@ private
       "schema_name": "finder",
       "publishing_app": "contacts",
       "rendering_app": "finder-frontend",
+      "update_type": "major",
       "details": {
         "document_noun": "contact",
         "default_order": "title",

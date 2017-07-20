@@ -21,6 +21,7 @@ class ContactRedirectPresenter
           destination: redirect_to_location
         }
       ],
+      update_type: "major",
     }
   end
 

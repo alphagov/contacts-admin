@@ -18,6 +18,7 @@ class ContactGonePresenter
       routes: [
         { path: contact.link, type: "exact" }
       ],
+      update_type: "major",
     }
   end
 
