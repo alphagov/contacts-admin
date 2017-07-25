@@ -16,7 +16,6 @@ RSpec.describe PublishFinders do
     )
     assert_publishing_api_publish(
       @hmrc_contacts_content_id,
-      update_type: 'major'
     )
     assert_publishing_api_patch_links(
       @hmrc_contacts_content_id,

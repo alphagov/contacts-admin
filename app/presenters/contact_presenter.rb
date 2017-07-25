@@ -27,6 +27,7 @@ class ContactPresenter
       ],
       details: contact_details.merge(language: "en"),
       need_ids: [],
+      update_type: "major",
     }
   end
 

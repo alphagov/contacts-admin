@@ -34,8 +34,8 @@ private
   end
 
   def publish_item
-    Publisher.client.publish(presenter.content_id,
-                            "major",
-                             locale: presenter.payload[:locale])
+    Publisher.client.publish(
+      presenter.content_id, locale: presenter.payload[:locale]
+    )
   end
 end
