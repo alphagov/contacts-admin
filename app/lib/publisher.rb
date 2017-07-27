@@ -35,7 +35,7 @@ private
 
   def publish_item
     Publisher.client.publish(
-      presenter.content_id, locale: presenter.payload[:locale]
+      presenter.content_id, nil, locale: presenter.payload[:locale]
     )
   end
 end
