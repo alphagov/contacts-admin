@@ -58,7 +58,7 @@ describe Publisher do
         before { stub_any_publishing_api_put_content.to_return(status: 422, body: "Failed put content") }
 
         it "returns false and logs an error in Errbit" do
-          expect(Airbrake).to receive(:notify_or_ignore)
+          expect(GovukError).to receive(:notify)
           response = Publisher.new(presenter).publish
 
           expect(response).to be_falsey
@@ -69,7 +69,7 @@ describe Publisher do
         before { stub_any_publishing_api_patch_links.to_return(status: 422, body: "Failed put links") }
 
         it "returns false and logs an error in Errbit" do
-          expect(Airbrake).to receive(:notify_or_ignore)
+          expect(GovukError).to receive(:notify)
           response = Publisher.new(presenter).publish
 
           expect(response).to be_falsey
@@ -80,7 +80,7 @@ describe Publisher do
         before { stub_any_publishing_api_call.to_return(status: 422, body: "Failed publish") }
 
         it "returns false and logs an error in Errbit" do
-          expect(Airbrake).to receive(:notify_or_ignore)
+          expect(GovukError).to receive(:notify)
           response = Publisher.new(presenter).publish
 
           expect(response).to be_falsey
