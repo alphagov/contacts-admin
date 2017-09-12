@@ -15,7 +15,7 @@ class Publisher
     publish_item
     true
   rescue GdsApi::HTTPErrorResponse => e
-    Airbrake.notify_or_ignore(e)
+    GovukError.notify(e)
     false
   end
 
