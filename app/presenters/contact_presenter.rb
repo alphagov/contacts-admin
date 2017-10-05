@@ -70,6 +70,7 @@ private
 
       post_addresses: PostAddressesPresenter.new(contact.post_addresses).present,
       more_info_post_address: govspeak(contact.more_info_post_address),
+      contact_groups: contact.contact_groups.map { |group| { title: group.title, slug: group.slug } }
     }
   end
 end
