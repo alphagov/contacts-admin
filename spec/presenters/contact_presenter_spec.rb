@@ -36,6 +36,18 @@ describe ContactPresenter do
       expect(details[:more_info_email_address]).to include("<li>")
       expect(details[:more_info_phone_number]).to include("<li>")
     end
+
+    it "presents contact with contact_groups correctly against the schema" do
+      contact_with_groups = create :contact, :with_contact_group
+      payload = ContactPresenter.new(contact_with_groups).payload
+
+      expect(payload.to_json).to be_valid_against_schema('contact')
+
+      contact_groups = payload[:details][:contact_groups]
+      expect(contact_groups.count).to eq(contact_with_groups.contact_groups.count)
+      expect(contact_groups.first[:title]).to eq(contact_with_groups.contact_groups.first.title)
+      expect(contact_groups.first[:slug]).to eq(contact_with_groups.contact_groups.first.slug)
+    end
   end
 
   context "#links" do
