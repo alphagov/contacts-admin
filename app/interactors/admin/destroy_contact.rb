@@ -10,10 +10,6 @@ module Admin
         presenter = ContactGonePresenter.new(@contact)
         Publisher.publish(presenter)
 
-        # Remove from site search
-        rummager_id = @contact.link.gsub(%r{^/}, '')
-        Services.rummager_client.delete_document("contact", rummager_id)
-
         # Remove from our database
         @contact.destroy
       end

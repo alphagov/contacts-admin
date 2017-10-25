@@ -12,10 +12,6 @@ module Admin
         # Overwrite with a redirect item in content-store
         Publisher.publish(redirect_content_item_presenter)
 
-        # Remove from site search
-        rummager_id = contact.link.gsub(%r{^/}, '')
-        Services.rummager_client.delete_document("contact", rummager_id)
-
         # Remove from our database
         contact.destroy
       end
