@@ -2,7 +2,6 @@ require "rails_helper"
 
 feature "Contact editing", auth: :user do
   include Admin::ContactSteps
-  include Admin::SiteSearchSteps
 
   let!(:contact_group) { create(:contact_group, :with_organisation, title: "new contact type") }
   let!(:contact)       { create :contact }
@@ -37,24 +36,6 @@ feature "Contact editing", auth: :user do
                   )
 
     assert_publishing_api_put_content(contact.content_id, request_json_includes(title: "new title", description: "new description"))
-  end
-
-  specify "updating a contact sends the data to Rummager" do
-    stub_any_rummager_post
-
-    update_contact(contact,
-                   title: "newer title",
-                   description: "newer description"
-                  )
-
-    it_should_have_added_the_page_to_search(contact)
-  end
-
-  specify "updating more info fields from tabs redirects the user back to the tab" do
-    can_update_more_info_from_tab(contact, 'email_addresses', 'more_info_email_address')
-    can_update_more_info_from_tab(contact, 'post_addresses', 'more_info_post_address')
-    can_update_more_info_from_tab(contact, 'phone_numbers', 'more_info_phone_number')
-    can_update_more_info_from_tab(contact, 'contact_form_links', 'more_info_contact_form')
   end
 
 private

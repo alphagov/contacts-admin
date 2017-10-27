@@ -15,14 +15,12 @@ displays the contacts themselves, fetching them from content store:
 
 This is a Ruby on Rails application that provides a private admin UI for signon users with permission to allow them to manage the contacts for their organisation.
 
-The app has its own database (MySQL), which is used by the admin UI. This is in contrast to the separate [government-frontend](https://github.com/alphagov/government-frontend) app which reads contacts from the [content-store](https://github.com/alphagov/content-store). The admin UI part of this app handles publishing the contacts to the [publishing-api](https://github.com/alphagov/publishing-api) and [rummager](https://github.com/alphagov/rummager) so that they are present for [finder-frontend](https://github.com/alphagov/finder-frontend) and [government-frontend](https://github.com/alphagov/government-frontend) to read.
+The app has its own database (MySQL), which is used by the admin UI. This is in contrast to the separate [government-frontend](https://github.com/alphagov/government-frontend) app which reads contacts from the [content-store](https://github.com/alphagov/content-store). The admin UI part of this app handles publishing the contacts to the [publishing-api](https://github.com/alphagov/publishing-api) so that they are present for [finder-frontend](https://github.com/alphagov/finder-frontend) and [government-frontend](https://github.com/alphagov/government-frontend) to read.
 
 ### Dependencies
 
 * Ruby 2.3.0
 * MySQL
-* [rummager](https://github.com/alphagov/rummager) - to publish contacts so
-  they can be found by GOV.UK site search and [finder-frontend](https://github.com/alphagov/finder-frontend)
 * [whitehall](https://github.com/alphagov/whitehall)
   1. to access the organisations API and maintain parity with the organisations managed in whitehall.
   2. to access the world locations API to provide the correct list of countries for the country dropdown in the address form

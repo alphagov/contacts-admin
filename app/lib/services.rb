@@ -1,14 +1,9 @@
 require 'gds_api/worldwide'
-require 'gds_api/rummager'
 require 'gds_api/publishing_api_v2'
 
 module Services
   def self.worldwide_api
     @worldwide_api ||= GdsApi::Worldwide.new(Plek.new.find('whitehall-admin'))
-  end
-
-  def self.rummager_client
-    @rummager_client ||= GdsApi::Rummager.new(Plek.new.find('rummager'))
   end
 
   def self.publishing_api
