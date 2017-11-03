@@ -60,7 +60,6 @@ node {
     }
 
     stage('Tests') {
-      govuk.runRakeTask('ci:setup:rspec spec')
       govuk.runTests()
       govuk.rubyLinter()
     }
