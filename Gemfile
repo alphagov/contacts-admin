@@ -42,7 +42,6 @@ end
 
 # testing
 group :test do
-  gem "ci_reporter_rspec", "~> 1.0"
   gem "rspec-rails", "~> 3.5.2"
   gem 'factory_girl_rails', '~> 4.7', '>= 4.7.0'
   gem "shoulda-matchers", "3.1.1"
