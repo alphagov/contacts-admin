@@ -52,5 +52,5 @@ group :test do
   gem 'webmock', '2.3.2'
   gem 'json-schema', '2.5.2'
   gem 'govuk-content-schema-test-helpers', '1.4.0'
-  gem "govuk-lint", "1.2.1"
+  gem "govuk-lint", "3.4.0"
 end
