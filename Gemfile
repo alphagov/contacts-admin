@@ -42,7 +42,7 @@ end
 
 # testing
 group :test do
-  gem "rspec-rails", "~> 3.5.2"
+  gem "rspec-rails", "~> 3.7.2"
   gem 'factory_girl_rails', '~> 4.7', '>= 4.7.0'
   gem "shoulda-matchers", "3.1.2"
   gem "fakefs", "0.9.1", require: "fakefs/safe"
