@@ -47,7 +47,7 @@ group :test do
   gem "shoulda-matchers", "3.1.2"
   gem "fakefs", "0.9.1", require: "fakefs/safe"
   gem 'capybara', '~> 2.8.1'
-  gem "simplecov", "0.12.0"
+  gem "simplecov", "0.15.1"
   gem "simplecov-rcov", "0.2.3"
   gem 'webmock', '2.3.2'
   gem 'json-schema', '2.5.2'
