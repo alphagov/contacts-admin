@@ -25,7 +25,7 @@ gem 'ancestry', '2.1.0'
 gem "sass-rails", "~> 5.0", ">= 5.0.6"
 gem "uglifier", ">= 2.7.2"
 gem "therubyracer", "0.12.3", platforms: :ruby
-gem "govuk_frontend_toolkit", "~> 4.17.0"
+gem "govuk_frontend_toolkit", "~> 7.2.0"
 gem "select2-rails", "~> 4.0.0"
 
 # development
