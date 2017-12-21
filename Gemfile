@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 5.0.2"
+gem "rails", "~> 5.1.4"
 
 gem "active_hash", "1.5.2"
 gem "mysql2", "~> 0.4.4"
