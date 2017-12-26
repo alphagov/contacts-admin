@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "rails", "~> 5.0.2"
 
-gem "active_hash", "1.5.2"
+gem "active_hash", "1.5.3"
 gem "mysql2", "~> 0.4.4"
 gem "simple_form", "~> 3.5.0"
 gem "friendly_id", "5.2.1"
