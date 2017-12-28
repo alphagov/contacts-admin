@@ -99,7 +99,7 @@ GEM
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
-    friendly_id (5.2.1)
+    friendly_id (5.2.3)
       activerecord (>= 4.0.0)
     gds-api-adapters (50.7.0)
       link_header
@@ -378,7 +378,7 @@ DEPENDENCIES
   capybara (~> 2.8.1)
   factory_girl_rails (~> 4.7, >= 4.7.0)
   fakefs (= 0.9.1)
-  friendly_id (= 5.2.1)
+  friendly_id (= 5.2.3)
   gds-api-adapters (~> 50.7)
   gds-sso (~> 13.2.0)
   govspeak (~> 3.6.2)
