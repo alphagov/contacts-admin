@@ -310,7 +310,7 @@ GEM
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
-    simplecov (0.12.0)
+    simplecov (0.15.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
@@ -402,7 +402,7 @@ DEPENDENCIES
   select2-rails (~> 4.0.0)
   shoulda-matchers (= 3.1.2)
   simple_form (~> 3.5.0)
-  simplecov (= 0.12.0)
+  simplecov (= 0.15.1)
   simplecov-rcov (= 0.2.3)
   therubyracer (= 0.12.3)
   thin
