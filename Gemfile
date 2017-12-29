@@ -15,7 +15,7 @@ gem 'gds-api-adapters', "~> 50.8"
 gem "govuk_app_config", "~> 0.2.0"
 gem "lrucache", "0.1.4"
 gem "plek", ">= 1.12.0"
-gem 'govuk_admin_template', '4.3.0'
+gem 'govuk_admin_template', '6.4.0'
 gem "mlanett-redis-lock", "0.2.7"
 gem "whenever", "~> 0.10.0"
 gem "searchlight", "4.1.0"
