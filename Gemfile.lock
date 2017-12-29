@@ -42,8 +42,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    ancestry (2.1.0)
-      activerecord (>= 3.0.0)
+    ancestry (3.0.1)
+      activerecord (>= 3.2.0)
     arel (7.1.4)
     ast (2.3.0)
     autoprefixer-rails (7.2.3)
@@ -372,7 +372,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash (= 1.5.3)
-  ancestry (= 2.1.0)
+  ancestry (= 3.0.1)
   better_errors
   binding_of_caller
   capybara (~> 2.16.1)

@@ -19,7 +19,7 @@ gem 'govuk_admin_template', '6.4.0'
 gem "mlanett-redis-lock", "0.2.7"
 gem "whenever", "~> 0.10.0"
 gem "searchlight", "4.1.0"
-gem 'ancestry', '2.1.0'
+gem 'ancestry', '3.0.1'
 
 # assets
 gem "sass-rails", "~> 5.0", ">= 5.0.6"
