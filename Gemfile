@@ -50,7 +50,7 @@ group :test do
   gem "simplecov", "0.15.1"
   gem "simplecov-rcov", "0.2.3"
   gem 'webmock', '3.1.1'
-  gem 'json-schema', '2.5.2'
-  gem 'govuk-content-schema-test-helpers', '1.5.0'
+  gem 'json-schema', '2.8.0'
+  gem 'govuk-content-schema-test-helpers', '1.6.0'
   gem "govuk-lint", "3.4.0"
 end
