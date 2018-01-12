@@ -103,7 +103,8 @@ GEM
     ffi (1.9.18)
     friendly_id (5.2.3)
       activerecord (>= 4.0.0)
-    gds-api-adapters (50.8.0)
+    gds-api-adapters (50.9.1)
+      addressable
       link_header
       lrucache (~> 0.1.1)
       null_logger
@@ -388,7 +389,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.7, >= 4.7.0)
   fakefs (= 0.11.3)
   friendly_id (= 5.2.3)
-  gds-api-adapters (~> 50.8)
+  gds-api-adapters (~> 50.9)
   gds-sso (~> 13.5.0)
   govspeak (~> 5.2.2)
   govuk-content-schema-test-helpers (= 1.5.0)
