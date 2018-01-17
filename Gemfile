@@ -49,7 +49,7 @@ group :test do
   gem 'capybara', '~> 2.17.0'
   gem "simplecov", "0.15.1"
   gem "simplecov-rcov", "0.2.3"
-  gem 'webmock', '3.1.1'
+  gem 'webmock', '3.2.1'
   gem 'json-schema', '2.8.0'
   gem 'govuk-content-schema-test-helpers', '1.6.0'
   gem "govuk-lint", "3.6.0"
