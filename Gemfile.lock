@@ -367,7 +367,7 @@ GEM
       rack (>= 1.0)
     warden-oauth2 (0.0.1)
       warden
-    webmock (3.2.1)
+    webmock (3.3.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -421,7 +421,7 @@ DEPENDENCIES
   uglifier (>= 2.7.2)
   unicorn (~> 5.4.0)
   virtus (~> 1.0.5)
-  webmock (= 3.2.1)
+  webmock (= 3.3.0)
   whenever (~> 0.10.0)
 
 BUNDLED WITH
