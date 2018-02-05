@@ -12,7 +12,7 @@ gem "paper_trail", "~> 8.1.2"
 gem "govspeak", "~> 5.4.0"
 gem "gds-sso", "~> 13.5.1"
 gem 'gds-api-adapters', "~> 51.1"
-gem "govuk_app_config", "~> 0.2.0"
+gem "govuk_app_config", "~> 1.3.0"
 gem "lrucache", "0.1.4"
 gem "plek", ">= 1.12.0"
 gem 'govuk_admin_template', '6.5.0'
