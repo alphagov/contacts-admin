@@ -426,10 +426,9 @@ DEPENDENCIES
   therubyracer (= 0.12.3)
   thin
   uglifier (>= 2.7.2)
-  unicorn (~> 5.4.0)
   virtus (~> 1.0.5)
   webmock (= 3.3.0)
   whenever (~> 0.10.0)
 
 BUNDLED WITH
-   1.15.1
+   1.16.1
