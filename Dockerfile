@@ -1,5 +1,6 @@
 FROM ruby:2.4.2
 RUN apt-get update -qq && apt-get upgrade -y && apt-get install -y build-essential nodejs && apt-get clean
+RUN gem install foreman
 
 ENV DATABASE_URL mysql2://root:root@mysql/contacts-admin
 ENV GOVUK_APP_NAME contacts-admin
@@ -18,4 +19,4 @@ RUN GOVUK_APP_DOMAIN=www.gov.uk RAILS_ENV=production bundle exec rails assets:pr
 
 HEALTHCHECK CMD curl --silent --fail localhost:$PORT/healthcheck || exit 1
 
-CMD bundle exec foreman run web
+CMD foreman run web
