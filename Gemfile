@@ -25,7 +25,7 @@ gem "plek", ">= 1.12.0"
 gem "sass-rails", "~> 5.0", ">= 5.0.6"
 gem "uglifier", ">= 2.7.2"
 gem "therubyracer", "0.12.3", platforms: :ruby
-gem "govuk_frontend_toolkit", "~> 7.4.1"
+gem "govuk_frontend_toolkit", "~> 7.4.2"
 gem "select2-rails", "~> 4.0.0"
 
 # development
