@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "rails", "~> 5.0.2"
 
-gem "active_hash", "1.5.3"
+gem "active_hash", "2.0.0"
 gem 'ancestry', '3.0.1'
 gem "friendly_id", "5.2.3"
 gem "lrucache", "0.1.4"
