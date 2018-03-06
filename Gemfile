@@ -10,7 +10,7 @@ gem "mlanett-redis-lock", "0.2.7"
 gem "mysql2", "~> 0.4.4"
 gem "paper_trail", "~> 8.1.2"
 gem "searchlight", "4.1.0"
-gem "simple_form", "~> 3.5.0"
+gem "simple_form", "~> 3.5.1"
 gem "virtus", "~> 1.0.5"
 gem "whenever", "~> 0.10.0"
 
