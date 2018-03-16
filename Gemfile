@@ -51,7 +51,7 @@ group :test do
   gem 'json-schema', '2.8.0'
   gem "rspec-rails", "~> 3.7.2"
   gem "shoulda-matchers", "3.1.2"
-  gem "simplecov", "0.15.1"
+  gem "simplecov", "0.16.0"
   gem "simplecov-rcov", "0.2.3"
   gem 'webmock', '3.3.0'
 end
