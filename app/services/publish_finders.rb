@@ -24,7 +24,7 @@ private
   def hmrc_contacts_payload
     {
       "base_path": "/government/organisations/hm-revenue-customs/contact",
-      "title": "HM Revenue & Customs Contacts",
+      "title": "Contact HM Revenue & Customs",
       "description": "",
       "locale": "en",
       "document_type": "finder",
@@ -49,7 +49,7 @@ private
         "filter": {
           "format": "contact"
         },
-        "format_name": "HM Revenue & Customs Contacts",
+        "format_name": "Contact HM Revenue & Customs",
         "show_summaries": true
       },
       "routes": [
