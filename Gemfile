@@ -42,7 +42,7 @@ end
 
 # testing
 group :test do
-  gem 'govuk-content-schema-test-helpers', '1.6.0'
+  gem 'govuk-content-schema-test-helpers', '1.6.1'
   gem "govuk-lint", "3.7.0"
 
   gem 'capybara', '~> 2.18.0'
