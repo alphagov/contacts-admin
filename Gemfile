@@ -7,7 +7,7 @@ gem 'ancestry', '3.0.1'
 gem "friendly_id", "5.2.3"
 gem "lrucache", "0.1.4"
 gem "mlanett-redis-lock", "0.2.7"
-gem "mysql2", "~> 0.4.4"
+gem "mysql2", "~> 0.5.0"
 gem "paper_trail", "~> 8.1.2"
 gem "searchlight", "4.1.0"
 gem "simple_form", "~> 3.5.1"

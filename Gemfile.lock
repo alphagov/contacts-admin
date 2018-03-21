@@ -197,7 +197,7 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    mysql2 (0.4.10)
+    mysql2 (0.5.0)
     netrc (0.11.0)
     nio4r (2.2.0)
     nokogiri (1.8.2)
@@ -410,7 +410,7 @@ DEPENDENCIES
   json-schema (= 2.8.0)
   lrucache (= 0.1.4)
   mlanett-redis-lock (= 0.2.7)
-  mysql2 (~> 0.4.4)
+  mysql2 (~> 0.5.0)
   paper_trail (~> 8.1.2)
   plek (>= 1.12.0)
   pry-rails
