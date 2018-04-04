@@ -1,6 +1,6 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+# Read about factories at https://github.com/thoughtbot/factory_bot
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:website_title) { |n| "website title #{n}" }
   sequence(:website_link)  { |n| "http://www.example.com/#{n}" }
   sequence(:contact_form_link_description) { |n| "* contact form link description #{n}" }

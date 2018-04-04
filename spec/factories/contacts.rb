@@ -1,6 +1,6 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+# Read about factories at https://github.com/thoughtbot/factory_bot
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:contact_description) { |n| "contact record description #{n}" }
   sequence(:contact_information) { |n| "contact information #{n}" }
   sequence(:contact_title) { |n| "contact title #{n}" }
@@ -25,33 +25,33 @@ FactoryGirl.define do
 
     trait :with_contact_group do
       after(:create) do |contact|
-        contact.contact_groups << FactoryGirl.create(:contact_group, organisation: contact.organisation)
+        contact.contact_groups << FactoryBot.create(:contact_group, organisation: contact.organisation)
       end
     end
     trait :with_related_contacts do
       after(:create) do |contact|
-        contact.related_contacts << FactoryGirl.create(:contact)
-        contact.related_contacts << FactoryGirl.create(:contact)
+        contact.related_contacts << FactoryBot.create(:contact)
+        contact.related_contacts << FactoryBot.create(:contact)
       end
     end
     trait :with_contact_form_links do
       after(:create) do |contact|
-        contact.contact_form_links << FactoryGirl.create(:contact_form_link, contact_id: contact.id)
+        contact.contact_form_links << FactoryBot.create(:contact_form_link, contact_id: contact.id)
       end
     end
     trait :with_post_addresses do
       after(:create) do |contact|
-        contact.post_addresses << FactoryGirl.create(:post_address, contact_id: contact.id)
+        contact.post_addresses << FactoryBot.create(:post_address, contact_id: contact.id)
       end
     end
     trait :with_phone_numbers do
       after(:create) do |contact|
-        contact.phone_numbers << FactoryGirl.create(:phone_number, contact_id: contact.id)
+        contact.phone_numbers << FactoryBot.create(:phone_number, contact_id: contact.id)
       end
     end
     trait :with_email_addresses do
       after(:create) do |contact|
-        contact.email_addresses << FactoryGirl.create(:email_address, contact_id: contact.id)
+        contact.email_addresses << FactoryBot.create(:email_address, contact_id: contact.id)
       end
     end
   end

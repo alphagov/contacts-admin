@@ -1,6 +1,6 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+# Read about factories at https://github.com/thoughtbot/factory_bot
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:contact_group_title) { |n| "contact group #{n}" }
   sequence(:contact_group_description) { |n| "contact group description #{n}" }
 
@@ -12,13 +12,13 @@ FactoryGirl.define do
 
     trait :with_contacts do
       after(:create) do |contact_group|
-        contact_group.contacts << FactoryGirl.create(:contact)
+        contact_group.contacts << FactoryBot.create(:contact)
       end
     end
 
     trait :with_organisation do
       before(:create) do |contact_group|
-        contact_group.organisation = FactoryGirl.create(:organisation)
+        contact_group.organisation = FactoryBot.create(:organisation)
       end
     end
   end
