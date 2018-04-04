@@ -18,6 +18,6 @@ feature "Contact removal", auth: :user do
       delete_contact(contact)
     }.to change { Contact.count }.by(-1)
 
-    it_should_have_archived_the_page(gone_uuid, contact)
+    it_should_have_archived_the_page(contact)
   end
 end

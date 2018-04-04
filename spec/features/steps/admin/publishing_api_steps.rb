@@ -1,9 +1,9 @@
 module Admin
   module PublishingApiSteps
-    def it_should_have_archived_the_page(gone_uuid, contact)
-      assert_publishing_api_put_content(
-        gone_uuid,
-        request_json_includes(contact_content(contact))
+    def it_should_have_archived_the_page(contact)
+      assert_publishing_api_unpublish(
+        contact.content_id,
+        type: 'gone'
       )
     end
 
