@@ -6,9 +6,10 @@ module Admin
 
     def destroy
       @contact.transaction do
-        # Overwrite with a gone item in content-store
-        presenter = ContactGonePresenter.new(@contact)
-        Publisher.publish(presenter)
+        Services.publishing_api.unpublish(
+          @contact.content_id,
+          type: 'gone'
+        )
 
         # Remove from our database
         @contact.destroy

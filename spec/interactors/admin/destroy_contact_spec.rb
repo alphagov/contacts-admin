@@ -11,9 +11,8 @@ describe Admin::DestroyContact do
     end
 
     it "should replace the item in content store with a gone item" do
-      presenter = double(ContactGonePresenter, present: { some: "JSON" })
-      expect(ContactGonePresenter).to receive(:new).with(contact).and_return(presenter)
-      expect(Publisher).to receive(:publish).with(presenter)
+      expect(Services.publishing_api).to receive(:unpublish)
+                                           .with(contact.content_id, type: 'gone')
 
       described_class.new(contact).destroy
     end

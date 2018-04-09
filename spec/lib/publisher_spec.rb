@@ -41,16 +41,6 @@ describe Publisher do
       end
     end
 
-    context 'with no links' do
-      let(:gone_presenter) { ContactGonePresenter.new(contact) }
-
-      it 'does not call patch_links' do
-        expect(Publisher.client).not_to receive(:patch_links)
-
-        Publisher.new(gone_presenter).publish
-      end
-    end
-
     context 'when communicating with publishing api fails' do
       let(:presenter) { ContactPresenter.new(contact) }
 
