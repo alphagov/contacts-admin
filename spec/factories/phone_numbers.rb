@@ -1,6 +1,6 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+# Read about factories at https://github.com/thoughtbot/factory_bot
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:number_title) { |n| "post address title #{n}" }
   sequence(:phone_number) { |n| "555-#{n}#{n}#{n}-#{n}#{n}#{n}#{n}#{n}" }
 

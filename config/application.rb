@@ -26,7 +26,7 @@ module Contacts
       g.orm                 :active_record
       g.template_engine     :erb
       g.test_framework      :rspec, fixture: false
-      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
   end
 end

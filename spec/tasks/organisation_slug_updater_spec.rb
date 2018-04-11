@@ -3,7 +3,7 @@ require "rails_helper"
 describe OrganisationSlugUpdater do
   let(:new_slug) { 'my-new-slug' }
   let(:old_slug) { 'my-old-slug' }
-  let!(:organisation) { FactoryGirl.create(:organisation, slug: old_slug) }
+  let!(:organisation) { FactoryBot.create(:organisation, slug: old_slug) }
 
   it 'returns true if updated' do
     expect(OrganisationSlugUpdater.new(old_slug, new_slug).call).to be_truthy
