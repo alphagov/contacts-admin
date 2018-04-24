@@ -43,7 +43,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    ancestry (3.0.1)
+    ancestry (3.0.2)
       activerecord (>= 3.2.0)
     arel (7.1.4)
     ast (2.4.0)
@@ -396,7 +396,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash (= 2.1.0)
-  ancestry (= 3.0.1)
+  ancestry (= 3.0.2)
   better_errors
   binding_of_caller
   capybara (~> 3.0.2)
