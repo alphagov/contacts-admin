@@ -26,7 +26,6 @@ class ContactPresenter
         { path: contact.link, type: "exact" }
       ],
       details: contact_details.merge(language: "en"),
-      need_ids: [],
       update_type: "major",
     }
   end
