@@ -53,5 +53,5 @@ group :test do
   gem "shoulda-matchers", "3.1.2"
   gem "simplecov", "0.16.1"
   gem "simplecov-rcov", "0.2.3"
-  gem 'webmock', '3.3.0'
+  gem 'webmock', '3.4.0'
 end
