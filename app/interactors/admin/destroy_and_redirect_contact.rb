@@ -9,18 +9,15 @@ module Admin
 
     def destroy_and_redirect
       contact.transaction do
-        # Overwrite with a redirect item in content-store
-        Publisher.publish(redirect_content_item_presenter)
+        Services.publishing_api.unpublish(
+          @contact.content_id,
+          type: 'redirect',
+          alternative_path: redirect_to_location
+        )
 
         # Remove from our database
         contact.destroy
       end
-    end
-
-  private
-
-    def redirect_content_item_presenter
-      ContactRedirectPresenter.new(contact, redirect_to_location)
     end
   end
 end
