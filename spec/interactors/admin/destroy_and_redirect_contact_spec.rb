@@ -13,10 +13,12 @@ describe Admin::DestroyAndRedirectContact do
     end
 
     it "replaces the item in content store with a redirect item" do
-      presenter = ContactRedirectPresenter.new(contact, redirect_to_location)
-
-      expect(ContactRedirectPresenter).to receive(:new).with(contact, redirect_to_location).and_return(presenter)
-      expect(Publisher).to receive(:publish).with(presenter)
+      expect(Services.publishing_api).to receive(:unpublish)
+                                           .with(
+                                             contact.content_id,
+                                             type: 'redirect',
+                                             alternative_path: redirect_to_location
+                                           )
 
       subject.destroy_and_redirect
     end
