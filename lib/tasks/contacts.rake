@@ -53,34 +53,14 @@ namespace :contacts do
   end
 
   desc "Put in place a redirect for an already removed contact"
-  task :replace_gone_with_redirect, [:contact_slug, :organisation_slug, :redirect_to_location] => :environment do |_task, args|
-    if args.contact_slug.blank? || args.organisation_slug.blank? || args.redirect_to_location.blank?
-      puts "Usage: rake contacts:replace_gone_with_redirect[removed-contact-slug,organisation-slug,path-to-redirect-to]"
+  task :replace_gone_with_redirect, %i[gone_content_id redirect_to_location] => :environment do |_task, args|
+    if args.gone_content_id.blank? || args.redirect_to_location.blank?
+      puts "Usage: rake contacts:replace_gone_with_redirect[gone_content_id,redirect_to_location]"
     else
-      result = RedirectorForGoneContact.new(
-        contact_slug: args.contact_slug,
-        organisation_slug: args.organisation_slug,
+      RedirectorForGoneContact.new(
+        gone_content_id: args.gone_content_id,
         redirect_to_location: args.redirect_to_location
       ).redirect_gone_contact
-      if result.successful?
-        puts "SUCCESS! - Contact #{result.full_contact_path} redirected to #{args.redirect_to_location}"
-      else
-        print "ERROR! "
-        case result.reason
-        when :contact_exists
-          puts "Contact #{result.full_contact_path} has not been removed, consider using 'rake contacts:remove_with_redirect'"
-        when :unpublished_contact
-          puts "Contact #{result.full_contact_path} has never been published, consider creating it first then using 'rake contacts:remove_with_redirect'"
-        when :not_gone
-          puts "Contact #{result.full_contact_path} is not 'gone' - it's published as a #{result.existing.format}."
-        when :not_published_by_contacts
-          puts "Contact #{result.full_contact_path} is 'gone' but it wasn't published by contacts-admin - it was published by #{result.existing.publishing_app}."
-        when :redirect_failed
-          puts "Contact #{result.full_contact_path} could not be redirected to #{args.redirect_to_location} (Publishing API Failure - #{result.error})"
-        else
-          puts "Contact #{result.full_contact_path} could not be redirected: #{result.reason}"
-        end
-      end
     end
   end
 end
