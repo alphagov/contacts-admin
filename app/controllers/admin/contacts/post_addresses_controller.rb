@@ -1,6 +1,6 @@
 class Admin::Contacts::PostAddressesController < AdminController
   before_action :load_parent_contact
-  before_action :load_post_address, only: [:edit, :update, :destroy]
+  before_action :load_post_address, only: %i[edit update destroy]
 
   def new
     @post_address = @contact.post_addresses.build

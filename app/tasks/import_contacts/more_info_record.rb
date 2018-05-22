@@ -17,8 +17,7 @@ class ImportContacts
     end
 
     class NullMoreInfoUrl
-      def to_markdown
-      end
+      def to_markdown; end
     end
 
     attribute :content, String

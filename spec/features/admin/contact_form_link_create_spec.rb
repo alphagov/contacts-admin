@@ -14,8 +14,7 @@ feature "Contact Form Link creation", auth: :user do
     create_contact_form_link(contact,
                              link: contact_form_link.link,
                              title: contact_form_link.title,
-                             description: contact_form_link.description,
-                            )
+                             description: contact_form_link.description,)
 
     verify contact_form_link_exists(contact, contact_form_link)
   end

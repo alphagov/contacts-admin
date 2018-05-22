@@ -1,6 +1,6 @@
 class Admin::Contacts::ContactFormLinksController < AdminController
   before_action :load_parent_contact
-  before_action :load_contact_form_link, only: [:edit, :update, :destroy]
+  before_action :load_contact_form_link, only: %i[edit update destroy]
 
   def new
     @contact_form_link = @contact.contact_form_links.build

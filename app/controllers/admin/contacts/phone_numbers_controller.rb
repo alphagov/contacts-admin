@@ -1,6 +1,6 @@
 class Admin::Contacts::PhoneNumbersController < AdminController
   before_action :load_parent_contact
-  before_action :load_phone_number, only: [:edit, :update, :destroy]
+  before_action :load_phone_number, only: %i[edit update destroy]
 
   def new
     @phone_number = @contact.phone_numbers.build
