@@ -1,8 +1,9 @@
 require "rails_helper"
 require 'gds_api/test_helpers/worldwide'
-include GdsApi::TestHelpers::Worldwide
 
 describe Admin::CloneContact do
+  include GdsApi::TestHelpers::Worldwide
+
   describe "#clone" do
     context "contact exists" do
       let(:contact) { create :contact, :with_contact_group, :with_contact_form_links, :with_post_addresses, :with_phone_numbers, :with_email_addresses }
