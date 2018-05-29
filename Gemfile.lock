@@ -93,10 +93,10 @@ GEM
     erubis (2.7.0)
     eventmachine (1.2.5)
     execjs (2.7.0)
-    factory_bot (4.8.2)
+    factory_bot (4.10.0)
       activesupport (>= 3.0.0)
-    factory_bot_rails (4.8.2)
-      factory_bot (~> 4.8.2)
+    factory_bot_rails (4.10.0)
+      factory_bot (~> 4.10.0)
       railties (>= 3.0.0)
     fakefs (0.14.2)
     faraday (0.12.2)
@@ -400,7 +400,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capybara (~> 3.1.1)
-  factory_bot_rails (~> 4.8)
+  factory_bot_rails (~> 4.10)
   fakefs (= 0.14.2)
   friendly_id (= 5.2.3)
   gds-api-adapters (~> 52.5)
