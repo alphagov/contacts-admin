@@ -34,7 +34,7 @@ namespace :contacts do
   end
 
   desc "Remove a contact and redirect it"
-  task :remove_with_redirect, [:contact_slug, :redirect_to_location] => :environment do |_task, args|
+  task :remove_with_redirect, %i[contact_slug redirect_to_location] => :environment do |_task, args|
     if args.contact_slug.blank? || args.redirect_to_location.blank?
       puts "Usage: rake contacts:remove_with_redirect[contact-to-remove-slug,path-to-redirect-to]"
     else

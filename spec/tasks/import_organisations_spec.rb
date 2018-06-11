@@ -1,8 +1,9 @@
 require "rails_helper"
 require 'gds_api/test_helpers/organisations'
-include GdsApi::TestHelpers::Organisations
 
 describe ImportOrganisations, with_fakefs: true do
+  include GdsApi::TestHelpers::Organisations
+
   it "creates new organisations when none exist" do
     organisation_slugs = %w(ministry-of-fun tea-agency)
     organisations_api_has_organisations(organisation_slugs)

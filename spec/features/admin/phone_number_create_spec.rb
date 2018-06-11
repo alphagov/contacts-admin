@@ -13,8 +13,7 @@ feature "Phone Number creation", auth: :user do
   specify "it can be created" do
     create_phone_number(contact,
                         number: number.number,
-                        title: number.title
-                       )
+                        title: number.title)
 
     verify phone_number_exists(contact, number)
   end

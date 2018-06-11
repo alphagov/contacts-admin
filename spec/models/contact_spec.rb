@@ -42,7 +42,7 @@ RSpec.describe Contact, type: :model do
         contact.content_id = SecureRandom.uuid
         contact.save!
         contact.reload
-      }.not_to change { contact.content_id }
+      }.not_to(change { contact.content_id })
     end
   end
 

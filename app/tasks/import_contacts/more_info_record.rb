@@ -3,7 +3,7 @@ class ImportContacts
     include Virtus.value_object
 
     class MarkdownRenderer
-      CONTENT_PART = %{%{content}}.freeze
+      CONTENT_PART = %{%<content>s}.freeze
 
       delegate :content, to: :@more_info_record
 
@@ -17,8 +17,7 @@ class ImportContacts
     end
 
     class NullMoreInfoUrl
-      def to_markdown
-      end
+      def to_markdown; end
     end
 
     attribute :content, String
