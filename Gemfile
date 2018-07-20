@@ -45,7 +45,7 @@ group :test do
   gem 'govuk-content-schema-test-helpers', '1.6.1'
   gem "govuk-lint", "3.8.0"
 
-  gem 'capybara', '~> 3.3.1'
+  gem 'capybara', '~> 3.4.0'
   gem 'factory_bot_rails', '~> 4.10'
   gem "fakefs", "0.16.0", require: "fakefs/safe"
   gem 'json-schema', '2.8.0'
