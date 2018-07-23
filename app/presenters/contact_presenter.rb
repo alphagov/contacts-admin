@@ -61,6 +61,8 @@ private
       contact_form_links: ContactFormLinksPresenter.new(contact.contact_form_links).present,
       more_info_contact_form: govspeak(contact.more_info_contact_form),
 
+      more_info_webchat: govspeak(contact.more_info_webchat),
+
       email_addresses: EmailAddressesPresenter.new(contact.email_addresses).present,
       more_info_email_address: govspeak(contact.more_info_email_address),
 

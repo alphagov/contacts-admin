@@ -28,6 +28,7 @@ class ImportContacts
         post_addresses: post_address_records,
         phone_numbers: phone_number_records,
         more_info_contact_form: more_info_text_for(:contact_form),
+        more_info_webchat: attributes["more_info_webchat"],
         more_info_email_address: more_info_text_for(:email_address),
         more_info_post_address: more_info_text_for(:post_address),
         more_info_phone_number: more_info_text_for(:phone_number),

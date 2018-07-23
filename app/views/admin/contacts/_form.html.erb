@@ -11,6 +11,7 @@
       <%= f.input :description, as: :text, input_html: { rows: 8, class: 'input-md-8 form-control' } %>
       <%= f.input :before_you_contact_us, as: :text, label: 'Before you contact us', input_html: { rows: 5, class: 'input-md-8 form-control' }, hint: formatting_help_link %>
       <%= f.input :contact_information, as: :text, label: 'Information you will need', input_html: { rows: 5, class: 'input-md-8 form-control' }, hint: formatting_help_link %>
+      <%= f.input :more_info_webchat, as: :text, label: 'More information for webchat', input_html: { rows: 5, class: 'input-md-8 form-control' }, hint: formatting_help_link %>
       <%= f.input :query_response_time, as: :boolean, label: 'Show "When can I expect my reply" link' %>
       <%= f.input :popularity, class: 'input-md-3 form-control', hint: 'This is used to weight the contacts list, use call volume for example' %>
     </fieldset>
