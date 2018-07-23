@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920172304) do
+ActiveRecord::Schema.define(version: 20180723102908) do
 
   create_table "contact_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "contact_group_type_id"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20160920172304) do
     t.integer  "popularity",                             default: 0
     t.integer  "organisation_id"
     t.string   "content_id",               limit: 36,                    null: false
+    t.text     "more_info_webchat",        limit: 65535
     t.index ["need_id"], name: "index_contacts_on_need_id", using: :btree
     t.index ["slug"], name: "index_contacts_on_slug", using: :btree
   end
