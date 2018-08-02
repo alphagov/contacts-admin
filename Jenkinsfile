@@ -11,6 +11,7 @@ node {
     repoName: 'contacts-admin',
     beforeTest: {
       govuk.setEnvar('RUNNING_IN_CI', 'true')
-    }
+    },
+    brakeman: true,
   )
 }
