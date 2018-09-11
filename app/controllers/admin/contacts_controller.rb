@@ -63,6 +63,7 @@ private
 
   def search_params
     return {} unless params.key? :contacts_search
+
     params.require(:contacts_search).permit(:q, :organisation_id)
   end
 

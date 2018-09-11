@@ -21,7 +21,7 @@ module Contacts
   private
 
     def redis
-      @_redis ||= begin
+      @redis ||= begin
         redis_config = {
           host: ENV["REDIS_HOST"] || "127.0.0.1",
           port: ENV["REDIS_PORT"] || 6379,
