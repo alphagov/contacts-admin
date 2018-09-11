@@ -10,6 +10,7 @@ module Admin
 
     def save
       return false unless contact.save
+
       send_links_to_publishing_api
       true
     end

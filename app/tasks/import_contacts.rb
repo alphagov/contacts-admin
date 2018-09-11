@@ -25,7 +25,7 @@ class ImportContacts
       contact = builder.build(hash)
 
       if contact.save
-        logger.info "#{hash.fetch(['contactid'], nil)}, #{hash.fetch(['title'], '').split(/\n/).map(&:strip).first}"
+        logger.info "#{hash.fetch(%w[contactid], nil)}, #{hash.fetch(%w[title], '').split(/\n/).map(&:strip).first}"
       end
     end
   end
