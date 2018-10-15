@@ -48,7 +48,7 @@ group :test do
   gem 'capybara', '~> 3.9.0'
   gem 'factory_bot_rails', '~> 4.11'
   gem "fakefs", "0.18.0", require: "fakefs/safe"
-  gem 'json-schema', '2.8.0'
+  gem 'json-schema', '2.8.1'
   gem "rspec-rails", "~> 3.8.0"
   gem "shoulda-matchers", "3.1.2"
   gem "simplecov", "0.16.1"
