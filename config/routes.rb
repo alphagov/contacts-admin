@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get "healthcheck" => "healthcheck#check"
+  get "/healthcheck", to: GovukHealthcheck.rack_response(
+    GovukHealthcheck::ActiveRecord,
+  )
 
   # Permanently redirect any requests for the root URL to /admin
   root :to => redirect("/admin", status: 301)
