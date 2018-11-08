@@ -15,7 +15,7 @@ class ImportOrganisations
 private
 
   def organisations
-    base_uri = Plek.new.website_root
+    base_uri = Plek.new.find('whitehall-admin')
     GdsApi::Organisations.new(base_uri).organisations.with_subsequent_pages
   end
 
