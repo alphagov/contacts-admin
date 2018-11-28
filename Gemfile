@@ -26,7 +26,6 @@ gem 'plek', '~> 2'
 gem 'govuk_frontend_toolkit', '~> 8'
 gem 'sass-rails', '~> 5'
 gem 'select2-rails', '~> 4'
-gem 'therubyracer', '~> 0.12', platforms: :ruby
 gem 'uglifier', '~> 4'
 
 # development
