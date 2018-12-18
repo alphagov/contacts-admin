@@ -15,7 +15,7 @@ gem "virtus", "~> 1.0.5"
 gem "whenever", "~> 0.10.0"
 
 gem 'gds-api-adapters', "~> 53.2"
-gem "gds-sso", "~> 13.6.0"
+gem "gds-sso", "~> 14.0.0"
 gem "govspeak", "~> 5.8.0"
 gem 'govuk_admin_template', '6.6.0'
 gem "govuk_app_config", "~> 1.10.0"
