@@ -21,7 +21,7 @@ Rails.application.configure do
   # Compress JavaScripts and CSS.
   # Fix for ie8 and select2
   require 'uglifier'
-  config.assets.js_compressor = Uglifier.new(output: {ascii_only: true, quote_keys: true})
+  config.assets.js_compressor = Uglifier.new(output: { ascii_only: true, quote_keys: true })
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -54,7 +54,7 @@ Rails.application.configure do
   config.log_level = :info
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -83,7 +83,7 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger = ActiveSupport::Logger.new(STDOUT)
     config.logger = ActiveSupport::TaggedLogging.new(logger)
     config.log_formatter = ::Logger::Formatter.new
   end
