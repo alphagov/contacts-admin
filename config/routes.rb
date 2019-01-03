@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   )
 
   # Permanently redirect any requests for the root URL to /admin
-  root :to => redirect("/admin", status: 301)
+  root to: redirect("/admin", status: 301)
 
   namespace :admin do
     root to: 'contacts#index', via: :get
