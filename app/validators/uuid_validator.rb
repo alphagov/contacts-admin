@@ -20,7 +20,7 @@ class UUIDValidator < ActiveModel::EachValidator
     -
     [a-f\d]{12}
     \z
-  }x
+  }x.freeze
 
   def validate_each(record, attribute, value)
     unless UUID_PATTERN.match(value)
