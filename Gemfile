@@ -18,7 +18,7 @@ gem 'gds-api-adapters', "~> 53.2"
 gem "gds-sso", "~> 14.0.0"
 gem "govspeak", "~> 5.9.0"
 gem 'govuk_admin_template', '6.6.0'
-gem "govuk_app_config", "~> 1.10.0"
+gem "govuk_app_config", "~> 1.11.1"
 gem "plek", ">= 1.12.0"
 
 # assets
