@@ -7,8 +7,8 @@ class ContactGroup < ApplicationRecord
 
   friendly_id :title, use: :history
 
-  has_many :contacts, through: :contact_memberships
   has_many :contact_memberships, dependent: :destroy
+  has_many :contacts, through: :contact_memberships
 
   belongs_to_active_hash :contact_group_type
 

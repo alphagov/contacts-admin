@@ -13,8 +13,8 @@ class Contact < ApplicationRecord
 
   belongs_to :organisation
 
-  has_many :contact_groups, through: :contact_memberships
   has_many :contact_memberships, dependent: :destroy
+  has_many :contact_groups, through: :contact_memberships
 
   has_many :contact_form_links, inverse_of: :contact, dependent: :destroy
   has_many :phone_numbers, inverse_of: :contact, dependent: :destroy
