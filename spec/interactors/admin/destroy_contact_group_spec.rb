@@ -3,7 +3,7 @@ require "rails_helper"
 describe Admin::DestroyContactGroup do
   describe "#destroy" do
     context "contact group has any contacts associated" do
-      let(:contact_group) { create :contact_group, :with_contacts, :with_organisation }
+      let(:contact_group) { create :contact_group, :with_contacts }
 
       it "does not destroy the contact group" do
         described_class.new(contact_group).destroy
@@ -13,7 +13,7 @@ describe Admin::DestroyContactGroup do
     end
 
     context "contact group has no contacts associated" do
-      let(:contact_group) { create :contact_group, :with_organisation }
+      let(:contact_group) { create :contact_group }
 
       it "destroys the contact group" do
         described_class.new(contact_group).destroy

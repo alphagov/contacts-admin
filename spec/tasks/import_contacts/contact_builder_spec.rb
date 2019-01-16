@@ -21,7 +21,7 @@ describe ImportContacts::ContactBuilder do
     end
 
     it "assigns contact groups" do
-      create(:contact_group, :with_organisation, title: "See also")
+      create(:contact_group, title: "See also")
       contact_group = "See also"
       attributes = { "clustergroup" => contact_group }
 
