@@ -46,7 +46,7 @@ group :test do
   gem "govuk-lint", "3.10.0"
 
   gem 'capybara', '~> 3.12.0'
-  gem 'factory_bot_rails', '~> 4.11'
+  gem 'factory_bot_rails', '~> 5.0'
   gem "fakefs", "0.18.0", require: "fakefs/safe"
   gem 'json-schema', '2.8.1'
   gem "rspec-rails", "~> 3.8.1"
