@@ -50,7 +50,7 @@ group :test do
   gem "fakefs", "0.18.0", require: "fakefs/safe"
   gem 'json-schema', '2.8.1'
   gem "rspec-rails", "~> 3.8.2"
-  gem "shoulda-matchers", "3.1.2"
+  gem "shoulda-matchers", "3.1.3"
   gem "simplecov", "0.16.1"
   gem "simplecov-rcov", "0.2.3"
   gem 'webmock', '3.5.1'
