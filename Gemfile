@@ -43,7 +43,7 @@ end
 # testing
 group :test do
   gem 'govuk-content-schema-test-helpers', '1.6.1'
-  gem "govuk-lint", "3.10.0"
+  gem "govuk-lint", "3.11.0"
 
   gem 'capybara', '~> 3.13.2'
   gem 'factory_bot_rails', '~> 4.11'
