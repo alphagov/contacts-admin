@@ -9,16 +9,11 @@ FactoryBot.define do
 
     title          { generate(:contact_group_title) }
     description    { generate(:contact_group_description) }
+    organisation
 
     trait :with_contacts do
       after(:create) do |contact_group|
         contact_group.contacts << FactoryBot.create(:contact)
-      end
-    end
-
-    trait :with_organisation do
-      before(:create) do |contact_group|
-        contact_group.organisation = FactoryBot.create(:organisation)
       end
     end
   end

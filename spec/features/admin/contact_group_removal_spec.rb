@@ -3,7 +3,7 @@ require "rails_helper"
 feature "Contact Group removal", auth: :user do
   include Admin::ContactGroupSteps
 
-  let!(:contact_group) { create :contact_group, :with_organisation }
+  let!(:contact_group) { create :contact_group }
 
   before { verify contact_group_exists(contact_group) }
 

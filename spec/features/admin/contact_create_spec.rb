@@ -3,7 +3,7 @@ require "rails_helper"
 feature "Contact creation", auth: :user do
   include Admin::ContactSteps
 
-  let!(:contact_group)       { create(:contact_group, :with_organisation, title: "new contact type") }
+  let!(:contact_group)       { create(:contact_group, title: "new contact type") }
   let(:contact)              { attributes_for :contact }
   let!(:contact_organisation) { create :organisation }
 
