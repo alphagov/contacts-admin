@@ -8,8 +8,8 @@ class ImportOrganisations
       organisation_relationships[organisation_data["details"]["slug"]] = child_organisation_slugs(organisation_data)
     end
     update_ancestry(organisation_relationships)
-  rescue ActiveRecord::RecordInvalid => invalid
-    raise "Couldn't save organisation #{invalid.record.slug} because: #{invalid.record.errors.full_messages.join(',')}"
+  rescue ActiveRecord::RecordInvalid => e
+    raise "Couldn't save organisation #{e.record.slug} because: #{e.record.errors.full_messages.join(',')}"
   end
 
 private
