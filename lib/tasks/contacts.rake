@@ -63,4 +63,21 @@ namespace :contacts do
       ).redirect_gone_contact
     end
   end
+
+  desc "Patch links for all contacts with primary_publishing_organisation"
+  task patch_links_with_primary_publishing_organisation: :environment do
+    count = Contact.count
+    puts "Patching links for #{count} contacts with primary_publishing_organisation"
+    Contact.all.each_with_index do |contact, i|
+      Publisher.client.patch_links(
+        contact.content_id,
+        links: {
+          organisations: [contact.organisation.content_id],
+          primary_publishing_organisation: [contact.organisation.content_id]
+        }
+      )
+      puts "Processing #{i}-#{i + 99} of #{count} contacts" if (i % 100).zero?
+    end
+    puts "Finished patching links for contacts with primary_publishing_organisation"
+  end
 end
