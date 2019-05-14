@@ -36,7 +36,10 @@ feature "Contact creation", auth: :user do
 
     assert_publishing_api_patch_links(
       created_contact.content_id,
-      links: { organisations: [contact_organisation.content_id] }
+      links: {
+        organisations: [contact_organisation.content_id],
+        primary_publishing_organisation: [contact_organisation.content_id]
+      }
     )
   end
 end
