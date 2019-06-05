@@ -13,7 +13,7 @@ gem 'paper_trail', '~> 10'
 gem 'searchlight', '~> 4'
 gem 'simple_form', '~> 4'
 gem 'virtus', '~> 1'
-gem 'whenever', '~> 0.10'
+gem 'whenever', '~> 0.11'
 
 gem 'gds-api-adapters', '~> 54.1'
 gem 'gds-sso', '~> 14'
