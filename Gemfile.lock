@@ -238,7 +238,7 @@ GEM
     parallel (1.17.0)
     parser (2.6.3.0)
       ast (~> 2.4.0)
-    plek (2.1.1)
+    plek (3.0.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -433,7 +433,7 @@ DEPENDENCIES
   mlanett-redis-lock (~> 0.2)
   mysql2 (~> 0.4)
   paper_trail (~> 10)
-  plek (~> 2)
+  plek (~> 3)
   pry-rails
   railroady
   rails (~> 5.2)
