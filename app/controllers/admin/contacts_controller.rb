@@ -11,7 +11,7 @@ class Admin::ContactsController < AdminController
   end
 
   def update
-    if @contact.update_attributes(contact_params)
+    if @contact.update(contact_params)
       redirect_to successful_update_url, notice: "Contact successfully updated"
     else
       render :edit
