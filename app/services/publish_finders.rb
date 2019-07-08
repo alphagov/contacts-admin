@@ -68,8 +68,8 @@ private
   def hmrc_contacts_parent
     # Sets the parent of the HMRC contacts finder to the HMRC organisation page
     {
-      parent: [
-        "6667cce2-e809-4e21-ae09-cb0bdc1ddda3"
+      parent: %w[
+        6667cce2-e809-4e21-ae09-cb0bdc1ddda3
       ]
     }
   end
