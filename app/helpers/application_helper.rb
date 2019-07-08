@@ -11,7 +11,7 @@ module ApplicationHelper
 
   def govspeak(text)
     if text
-      content_tag(:div, Govspeak::Document.new(text).to_html.html_safe, class: "govspeak")
+      content_tag(:div, Govspeak::Document.new(text).to_html.html_safe, class: "govspeak") # rubocop:disable Rails/OutputSafety
     end
   end
 
