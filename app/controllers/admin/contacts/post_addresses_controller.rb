@@ -15,6 +15,8 @@ class Admin::Contacts::PostAddressesController < AdminController
     end
   end
 
+  def edit; end
+
   def update
     if @post_address.update(post_address_params)
       redirect_to [:admin, @contact, :post_addresses], notice: "Post Address successfully updated"

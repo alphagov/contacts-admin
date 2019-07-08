@@ -15,6 +15,8 @@ class Admin::Contacts::PhoneNumbersController < AdminController
     end
   end
 
+  def edit; end
+
   def update
     if @phone_number.update(phone_number_params)
       redirect_to [:admin, @contact, :phone_numbers], notice: "Phone Number successfully updated"

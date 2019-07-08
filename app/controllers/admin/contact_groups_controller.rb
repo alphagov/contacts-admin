@@ -9,6 +9,8 @@ class Admin::ContactGroupsController < AdminController
     @contact_groups = ContactGroup.all
   end
 
+  def edit; end
+
   def update
     if @contact_group.update(contact_group_params)
       republish_finders

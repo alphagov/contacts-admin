@@ -10,6 +10,8 @@ class Admin::ContactsController < AdminController
     @contacts = search.results.includes(:contact_groups, :organisation).by_title
   end
 
+  def edit; end
+
   def update
     if @contact.update(contact_params)
       redirect_to successful_update_url, notice: "Contact successfully updated"

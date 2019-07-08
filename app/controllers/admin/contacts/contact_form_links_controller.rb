@@ -15,6 +15,8 @@ class Admin::Contacts::ContactFormLinksController < AdminController
     end
   end
 
+  def edit; end
+
   def update
     if @contact_form_link.update(contact_form_link_params)
       redirect_to [:admin, @contact, :contact_form_links], notice: "Contact Form Link successfully updated"
