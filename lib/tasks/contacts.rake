@@ -38,7 +38,7 @@ namespace :contacts do
     if args.contact_slug.blank? || args.redirect_to_location.blank?
       puts "Usage: rake contacts:remove_with_redirect[contact-to-remove-slug,path-to-redirect-to]"
     else
-      contact = Contact.find_by_slug(args.contact_slug)
+      contact = Contact.find_by(slug: args.contact_slug)
       if contact.nil?
         puts "Contact #{args.contact_slug} doesn't exist, consider using rake contacts:replace_gone_with_redirect"
       else
