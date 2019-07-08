@@ -1,12 +1,8 @@
 module ApplicationHelper
   def page_title(*title_parts)
-    if title_parts.any?
-      title_parts.push("Admin") if params[:controller] =~ /^admin\//
-      title_parts.push("GOV.UK")
-      @page_title = title_parts.reject(&:blank?).join(" - ")
-    else
-      @page_title
-    end
+    title_parts.push("Admin") if params[:controller] =~ /^admin\//
+    title_parts.push("GOV.UK")
+    title_parts.reject(&:blank?).join(" - ")
   end
 
   def page_class(css_class)
