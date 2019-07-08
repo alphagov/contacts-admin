@@ -19,7 +19,7 @@ module ApplicationHelper
     end
   end
 
-  def formatting_help_link(show_section = "")
-    "<a href='#formatting#{show_section if show_section.present?}' role='button' data-toggle='modal' class='if-no-js-hide'>Formatting help</a>".html_safe
+  def formatting_help_link
+    "<a href='#formatting' role='button' data-toggle='modal' class='if-no-js-hide'>Formatting help</a>".html_safe
   end
 end
