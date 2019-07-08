@@ -21,7 +21,7 @@ class Contact < ApplicationRecord
   has_many :email_addresses, inverse_of: :contact, dependent: :destroy
   has_many :post_addresses, inverse_of: :contact, dependent: :destroy
 
-  has_many :contact_relationships
+  has_many :contact_relationships, dependent: :destroy
   has_many :related_contacts, through: :contact_relationships
 
   validates :title, presence: true

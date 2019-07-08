@@ -7,8 +7,8 @@ class Organisation < ApplicationRecord
 
   has_ancestry
 
-  has_many :contacts
-  has_many :contact_groups
+  has_many :contacts, dependent: :destroy
+  has_many :contact_groups, dependent: :destroy
 
   validates :contact_index_content_id, presence: true
 
