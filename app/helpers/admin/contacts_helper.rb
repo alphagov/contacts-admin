@@ -31,7 +31,17 @@ module Admin
         address.world_location.try(:name)
       end
       content_tag :div, class: "vcard" do
-        [title, street_address, locality, region, postal_code, world_location].join('<br>').html_safe
+        safe_join(
+          [
+            title,
+            street_address,
+            locality,
+            region,
+            postal_code,
+            world_location
+          ],
+          tag(:br)
+        )
       end
     end
   end
