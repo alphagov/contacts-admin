@@ -18,8 +18,8 @@ feature "Contact creation", auth: :user do
         description: contact[:description],
         contact_information: contact[:contact_information]
       ) do
-        select contact_organisation, from: "contact_organisation_id"
-        select contact_group, from: "contact_contact_group_ids"
+        select contact_organisation.to_s, from: "contact_organisation_id"
+        select contact_group.to_s, from: "contact_contact_group_ids"
       end
     }.to change { Contact.count }.by(1)
   end
@@ -29,7 +29,7 @@ feature "Contact creation", auth: :user do
       title: contact[:title],
       description: contact[:description],
     ) do
-      select contact_organisation, from: "contact_organisation_id"
+      select contact_organisation.to_s, from: "contact_organisation_id"
     end
 
     created_contact = Contact.last
