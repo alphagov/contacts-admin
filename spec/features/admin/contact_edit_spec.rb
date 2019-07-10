@@ -15,7 +15,7 @@ feature "Contact editing", auth: :user do
       quick_link_title_1: "GOV.UK",
       popularity: 2
     ) do
-      select contact_group, from: "contact_contact_group_ids"
+      select contact_group.to_s, from: "contact_contact_group_ids"
     end
 
     verify contact_updated(
