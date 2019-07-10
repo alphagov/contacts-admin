@@ -28,7 +28,7 @@ private
       govuk_status: organisation_data["details"]["govuk_status"],
       content_id: organisation_data["details"]["content_id"]
     }
-    organisation.update_attributes!(update_data)
+    organisation.update!(update_data)
   end
 
   def child_organisation_slugs(organisation_data)
@@ -39,7 +39,7 @@ private
   def update_ancestry(organisation_relationships)
     organisation_relationships.each do |organisation_slug, child_organisation_slugs|
       Organisation.where(slug: child_organisation_slugs).map do |child_organisation|
-        child_organisation.update_attributes!(parent: Organisation.find_by_slug(organisation_slug))
+        child_organisation.update!(parent: Organisation.find_by(slug: organisation_slug))
       end
     end
   end

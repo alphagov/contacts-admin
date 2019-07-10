@@ -3,7 +3,7 @@ class ContactGroupType < ActiveYaml::Base
 
   field :title
 
-  has_many :contact_groups
+  has_many :contact_groups, dependent: :destroy
 
   def self.most_popular
     find(1)

@@ -9,8 +9,10 @@ class Admin::ContactGroupsController < AdminController
     @contact_groups = ContactGroup.all
   end
 
+  def edit; end
+
   def update
-    if @contact_group.update_attributes(contact_group_params)
+    if @contact_group.update(contact_group_params)
       republish_finders
       redirect_to admin_contact_groups_path, notice: "Contact Group successfully updated"
     else

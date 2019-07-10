@@ -30,7 +30,7 @@ describe ImportOrganisations, with_fakefs: true do
 
     expect(Organisation.count).to eq(1)
 
-    expect(Organisation.find_by_slug(slug).title).to eq('Ministry Of Fun')
+    expect(Organisation.find_by(slug: slug).title).to eq('Ministry Of Fun')
   end
 
   it "updates the child organisation with information about it's parent" do
@@ -52,7 +52,7 @@ describe ImportOrganisations, with_fakefs: true do
 
     ImportOrganisations.new.call
 
-    organisation = Organisation.find_by_slug(slug)
+    organisation = Organisation.find_by(slug: slug)
 
     expect(organisation.abbreviation).not_to be_empty
   end
