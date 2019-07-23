@@ -1,49 +1,23 @@
-require "lrucache"
-
 class WorldLocation
-  def self.cache
-    @cache ||= LRUCache.new(soft_ttl: 24.hours, ttl: 1.week)
-  end
-
-  def self.reset_cache
-    @cache = nil
-  end
-
   def self.all
-    cache_fetch("all") do
-      Services.worldwide_api.world_locations.with_subsequent_pages
-        .map { |l| new(l) if l["format"] == "World location" && l["details"] && l["details"]["slug"].present? }
-        .compact
+    data = Rails.cache.fetch("all", expires_in: 1.day) do
+      Services.worldwide_api.world_locations.with_subsequent_pages.to_a
     end
+
+    data
+      .select { |l| l["format"] == "World location" && l.dig("details", "slug").present? }
+      .map { |location_data| new(location_data) }
   end
 
   def self.find(location_slug)
-    cache_fetch("find_#{location_slug}") do
-      data = Services.worldwide_api.world_location(location_slug)
-      new(data) if data
+    data = Rails.cache.fetch("find_#{location_slug}", expires_in: 1.day) do
+      Services
+        .worldwide_api
+        .world_location(location_slug)
+        .parsed_content
     end
-  end
 
-  # Fetch a value from the cache.
-  #
-  # On GdsApi errors, returns a stale value from the cache if available,
-  # otherwise re-raises the original GdsApi exception
-  def self.cache_fetch(key)
-    inner_exception = nil
-    cache.fetch(key) do
-      begin
-        yield
-      rescue GdsApi::BaseError => e
-        inner_exception = e
-        raise RuntimeError.new("use_stale_value")
-      end
-    end
-  rescue RuntimeError => e
-    if e.message == "use_stale_value"
-      raise inner_exception
-    else
-      raise
-    end
+    new(data)
   end
 
   def initialize(data)
