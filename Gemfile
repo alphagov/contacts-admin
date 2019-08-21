@@ -23,7 +23,7 @@ gem 'plek', '~> 3'
 
 # assets
 gem 'govuk_frontend_toolkit', '~> 8'
-gem 'sass-rails', '~> 5'
+gem 'sass-rails', '~> 6'
 gem 'select2-rails', '~> 4'
 gem 'therubyracer', '~> 0.12', platforms: :ruby
 gem 'uglifier', '~> 4'
