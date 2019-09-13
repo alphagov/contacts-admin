@@ -14,7 +14,7 @@ gem 'simple_form', '~> 4'
 gem 'virtus', '~> 1'
 gem 'whenever', '~> 1.0'
 
-gem 'gds-api-adapters', '~> 53'
+gem 'gds-api-adapters', '~> 60'
 gem 'gds-sso', '~> 14'
 gem 'govspeak', '~> 6'
 gem 'govuk_admin_template', '~> 6'
@@ -25,7 +25,6 @@ gem 'plek', '~> 3'
 gem 'govuk_frontend_toolkit', '~> 8'
 gem 'sass-rails', '~> 6'
 gem 'select2-rails', '~> 4'
-gem 'therubyracer', '~> 0.12', platforms: :ruby
 gem 'uglifier', '~> 4'
 
 # development
