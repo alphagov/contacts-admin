@@ -107,7 +107,7 @@ GEM
     ffi (1.11.1)
     friendly_id (5.2.5)
       activerecord (>= 4.0.0)
-    gds-api-adapters (53.2.0)
+    gds-api-adapters (60.0.0)
       addressable
       link_header
       null_logger
@@ -200,9 +200,9 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
-    mime-types (3.2.2)
+    mime-types (3.3)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2019.0331)
+    mime-types-data (3.2019.0904)
     mimemagic (0.3.3)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
@@ -430,7 +430,7 @@ DEPENDENCIES
   factory_bot_rails (~> 5)
   fakefs (~> 0.20)
   friendly_id (~> 5)
-  gds-api-adapters (~> 53)
+  gds-api-adapters (~> 60)
   gds-sso (~> 14)
   govspeak (~> 6)
   govuk-content-schema-test-helpers
