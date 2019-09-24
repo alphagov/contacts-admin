@@ -8,7 +8,7 @@ module Admin
       @contact.transaction do
         Services.publishing_api.unpublish(
           @contact.content_id,
-          type: 'gone'
+          type: "gone",
         )
 
         # Remove from our database

@@ -7,7 +7,7 @@ module Admin
     def contact_url(organisation, contact)
       URI::join(
         Plek.new.website_root,
-        "/government/organisations/#{organisation.slug}/contact/#{contact.slug}"
+        "/government/organisations/#{organisation.slug}/contact/#{contact.slug}",
       ).to_s
     end
 
@@ -38,9 +38,9 @@ module Admin
             locality,
             region,
             postal_code,
-            world_location
+            world_location,
           ],
-          tag(:br)
+          tag(:br),
         )
       end
     end

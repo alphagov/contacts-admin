@@ -12,7 +12,7 @@ describe Admin::DestroyContact do
 
     it "should replace the item in content store with a gone item" do
       expect(Services.publishing_api).to receive(:unpublish)
-                                           .with(contact.content_id, type: 'gone')
+                                           .with(contact.content_id, type: "gone")
 
       described_class.new(contact).destroy
     end

@@ -11,8 +11,8 @@ module Admin
       contact.transaction do
         Services.publishing_api.unpublish(
           @contact.content_id,
-          type: 'redirect',
-          alternative_path: redirect_to_location
+          type: "redirect",
+          alternative_path: redirect_to_location,
         )
 
         # Remove from our database

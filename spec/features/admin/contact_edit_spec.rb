@@ -13,7 +13,7 @@ feature "Contact editing", auth: :user do
       description: "new description",
       quick_link_1: "https://www.gov.uk/",
       quick_link_title_1: "GOV.UK",
-      popularity: 2
+      popularity: 2,
     ) do
       select contact_group.to_s, from: "contact_contact_group_ids"
     end
@@ -24,7 +24,7 @@ feature "Contact editing", auth: :user do
       description: "new description",
       quick_link_1: "https://www.gov.uk/",
       quick_link_title_1: "GOV.UK",
-      popularity: 2
+      popularity: 2,
     )
     verify associated_to_contact_group(contact, contact_group)
   end

@@ -1,6 +1,6 @@
 class RemoveAppointedPersonForEnglandAndWalesOrganisation < ActiveRecord::Migration
   def up
-    organisation = Organisation.find_by_slug('appointed-person-for-england-and-wales-under-the-proceeds-of-crime-act-2002')
+    organisation = Organisation.find_by_slug("appointed-person-for-england-and-wales-under-the-proceeds-of-crime-act-2002")
     if organisation.present?
       # These would need extra redirects or deciding what to do with if there
       # were any

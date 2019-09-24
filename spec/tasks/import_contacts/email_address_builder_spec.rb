@@ -14,7 +14,7 @@ describe ImportContacts::EmailAddressBuilder do
           "emailtitle1" => email_title,
           "emailtag1" => email_desc,
           "emailurl1" => email_link,
-          "emailaddress1" => email_address
+          "emailaddress1" => email_address,
         }
       }
 
@@ -27,7 +27,7 @@ describe ImportContacts::EmailAddressBuilder do
             email.description == email_desc &&
             email.email == email_address &&
             email.link == email_link
-          }
+          },
         ).to be_present
       end
     end
@@ -38,7 +38,7 @@ describe ImportContacts::EmailAddressBuilder do
           "emailtitle2" => email_title,
           "emailtag2" => email_desc,
           "emailurl2" => email_link,
-          "emailaddress2" => email_address
+          "emailaddress2" => email_address,
         }
       }
 
@@ -51,7 +51,7 @@ describe ImportContacts::EmailAddressBuilder do
             email.description == email_desc &&
             email.email == email_address &&
             email.link == email_link
-          }
+          },
         ).to be_present
       end
     end

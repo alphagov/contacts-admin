@@ -12,7 +12,7 @@ describe SeedDatabase do
     it "creates ContactGroups" do
       expect(ContactGroup.count).to eq SeedDatabase::CONTACT_GROUPS.size
       expect(
-        ContactGroup.where("contact_group_type_id IS NULL OR title IS NULL OR description IS NULL")
+        ContactGroup.where("contact_group_type_id IS NULL OR title IS NULL OR description IS NULL"),
       ).to be_none
     end
   end

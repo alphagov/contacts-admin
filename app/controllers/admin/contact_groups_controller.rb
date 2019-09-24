@@ -52,7 +52,7 @@ private
       :contact_group_type_id,
       :description,
       :title,
-      :organisation_id
+      :organisation_id,
     )
   end
 

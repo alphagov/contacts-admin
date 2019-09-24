@@ -12,7 +12,7 @@ describe ImportContacts::MoreInfoPostAddressBuilder do
         "postmoreinfo" => content,
         "postmoreinfourltitle" => post_address_title,
         "postmoreinfourltag" => post_address_desc,
-        "postmoreinfourl" => post_address_link
+        "postmoreinfourl" => post_address_link,
       }
     }
 

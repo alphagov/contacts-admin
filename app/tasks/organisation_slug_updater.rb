@@ -1,7 +1,7 @@
 class OrganisationSlugUpdater
   def initialize(old_slug, new_slug, logger = nil)
-    @old_slug = old_slug.sub(%r{^/}, '')
-    @new_slug = new_slug.sub(%r{^/}, '')
+    @old_slug = old_slug.sub(%r{^/}, "")
+    @new_slug = new_slug.sub(%r{^/}, "")
     @logger   = logger || Logger.new(nil)
   end
 

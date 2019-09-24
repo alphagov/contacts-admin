@@ -12,7 +12,7 @@ describe ImportContacts::MoreInfoPhoneNumberBuilder do
         "phonemoreinfo" => content,
         "phonemoreinfourltitle" => number_title,
         "phonemoreinfourltag" => number_desc,
-        "phonemoreinfourl" => number_link
+        "phonemoreinfourl" => number_link,
       }
     }
 

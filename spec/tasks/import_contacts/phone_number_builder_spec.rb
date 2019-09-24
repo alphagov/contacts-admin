@@ -20,7 +20,7 @@ describe ImportContacts::PhoneNumberBuilder do
           "telephone" => number_telephone,
           "textphone" => number_textphone,
           "international" => number_international,
-          "fax" => number_fax
+          "fax" => number_fax,
         }
       }
 
@@ -33,7 +33,7 @@ describe ImportContacts::PhoneNumberBuilder do
             number.number == number_telephone &&
             number.open_hours == number_hours &&
             number.description == number_head
-          }
+          },
         ).to be_present
       end
 
@@ -45,7 +45,7 @@ describe ImportContacts::PhoneNumberBuilder do
             number.fax == number_fax &&
             number.international_phone == number_international &&
             number.textphone == number_textphone
-          }
+          },
         ).to be_present
       end
     end
@@ -56,7 +56,7 @@ describe ImportContacts::PhoneNumberBuilder do
           "telephonename2" => number_title,
           "phonetexthead2" => number_head,
           "phoneopenhours2" => number_hours,
-          "telephone2" => number_telephone
+          "telephone2" => number_telephone,
         }
       }
 
@@ -69,7 +69,7 @@ describe ImportContacts::PhoneNumberBuilder do
             number.number == number_telephone &&
             number.open_hours == number_hours &&
             number.description == number_head
-          }
+          },
         ).to be_present
       end
     end

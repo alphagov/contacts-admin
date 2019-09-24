@@ -10,12 +10,12 @@ class PublishFinders
   def call
     Services.publishing_api.put_content(
       HMRC_CONTACTS_CONTENT_ID,
-      hmrc_contacts_payload
+      hmrc_contacts_payload,
     )
     Services.publishing_api.publish(HMRC_CONTACTS_CONTENT_ID)
     Services.publishing_api.patch_links(
       HMRC_CONTACTS_CONTENT_ID,
-      links: hmrc_contacts_parent
+      links: hmrc_contacts_parent,
     )
   end
 
@@ -43,25 +43,25 @@ private
             "preposition": "in topic",
             "display_as_result_metadata": false,
             "filterable": true,
-            "allowed_values": contact_groups_hash
-          }
+            "allowed_values": contact_groups_hash,
+          },
         ],
         "filter": {
-          "format": "contact"
+          "format": "contact",
         },
         "format_name": "Contact HM Revenue & Customs",
-        "show_summaries": true
+        "show_summaries": true,
       },
       "routes": [
         {
           "type": "exact",
-          "path": "/government/organisations/hm-revenue-customs/contact"
+          "path": "/government/organisations/hm-revenue-customs/contact",
         },
         {
           "type": "exact",
-          "path": "/government/organisations/hm-revenue-customs/contact.json"
-        }
-      ]
+          "path": "/government/organisations/hm-revenue-customs/contact.json",
+        },
+      ],
     }
   end
 
@@ -70,7 +70,7 @@ private
     {
       parent: %w[
         6667cce2-e809-4e21-ae09-cb0bdc1ddda3
-      ]
+      ],
     }
   end
 
@@ -79,7 +79,7 @@ private
     contact_groups.map do |contact_group|
       {
         label: contact_group.title,
-        value: contact_group.slug
+        value: contact_group.slug,
       }
     end
   end

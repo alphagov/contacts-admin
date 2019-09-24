@@ -46,7 +46,7 @@ RSpec.describe Contact, type: :model do
     end
   end
 
-  describe '#organisation' do
+  describe "#organisation" do
     it "can be set on create" do
       contact = create(:contact, organisation: create(:organisation))
 

@@ -10,7 +10,7 @@ class EmailAddressesPresenter
       {
         title: e.title,
         email: e.email,
-        description: govspeak(e.description)
+        description: govspeak(e.description),
       }
     end
   end

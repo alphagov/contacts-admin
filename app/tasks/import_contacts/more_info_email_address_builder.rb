@@ -5,9 +5,9 @@ class ImportContacts
         more_info_url: MoreInfoUrl.new(
           title: attributes["emailmoreinfourltitle"],
           description: attributes["emailmoreinfourltag"],
-          url: attributes["emailmoreinfourl"]
+          url: attributes["emailmoreinfourl"],
         ),
-        content: attributes["emailmoreinfo"]
+        content: attributes["emailmoreinfo"],
       )
     end
   end

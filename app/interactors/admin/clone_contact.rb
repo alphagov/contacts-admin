@@ -53,7 +53,7 @@ module Admin
     def send_links_to_publishing_api(clone)
       Publisher.client.patch_links(
         clone.content_id,
-        links: { organisations: [clone.organisation.content_id] }
+        links: { organisations: [clone.organisation.content_id] },
       )
     end
   end

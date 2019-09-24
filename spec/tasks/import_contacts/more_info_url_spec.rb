@@ -12,7 +12,7 @@ describe ImportContacts::MoreInfoUrl do
           described_class.new(
             url: url,
             title: nil,
-            description: description
+            description: description,
           )
         }
 
@@ -34,7 +34,7 @@ describe ImportContacts::MoreInfoUrl do
           described_class.new(
             url: url,
             title: nil,
-            description: nil
+            description: nil,
           )
         }
 
@@ -58,7 +58,7 @@ describe ImportContacts::MoreInfoUrl do
           described_class.new(
             url: nil,
             title: title,
-            description: description
+            description: description,
           )
         }
 
@@ -80,7 +80,7 @@ describe ImportContacts::MoreInfoUrl do
           described_class.new(
             url: nil,
             title: title,
-            description: nil
+            description: nil,
           )
         }
 
@@ -104,7 +104,7 @@ describe ImportContacts::MoreInfoUrl do
           described_class.new(
             url: url,
             title: title,
-            description: description
+            description: description,
           )
         }
 
@@ -126,7 +126,7 @@ describe ImportContacts::MoreInfoUrl do
           described_class.new(
             url: url,
             title: title,
-            description: nil
+            description: nil,
           )
         }
 

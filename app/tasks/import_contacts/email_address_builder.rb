@@ -5,12 +5,12 @@ class ImportContacts
          title: attributes["emailtitle1"],
          description: attributes["emailtag1"],
          link: attributes["emailurl1"],
-         email: attributes["emailaddress1"]
+         email: attributes["emailaddress1"],
        }, {
          title: attributes["emailtitle2"],
          description: attributes["emailtag2"],
          link: attributes["emailurl2"],
-         email: attributes["emailaddress2"]
+         email: attributes["emailaddress2"],
        }].map { |email_address_attributes|
          contact.email_addresses.build(email_address_attributes)
        }

@@ -3,7 +3,7 @@ module Admin
     def it_should_have_archived_the_page(contact)
       assert_publishing_api_unpublish(
         contact.content_id,
-        type: 'gone'
+        type: "gone",
       )
     end
 
@@ -17,9 +17,9 @@ module Admin
         "routes" => [
           {
             "path" =>  contact.link,
-            "type" =>  "exact"
-          }
-        ]
+            "type" =>  "exact",
+          },
+        ],
       }
     end
   end

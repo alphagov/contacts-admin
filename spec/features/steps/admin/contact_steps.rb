@@ -11,11 +11,11 @@ module Admin
     end
 
     def filter_by_organisation(organisation_name)
-      select organisation_name, from: 'contacts_search_organisation_id'
+      select organisation_name, from: "contacts_search_organisation_id"
     end
 
     def filter_by_title_or_description(title_or_description)
-      fill_in 'contacts_search_q', with: title_or_description
+      fill_in "contacts_search_q", with: title_or_description
     end
 
     def submit_filter_form

@@ -1,5 +1,5 @@
-require 'redis'
-require 'redis-lock'
+require "redis"
+require "redis-lock"
 
 module Contacts
   class DistributedLock
@@ -11,7 +11,7 @@ module Contacts
 
     def lock
       redis.lock("contacts-admin:#{Rails.env}:#{@lock_name}", life: LIFETIME) do
-        Rails.logger.debug('Successfully got a lock. Running...')
+        Rails.logger.debug("Successfully got a lock. Running...")
         yield
       end
     rescue Redis::Lock::LockNotAcquired => e

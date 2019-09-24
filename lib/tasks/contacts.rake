@@ -1,9 +1,9 @@
 namespace :contacts do
   desc "Import contact data from CSV file"
   task import_hmrc: :environment do
-    raise ArgumentError.new("Please provide contact file path using environment variable DATA_FILE") if ENV['DATA_FILE'].blank?
+    raise ArgumentError.new("Please provide contact file path using environment variable DATA_FILE") if ENV["DATA_FILE"].blank?
 
-    ImportContacts.new(ENV['DATA_FILE']).import
+    ImportContacts.new(ENV["DATA_FILE"]).import
   end
 
   desc "Crude implementation of splitting the address"
@@ -59,7 +59,7 @@ namespace :contacts do
     else
       RedirectorForGoneContact.new(
         gone_content_id: args.gone_content_id,
-        redirect_to_location: args.redirect_to_location
+        redirect_to_location: args.redirect_to_location,
       ).redirect_gone_contact
     end
   end
@@ -73,8 +73,8 @@ namespace :contacts do
         contact.content_id,
         links: {
           organisations: [contact.organisation.content_id],
-          primary_publishing_organisation: [contact.organisation.content_id]
-        }
+          primary_publishing_organisation: [contact.organisation.content_id],
+        },
       )
       puts "Processing #{i}-#{i + 99} of #{count} contacts" if (i % 100).zero?
     end

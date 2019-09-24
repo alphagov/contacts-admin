@@ -1,5 +1,5 @@
 require "rails_helper"
-require 'gds_api/test_helpers/worldwide'
+require "gds_api/test_helpers/worldwide"
 
 describe PostAddressesPresenter do
   include GdsApi::TestHelpers::Worldwide

@@ -1,4 +1,4 @@
-require 'publisher'
+require "publisher"
 
 class Contact < ApplicationRecord
   include Versioning
@@ -34,7 +34,7 @@ class Contact < ApplicationRecord
   scope :ungrouped, -> { where(contact_group_id: nil) }
   scope :for_listing, -> {
     where(
-      "`contacts`.`phone_numbers_count` > 0 OR `contacts`.`post_addresses_count` > 0 OR `contacts`.`email_addresses_count` > 0 OR `contacts`.`contact_form_links_count` > 0"
+      "`contacts`.`phone_numbers_count` > 0 OR `contacts`.`post_addresses_count` > 0 OR `contacts`.`email_addresses_count` > 0 OR `contacts`.`contact_form_links_count` > 0",
     ).order("contacts.popularity DESC, contacts.title")
   }
 
