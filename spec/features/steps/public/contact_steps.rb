@@ -11,7 +11,7 @@ module Public
     end
 
     def should_have_page_heading(text)
-      within('header h1') do
+      within("header h1") do
         expect(page).to have_content(text)
       end
     end

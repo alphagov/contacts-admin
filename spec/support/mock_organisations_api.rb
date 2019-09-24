@@ -15,7 +15,7 @@ class MockOrganisationsApi
         details: { slug: "hm-revenue-customs",
                    abbreviation: "HMRC",
                    closed_at: nil,
-                   govuk_status: "live" } }
+                   govuk_status: "live" } },
     ]
   end
 end

@@ -14,7 +14,7 @@ module Admin
     def delete_phone_number(number)
       ensure_on edit_admin_contact_phone_number_path(
         number.contact,
-        number
+        number,
       )
 
       click_link "Delete"
@@ -23,7 +23,7 @@ module Admin
     def update_phone_number(number, new_details = {})
       ensure_on edit_admin_contact_phone_number_path(
         number.contact,
-        number
+        number,
       )
 
       new_details.each do |field, value|
@@ -50,7 +50,7 @@ module Admin
     def phone_number_updated(number, details = {})
       ensure_on edit_admin_contact_phone_number_path(
         number.contact,
-        number
+        number,
       )
 
       details.all? { |field, value|

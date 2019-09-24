@@ -17,7 +17,7 @@ class ImportContacts
       {
         description: attributes["description"],
         contact_group_ids: [ContactGroup.find_by(title: attributes["clustergroup"]).try(:id)],
-        organisation: attributes.fetch(:organisation) { Organisation.find_by slug: "hm-revenue-customs" }
+        organisation: attributes.fetch(:organisation) { Organisation.find_by slug: "hm-revenue-customs" },
       }
     end
 
@@ -32,7 +32,7 @@ class ImportContacts
         more_info_email_address: more_info_text_for(:email_address),
         more_info_post_address: more_info_text_for(:post_address),
         more_info_phone_number: more_info_text_for(:phone_number),
-        title: title
+        title: title,
       )
 
       @contact

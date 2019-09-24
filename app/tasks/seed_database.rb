@@ -22,73 +22,73 @@ class SeedDatabase
     {
       contact_group_type: ContactGroupType.most_popular,
       title: "Change of details",
-      description: "Contact HMRC about a change in your details"
+      description: "Contact HMRC about a change in your details",
     },
     {
       contact_group_type: ContactGroupType.most_popular,
       title: "Tax",
-      description: "General Tax enquiries for individuals, employees and self-employed"
+      description: "General Tax enquiries for individuals, employees and self-employed",
     },
     {
       contact_group_type: ContactGroupType.most_popular,
       title: "Tax credits and other benefits",
-      description: "Tax credits enquiries"
+      description: "Tax credits enquiries",
     },
     {
       contact_group_type: ContactGroupType.most_popular,
       title: "VAT, Customs, Excise duties",
-      description: "Customs, International Trade & Excise enquiries"
+      description: "Customs, International Trade & Excise enquiries",
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: "National Insurance",
-      description: "National Insurance enquiries for employees and individuals"
+      description: "National Insurance enquiries for employees and individuals",
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: "Employers",
-      description: "HMRC contacts for Employers"
+      description: "HMRC contacts for Employers",
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: "Income Tax",
-      description: "Income Tax enquiries for individuals, pensioners and employees"
+      description: "Income Tax enquiries for individuals, pensioners and employees",
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: "Self Assessment",
-      description: "Help and advice for customers completing their tax return and supplementary pages, or who need general advice about Self Assessment"
+      description: "Help and advice for customers completing their tax return and supplementary pages, or who need general advice about Self Assessment",
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: "Child Benefit",
-      description: "Child Benefit helpline"
+      description: "Child Benefit helpline",
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: "Corporation Tax",
-      description: "Help with Corporation Tax"
+      description: "Help with Corporation Tax",
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: "Construction Industry Scheme (CIS)",
-      description: "Help and advice for subcontractors and contractors within the Construction Industry Scheme"
+      description: "Help and advice for subcontractors and contractors within the Construction Industry Scheme",
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: "Self Employed",
-      description: "HMRC contacts for self-employed"
+      description: "HMRC contacts for self-employed",
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: "Charities & clubs",
-      description: "Information for charities and CASCs about Gift Aid, Payroll Giving, tax reliefs, VAT, how to complete a Company or Self Assessment tax return, and forms that can be downloaded"
+      description: "Information for charities and CASCs about Gift Aid, Payroll Giving, tax reliefs, VAT, how to complete a Company or Self Assessment tax return, and forms that can be downloaded",
     },
     {
       contact_group_type: ContactGroupType.for_individuals,
       title: "Bereavement",
-      description: "What to do about Tax after a death"
-    }
+      description: "What to do about Tax after a death",
+    },
   ].freeze
 
   def create_contact_groups
@@ -97,7 +97,7 @@ class SeedDatabase
         contact_group_type_id: contact_group[:contact_group_type].id,
         title: contact_group[:title],
         description: contact_group[:description],
-        organisation_id: hmrc_organisation.id
+        organisation_id: hmrc_organisation.id,
       )
     end
   end

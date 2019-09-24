@@ -14,7 +14,7 @@ module Admin
     def delete_email_address(email_address)
       ensure_on edit_admin_contact_email_address_path(
         email_address.contact,
-        email_address
+        email_address,
       )
 
       click_link "Delete"
@@ -23,7 +23,7 @@ module Admin
     def update_email_address(email_address, new_details = {})
       ensure_on edit_admin_contact_email_address_path(
         email_address.contact,
-        email_address
+        email_address,
       )
 
       new_details.each do |field, value|
@@ -50,7 +50,7 @@ module Admin
     def email_address_updated(email_address, details = {})
       ensure_on edit_admin_contact_email_address_path(
         email_address.contact,
-        email_address
+        email_address,
       )
 
       details.all? { |field, value|

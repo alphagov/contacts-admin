@@ -16,7 +16,7 @@ feature "Contact creation", auth: :user do
       create_contact(
         title: contact[:title],
         description: contact[:description],
-        contact_information: contact[:contact_information]
+        contact_information: contact[:contact_information],
       ) do
         select contact_organisation.to_s, from: "contact_organisation_id"
         select contact_group.to_s, from: "contact_contact_group_ids"
@@ -38,8 +38,8 @@ feature "Contact creation", auth: :user do
       created_contact.content_id,
       links: {
         organisations: [contact_organisation.content_id],
-        primary_publishing_organisation: [contact_organisation.content_id]
-      }
+        primary_publishing_organisation: [contact_organisation.content_id],
+      },
     )
   end
 end

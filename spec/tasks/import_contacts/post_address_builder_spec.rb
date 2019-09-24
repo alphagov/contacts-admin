@@ -12,7 +12,7 @@ describe ImportContacts::PostAddressBuilder do
       let(:input_attributes) {
         {
           "postaddresstag1" => postaddress_desc,
-          "postaddress1" => postaddress
+          "postaddress1" => postaddress,
         }
       }
 
@@ -23,7 +23,7 @@ describe ImportContacts::PostAddressBuilder do
           post_addresses.detect { |pa|
             pa.description == postaddress_desc &&
             pa.address == postaddress
-          }
+          },
         ).to be_present
       end
     end
@@ -32,7 +32,7 @@ describe ImportContacts::PostAddressBuilder do
       let(:input_attributes) {
         {
           "postaddresstag2" => postaddress_desc,
-          "postaddress2" => postaddress
+          "postaddress2" => postaddress,
         }
       }
 
@@ -43,7 +43,7 @@ describe ImportContacts::PostAddressBuilder do
           post_addresses.detect { |pa|
             pa.description == postaddress_desc &&
             pa.address == postaddress
-          }
+          },
         ).to be_present
       end
     end
@@ -52,7 +52,7 @@ describe ImportContacts::PostAddressBuilder do
       let(:input_attributes) {
         {
           "postaddresstag3" => postaddress_desc,
-          "postaddress3" => postaddress
+          "postaddress3" => postaddress,
         }
       }
 
@@ -63,7 +63,7 @@ describe ImportContacts::PostAddressBuilder do
           post_addresses.detect { |pa|
             pa.description == postaddress_desc &&
             pa.address == postaddress
-          }
+          },
         ).to be_present
       end
     end

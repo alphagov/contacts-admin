@@ -22,8 +22,8 @@ module Admin
         contact.content_id,
         links: {
           organisations: [contact.organisation.content_id],
-          primary_publishing_organisation: [contact.organisation.content_id]
-        }
+          primary_publishing_organisation: [contact.organisation.content_id],
+        },
       )
     end
   end

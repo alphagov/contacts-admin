@@ -44,7 +44,7 @@ private
       :world_location_slug,
       :contact_type_id,
       :latitude,
-      :longitude
+      :longitude,
     )
   end
 

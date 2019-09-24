@@ -6,7 +6,7 @@ describe ImportContacts::MoreInfoRecord do
   let(:more_info_url) {
     ImportContacts::MoreInfoUrl.new(
       title: "url title",
-      url: url_content
+      url: url_content,
     )
   }
 
@@ -15,7 +15,7 @@ describe ImportContacts::MoreInfoRecord do
       let(:more_info_record) {
         described_class.new(
           content: content,
-          more_info_url: more_info_url
+          more_info_url: more_info_url,
         )
       }
 
@@ -32,7 +32,7 @@ describe ImportContacts::MoreInfoRecord do
       let(:more_info_record) {
         described_class.new(
           content: content,
-          more_info_url: nil
+          more_info_url: nil,
         )
       }
 
@@ -49,7 +49,7 @@ describe ImportContacts::MoreInfoRecord do
       let(:more_info_record) {
         described_class.new(
           content: nil,
-          more_info_url: more_info_url
+          more_info_url: more_info_url,
         )
       }
 
@@ -66,7 +66,7 @@ describe ImportContacts::MoreInfoRecord do
       let(:more_info_record) {
         described_class.new(
           content: nil,
-          more_info_url: nil
+          more_info_url: nil,
         )
       }
 

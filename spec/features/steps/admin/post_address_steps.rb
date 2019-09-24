@@ -14,7 +14,7 @@ module Admin
     def delete_post_address(post_address)
       ensure_on edit_admin_contact_post_address_path(
         post_address.contact,
-        post_address
+        post_address,
       )
 
       click_link "Delete"
@@ -23,7 +23,7 @@ module Admin
     def update_post_address(post_address, new_details = {})
       ensure_on edit_admin_contact_post_address_path(
         post_address.contact,
-        post_address
+        post_address,
       )
 
       new_details.each do |field, value|
@@ -52,7 +52,7 @@ module Admin
     def post_address_updated(post_address, details = {})
       ensure_on edit_admin_contact_post_address_path(
         post_address.contact,
-        post_address
+        post_address,
       )
 
       details.all? { |field, value|

@@ -10,12 +10,12 @@ feature "Contact group edit", auth: :user do
   specify "it can be updated" do
     update_contact_group(
       contact_group,
-      description: "new description"
+      description: "new description",
     )
 
     verify contact_group_updated(
       contact_group,
-      description: "new description"
+      description: "new description",
     )
   end
 end

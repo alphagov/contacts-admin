@@ -14,7 +14,7 @@ module Admin
     def delete_contact_form_link(contact_form_link)
       ensure_on edit_admin_contact_contact_form_link_path(
         contact_form_link.contact,
-        contact_form_link
+        contact_form_link,
       )
 
       click_link "Delete"
@@ -23,7 +23,7 @@ module Admin
     def update_contact_form_link(contact_form_link, new_details = {})
       ensure_on edit_admin_contact_contact_form_link_path(
         contact_form_link.contact,
-        contact_form_link
+        contact_form_link,
       )
 
       new_details.each do |field, value|
@@ -50,7 +50,7 @@ module Admin
     def contact_form_link_updated(contact_form_link, details = {})
       ensure_on edit_admin_contact_contact_form_link_path(
         contact_form_link.contact,
-        contact_form_link
+        contact_form_link,
       )
 
       details.all? { |field, value|

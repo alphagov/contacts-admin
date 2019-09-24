@@ -23,7 +23,7 @@ class ContactPresenter
       base_path: contact.link,
       public_updated_at: contact.updated_at,
       routes: [
-        { path: contact.link, type: "exact" }
+        { path: contact.link, type: "exact" },
       ],
       details: contact_details.merge(language: "en"),
       update_type: "major",
@@ -41,8 +41,8 @@ class ContactPresenter
     {
       links: {
         "related" => @contact.related_contacts.pluck(:content_id),
-        "parent"  => [PublishFinders::HMRC_CONTACTS_CONTENT_ID]
-      }
+        "parent"  => [PublishFinders::HMRC_CONTACTS_CONTENT_ID],
+      },
     }
   end
 
@@ -71,7 +71,7 @@ private
 
       post_addresses: PostAddressesPresenter.new(contact.post_addresses).present,
       more_info_post_address: govspeak(contact.more_info_post_address),
-      contact_groups: contact.contact_groups.map { |group| { title: group.title, slug: group.slug } }
+      contact_groups: contact.contact_groups.map { |group| { title: group.title, slug: group.slug } },
     }
   end
 end

@@ -7,14 +7,14 @@ Rails.application.routes.draw do
   root to: redirect("/admin", status: 301)
 
   namespace :admin do
-    root to: 'contacts#index', via: :get
+    root to: "contacts#index", via: :get
 
     resources :contact_groups
     resources :contacts do
       member do
         get :clone
       end
-      scope module: 'contacts' do
+      scope module: "contacts" do
         resources :contact_form_links
         resources :email_addresses
         resources :post_addresses

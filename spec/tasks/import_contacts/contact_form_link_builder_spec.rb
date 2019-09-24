@@ -12,7 +12,7 @@ describe ImportContacts::ContactFormLinkBuilder do
         {
           "ogtitle1" => site_title,
           "ogtag1" => site_desc,
-          "ogurl1" => site_link
+          "ogurl1" => site_link,
         }
       }
 
@@ -24,7 +24,7 @@ describe ImportContacts::ContactFormLinkBuilder do
             website.title == site_title &&
             website.description == site_desc &&
             website.link == site_link
-          }
+          },
         ).to be_present
       end
     end
@@ -34,7 +34,7 @@ describe ImportContacts::ContactFormLinkBuilder do
         {
           "ogtitle2" => site_title,
           "ogtag2" => site_desc,
-          "ogurl2" => site_link
+          "ogurl2" => site_link,
         }
       }
 
@@ -46,7 +46,7 @@ describe ImportContacts::ContactFormLinkBuilder do
             website.title == site_title &&
             website.description == site_desc &&
             website.link == site_link
-          }
+          },
         ).to be_present
       end
     end

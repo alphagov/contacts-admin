@@ -1,4 +1,4 @@
-require 'gds_api/organisations'
+require "gds_api/organisations"
 
 class ImportOrganisations
   def call
@@ -26,14 +26,14 @@ private
       format: organisation_data["format"],
       abbreviation: organisation_data["details"]["abbreviation"],
       govuk_status: organisation_data["details"]["govuk_status"],
-      content_id: organisation_data["details"]["content_id"]
+      content_id: organisation_data["details"]["content_id"],
     }
     organisation.update!(update_data)
   end
 
   def child_organisation_slugs(organisation_data)
     organisation_data["child_organisations"].map { |child| child["id"] }
-      .collect { |child_organisation_id| child_organisation_id.split('/').last }
+      .collect { |child_organisation_id| child_organisation_id.split("/").last }
   end
 
   def update_ancestry(organisation_relationships)

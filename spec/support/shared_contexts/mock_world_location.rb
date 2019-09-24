@@ -6,9 +6,9 @@ shared_context "mock world location", mock_world_location: true do
           "title" => "United Kingdom ",
             "details" => {
               "slug" => "united-kingdom",
-            }
-        )
-      ]
+            },
+        ),
+      ],
     )
 
     allow(WorldLocation).to receive(:find).and_return(
@@ -16,8 +16,8 @@ shared_context "mock world location", mock_world_location: true do
         "title" => "United Kingdom ",
           "details" => {
             "slug" => "united-kingdom",
-          }
-      )
+          },
+      ),
     )
   end
 end

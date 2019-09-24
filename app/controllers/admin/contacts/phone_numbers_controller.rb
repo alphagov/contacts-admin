@@ -43,7 +43,7 @@ private
       :number_options_path,
       :international_number_options_path,
       :textphone,
-      :fax
+      :fax,
     )
   end
 

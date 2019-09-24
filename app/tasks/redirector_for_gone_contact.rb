@@ -7,8 +7,8 @@ class RedirectorForGoneContact
   def redirect_gone_contact
     Services.publishing_api.unpublish(
       @gone_content_id,
-      type: 'redirect',
-      alternative_path: @redirect_to_location
+      type: "redirect",
+      alternative_path: @redirect_to_location,
     )
   end
 end

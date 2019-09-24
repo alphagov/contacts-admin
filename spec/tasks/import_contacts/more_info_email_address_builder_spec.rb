@@ -12,7 +12,7 @@ describe ImportContacts::MoreInfoEmailAddressBuilder do
         "emailmoreinfo" => content,
         "emailmoreinfourltitle" => email_address_title,
         "emailmoreinfourltag" => email_address_desc,
-        "emailmoreinfourl" => email_address_link
+        "emailmoreinfourl" => email_address_link,
       }
     }
 

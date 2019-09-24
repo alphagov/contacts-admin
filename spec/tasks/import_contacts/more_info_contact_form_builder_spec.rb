@@ -12,7 +12,7 @@ describe ImportContacts::MoreInfoContactFormBuilder do
         "ogmoreinfo" => content,
         "ogmoreinfourltitle" => website_title,
         "ogmoreinfourltag" => website_desc,
-        "ogmoreinfourl" => website_link
+        "ogmoreinfourl" => website_link,
       }
     }
 

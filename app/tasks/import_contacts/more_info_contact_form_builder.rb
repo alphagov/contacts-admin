@@ -5,9 +5,9 @@ class ImportContacts
         more_info_url: MoreInfoUrl.new(
           url: attributes["ogmoreinfourl"],
           title: attributes["ogmoreinfourltitle"],
-          description: attributes["ogmoreinfourltag"]
+          description: attributes["ogmoreinfourltag"],
         ),
-        content: attributes["ogmoreinfo"]
+        content: attributes["ogmoreinfo"],
       )
     end
   end
