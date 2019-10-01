@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 5.2'
 
-gem 'active_hash', '~> 2'
+gem 'active_hash', '~> 3'
 gem 'ancestry', '~> 3'
 gem 'bootsnap', '~> 1'
 gem 'friendly_id', '~> 5'
