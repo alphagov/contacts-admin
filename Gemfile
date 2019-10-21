@@ -10,7 +10,7 @@ gem 'mlanett-redis-lock', '~> 0.2'
 gem 'mysql2', '~> 0.4'
 gem 'paper_trail', '~> 10'
 gem 'searchlight', '~> 4'
-gem 'simple_form', '~> 4'
+gem 'simple_form', '~> 5'
 gem 'virtus', '~> 1'
 gem 'whenever', '~> 1.0'
 

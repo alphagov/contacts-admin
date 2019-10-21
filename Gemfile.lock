@@ -355,7 +355,7 @@ GEM
       faraday (>= 0.7.6, < 1.0)
     shoulda-matchers (4.1.2)
       activesupport (>= 4.2.0)
-    simple_form (4.1.0)
+    simple_form (5.0.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     simplecov (0.17.1)
@@ -446,7 +446,7 @@ DEPENDENCIES
   searchlight (~> 4)
   select2-rails (~> 4)
   shoulda-matchers (~> 4)
-  simple_form (~> 4)
+  simple_form (~> 5)
   simplecov (~> 0.17)
   simplecov-rcov (~> 0.2)
   thin
