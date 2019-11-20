@@ -2,7 +2,7 @@ require "rails_helper"
 require "govuk-content-schema-test-helpers/rspec_matchers"
 
 describe ContactPresenter do
-  let(:contact) { create :contact }
+  let(:contact) { create :contact, :with_related_contacts }
 
   context "#content_id" do
     it "returns the content_id of the contact" do
@@ -56,28 +56,23 @@ describe ContactPresenter do
     end
 
     it "returns links data" do
-      content_id = SecureRandom.uuid
-      contact.related_contacts << create(:contact, content_id: content_id)
-
       links = ContactPresenter.new(contact).links
+      related_content_ids = contact.related_contacts.pluck(:content_id)
 
-      expect(links[:links]["related"]).to eq([content_id])
-      expect(links[:links]["parent"]).to eq([PublishFinders::HMRC_CONTACTS_CONTENT_ID])
+      expect(links[:links]["related"]).to match_array(related_content_ids)
+      expect(links[:links]["parent"]).to eq([contact.organisation.content_id])
     end
   end
 
-  context "with related contacts" do
-    let(:contact) { create(:contact, :with_related_contacts) }
+  context "#links for HMRC contact" do
+    let(:contact) { create :contact, :for_hmrc, :with_related_contacts }
 
-    it "links to their content IDs" do
+    it "returns links data with HMRC contact's finder" do
       links = ContactPresenter.new(contact).links
-
       related_content_ids = contact.related_contacts.pluck(:content_id)
 
-      expect(links[:links]).to include("related")
-
-      # FIXME: change this to `match_exactly` once we have RSpec 3
-      expect(links[:links]["related"].sort).to eq(related_content_ids.sort)
+      expect(links[:links]["related"]).to match_array(related_content_ids)
+      expect(links[:links]["parent"]).to eq([PublishFinders::HMRC_CONTACTS_CONTENT_ID])
     end
   end
 end

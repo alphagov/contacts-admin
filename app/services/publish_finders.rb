@@ -2,6 +2,7 @@
 # only contains contacts related to HMRC.
 class PublishFinders
   HMRC_CONTACTS_CONTENT_ID = "b110c03c-3f8d-4327-906b-17ebd872e6a6".freeze
+  HMRC_ORGANISATION_CONTENT_ID = "6667cce2-e809-4e21-ae09-cb0bdc1ddda3".freeze
 
   def self.call
     new.call
