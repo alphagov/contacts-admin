@@ -42,7 +42,8 @@ end
 # testing
 group :test do
   gem "govuk-content-schema-test-helpers"
-  gem "govuk-lint"
+  gem "rubocop-govuk", "~> 1"
+  gem "scss_lint-govuk", "~> 0"
 
   gem "capybara", "~> 3"
   gem "factory_bot_rails", "~> 5"

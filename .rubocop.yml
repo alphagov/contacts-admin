@@ -1,2 +1,15 @@
+inherit_gem:
+  rubocop-govuk:
+    - "config/default.yml"
+
 AllCops:
   TargetRubyVersion: 2.3
+
+Metrics/BlockLength:
+  Exclude:
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*.rb"
+    - "config/routes.rb"
+    - "config/initializers/*.rb"
+    - "config/environments/*.rb"
