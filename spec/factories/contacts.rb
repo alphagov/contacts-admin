@@ -54,5 +54,8 @@ FactoryBot.define do
         contact.email_addresses << FactoryBot.create(:email_address, contact_id: contact.id)
       end
     end
+    trait :for_hmrc do
+      association :organisation, :for_hmrc
+    end
   end
 end

@@ -41,7 +41,7 @@ class ContactPresenter
     {
       links: {
         "related" => @contact.related_contacts.pluck(:content_id),
-        "parent"  => [PublishFinders::HMRC_CONTACTS_CONTENT_ID],
+        "parent"  => [parent_content_id],
       },
     }
   end
@@ -49,6 +49,14 @@ class ContactPresenter
   alias_method :payload, :present
 
 private
+
+  def parent_content_id
+    if contact.organisation.content_id == PublishFinders::HMRC_ORGANISATION_CONTENT_ID
+      PublishFinders::HMRC_CONTACTS_CONTENT_ID
+    else
+      contact.organisation.content_id
+    end
+  end
 
   def contact_details
     {
