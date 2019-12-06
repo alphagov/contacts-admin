@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 5.2"
+gem "rails", "~> 6.0"
 
 gem "active_hash", "~> 3"
 gem "ancestry", "~> 3"
