@@ -120,7 +120,7 @@ GEM
     ffi (1.11.2)
     friendly_id (5.3.0)
       activerecord (>= 4.0.0)
-    gds-api-adapters (62.0.0)
+    gds-api-adapters (63.0.0)
       addressable
       link_header
       null_logger
@@ -441,7 +441,7 @@ DEPENDENCIES
   factory_bot_rails (~> 5)
   fakefs (~> 0.20)
   friendly_id (~> 5)
-  gds-api-adapters (~> 62)
+  gds-api-adapters (~> 63)
   gds-sso (~> 14)
   govspeak (~> 6)
   govuk-content-schema-test-helpers
