@@ -17,11 +17,11 @@ require "capybara/rails"
 require "fakefs/spec_helpers"
 require "paper_trail/frameworks/rspec"
 
-Dir[Rails.root.join("spec", "support", "**", "*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
-Dir[Rails.root.join("spec", "features", "steps", "*.rb")].sort.reverse_each { |f| require f }
-Dir[Rails.root.join("spec", "features", "steps", "admin", "*.rb")].sort.reverse_each { |f| require f }
-Dir[Rails.root.join("spec", "features", "steps", "public", "*.rb")].sort.reverse_each { |f| require f }
+Dir[Rails.root.join("spec/features/steps/*.rb")].sort.reverse_each { |f| require f }
+Dir[Rails.root.join("spec/features/steps/admin/*.rb")].sort.reverse_each { |f| require f }
+Dir[Rails.root.join("spec/features/steps/public/*.rb")].sort.reverse_each { |f| require f }
 
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
