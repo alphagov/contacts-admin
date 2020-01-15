@@ -1,9 +1,9 @@
-require "gds_api/worldwide"
+require "gds_api"
 require "gds_api/publishing_api_v2"
 
 module Services
   def self.worldwide_api
-    @worldwide_api ||= GdsApi::Worldwide.new(Plek.new.find("whitehall-admin"))
+    @worldwide_api ||= GdsApi.worldwide
   end
 
   def self.publishing_api
