@@ -6,7 +6,7 @@ describe ImportOrganisations, with_fakefs: true do
 
   it "creates new organisations when none exist" do
     organisation_slugs = %w(ministry-of-fun tea-agency)
-    organisations_api_has_organisations(organisation_slugs)
+    stub_organisations_api_has_organisations(organisation_slugs)
 
     expect(Organisation.all.count).to eq(0)
 
@@ -24,7 +24,7 @@ describe ImportOrganisations, with_fakefs: true do
     )
     expect(Organisation.count).to eq(1)
 
-    organisations_api_has_organisations([slug])
+    stub_organisations_api_has_organisations([slug])
 
     ImportOrganisations.new.call
 
@@ -39,7 +39,7 @@ describe ImportOrganisations, with_fakefs: true do
     child_slug = "ministry-of-fun-child-1" # hard-coded in gds_api_adapters
     movies = create(:organisation, title: "Ministry of Movies", slug: child_slug)
 
-    organisations_api_has_organisations([slug])
+    stub_organisations_api_has_organisations([slug])
 
     ImportOrganisations.new.call
 
@@ -48,7 +48,7 @@ describe ImportOrganisations, with_fakefs: true do
 
   it "saves values which are not validated for presence, when they are present in the data" do
     slug = "ministry-of-fun"
-    organisations_api_has_organisations([slug])
+    stub_organisations_api_has_organisations([slug])
 
     ImportOrganisations.new.call
 

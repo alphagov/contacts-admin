@@ -1,7 +1,7 @@
-require "gds_api/test_helpers/publishing_api_v2"
+require "gds_api/test_helpers/publishing_api"
 
 RSpec.configure do |config|
-  config.include GdsApi::TestHelpers::PublishingApiV2
+  config.include GdsApi::TestHelpers::PublishingApi
   config.before(:each) do
     stub_any_publishing_api_put_content
     stub_any_publishing_api_patch_links
