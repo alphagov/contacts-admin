@@ -6,7 +6,7 @@ describe PostAddressesPresenter do
   let(:post) { create :post_address, description: "post description" }
 
   it "transforms a contact to the correct format" do
-    worldwide_api_has_location(post.world_location_slug)
+    stub_worldwide_api_has_location(post.world_location_slug)
 
     presented = PostAddressesPresenter.new([post]).present.first
 
