@@ -17,7 +17,7 @@ require "capybara/rails"
 require "fakefs/spec_helpers"
 require "paper_trail/frameworks/rspec"
 
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
 
 Dir[Rails.root.join("spec/features/steps/*.rb")].sort.reverse_each { |f| require f }
 Dir[Rails.root.join("spec/features/steps/admin/*.rb")].sort.reverse_each { |f| require f }
