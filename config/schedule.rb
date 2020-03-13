@@ -6,6 +6,6 @@ job_type :rake, "cd :path && govuk_setenv contacts bundle exec rake :task :outpu
 
 set :output, error: "log/cron.error.log", standard: "log/cron.log"
 
-every :day, at: "3am" do
-  rake "organisations:import"
-end
+# every :day, at: "3am" do
+#   rake "organisations:import"
+# end
