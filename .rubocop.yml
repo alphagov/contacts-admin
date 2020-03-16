@@ -3,8 +3,9 @@ inherit_gem:
     - "config/default.yml"
     - "config/rails.yml"
 
-AllCops:
-  TargetRubyVersion: 2.3
+inherit_mode:
+  merge:
+    - Exclude
 
 Metrics/BlockLength:
   Exclude:
