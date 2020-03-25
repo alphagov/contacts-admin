@@ -49,7 +49,7 @@ group :test do
   gem "factory_bot_rails", "~> 5"
   gem "fakefs", "~> 1.1", require: "fakefs/safe"
   gem "json-schema", "~> 2"
-  gem "rspec-rails", "~> 3"
+  gem "rspec-rails", "~> 4"
   gem "shoulda-matchers", "~> 4"
   gem "simplecov", "~> 0.18"
   gem "simplecov-rcov", "~> 0.2"
