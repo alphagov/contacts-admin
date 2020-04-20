@@ -6,5 +6,5 @@ namespace :finders do
   end
 end
 
-# Alias of the above task for the benefit of` govuk-app-deployment`
+desc "Publish finder pages to the publishing API (alias)"
 task "publishing_api:publish": "finders:publish"
