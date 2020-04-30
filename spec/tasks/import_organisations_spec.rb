@@ -5,7 +5,7 @@ describe ImportOrganisations, with_fakefs: true do
   include GdsApi::TestHelpers::Organisations
 
   it "creates new organisations when none exist" do
-    organisation_slugs = %w(ministry-of-fun tea-agency)
+    organisation_slugs = %w[ministry-of-fun tea-agency]
     stub_organisations_api_has_organisations(organisation_slugs)
 
     expect(Organisation.all.count).to eq(0)

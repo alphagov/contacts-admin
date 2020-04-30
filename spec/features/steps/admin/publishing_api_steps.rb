@@ -16,8 +16,8 @@ module Admin
         "publishing_app" => "contacts",
         "routes" => [
           {
-            "path" =>  contact.link,
-            "type" =>  "exact",
+            "path" => contact.link,
+            "type" => "exact",
           },
         ],
       }

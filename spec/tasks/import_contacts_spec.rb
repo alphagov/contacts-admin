@@ -34,8 +34,8 @@ describe ImportContacts, with_fakefs: true do
 
     before {
       # prepare file contents
-      create_file file_name, %{header1,header2
-        content1,content2}
+      create_file file_name, %(header1,header2
+        content1,content2)
     }
 
     it "invokes contact builder which builds contact entry" do

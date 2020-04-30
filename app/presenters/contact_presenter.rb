@@ -7,9 +7,7 @@ class ContactPresenter
     @contact = contact
   end
 
-  def content_id
-    contact.content_id
-  end
+  delegate :content_id, to: :contact
 
   def present
     {
@@ -41,7 +39,7 @@ class ContactPresenter
     {
       links: {
         "related" => @contact.related_contacts.pluck(:content_id),
-        "parent"  => [parent_content_id],
+        "parent" => [parent_content_id],
       },
     }
   end

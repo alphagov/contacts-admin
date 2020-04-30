@@ -4,7 +4,7 @@ shared_context "mock world location", mock_world_location: true do
       [
         WorldLocation.new(
           "title" => "United Kingdom ",
-            "details" => {
+          "details" => {
               "slug" => "united-kingdom",
             },
         ),
@@ -14,7 +14,7 @@ shared_context "mock world location", mock_world_location: true do
     allow(WorldLocation).to receive(:find).and_return(
       WorldLocation.new(
         "title" => "United Kingdom ",
-          "details" => {
+        "details" => {
             "slug" => "united-kingdom",
           },
       ),

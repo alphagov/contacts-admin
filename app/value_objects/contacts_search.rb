@@ -20,7 +20,7 @@ class ContactsSearch < Searchlight::Search
   end
 
   def search_contact_group_id
-    query.where("contact_memberships.contact_group_id = ?", contact_group_id).
-      references(:contact_memberships)
+    query.where("contact_memberships.contact_group_id = ?", contact_group_id)
+      .references(:contact_memberships)
   end
 end

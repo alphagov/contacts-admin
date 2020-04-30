@@ -4,7 +4,7 @@ class ImportContacts
 
     class MarkdownRenderer
       URL_PART         = %{[%<url_title>s](%<url>s)}.freeze
-      DESCRIPTION_PART = %{%<url_description>s}.freeze
+      DESCRIPTION_PART = %(%<url_description>s).freeze
 
       delegate :url, :description, :title, to: :@more_info_url
 
