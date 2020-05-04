@@ -21,14 +21,14 @@ SLUG_FORMAT = /[A-Za-z0-9\-_]+/.freeze
 
 module Contacts
   class Application < Rails::Application
-    config.autoload_paths += %W(
+    config.autoload_paths += %W[
       #{config.root}/app/models/website
-    )
+    ]
 
-    config.assets.precompile += %w(
+    config.assets.precompile += %w[
       admin.css
       admin.js
-    )
+    ]
 
     config.i18n.enforce_available_locales = true
 

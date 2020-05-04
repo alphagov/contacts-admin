@@ -5,7 +5,7 @@ module RegisterParent
   end
 
   def register_parent
-    presenter = ContactPresenter.new(self.contact)
+    presenter = ContactPresenter.new(contact)
     Publisher.publish(presenter)
   end
 end

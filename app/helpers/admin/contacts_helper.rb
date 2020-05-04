@@ -5,7 +5,7 @@ module Admin
     end
 
     def contact_url(organisation, contact)
-      URI::join(
+      URI.join(
         Plek.new.website_root,
         "/government/organisations/#{organisation.slug}/contact/#{contact.slug}",
       ).to_s
