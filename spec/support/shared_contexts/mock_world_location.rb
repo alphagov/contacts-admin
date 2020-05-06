@@ -5,8 +5,8 @@ shared_context "mock world location", mock_world_location: true do
         WorldLocation.new(
           "title" => "United Kingdom ",
           "details" => {
-              "slug" => "united-kingdom",
-            },
+            "slug" => "united-kingdom",
+          },
         ),
       ],
     )
@@ -15,8 +15,8 @@ shared_context "mock world location", mock_world_location: true do
       WorldLocation.new(
         "title" => "United Kingdom ",
         "details" => {
-            "slug" => "united-kingdom",
-          },
+          "slug" => "united-kingdom",
+        },
       ),
     )
   end
