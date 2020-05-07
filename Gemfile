@@ -37,6 +37,7 @@ end
 
 group :development, :test do
   gem "pry-rails"
+  gem "rspec-rails", "~> 4"
 end
 
 # testing
@@ -49,7 +50,6 @@ group :test do
   gem "factory_bot_rails", "~> 5"
   gem "fakefs", "~> 1.2", require: "fakefs/safe"
   gem "json-schema", "~> 2"
-  gem "rspec-rails", "~> 4"
   gem "shoulda-matchers", "~> 4"
   gem "simplecov", "~> 0.18"
   gem "simplecov-rcov", "~> 0.2"

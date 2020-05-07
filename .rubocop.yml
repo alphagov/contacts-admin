@@ -9,12 +9,4 @@ inherit_mode:
 
 Metrics/BlockLength:
   Exclude:
-    - "Rakefile"
-    - "**/*.rake"
-    - "spec/**/*.rb"
     - "config/routes.rb"
-    - "config/initializers/*.rb"
-    - "config/environments/*.rb"
-
-Rails/OutputSafety:
-  Enabled: false
