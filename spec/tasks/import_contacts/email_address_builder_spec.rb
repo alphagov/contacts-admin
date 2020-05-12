@@ -9,49 +9,49 @@ describe ImportContacts::EmailAddressBuilder do
     let(:email_link)     { "http://www.example.com" }
 
     context "with primary email record" do
-      let(:input_attributes) {
+      let(:input_attributes) do
         {
           "emailtitle1" => email_title,
           "emailtag1" => email_desc,
           "emailurl1" => email_link,
           "emailaddress1" => email_address,
         }
-      }
+      end
 
       it "builds email record" do
         email_addresses = described_class.build(contact, input_attributes)
 
         expect(
-          email_addresses.detect { |email|
+          email_addresses.detect do |email|
             email.title == email_title &&
             email.description == email_desc &&
             email.email == email_address &&
             email.link == email_link
-          },
+          end,
         ).to be_present
       end
     end
 
     context "with secondary email record" do
-      let(:input_attributes) {
+      let(:input_attributes) do
         {
           "emailtitle2" => email_title,
           "emailtag2" => email_desc,
           "emailurl2" => email_link,
           "emailaddress2" => email_address,
         }
-      }
+      end
 
       it "builds secondary email record" do
         email_addresses = described_class.build(contact, input_attributes)
 
         expect(
-          email_addresses.detect { |email|
+          email_addresses.detect do |email|
             email.title == email_title &&
             email.description == email_desc &&
             email.email == email_address &&
             email.link == email_link
-          },
+          end,
         ).to be_present
       end
     end

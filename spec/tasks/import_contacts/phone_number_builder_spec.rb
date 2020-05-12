@@ -12,7 +12,7 @@ describe ImportContacts::PhoneNumberBuilder do
     let(:number_fax) { "+44 1274 204198" }
 
     context "with primary phone number record" do
-      let(:input_attributes) {
+      let(:input_attributes) do
         {
           "telephonename" => number_title,
           "phonetexthead" => number_head,
@@ -22,18 +22,18 @@ describe ImportContacts::PhoneNumberBuilder do
           "international" => number_international,
           "fax" => number_fax,
         }
-      }
+      end
 
       it "builds number record" do
         numbers = described_class.build(contact, input_attributes)
 
         expect(
-          numbers.detect { |number|
+          numbers.detect do |number|
             number.title == number_title &&
             number.number == number_telephone &&
             number.open_hours == number_hours &&
             number.description == number_head
-          },
+          end,
         ).to be_present
       end
 
@@ -41,35 +41,35 @@ describe ImportContacts::PhoneNumberBuilder do
         numbers = described_class.build(contact, input_attributes)
 
         expect(
-          numbers.detect { |number|
+          numbers.detect do |number|
             number.fax == number_fax &&
             number.international_phone == number_international &&
             number.textphone == number_textphone
-          },
+          end,
         ).to be_present
       end
     end
 
     context "with secondary phone number record" do
-      let(:input_attributes) {
+      let(:input_attributes) do
         {
           "telephonename2" => number_title,
           "phonetexthead2" => number_head,
           "phoneopenhours2" => number_hours,
           "telephone2" => number_telephone,
         }
-      }
+      end
 
       it "builds number record" do
         numbers = described_class.build(contact, input_attributes)
 
         expect(
-          numbers.detect { |number|
+          numbers.detect do |number|
             number.title == number_title &&
             number.number == number_telephone &&
             number.open_hours == number_hours &&
             number.description == number_head
-          },
+          end,
         ).to be_present
       end
     end

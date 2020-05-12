@@ -7,10 +7,10 @@ feature "Contact Group creation", auth: :user do
 
   let(:contact_group) { build :contact_group }
 
-  before {
+  before do
     contact_group.organisation = organisation
     verify !contact_group_exists(contact_group)
-  }
+  end
 
   specify "it can be created" do
     create_contact_group(

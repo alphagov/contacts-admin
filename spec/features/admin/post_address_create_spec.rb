@@ -6,9 +6,9 @@ feature "Post Address creation", auth: :user, mock_world_location: true do
   let(:contact)      { create :contact }
   let(:post_address) { build :post_address, contact: contact }
 
-  before {
+  before do
     verify !post_address_exists(contact, post_address)
-  }
+  end
 
   specify "it can be created" do
     create_post_address(contact,

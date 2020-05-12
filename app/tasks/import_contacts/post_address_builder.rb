@@ -10,9 +10,9 @@ class ImportContacts
       }, {
         description: attributes["postaddresstag3"],
         address: attributes["postaddress3"],
-      }].map { |post_address_attributes|
+      }].map do |post_address_attributes|
         contact.post_addresses.build(post_address_attributes)
-      }
+      end
     end
   end
 end

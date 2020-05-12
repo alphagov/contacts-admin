@@ -63,9 +63,9 @@ module Admin
     def contact_updated(contact, details = {})
       ensure_on edit_admin_contact_path(contact)
 
-      details.all? { |field, value|
+      details.all? do |field, value|
         has_field?("contact_#{field}", with: value)
-      }
+      end
     end
 
     def contacts_table_selector

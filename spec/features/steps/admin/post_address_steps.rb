@@ -55,9 +55,9 @@ module Admin
         post_address,
       )
 
-      details.all? { |field, value|
+      details.all? do |field, value|
         has_field?("post_address_#{field}", with: value)
-      }
+      end
     end
 
     def post_addresses_table_selector

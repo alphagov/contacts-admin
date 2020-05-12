@@ -6,9 +6,9 @@ feature "Phone Number creation", auth: :user do
   let(:contact) { create :contact }
   let(:number)  { build :phone_number, contact: contact }
 
-  before {
+  before do
     verify !phone_number_exists(contact, number)
-  }
+  end
 
   specify "it can be created" do
     create_phone_number(contact,

@@ -7,14 +7,14 @@ describe ImportContacts::MoreInfoContactFormBuilder do
     let(:website_desc)     { "website description" }
     let(:website_link)     { "http://www.example.com" }
 
-    let(:input_attributes) {
+    let(:input_attributes) do
       {
         "ogmoreinfo" => content,
         "ogmoreinfourltitle" => website_title,
         "ogmoreinfourltag" => website_desc,
         "ogmoreinfourl" => website_link,
       }
-    }
+    end
 
     it "builds more info record" do
       more_info_record = described_class.build(input_attributes)
