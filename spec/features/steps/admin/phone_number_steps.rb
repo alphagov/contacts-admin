@@ -53,9 +53,9 @@ module Admin
         number,
       )
 
-      details.all? { |field, value|
+      details.all? do |field, value|
         has_field?("phone_number_#{field}", with: value)
-      }
+      end
     end
 
     def phone_numbers_table_selector

@@ -14,9 +14,9 @@ class ImportContacts
         description: attributes["phonetexthead2"],
         open_hours: attributes["phoneopenhours2"],
         number: attributes["telephone2"],
-      }].map { |number_attributes|
+      }].map do |number_attributes|
         contact.phone_numbers.build(number_attributes)
-      }
+      end
     end
   end
 end

@@ -53,9 +53,9 @@ module Admin
         contact_form_link,
       )
 
-      details.all? { |field, value|
+      details.all? do |field, value|
         has_field?("contact_form_link_#{field}", with: value)
-      }
+      end
     end
 
     def contact_form_links_table_selector

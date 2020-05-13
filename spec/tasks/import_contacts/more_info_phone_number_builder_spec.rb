@@ -7,14 +7,14 @@ describe ImportContacts::MoreInfoPhoneNumberBuilder do
     let(:number_desc)    { "number description" }
     let(:number_link)    { "http://www.example.com" }
 
-    let(:input_attributes) {
+    let(:input_attributes) do
       {
         "phonemoreinfo" => content,
         "phonemoreinfourltitle" => number_title,
         "phonemoreinfourltag" => number_desc,
         "phonemoreinfourl" => number_link,
       }
-    }
+    end
 
     it "builds more info record" do
       more_info_record = described_class.build(input_attributes)

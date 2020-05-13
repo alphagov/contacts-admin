@@ -15,10 +15,10 @@ describe ImportContacts, with_fakefs: true do
     end
 
     context "provided path exists" do
-      before {
+      before do
         # prepare blank file
         FileUtils.touch(file_name)
-      }
+      end
 
       it "does not raise ArgumentError" do
         expect {
@@ -32,11 +32,11 @@ describe ImportContacts, with_fakefs: true do
     let(:contact)         { double("Contact", save: true) }
     let(:contact_builder) { double("Contact Builder", build: contact) }
 
-    before {
+    before do
       # prepare file contents
       create_file file_name, %(header1,header2
         content1,content2)
-    }
+    end
 
     it "invokes contact builder which builds contact entry" do
       ImportContacts.new(file_name).import(contact_builder)

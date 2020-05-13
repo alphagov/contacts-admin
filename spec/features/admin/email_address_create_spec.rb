@@ -6,9 +6,9 @@ feature "Email Address creation", auth: :user do
   let(:contact)       { create :contact }
   let(:email_address) { build :email_address, contact: contact }
 
-  before {
+  before do
     verify !email_address_exists(contact, email_address)
-  }
+  end
 
   specify "it can be created" do
     create_email_address(contact,

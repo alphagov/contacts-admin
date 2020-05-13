@@ -12,7 +12,7 @@ class ImportContacts
       end
 
       def render
-        CONTENT_PART % { content: content }
+        format(CONTENT_PART, content: content)
       end
     end
 

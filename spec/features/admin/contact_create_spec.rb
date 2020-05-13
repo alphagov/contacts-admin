@@ -7,9 +7,9 @@ feature "Contact creation", auth: :user do
   let(:contact)              { attributes_for :contact }
   let!(:contact_organisation) { create :organisation }
 
-  before {
+  before do
     verify !contact_exists(contact)
-  }
+  end
 
   specify "it can be created" do
     expect {

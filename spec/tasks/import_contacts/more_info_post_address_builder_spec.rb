@@ -7,14 +7,14 @@ describe ImportContacts::MoreInfoPostAddressBuilder do
     let(:post_address_desc)   { "post_address description" }
     let(:post_address_link)   { "http://www.example.com" }
 
-    let(:input_attributes) {
+    let(:input_attributes) do
       {
         "postmoreinfo" => content,
         "postmoreinfourltitle" => post_address_title,
         "postmoreinfourltag" => post_address_desc,
         "postmoreinfourl" => post_address_link,
       }
-    }
+    end
 
     it "builds more info post_address record" do
       more_info_record = described_class.build(input_attributes)

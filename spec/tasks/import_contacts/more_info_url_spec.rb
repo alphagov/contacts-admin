@@ -8,13 +8,13 @@ describe ImportContacts::MoreInfoUrl do
   describe "#to_markdown" do
     context "url present, url title missing" do
       context "url description present" do
-        let(:more_info_url) {
+        let(:more_info_url) do
           described_class.new(
             url: url,
             title: nil,
             description: description,
           )
-        }
+        end
 
         it "renders url description" do
           expect(more_info_url.to_markdown).to include description
@@ -30,13 +30,13 @@ describe ImportContacts::MoreInfoUrl do
       end
 
       context "url description missing" do
-        let(:more_info_url) {
+        let(:more_info_url) do
           described_class.new(
             url: url,
             title: nil,
             description: nil,
           )
-        }
+        end
 
         it "does not render description" do
           expect(more_info_url.to_markdown).not_to include description
@@ -54,13 +54,13 @@ describe ImportContacts::MoreInfoUrl do
 
     context "url missing, url title present" do
       context "url description present" do
-        let(:more_info_url) {
+        let(:more_info_url) do
           described_class.new(
             url: nil,
             title: title,
             description: description,
           )
-        }
+        end
 
         it "renders just url description" do
           expect(more_info_url.to_markdown).to include description
@@ -76,13 +76,13 @@ describe ImportContacts::MoreInfoUrl do
       end
 
       context "url description missing" do
-        let(:more_info_url) {
+        let(:more_info_url) do
           described_class.new(
             url: nil,
             title: title,
             description: nil,
           )
-        }
+        end
 
         it "does not render description" do
           expect(more_info_url.to_markdown).not_to include description
@@ -100,13 +100,13 @@ describe ImportContacts::MoreInfoUrl do
 
     context "url present, url title present" do
       context "url description present" do
-        let(:more_info_url) {
+        let(:more_info_url) do
           described_class.new(
             url: url,
             title: title,
             description: description,
           )
-        }
+        end
 
         it "renders description" do
           expect(more_info_url.to_markdown).to include description
@@ -122,13 +122,13 @@ describe ImportContacts::MoreInfoUrl do
       end
 
       context "url description missing" do
-        let(:more_info_url) {
+        let(:more_info_url) do
           described_class.new(
             url: url,
             title: title,
             description: nil,
           )
-        }
+        end
 
         it "does not render description" do
           expect(more_info_url.to_markdown).not_to include description

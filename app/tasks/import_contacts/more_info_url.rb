@@ -14,12 +14,12 @@ class ImportContacts
 
       def url_part
         if url.present? && title.present?
-          URL_PART % { url: url, url_title: title }
+          format(URL_PART, url: url, url_title: title)
         end
       end
 
       def description_part
-        DESCRIPTION_PART % { url_description: description }
+        format(DESCRIPTION_PART, url_description: description)
       end
 
       def render

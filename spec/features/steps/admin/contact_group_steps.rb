@@ -44,9 +44,9 @@ module Admin
     def contact_group_updated(contact_group, details = {})
       ensure_on edit_admin_contact_group_path(contact_group)
 
-      details.all? { |field, value|
+      details.all? do |field, value|
         has_field?("contact_group_#{field}", with: value)
-      }
+      end
     end
 
     def contact_groups_table_selector
