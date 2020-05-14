@@ -32,11 +32,12 @@ class Contact < ApplicationRecord
 
   scope :by_title, -> { order("title ASC") }
   scope :ungrouped, -> { where(contact_group_id: nil) }
-  scope :for_listing, lambda {
-    where(
-      "`contacts`.`phone_numbers_count` > 0 OR `contacts`.`post_addresses_count` > 0 OR `contacts`.`email_addresses_count` > 0 OR `contacts`.`contact_form_links_count` > 0",
-    ).order("contacts.popularity DESC, contacts.title")
-  }
+  scope :for_listing,
+        lambda {
+          where(
+            "`contacts`.`phone_numbers_count` > 0 OR `contacts`.`post_addresses_count` > 0 OR `contacts`.`email_addresses_count` > 0 OR `contacts`.`contact_form_links_count` > 0",
+          ).order("contacts.popularity DESC, contacts.title")
+        }
 
   def quick_links
     links = [

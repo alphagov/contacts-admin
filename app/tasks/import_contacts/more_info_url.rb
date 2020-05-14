@@ -14,12 +14,12 @@ class ImportContacts
 
       def url_part
         if url.present? && title.present?
-          format(URL_PART, url: url, url_title: title)
+          sprintf(URL_PART, url: url, url_title: title)
         end
       end
 
       def description_part
-        format(DESCRIPTION_PART, url_description: description)
+        sprintf(DESCRIPTION_PART, url_description: description)
       end
 
       def render
