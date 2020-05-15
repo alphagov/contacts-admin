@@ -2,10 +2,12 @@ require "rails_helper"
 
 describe PhoneNumbersPresenter do
   let(:phone) do
-    create(:phone_number,
-           description: "email description",
-           open_hours: "line open hours",
-           best_time_to_call: "best time to call")
+    create(
+      :phone_number,
+      description: "email description",
+      open_hours: "line open hours",
+      best_time_to_call: "best time to call",
+    )
   end
 
   it "transforms a contact to the correct format" do

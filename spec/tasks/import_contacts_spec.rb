@@ -34,7 +34,8 @@ describe ImportContacts, with_fakefs: true do
 
     before do
       # prepare file contents
-      create_file file_name, %(header1,header2
+      create_file file_name,
+                  %(header1,header2
         content1,content2)
     end
 

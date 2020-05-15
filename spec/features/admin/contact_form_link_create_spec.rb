@@ -11,10 +11,12 @@ feature "Contact Form Link creation", auth: :user do
   end
 
   specify "it can be created" do
-    create_contact_form_link(contact,
-                             link: contact_form_link.link,
-                             title: contact_form_link.title,
-                             description: contact_form_link.description)
+    create_contact_form_link(
+      contact,
+      link: contact_form_link.link,
+      title: contact_form_link.title,
+      description: contact_form_link.description,
+    )
 
     verify contact_form_link_exists(contact, contact_form_link)
   end

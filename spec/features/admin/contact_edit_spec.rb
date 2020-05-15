@@ -30,9 +30,11 @@ feature "Contact editing", auth: :user do
   end
 
   specify "updating a contact sends the data to the publishing-api" do
-    update_contact(contact,
-                   title: "new title",
-                   description: "new description")
+    update_contact(
+      contact,
+      title: "new title",
+      description: "new description",
+    )
 
     assert_publishing_api_put_content(contact.content_id, request_json_includes(title: "new title", description: "new description"))
   end
