@@ -34,7 +34,7 @@ private
   end
 
   def update_organisation_slug
-    updated_result = organisation.update_attribute(:slug, new_slug)
+    updated_result = organisation.update(slug: new_slug)
     logger.info("Updated organisation with slug '#{old_slug}' to use slug '#{new_slug}'")
     updated_result
   end

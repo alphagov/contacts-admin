@@ -6,7 +6,7 @@ class AddFinderUUIDToOrganisation < ActiveRecord::Migration
     Organisation.reset_column_information
 
     Organisation.all.each do |org|
-      org.update_attributes(contact_index_content_id: SecureRandom.uuid)
+      org.update(contact_index_content_id: SecureRandom.uuid)
       puts "added contact_index_content_id to #{org.title}"
     end
   end
