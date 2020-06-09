@@ -14,7 +14,7 @@ gem "simple_form", "~> 5"
 gem "virtus", "~> 1"
 gem "whenever", "~> 1.0"
 
-gem "gds-api-adapters", "~> 63"
+gem "gds-api-adapters", "~> 67"
 gem "gds-sso", "~> 14"
 gem "govspeak", "~> 6"
 gem "govuk_admin_template", "~> 6"
