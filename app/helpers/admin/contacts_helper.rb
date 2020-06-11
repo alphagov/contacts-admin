@@ -12,25 +12,25 @@ module Admin
     end
 
     def vcard_for_post_address(address)
-      title = content_tag :strong, class: "fn" do
+      title = tag.strong class: "fn" do
         address.title
       end
-      street_address = content_tag :span, class: "street-address" do
+      street_address = tag.span class: "street-address" do
         address.street_address
       end
-      locality = content_tag :span, class: "locality" do
+      locality = tag.span class: "locality" do
         address.locality
       end
-      region = content_tag :span, class: "region" do
+      region = tag.span class: "region" do
         address.region
       end
-      postal_code = content_tag :span, class: "postal-code" do
+      postal_code = tag.span class: "postal-code" do
         address.postal_code
       end
-      world_location = content_tag :span, class: "country-name" do
+      world_location = tag.span class: "country-name" do
         address.world_location.try(:name)
       end
-      content_tag :div, class: "vcard" do
+      tag.div class: "vcard" do
         safe_join(
           [
             title,
