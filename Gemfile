@@ -47,7 +47,7 @@ group :test do
   gem "scss_lint-govuk", "~> 0"
 
   gem "capybara", "~> 3"
-  gem "factory_bot_rails", "~> 5"
+  gem "factory_bot_rails", "~> 6"
   gem "fakefs", "~> 1.2", require: "fakefs/safe"
   gem "json-schema", "~> 2"
   gem "shoulda-matchers", "~> 4"
