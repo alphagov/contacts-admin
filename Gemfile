@@ -19,7 +19,7 @@ gem "gds-sso", "~> 14"
 gem "govspeak", "~> 6"
 gem "govuk_admin_template", "~> 6"
 gem "govuk_app_config", "~> 2"
-gem "plek", "~> 3"
+gem "plek", "~> 4"
 
 # assets
 gem "govuk_frontend_toolkit", "~> 9"
