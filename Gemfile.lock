@@ -457,7 +457,7 @@ DEPENDENCIES
   plek
   pry-rails
   railroady
-  rails (~> 6.0)
+  rails (~> 6.0.3, >= 6.0.3.2)
   rspec-rails
   rubocop-govuk
   sass-rails
