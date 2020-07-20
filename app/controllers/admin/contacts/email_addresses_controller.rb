@@ -26,7 +26,7 @@ class Admin::Contacts::EmailAddressesController < AdminController
   end
 
   def destroy
-    @email_address.destroy
+    @email_address.destroy!
     redirect_to [:admin, @contact, :email_addresses], notice: "Email Address successfully deleted"
   end
 

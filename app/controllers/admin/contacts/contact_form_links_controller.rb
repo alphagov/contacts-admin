@@ -26,7 +26,7 @@ class Admin::Contacts::ContactFormLinksController < AdminController
   end
 
   def destroy
-    @contact_form_link.destroy
+    @contact_form_link.destroy!
     redirect_to [:admin, @contact, :contact_form_links], notice: "Contact Form Link successfully deleted"
   end
 

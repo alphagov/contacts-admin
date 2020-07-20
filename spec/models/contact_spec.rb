@@ -14,7 +14,7 @@ RSpec.describe Contact, type: :model do
     expect(ContactPresenter).to receive(:new).with(contact).and_return(presenter)
     expect(Publisher).to receive(:publish).with(presenter)
 
-    contact.save
+    contact.save!
   end
 
   context "content ID" do

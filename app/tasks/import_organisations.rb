@@ -20,7 +20,7 @@ private
   end
 
   def update_or_create_organisation(organisation_data)
-    organisation = Organisation.find_or_create_by(slug: organisation_data["details"]["slug"])
+    organisation = Organisation.find_or_create_by!(slug: organisation_data["details"]["slug"])
     update_data = {
       title: organisation_data["title"],
       format: organisation_data["format"],

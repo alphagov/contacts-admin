@@ -12,7 +12,7 @@ module Admin
         )
 
         # Remove from our database
-        @contact.destroy
+        @contact.destroy!
       end
     end
   end

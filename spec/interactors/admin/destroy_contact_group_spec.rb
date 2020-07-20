@@ -6,7 +6,7 @@ describe Admin::DestroyContactGroup do
       let(:contact_group) { create :contact_group, :with_contacts }
 
       it "does not destroy the contact group" do
-        described_class.new(contact_group).destroy
+        described_class.new(contact_group).destroy!
 
         expect(contact_group.reload).to be_present
       end
@@ -16,7 +16,7 @@ describe Admin::DestroyContactGroup do
       let(:contact_group) { create :contact_group }
 
       it "destroys the contact group" do
-        described_class.new(contact_group).destroy
+        described_class.new(contact_group).destroy!
 
         expect { contact_group.reload }.to raise_error ActiveRecord::RecordNotFound
       end
