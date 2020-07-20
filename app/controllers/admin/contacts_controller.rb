@@ -37,7 +37,7 @@ class Admin::ContactsController < AdminController
   end
 
   def destroy
-    if Admin::DestroyContact.new(@contact).destroy
+    if Admin::DestroyContact.new(@contact).call
       flash.notice = "Contact successfully deleted"
     else
       flash.alert = @contact.errors.full_messages.to_sentence

@@ -4,7 +4,7 @@ module Admin
       @contact_group = contact_group
     end
 
-    def destroy
+    def call
       if @contact_group.contacts.none?
         @contact_group.destroy!
       else
