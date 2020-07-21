@@ -4,7 +4,7 @@ module Admin
       @contact = contact
     end
 
-    def destroy
+    def call
       @contact.transaction do
         Services.publishing_api.unpublish(
           @contact.content_id,
@@ -12,7 +12,7 @@ module Admin
         )
 
         # Remove from our database
-        @contact.destroy
+        @contact.destroy!
       end
     end
   end

@@ -6,6 +6,6 @@ shared_context "an associated data model" do
     expect(Publisher).to receive(:publish).with(presenter)
 
     item.title = "Winter is coming"
-    item.save
+    item.save!
   end
 end

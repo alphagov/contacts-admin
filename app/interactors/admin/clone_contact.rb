@@ -14,33 +14,33 @@ module Admin
 
     def create_record
       clone = @contact.dup
-      clone.save
+      clone.save!
 
       clone.contact_groups << @contact.contact_groups
-      clone.save
+      clone.save!
 
       @contact.contact_form_links.each do |link|
         new_link = link.dup
         new_link.contact = clone
-        new_link.save
+        new_link.save!
       end
 
       @contact.phone_numbers.each do |number|
         new_number = number.dup
         new_number.contact = clone
-        new_number.save
+        new_number.save!
       end
 
       @contact.email_addresses.each do |email|
         new_email = email.dup
         new_email.contact = clone
-        new_email.save
+        new_email.save!
       end
 
       @contact.post_addresses.each do |address|
         new_address = address.dup
         new_address.contact = clone
-        new_address.save
+        new_address.save!
       end
 
       Contact.reset_counters(clone.id, :contact_form_links)

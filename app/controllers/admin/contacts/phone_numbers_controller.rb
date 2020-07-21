@@ -26,7 +26,7 @@ class Admin::Contacts::PhoneNumbersController < AdminController
   end
 
   def destroy
-    @phone_number.destroy
+    @phone_number.destroy!
     redirect_to [:admin, @contact, :phone_numbers], notice: "Phone Number successfully deleted"
   end
 

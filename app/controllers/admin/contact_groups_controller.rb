@@ -31,7 +31,7 @@ class Admin::ContactGroupsController < AdminController
   end
 
   def destroy
-    if Admin::DestroyContactGroup.new(@contact_group).destroy
+    if Admin::DestroyContactGroup.new(@contact_group).call
       republish_finders
       flash.notice = "Contact Group successfully deleted"
     else
