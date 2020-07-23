@@ -21,6 +21,8 @@ SLUG_FORMAT = /[A-Za-z0-9\-_]+/.freeze
 
 module Contacts
   class Application < Rails::Application
+    config.load_defaults 6.0
+
     config.autoload_paths += %W[
       #{config.root}/app/models/website
     ]
