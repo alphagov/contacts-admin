@@ -30,6 +30,12 @@ module Contacts
       admin.js
     ]
 
+    # Using a sass css compressor causes a scss file to be processed twice
+    # (once to build, once to compress) which breaks the usage of "unquote"
+    # to use CSS that has same function names as SCSS such as max.
+    # https://github.com/alphagov/govuk-frontend/issues/1350
+    config.assets.css_compressor = nil
+
     config.i18n.enforce_available_locales = true
 
     # Generators
