@@ -1,31 +1,31 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 6.0"
+gem "rails", "6.0.3.2"
 
-gem "active_hash", "~> 3"
-gem "ancestry", "~> 3"
-gem "bootsnap", "~> 1"
-gem "friendly_id", "~> 5"
-gem "mlanett-redis-lock", "~> 0.2"
-gem "mysql2", "~> 0.5"
-gem "paper_trail", "~> 10"
-gem "searchlight", "~> 4"
-gem "simple_form", "~> 5"
-gem "virtus", "~> 1"
-gem "whenever", "~> 1.0"
+gem "active_hash"
+gem "ancestry"
+gem "bootsnap"
+gem "friendly_id"
+gem "mlanett-redis-lock"
+gem "mysql2"
+gem "paper_trail"
+gem "searchlight"
+gem "simple_form"
+gem "virtus"
+gem "whenever"
 
-gem "gds-api-adapters", "~> 67"
-gem "gds-sso", "~> 15"
-gem "govspeak", "~> 6"
-gem "govuk_admin_template", "~> 6"
-gem "govuk_app_config", "~> 2"
-gem "plek", "~> 4"
+gem "gds-api-adapters"
+gem "gds-sso"
+gem "govspeak"
+gem "govuk_admin_template"
+gem "govuk_app_config"
+gem "plek"
 
 # assets
-gem "govuk_frontend_toolkit", "~> 9"
-gem "sass-rails", "~> 6"
-gem "select2-rails", "~> 4"
-gem "uglifier", "~> 4"
+gem "govuk_frontend_toolkit"
+gem "sass-rails"
+gem "select2-rails"
+gem "uglifier"
 
 # development
 group :development do
@@ -37,21 +37,21 @@ end
 
 group :development, :test do
   gem "pry-rails"
-  gem "rspec-rails", "~> 4"
+  gem "rspec-rails"
 end
 
 # testing
 group :test do
   gem "govuk-content-schema-test-helpers"
-  gem "rubocop-govuk", "~> 3"
-  gem "scss_lint-govuk", "~> 0"
+  gem "rubocop-govuk"
+  gem "scss_lint-govuk"
 
-  gem "capybara", "~> 3"
-  gem "factory_bot_rails", "~> 6"
-  gem "fakefs", "~> 1.2", require: "fakefs/safe"
-  gem "json-schema", "~> 2"
-  gem "shoulda-matchers", "~> 4"
-  gem "simplecov", "~> 0.18"
-  gem "simplecov-rcov", "~> 0.2"
-  gem "webmock", "~> 3"
+  gem "capybara"
+  gem "factory_bot_rails"
+  gem "fakefs", require: "fakefs/safe"
+  gem "json-schema"
+  gem "shoulda-matchers"
+  gem "simplecov"
+  gem "simplecov-rcov"
+  gem "webmock"
 end
