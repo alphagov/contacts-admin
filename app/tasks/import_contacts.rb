@@ -20,7 +20,7 @@ class ImportContacts
 
     logger.info "Importing: Import_id, title"
 
-    CSV.foreach(@file_path, csv_opts)  do |entry_row|
+    CSV.foreach(@file_path, **csv_opts) do |entry_row|
       hash = entry_row.to_hash
       contact = builder.build(hash)
 
