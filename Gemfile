@@ -52,6 +52,5 @@ group :test do
   gem "json-schema"
   gem "shoulda-matchers"
   gem "simplecov"
-  gem "simplecov-rcov"
   gem "webmock"
 end
