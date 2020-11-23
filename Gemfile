@@ -22,7 +22,6 @@ gem "govuk_app_config"
 gem "plek"
 
 # assets
-gem "govuk_frontend_toolkit"
 gem "sass-rails"
 gem "select2-rails"
 gem "uglifier"
