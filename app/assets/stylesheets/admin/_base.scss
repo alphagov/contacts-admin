@@ -1,6 +1,5 @@
 @import 'govuk_admin_template';
 
-/* variables */
 $hover-yellow: #fff8dd;
 
 .nav-tabs {
@@ -17,26 +16,24 @@ abbr[data-original-title] {
 }
 
 .table {
-  th, td {
-    &.break-link a {
-      word-break: break-all;
-    }
+  .break-link a {
+    word-break: break-all;
+  }
 
-    &.text-right {
-      text-align: right;
-    }
+  .text-right {
+    text-align: right;
+  }
 
-    &.text-center {
-      text-align: center;
-    }
+  .text-center {
+    text-align: center;
+  }
 
-    .label {
-      white-space: normal;
-    }
+  .label {
+    white-space: normal;
+  }
 
-    .btn {
-      font-weight: normal;
-    }
+  .btn {
+    font-weight: normal;
   }
 }
 
@@ -60,11 +57,11 @@ fieldset {
 }
 
 table {
-  td.date {
+  .date {
     width: 85px;
   }
 
-  td.changeset {
+  .changeset {
     font-size: 11px;
   }
 }
