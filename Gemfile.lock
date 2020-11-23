@@ -365,10 +365,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    scss_lint (0.59.0)
-      sass (~> 3.5, >= 3.5.5)
-    scss_lint-govuk (0.2.0)
-      scss_lint
     searchlight (4.1.0)
     select2-rails (4.0.13)
     sentry-raven (3.1.1)
@@ -461,7 +457,6 @@ DEPENDENCIES
   rspec-rails
   rubocop-govuk
   sass-rails
-  scss_lint-govuk
   searchlight
   select2-rails
   shoulda-matchers

@@ -3,5 +3,15 @@
   "description": "Admin application for GOV.UK",
   "private": true,
   "author": "Government Digital Service",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "lint:scss": "stylelint app/assets/stylesheets/"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-gds/scss"
+  },
+  "devDependencies": {
+    "stylelint": "^13.8.0",
+    "stylelint-config-gds": "^0.1.0"
+  }
 }

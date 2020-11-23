@@ -44,7 +44,6 @@ end
 group :test do
   gem "govuk-content-schema-test-helpers"
   gem "rubocop-govuk"
-  gem "scss_lint-govuk"
 
   gem "capybara"
   gem "factory_bot_rails"
