@@ -1,0 +1,7 @@
+{
+  "name": "contacts-admin",
+  "description": "Admin application for GOV.UK",
+  "private": true,
+  "author": "Government Digital Service",
+  "license": "MIT"
+}
