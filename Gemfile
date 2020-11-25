@@ -22,7 +22,6 @@ gem "govuk_app_config"
 gem "plek"
 
 # assets
-gem "govuk_frontend_toolkit"
 gem "sass-rails"
 gem "select2-rails"
 gem "uglifier"
@@ -44,7 +43,6 @@ end
 group :test do
   gem "govuk-content-schema-test-helpers"
   gem "rubocop-govuk"
-  gem "scss_lint-govuk"
 
   gem "capybara"
   gem "factory_bot_rails"
