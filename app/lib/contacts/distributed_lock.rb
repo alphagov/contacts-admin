@@ -10,25 +10,12 @@ module Contacts
     end
 
     def lock
-      redis.lock("contacts-admin:#{Rails.env}:#{@lock_name}", life: LIFETIME) do
+      Redis.current.lock("contacts-admin:#{Rails.env}:#{@lock_name}", life: LIFETIME) do
         Rails.logger.debug("Successfully got a lock. Running...")
         yield
       end
     rescue Redis::Lock::LockNotAcquired => e
       Rails.logger.debug("Failed to get lock for #{@lock_name} (#{e.message}). Another process probably got there first.")
-    end
-
-  private
-
-    def redis
-      @redis ||= begin
-        redis_config = {
-          host: ENV["REDIS_HOST"] || "127.0.0.1",
-          port: ENV["REDIS_PORT"] || 6379,
-        }
-
-        Redis.new(redis_config)
-      end
     end
   end
 end
