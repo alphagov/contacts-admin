@@ -39,15 +39,25 @@ class Admin::ContactsController < AdminController
   def delete; end
 
   def destroy
-    if Admin::DestroyAndRedirectContact.new(@contact, params[:redirect_url]).destroy_and_redirect
-      flash.notice = "Contact successfully deleted"
+    if valid_redirect_url?(params[:redirect_url])
+      if Admin::DestroyAndRedirectContact.new(@contact, params[:redirect_url]).destroy_and_redirect
+        flash.notice = "Contact successfully deleted"
+        redirect_to admin_contacts_path
+      else
+        flash.alert = @contact.errors.full_messages.to_sentence
+        redirect_to delete_admin_contact_path
+      end
     else
-      flash.alert = @contact.errors.full_messages.to_sentence
+      flash.alert = "Invalid redirect URL. Redirects must be internal links, e.g. /world"
+      redirect_to delete_admin_contact_path
     end
-    redirect_to admin_contacts_path
   end
 
 private
+
+  def valid_redirect_url?(url)
+    url.to_s =~ /^\/\S+$/
+  end
 
   def successful_update_url
     if params[:tab].present?
