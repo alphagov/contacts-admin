@@ -1,5 +1,5 @@
 class Admin::ContactsController < AdminController
-  before_action :load_contact, only: %i[edit update clone destroy]
+  before_action :load_contact, only: %i[edit update clone delete destroy]
   helper_method :search
 
   def new
@@ -35,6 +35,8 @@ class Admin::ContactsController < AdminController
       render :new
     end
   end
+
+  def delete; end
 
   def destroy
     if Admin::DestroyContact.new(@contact).call

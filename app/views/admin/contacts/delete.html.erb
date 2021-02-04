@@ -1,0 +1,9 @@
+<%= render 'edit_contact_header', contact: @contact, show_actions: true %>
+<div class="well">
+  <%= simple_form_for([:admin, @contact], method: :delete) do |f| %>
+    <p>Are you sure you want to delete this contact?</p>
+
+    <%= f.submit "Delete contact", id: 'contact-submit', class: 'btn btn-danger', data: { disable_with: 'Working' } %>
+    <%= link_to "Cancel", admin_contacts_path, class: 'add-left-margin btn btn-default'%>
+  <% end %>
+</div>

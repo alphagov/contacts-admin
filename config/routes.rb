@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :contacts do
       member do
         get :clone
+        get "/delete", to: "contacts#delete"
       end
       scope module: "contacts" do
         resources :contact_form_links

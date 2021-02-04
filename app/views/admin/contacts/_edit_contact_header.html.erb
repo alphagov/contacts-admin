@@ -11,7 +11,7 @@
     <span class="pull-right">
       <%= link_to 'Clone', clone_admin_contact_path(@contact), data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
       &nbsp;
-      <%= link_to 'Delete', admin_contact_path(@contact), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      <%= link_to 'Delete', delete_admin_contact_path(@contact), class: 'btn btn-danger' %>
     </span>
   <% end %>
 </div>

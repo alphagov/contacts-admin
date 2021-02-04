@@ -34,6 +34,8 @@ module Admin
     def delete_contact(contact)
       ensure_on edit_admin_contact_path(contact)
       click_link "Delete"
+      ensure_on delete_admin_contact_path(contact)
+      click_button "Delete contact"
     end
 
     def update_contact(contact, new_details = {})
