@@ -39,7 +39,7 @@ class Admin::ContactsController < AdminController
   def delete; end
 
   def destroy
-    if Admin::DestroyContact.new(@contact).call
+    if Admin::DestroyAndRedirectContact.new(@contact, params[:redirect_url]).destroy_and_redirect
       flash.notice = "Contact successfully deleted"
     else
       flash.alert = @contact.errors.full_messages.to_sentence
