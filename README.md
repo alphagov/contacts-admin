@@ -28,6 +28,38 @@ The app has its own database (MySQL), which is used by the admin UI. This is in 
 * [content-store](https://github.com/alphagov/content-store) - for doing some
   command-line based tasks to withdraw and redirect a contact
 
+### Running with govuk-docker
+
+Setup:
+
+```sh
+govuk-docker-run env RAILS_ENV=test env bin/rake db:create
+```
+
+Then run tests:
+
+```sh
+govuk-docker-run env RUNNING_IN_CI='true' bundle exec rspec
+```
+
+#### Previewing the application
+
+Seed the database, with ENV overrides so that `ImportOrganisations` doesn't attempt to fetch organisations from dev:
+
+```sh
+govuk-docker-run env GOVUK_APP_DOMAIN='https://www.gov.uk' env GOVUK_WEBSITE_ROOT='https://www.gov.uk' bin/rake db:seed
+```
+
+Run the app:
+
+```sh
+govuk-docker-up
+```
+
+Visit http://contacts-admin.dev.gov.uk/.
+
+For CRUD operations to work, you may need to `cd ../publishing-api && govuk-docker-up` in another shell.
+
 ### Running the application
 
 `./startup.sh`
