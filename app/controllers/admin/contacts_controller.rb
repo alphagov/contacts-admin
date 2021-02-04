@@ -39,8 +39,9 @@ class Admin::ContactsController < AdminController
   def delete; end
 
   def destroy
-    if valid_redirect_url?(params[:redirect_url])
-      if Admin::DestroyAndRedirectContact.new(@contact, params[:redirect_url]).destroy_and_redirect
+    redirect_path = remove_govuk_domain(params[:redirect_url])
+    if valid_redirect_url?(redirect_path)
+      if Admin::DestroyAndRedirectContact.new(@contact, redirect_path).destroy_and_redirect
         flash.notice = "Contact successfully deleted"
         redirect_to admin_contacts_path
       else
@@ -54,6 +55,14 @@ class Admin::ContactsController < AdminController
   end
 
 private
+
+  def remove_govuk_domain(url)
+    url
+      .sub("https://www.gov.uk", "")
+      .sub("http://www.gov.uk", "")
+      .sub("https://gov.uk", "")
+      .sub("http://gov.uk", "")
+  end
 
   def valid_redirect_url?(url)
     url.to_s =~ /^\/\S+$/
