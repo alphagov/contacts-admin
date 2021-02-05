@@ -39,9 +39,8 @@ class Admin::ContactsController < AdminController
   def delete; end
 
   def destroy
-    redirect_path = remove_govuk_domain(params[:redirect_url])
-    if valid_redirect_url?(redirect_path)
-      if Admin::DestroyAndRedirectContact.new(@contact, redirect_path).destroy_and_redirect
+    if (valid_path = redirect_path(params[:redirect_url]))
+      if Admin::DestroyAndRedirectContact.new(@contact, valid_path).destroy_and_redirect
         flash.notice = "Contact successfully deleted"
         redirect_to admin_contacts_path
       else
@@ -56,16 +55,19 @@ class Admin::ContactsController < AdminController
 
 private
 
-  def remove_govuk_domain(url)
-    url
-      .sub("https://www.gov.uk", "")
-      .sub("http://www.gov.uk", "")
-      .sub("https://gov.uk", "")
-      .sub("http://gov.uk", "")
-  end
+  def redirect_path(url)
+    uri = URI.parse(url)
+    return uri.path if uri.host.nil?
 
-  def valid_redirect_url?(url)
-    url.to_s =~ /^\/\S+$/
+    redirect_host = if uri.host.match(/^www\./)
+                      uri.host
+                    else
+                      "www.#{uri.host}"
+                    end
+    website_root_host = URI.parse(Plek.new.website_root).host
+    uri.path if redirect_host == website_root_host
+  rescue URI::InvalidURIError
+    false
   end
 
   def successful_update_url

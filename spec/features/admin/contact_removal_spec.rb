@@ -31,6 +31,12 @@ feature "Contact removal", auth: :user do
   end
 
   context "allows GOV.UK URLs, but sends just the path to Publishing API" do
+    around(:each) do |example|
+      ClimateControl.modify GOVUK_WEBSITE_ROOT: "https://www.gov.uk" do
+        example.run
+      end
+    end
+
     specify "it allows HTTPS/WWW variants" do
       assert_deleted_and_redirects_to("https://www.gov.uk/foo", "/foo")
     end
@@ -45,6 +51,12 @@ feature "Contact removal", auth: :user do
 
     specify "it allows HTTP variants" do
       assert_deleted_and_redirects_to("http://gov.uk/foo", "/foo")
+    end
+
+    specify "it allows different environments" do
+      ClimateControl.modify GOVUK_WEBSITE_ROOT: "https://www.integration.publishing.service.gov.uk" do
+        assert_deleted_and_redirects_to("https://www.integration.publishing.service.gov.uk/foo", "/foo")
+      end
     end
   end
 

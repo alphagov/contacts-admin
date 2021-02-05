@@ -94,6 +94,7 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     chronic (0.10.2)
+    climate_control (0.2.0)
     coderay (1.1.3)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -431,6 +432,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap
   capybara
+  climate_control
   factory_bot_rails
   fakefs
   friendly_id

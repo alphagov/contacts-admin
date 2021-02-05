@@ -45,6 +45,7 @@ group :test do
   gem "rubocop-govuk"
 
   gem "capybara"
+  gem "climate_control"
   gem "factory_bot_rails"
   gem "fakefs", require: "fakefs/safe"
   gem "json-schema"
