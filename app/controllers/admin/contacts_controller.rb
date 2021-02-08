@@ -1,5 +1,5 @@
 class Admin::ContactsController < AdminController
-  before_action :load_contact, only: %i[edit update clone destroy]
+  before_action :load_contact, only: %i[edit update clone delete destroy]
   helper_method :search
 
   def new
@@ -36,16 +36,39 @@ class Admin::ContactsController < AdminController
     end
   end
 
+  def delete; end
+
   def destroy
-    if Admin::DestroyContact.new(@contact).call
-      flash.notice = "Contact successfully deleted"
+    if (valid_path = redirect_path(params[:redirect_url]))
+      if Admin::DestroyAndRedirectContact.new(@contact, valid_path).destroy_and_redirect
+        flash.notice = "Contact successfully deleted"
+        redirect_to admin_contacts_path
+      else
+        flash.alert = @contact.errors.full_messages.to_sentence
+        redirect_to delete_admin_contact_path
+      end
     else
-      flash.alert = @contact.errors.full_messages.to_sentence
+      flash.alert = "Invalid redirect URL. Redirects must be internal links, e.g. /world"
+      redirect_to delete_admin_contact_path
     end
-    redirect_to admin_contacts_path
   end
 
 private
+
+  def redirect_path(url)
+    uri = URI.parse(url)
+    return uri.path if uri.host.nil?
+
+    redirect_host = if uri.host.match(/^www\./)
+                      uri.host
+                    else
+                      "www.#{uri.host}"
+                    end
+    website_root_host = URI.parse(Plek.new.website_root).host
+    uri.path if redirect_host == website_root_host
+  rescue URI::InvalidURIError
+    false
+  end
 
   def successful_update_url
     if params[:tab].present?

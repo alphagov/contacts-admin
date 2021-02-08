@@ -31,9 +31,12 @@ module Admin
         end
     end
 
-    def delete_contact(contact)
+    def delete_and_redirect_contact(contact, redirect_url)
       ensure_on edit_admin_contact_path(contact)
       click_link "Delete"
+      ensure_on delete_admin_contact_path(contact)
+      fill_in "redirect_url", with: redirect_url
+      click_button "Delete contact"
     end
 
     def update_contact(contact, new_details = {})
