@@ -58,7 +58,8 @@ govuk-docker-up
 
 Visit http://contacts-admin.dev.gov.uk/.
 
-For CRUD operations to work, you may need to `cd ../publishing-api && govuk-docker-up` in another shell.
+You may see sometimes see a `GdsApi::TimedOutException` when performing a CRUD operation such as creating a contact.
+This usually means Publishing API is still starting up. Wait a few moments, then try again.
 
 ### Running the application
 
