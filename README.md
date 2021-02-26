@@ -90,27 +90,19 @@ bundle exec rake db:seed
 bundle exec rake contacts:import_hmrc DATA_FILE=db/contact-records.csv
 ```
 
-## Redirecting removed contacts
+## Redirecting contacts that have been removed already
 
-The Web UI of the app issues a “gone” item to the publishing api when a contact is deleted. Sometimes the correct thing to do is to issue a “redirect” instead. There is no web UI for this but there are two rake tasks to achieve this depending on the state of the contact to be redirected.
+Contacts Admin used to issue a “gone” item to Publishing API when a contact was deleted. But since [#838](https://github.com/alphagov/contacts-admin/pull/838), we issue a “redirect” instead.
 
-### For contacts that still exist
+If a contact was removed as a “gone” item and now needs to be redirected, we have a Rake task for this:
 
-The rake task is `contacts:remove_with_redirect`, and is invoked as follows:
-```
-$ cd /var/apps/contacts
-$ sudo -u deploy govuk_setenv contacts bundle exec rake contacts:remove_with_redirect[contact-to-remove-slug,path-to-redirect-to]
-```
-
-### For contacts that have been removed already
-
-The rake task is `contacts:replace_gone_with_redirect`, and is invoked as follows:
 ```
 $ cd /var/apps/contacts
 $ sudo -u deploy govuk_setenv contacts bundle exec rake contacts:replace_gone_with_redirect[removed-contact-slug,organisation-slug,path-to-redirect-to]
 ```
 
-This will fail if any of the following are true
+This will fail if either of the following are true:
+
 1. `removed-contact-slug` references a contact object in the Contacts Admin database
 2. the path constructed by `removed-contact-slug` and `organisation-slug` does not refer to a “gone” item in content store
 
