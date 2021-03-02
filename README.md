@@ -13,98 +13,32 @@ displays the contacts themselves, fetching them from content store:
 
 ## Technical documentation
 
-This is a Ruby on Rails application that provides a private admin UI for signon users with permission to allow them to manage the contacts for their organisation.
+This is a Ruby on Rails app, and should follow [our Rails app conventions](https://docs.publishing.service.gov.uk/manual/conventions-for-rails-applications.html).
 
-The app has its own database (MySQL), which is used by the admin UI. This is in contrast to the separate [government-frontend](https://github.com/alphagov/government-frontend) app which reads contacts from the [content-store](https://github.com/alphagov/content-store). The admin UI part of this app handles publishing the contacts to the [publishing-api](https://github.com/alphagov/publishing-api) so that they are present for [finder-frontend](https://github.com/alphagov/finder-frontend) and [government-frontend](https://github.com/alphagov/government-frontend) to read.
+You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-docker) to run the application and its tests with all the necessary dependencies. Follow [the usage instructions](https://github.com/alphagov/govuk-docker#usage) to get started.
 
-### Dependencies
+**Use GOV.UK Docker to run any commands that follow.**
 
-* Ruby 2.3.0
-* MySQL
-* [whitehall](https://github.com/alphagov/whitehall)
-  1. to access the organisations API and maintain parity with the organisations managed in whitehall.
-  2. to access the world locations API to provide the correct list of countries for the country dropdown in the address form
-* [signon](https://github.com/alphagov/signonotron2) - for managing user authentication
-* [content-store](https://github.com/alphagov/content-store) - for doing some
-  command-line based tasks to withdraw and redirect a contact
+### Before running the app
 
-### Running with govuk-docker
-
-Setup:
+The best way to get a database with good seed data is to replicate from Integration. Alternatively, you can use a combination of import commands and old seed data to seed the database, as follows:
 
 ```sh
-govuk-docker-run env RAILS_ENV=test env bin/rake db:create
-```
-
-Then run tests:
-
-```sh
-govuk-docker-run env RUNNING_IN_CI='true' bundle exec rspec
-```
-
-#### Previewing the application
-
-Seed the database, with ENV overrides so that `ImportOrganisations` doesn't attempt to fetch organisations from dev:
-
-```sh
-govuk-docker-run env GOVUK_APP_DOMAIN='https://www.gov.uk' env GOVUK_WEBSITE_ROOT='https://www.gov.uk' bin/rake db:seed
-```
-
-Run the app:
-
-```sh
-govuk-docker-up
-```
-
-Visit http://contacts-admin.dev.gov.uk/.
-
-You may see sometimes see a `GdsApi::TimedOutException` when performing a CRUD operation such as creating a contact.
-This usually means Publishing API is still starting up. Wait a few moments, then try again.
-
-### Running the application
-
-`./startup.sh`
-
-This runs `bundle install` to install dependencies and runs the app on port `3051`. When using the GOV.UK development VM it will be available at http://contacts-admin.dev.gov.uk/admin.
-
-By default, this application uses the GOV.UK preview environment for assets. To run against a local version of static, you need to set `STATIC_DEV` to
-"http://static.dev.gov.uk".
-
-### Running the test suite
-
-`bundle exec rake`
-
-The tests in this project rely upon [govuk-content-schemas](http://github.com/alphagov/govuk-content-schemas). By default these should be in the parent directory, otherwise you can specify their location with the `GOVUK_CONTENT_SCHEMAS_PATH` environment variable.
-
-### Tasks
-
-Rake tasks can be found in the standard location: `lib/tasks`. The implementation of many of these can be found in `app/tasks` and `app/interactors` so they can also be run from the console.
-
-### Database setup
-
-The best way to get a database with good seed data is to use a dump from preview; alternatively you can load the database schema and use the old initial seed data:
-
-```
-bundle exec rake db:schema:load
-bundle exec rake db:seed
+env GOVUK_APP_DOMAIN='https://www.gov.uk' GOVUK_WEBSITE_ROOT='https://www.gov.uk' bin/rake db:seed
 bundle exec rake contacts:import_hmrc DATA_FILE=db/contact-records.csv
 ```
 
-## Redirecting contacts that have been removed already
+Contacts Admin imports from Whitehall's organisations API (as the source of truth for organisations); and its world locations API (to provide the list of countries for the dropdown in the address form).
 
-Contacts Admin used to issue a “gone” item to Publishing API when a contact was deleted. But since [#838](https://github.com/alphagov/contacts-admin/pull/838), we issue a “redirect” instead.
+### Running the test suite
 
-If a contact was removed as a “gone” item and now needs to be redirected, we have a Rake task for this:
-
-```
-$ cd /var/apps/contacts
-$ sudo -u deploy govuk_setenv contacts bundle exec rake contacts:replace_gone_with_redirect[removed-contact-slug,organisation-slug,path-to-redirect-to]
+```sh
+bundle exec rspec
 ```
 
-This will fail if either of the following are true:
+### Further documentation
 
-1. `removed-contact-slug` references a contact object in the Contacts Admin database
-2. the path constructed by `removed-contact-slug` and `organisation-slug` does not refer to a “gone” item in content store
+Check the [docs/](docs/) directory.
 
 ## Licence
 
