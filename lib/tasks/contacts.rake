@@ -16,7 +16,7 @@ namespace :contacts do
       address.region = strings[3]
       address.postal_code = strings[4]
       address.world_location_slug = "united-kingdom"
-      address.description = strings[5..-1].join("\n") if strings.length > 5
+      address.description = strings[5..].join("\n") if strings.length > 5
       address.save!(validate: false)
     end
   end
