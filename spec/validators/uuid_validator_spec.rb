@@ -1,15 +1,17 @@
 require "rails_helper"
 
 describe UUIDValidator do
-  class PieceOfContent
-    include ActiveModel::Model
+  let(:item_class) do
+    Class.new do
+      include ActiveModel::Model
 
-    attr_accessor :content_id
+      attr_accessor :content_id
 
-    validates :content_id, uuid: true
+      validates :content_id, uuid: true
+    end
   end
 
-  let(:item) { PieceOfContent.new }
+  let(:item) { item_class.new }
 
   context "invalid UUIDs" do
     it "rejects nil" do
