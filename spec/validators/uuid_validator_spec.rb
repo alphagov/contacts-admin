@@ -5,6 +5,7 @@ describe UUIDValidator do
     include ActiveModel::Model
 
     attr_accessor :content_id
+
     validates :content_id, uuid: true
   end
 
