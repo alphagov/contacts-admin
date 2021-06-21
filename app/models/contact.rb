@@ -73,7 +73,7 @@ private
 
   def organisation_should_never_change
     if persisted? && organisation_id_changed?
-      errors[:organisation] << "can't be changed"
+      errors.add(:organisation, message: "can't be changed")
     end
   end
 end
