@@ -8,6 +8,8 @@ require "active_record/railtie"
 # require "active_storage/engine"
 require "action_controller/railtie"
 # require "action_mailer/railtie"
+# require "action_mailbox/engine"
+# require "action_text/engine"
 require "action_view/railtie"
 # require "action_cable/engine"
 require "sprockets/railtie"
@@ -21,7 +23,16 @@ SLUG_FORMAT = /[A-Za-z0-9\-_]+/.freeze
 
 module Contacts
   class Application < Rails::Application
-    config.load_defaults 6.0
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 6.1
+
+    # Configuration for the application, engines, and railties goes here.
+    #
+    # These settings can be overridden in specific environments using the files
+    # in config/environments, which are processed later.
+    #
+    # config.time_zone = "Central Time (US & Canada)"
+    # config.eager_load_paths << Rails.root.join("extras")
 
     config.autoload_paths += %W[
       #{config.root}/app/models/website
