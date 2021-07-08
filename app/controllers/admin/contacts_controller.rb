@@ -72,7 +72,7 @@ private
 
   def successful_update_url
     if params[:tab].present?
-      [:admin, @contact, params[:tab]]
+      [:admin, @contact, params[:tab].to_sym]
     else
       [:edit, :admin, @contact]
     end
