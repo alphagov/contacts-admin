@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe PostAddress, type: :model do
   setup do
     stub_request(:get, "http://www.dev.gov.uk/api/world-locations/united-kingdom")
-    .to_return(status: 200, body: "ANYTHING")
+    .to_return(status: 200, body: "{}")
   end
 
   let(:item) { create(:post_address) }
