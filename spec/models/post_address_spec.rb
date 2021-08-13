@@ -1,6 +1,11 @@
 require "rails_helper"
 
 RSpec.describe PostAddress, type: :model do
+  setup do
+    stub_request(:get, "http://www.dev.gov.uk/api/world-locations/united-kingdom")
+    .to_return(status: 200, body: "ANYTHING")
+  end
+
   let(:item) { create(:post_address) }
   it_behaves_like "an associated data model"
   it_behaves_like "a versioned data model"
