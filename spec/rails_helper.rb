@@ -36,6 +36,6 @@ RSpec.configure do |config|
 end
 
 def stub_world_location_api
-  stub_request(:get, "http://www.dev.gov.uk/api/world-locations/united-kingdom")
+  stub_request(:get, "#{Plek.new.website_root}/api/world-locations/united-kingdom")
     .to_return(status: 200, body: "{}")
 end
