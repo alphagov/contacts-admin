@@ -19,7 +19,7 @@ describe PostAddressesPresenter do
 
   def stub_worldwide_api_has_location(location_slug, details = nil)
     details ||= world_location_for_slug(location_slug)
-    stub_request(:get, "#{Plek.new.website_root}/api/world-locations/#{location_slug}")
+    stub_request(:get, "http://www.dev.gov.uk/api/world-locations/#{location_slug}")
       .to_return(status: 200, body: details.to_json)
   end
 end
