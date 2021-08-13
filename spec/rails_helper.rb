@@ -34,3 +34,8 @@ RSpec.configure do |config|
   config.include FeaturesHelpers, type: :feature
   config.include FileCreationHelper
 end
+
+def stub_world_location_api
+  stub_request(:get, "http://www.dev.gov.uk/api/world-locations/united-kingdom")
+    .to_return(status: 200, body: "{}")
+end
