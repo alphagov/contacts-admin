@@ -51,6 +51,9 @@ module Contacts
 
     config.i18n.enforce_available_locales = true
 
+    # Allow requests for all domains e.g. <app>.dev.gov.uk
+    config.hosts.clear
+
     # Generators
     config.generators do |g|
       g.orm                 :active_record
