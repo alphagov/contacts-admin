@@ -1,8 +1,6 @@
 require "rails_helper"
-require "gds_api/test_helpers/worldwide"
 
 describe PostAddressesPresenter do
-  include GdsApi::TestHelpers::Worldwide
   let(:post) { create :post_address, description: "post description" }
 
   it "transforms a contact to the correct format" do
@@ -17,5 +15,11 @@ describe PostAddressesPresenter do
 
     govspeak_description = "<p>#{post.description}</p>"
     expect(presented[:description].strip).to eq(govspeak_description)
+  end
+
+  def stub_worldwide_api_has_location(location_slug, details = nil)
+    details ||= world_location_for_slug(location_slug)
+    stub_request(:get, "#{Plek.new.website_root}/api/world-locations/#{location_slug}")
+      .to_return(status: 200, body: details.to_json)
   end
 end
