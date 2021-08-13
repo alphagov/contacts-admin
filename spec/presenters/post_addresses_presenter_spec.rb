@@ -4,7 +4,7 @@ describe PostAddressesPresenter do
   let(:post) { create :post_address, description: "post description" }
 
   it "transforms a contact to the correct format" do
-    stub_worldwide_api_has_location(post.world_location_slug)
+    # stub_worldwide_api_has_location(post.world_location_slug)
     stub_request(:get, "http://www.dev.gov.uk/api/world-locations/united-kingdom")
       .to_return(status: 200, body: "ANYTHING")
 
