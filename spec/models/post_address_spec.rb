@@ -1,6 +1,10 @@
 require "rails_helper"
 
 RSpec.describe PostAddress, type: :model do
+  setup do
+    stub_world_location_api
+  end
+
   let(:item) { create(:post_address) }
   it_behaves_like "an associated data model"
   it_behaves_like "a versioned data model"
