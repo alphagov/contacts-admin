@@ -40,7 +40,7 @@ module Admin
             postal_code,
             world_location,
           ],
-          tag(:br),
+          tag.br,
         )
       end
     end
