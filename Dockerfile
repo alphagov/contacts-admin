@@ -27,7 +27,7 @@ RUN GOVUK_APP_DOMAIN=www.gov.uk \
 
 FROM $base_image
 
-ENV RAILS_ENV=production GOVUK_APP_NAME=contacts-admin GOVUK_APP_DOMAIN=www.gov.uk GOVUK_WEBSITE_ROOT=https://www.gov.uk PORT=3051 
+ENV RAILS_ENV=production GOVUK_APP_NAME=contacts-admin GOVUK_APP_DOMAIN=www.gov.uk GOVUK_WEBSITE_ROOT=https://www.gov.uk PORT=3051 DATABASE_URL=mysql2://root:root@mysql/contacts-admin
 
 RUN apt-get update -qy && \
     apt-get upgrade -y && \
