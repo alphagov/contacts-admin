@@ -514,6 +514,7 @@ DEPENDENCIES
   shoulda-matchers
   simple_form
   simplecov
+  sprockets
   thin
   uglifier
   virtus
