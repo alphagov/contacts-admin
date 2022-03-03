@@ -23,7 +23,7 @@ SLUG_FORMAT = /[A-Za-z0-9\-_]+/.freeze
 module Contacts
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.
     #
