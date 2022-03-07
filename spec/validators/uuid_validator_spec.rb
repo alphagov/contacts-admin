@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe UUIDValidator do
+describe UuidValidator do
   let(:item_class) do
     Class.new do
       include ActiveModel::Model

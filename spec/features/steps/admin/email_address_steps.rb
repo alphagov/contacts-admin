@@ -7,7 +7,7 @@ module Admin
 
       has_selector?(email_addresses_table_selector) &&
         within(email_addresses_table_selector) do
-          has_content? email_address.description
+          has_content? email_address.title
         end
     end
 

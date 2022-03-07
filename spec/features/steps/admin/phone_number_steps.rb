@@ -7,7 +7,7 @@ module Admin
 
       has_selector?(phone_numbers_table_selector) &&
         within(phone_numbers_table_selector) do
-          has_content? number.description
+          has_content? number.title
         end
     end
 

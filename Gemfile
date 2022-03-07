@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "6.1.4.4"
+gem "rails", "7.0.2.2"
 
 gem "active_hash"
 gem "ancestry"
@@ -11,6 +11,7 @@ gem "mysql2"
 gem "paper_trail"
 gem "searchlight"
 gem "simple_form"
+gem "sprockets"
 gem "virtus"
 gem "whenever"
 

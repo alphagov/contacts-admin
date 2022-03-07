@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180723102908) do
+ActiveRecord::Schema[6.1].define(version: 20180723102908) do
 
   create_table "contact_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "contact_group_type_id"
