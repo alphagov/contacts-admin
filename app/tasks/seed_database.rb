@@ -10,13 +10,13 @@ class SeedDatabase
   end
 
   def create_users
-    User.new { |u|
-      u.name = "Winston"
-      u.uid = "winston"
-      u.version = 1
-      u.email = "winston@alphagov.co.uk"
-      u.permissions = %w[signin]
-    }.save
+    User.create(
+      name: "Winston",
+      uid: "winston",
+      version: 1,
+      email: "winston@alphagov.co.uk",
+      permissions: %w[signin],
+    )
   end
 
   def create_hmrc_organisation
