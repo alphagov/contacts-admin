@@ -5,17 +5,29 @@ class SeedDatabase
 
   def run
     create_users
-    create_contact_groups
+    hmrc_organisation = create_hmrc_organisation
+    create_contact_groups(hmrc_organisation)
   end
 
   def create_users
-    User.new { |u|
-      u.name = "Winston"
-      u.uid = "winston"
-      u.version = 1
-      u.email = "winston@alphagov.co.uk"
-      u.permissions = %w[signin]
-    }.save
+    User.create(
+      name: "Winston",
+      uid: "winston",
+      version: 1,
+      email: "winston@alphagov.co.uk",
+      permissions: %w[signin],
+    )
+  end
+
+  def create_hmrc_organisation
+    # These values should match what Whitehall has stored so that
+    # the publishing end-to-end tests can succeed
+    Organisation.create(
+      title: "HM Revenue & Customs",
+      slug: "hm-revenue-customs",
+      abbreviation: "HMRC",
+      content_id: "6667cce2-e809-4e21-ae09-cb0bdc1ddda3",
+    )
   end
 
   CONTACT_GROUPS = [
@@ -91,7 +103,7 @@ class SeedDatabase
     },
   ].freeze
 
-  def create_contact_groups
+  def create_contact_groups(hmrc_organisation)
     CONTACT_GROUPS.each do |contact_group|
       ContactGroup.find_or_create_by(
         contact_group_type_id: contact_group[:contact_group_type].id,
@@ -100,9 +112,5 @@ class SeedDatabase
         organisation_id: hmrc_organisation.id,
       )
     end
-  end
-
-  def hmrc_organisation
-    Organisation.find_or_create_by(slug: "hm-revenue-customs")
   end
 end

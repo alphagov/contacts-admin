@@ -8,9 +8,6 @@ node {
   govuk.buildProject(
     publishingE2ETests: true,
     repoName: 'contacts-admin',
-    beforeTest: {
-      govuk.setEnvar('RUNNING_IN_CI', 'true')
-    },
     brakeman: true,
   )
   // Run against the MySQL 8 Docker instance on GOV.UK CI
