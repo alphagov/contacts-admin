@@ -490,7 +490,7 @@ DEPENDENCIES
   shoulda-matchers
   simple_form
   simplecov
-  sprockets
+  sprockets-rails
   uglifier
   virtus
   webmock

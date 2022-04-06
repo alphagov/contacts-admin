@@ -11,7 +11,7 @@ gem "mysql2"
 gem "paper_trail"
 gem "searchlight"
 gem "simple_form"
-gem "sprockets"
+gem "sprockets-rails"
 gem "virtus"
 gem "whenever"
 
