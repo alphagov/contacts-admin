@@ -50,6 +50,9 @@ module Contacts
 
     config.i18n.enforce_available_locales = true
 
+    # Compiled assets are written to the location specified in config.assets.prefix.
+    config.assets.prefix = "/assets/contacts-admin"
+
     # Generators
     config.generators do |g|
       g.orm                 :active_record
