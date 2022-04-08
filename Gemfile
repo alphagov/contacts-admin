@@ -11,7 +11,7 @@ gem "mysql2"
 gem "paper_trail"
 gem "searchlight"
 gem "simple_form"
-gem "sprockets"
+gem "sprockets-rails"
 gem "virtus"
 gem "whenever"
 
@@ -32,7 +32,6 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "railroady"
-  gem "thin"
 end
 
 group :development, :test do
