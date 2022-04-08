@@ -1,10 +1,10 @@
-ARG base_image=ruby:2.7.5
+ARG base_image=ruby:3.0.3
 
 FROM $base_image AS builder
 
 ENV RAILS_ENV=production
 # TODO: have a separate build image which already contains the build-only deps.
-RUN apt-get update -qq && \ 
+RUN apt-get update -qq && \
     apt-get upgrade -y && \
     apt-get install -y build-essential nodejs && \
     apt-get clean
