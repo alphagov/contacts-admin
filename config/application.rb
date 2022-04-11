@@ -18,7 +18,7 @@ require "action_view/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-SLUG_FORMAT = /[A-Za-z0-9\-_]+/.freeze
+SLUG_FORMAT = /[A-Za-z0-9\-_]+/
 
 module Contacts
   class Application < Rails::Application
