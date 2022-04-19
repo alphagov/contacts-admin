@@ -1,4 +1,4 @@
-ARG base_image=ruby:3.0.3
+ARG base_image=ruby:3.0.4
 
 FROM $base_image AS builder
 
