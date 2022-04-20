@@ -1,4 +1,3 @@
-# :nocov:
 require "redis"
 require "redis-lock"
 
@@ -16,4 +15,3 @@ module Contacts
     end
   end
 end
-# :nocov:
