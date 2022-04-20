@@ -3,10 +3,12 @@ require "rails_helper"
 describe WorldLocation, type: :model do
   describe :all do
     it "returns a list of WorldLocations" do
-      allow(Rails).to receive_message_chain(:cache, :fetch).and_return([
+      api_response = { "results" => [
         { "format" => "World location", "details" => { "slug" => "United Kingdom" } },
         { "format" => "World location", "details" => { "slug" => "Finland" } },
-      ])
+      ] }.to_json
+      stub_request(:get, "http://www.dev.gov.uk/api/world-locations")
+       .to_return(status: 200, body: api_response, headers: {})
 
       locations = WorldLocation.all
       expect(locations.length).to be 2
