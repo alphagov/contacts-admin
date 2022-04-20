@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe WorldLocation do
+describe WorldLocation, type: :model do
   describe :all do
     it "returns a list of WorldLocations" do
       allow(Rails).to receive_message_chain(:cache, :fetch).and_return([
@@ -15,7 +15,7 @@ describe WorldLocation do
     end
   end
 
-  describe :== do
+  describe "#==" do
     let(:wl1) { WorldLocation.new({ "details" => { "slug" => "Neverland" } }) }
     let(:wl2) { WorldLocation.new({ "details" => { "slug" => "Neverland" } }) }
 
