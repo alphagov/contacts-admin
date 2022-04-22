@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe WorldLocation, type: :model do
-  describe :all do
+  describe ".all" do
     it "returns a list of WorldLocations" do
       api_response = { "results" => [
         { "format" => "World location", "details" => { "slug" => "United Kingdom" } },
@@ -21,7 +21,7 @@ describe WorldLocation, type: :model do
     let(:wl1) { WorldLocation.new({ "details" => { "slug" => "Neverland" } }) }
     let(:wl2) { WorldLocation.new({ "details" => { "slug" => "Neverland" } }) }
     let(:wl3) { WorldLocation.new({ "details" => { "slug" => "Narnia" } }) }
-    let(:not_wl) { create(:organisation, slug: "Neverland") }
+    let(:not_wl) { build(:organisation, slug: "Neverland") }
 
     it "returns true if the locations have the same slug" do
       expect(wl1 == wl2).to be true
