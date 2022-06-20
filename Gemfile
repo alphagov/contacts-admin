@@ -44,6 +44,7 @@ group :test do
   gem "govuk_schemas"
   gem "rubocop-govuk"
 
+  gem "brakeman"
   gem "capybara"
   gem "climate_control"
   gem "factory_bot_rails"
