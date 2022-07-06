@@ -1,5 +1,4 @@
 require "rails_helper"
-require "govuk-content-schema-test-helpers/rspec_matchers"
 
 describe ContactPresenter do
   let(:contact) { create :contact, :with_related_contacts }
@@ -15,7 +14,7 @@ describe ContactPresenter do
   context "#present" do
     it "presents the contact correctly against the schema" do
       presented = ContactPresenter.new(contact).payload
-      expect(presented.to_json).to be_valid_against_schema("contact")
+      expect(presented.to_json).to be_valid_against_publisher_schema("contact")
     end
 
     it "transforms a contact to the correct format" do
@@ -40,7 +39,7 @@ describe ContactPresenter do
       contact_with_groups = create :contact, :with_contact_group
       payload = ContactPresenter.new(contact_with_groups).payload
 
-      expect(payload.to_json).to be_valid_against_schema("contact")
+      expect(payload.to_json).to be_valid_against_publisher_schema("contact")
 
       contact_groups = payload[:details][:contact_groups]
       expect(contact_groups.count).to eq(contact_with_groups.contact_groups.count)

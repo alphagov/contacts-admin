@@ -41,7 +41,7 @@ end
 
 # testing
 group :test do
-  gem "govuk-content-schema-test-helpers"
+  gem "govuk_schemas"
   gem "rubocop-govuk"
 
   gem "capybara"
