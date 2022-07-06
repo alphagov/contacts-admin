@@ -1,4 +1,4 @@
-ARG base_image=ruby:3.0.3
+ARG base_image=ruby:3.0.4
 
 FROM $base_image AS builder
 
@@ -39,4 +39,4 @@ WORKDIR /app
 COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
 COPY --from=builder /app ./
 
-CMD bundle exec puma
+CMD GOVUK_PROMETHEUS_EXPORTER=true bundle exec puma
