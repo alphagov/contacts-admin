@@ -90,6 +90,7 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
+    brakeman (5.2.3)
     builder (3.2.4)
     capybara (3.33.0)
       addressable
@@ -467,6 +468,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap
+  brakeman
   capybara
   climate_control
   factory_bot_rails
