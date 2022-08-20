@@ -18,7 +18,7 @@ RUN bundle exec rails assets:precompile && rm -fr /app/log
 
 FROM $base_image
 
-ENV GOVUK_APP_NAME=contacts-admin PORT=3051 DATABASE_URL=mysql2://root:root@mysql/contacts-admin
+ENV GOVUK_APP_NAME=contacts-admin
 
 RUN mkdir /app
 
