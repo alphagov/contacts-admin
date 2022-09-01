@@ -85,7 +85,7 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
-    bootsnap (1.11.1)
+    bootsnap (1.13.0)
       msgpack (~> 1.2)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
@@ -130,7 +130,7 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.3)
     ffi (1.15.5)
-    friendly_id (5.4.0)
+    friendly_id (5.4.2)
       activerecord (>= 4.0.0)
     gds-api-adapters (81.0.4)
       addressable
@@ -224,7 +224,7 @@ GEM
     minitest (5.16.3)
     mlanett-redis-lock (0.2.7)
       redis
-    msgpack (1.5.1)
+    msgpack (1.5.6)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     mysql2 (0.5.4)
