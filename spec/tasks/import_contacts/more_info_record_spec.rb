@@ -14,8 +14,8 @@ describe ImportContacts::MoreInfoRecord do
     context "url content present, content present" do
       let(:more_info_record) do
         described_class.new(
-          content: content,
-          more_info_url: more_info_url,
+          content:,
+          more_info_url:,
         )
       end
 
@@ -31,7 +31,7 @@ describe ImportContacts::MoreInfoRecord do
     context "url content missing, content present" do
       let(:more_info_record) do
         described_class.new(
-          content: content,
+          content:,
           more_info_url: nil,
         )
       end
@@ -49,7 +49,7 @@ describe ImportContacts::MoreInfoRecord do
       let(:more_info_record) do
         described_class.new(
           content: nil,
-          more_info_url: more_info_url,
+          more_info_url:,
         )
       end
 

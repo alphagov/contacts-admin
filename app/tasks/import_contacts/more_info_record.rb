@@ -12,7 +12,7 @@ class ImportContacts
       end
 
       def render
-        sprintf(CONTENT_PART, content: content)
+        sprintf(CONTENT_PART, content:)
       end
     end
 

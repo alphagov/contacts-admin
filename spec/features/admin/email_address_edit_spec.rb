@@ -4,7 +4,7 @@ feature "Email Address editing", auth: :user do
   include Admin::EmailAddressSteps
 
   let!(:contact)       { create :contact }
-  let!(:email_address) { create :email_address, contact: contact }
+  let!(:email_address) { create :email_address, contact: }
 
   before { verify email_address_exists(contact, email_address) }
 

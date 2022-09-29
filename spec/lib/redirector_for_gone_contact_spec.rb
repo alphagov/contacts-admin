@@ -8,8 +8,8 @@ describe RedirectorForGoneContact do
 
   subject(:redirector) do
     RedirectorForGoneContact.new(
-      gone_content_id: gone_content_id,
-      redirect_to_location: redirect_to_location,
+      gone_content_id:,
+      redirect_to_location:,
     )
   end
 
