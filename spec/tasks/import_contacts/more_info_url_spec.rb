@@ -10,9 +10,9 @@ describe ImportContacts::MoreInfoUrl do
       context "url description present" do
         let(:more_info_url) do
           described_class.new(
-            url: url,
+            url:,
             title: nil,
-            description: description,
+            description:,
           )
         end
 
@@ -32,7 +32,7 @@ describe ImportContacts::MoreInfoUrl do
       context "url description missing" do
         let(:more_info_url) do
           described_class.new(
-            url: url,
+            url:,
             title: nil,
             description: nil,
           )
@@ -57,8 +57,8 @@ describe ImportContacts::MoreInfoUrl do
         let(:more_info_url) do
           described_class.new(
             url: nil,
-            title: title,
-            description: description,
+            title:,
+            description:,
           )
         end
 
@@ -79,7 +79,7 @@ describe ImportContacts::MoreInfoUrl do
         let(:more_info_url) do
           described_class.new(
             url: nil,
-            title: title,
+            title:,
             description: nil,
           )
         end
@@ -102,9 +102,9 @@ describe ImportContacts::MoreInfoUrl do
       context "url description present" do
         let(:more_info_url) do
           described_class.new(
-            url: url,
-            title: title,
-            description: description,
+            url:,
+            title:,
+            description:,
           )
         end
 
@@ -124,8 +124,8 @@ describe ImportContacts::MoreInfoUrl do
       context "url description missing" do
         let(:more_info_url) do
           described_class.new(
-            url: url,
-            title: title,
+            url:,
+            title:,
             description: nil,
           )
         end

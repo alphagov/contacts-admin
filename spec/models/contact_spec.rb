@@ -27,7 +27,7 @@ RSpec.describe Contact, type: :model do
     it "should not be overridden if specified" do
       content_id = SecureRandom.uuid
 
-      contact = build(:contact, content_id: content_id)
+      contact = build(:contact, content_id:)
       contact.valid?
       expect(contact.content_id).to eq(content_id)
     end

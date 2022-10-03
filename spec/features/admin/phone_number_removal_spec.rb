@@ -4,7 +4,7 @@ feature "Phone Number removal", auth: :user do
   include Admin::PhoneNumberSteps
 
   let!(:contact) { create :contact }
-  let!(:number)  { create :phone_number, contact: contact }
+  let!(:number)  { create :phone_number, contact: }
 
   before { verify phone_number_exists(contact, number) }
 

@@ -4,7 +4,7 @@ feature "Contact Form Link creation", auth: :user do
   include Admin::ContactFormLinkSteps
 
   let(:contact)           { create :contact }
-  let(:contact_form_link) { build :contact_form_link, contact: contact }
+  let(:contact_form_link) { build :contact_form_link, contact: }
 
   before do
     verify !contact_form_link_exists(contact, contact_form_link)

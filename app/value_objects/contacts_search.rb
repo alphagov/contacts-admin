@@ -16,7 +16,7 @@ class ContactsSearch < Searchlight::Search
   end
 
   def search_organisation_id
-    query.where organisation_id: organisation_id
+    query.where organisation_id:
   end
 
   def search_contact_group_id

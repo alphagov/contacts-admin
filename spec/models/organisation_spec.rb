@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Organisation, type: :model do
-  subject(:organisation) { create :organisation, abbreviation: abbreviation, title: title }
+  subject(:organisation) { create :organisation, abbreviation:, title: }
   let(:title) { "HM Revenue & Customs" }
   let(:abbreviation) { "HMRC" }
 

@@ -32,7 +32,7 @@ describe ImportContacts::ContactBuilder do
       let!(:organisation) { Organisation.find_by abbreviation: "HMRC" }
 
       it "assigns HMRC organisation contact" do
-        expect(described_class.build(organisation: organisation).organisation).to eq Organisation.find_by(abbreviation: "HMRC")
+        expect(described_class.build(organisation:).organisation).to eq Organisation.find_by(abbreviation: "HMRC")
       end
     end
 

@@ -14,7 +14,7 @@ class ImportContacts
 
       def url_part
         if url.present? && title.present?
-          sprintf(URL_PART, url: url, url_title: title)
+          sprintf(URL_PART, url:, url_title: title)
         end
       end
 

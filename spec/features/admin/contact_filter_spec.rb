@@ -4,7 +4,7 @@ feature "Contact filtering", auth: :user do
   include Admin::ContactSteps
 
   let!(:organisation) { create(:organisation, title: "Department of Trance", abbreviation: "DoT") }
-  let!(:dot_contact) { create(:contact, title: "Entranced", organisation: organisation) }
+  let!(:dot_contact) { create(:contact, title: "Entranced", organisation:) }
   let!(:other_contact) { create(:contact, title: "Mellowed") }
 
   scenario "filtering by organisation" do
