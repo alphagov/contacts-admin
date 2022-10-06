@@ -6,7 +6,7 @@ module Contacts
     LIFETIME = (5 * 60) # seconds. The lock expires automatically after this time
 
     def lock
-      Redis.current.lock("contacts-admin:organisations:import", life: LIFETIME) do
+      Redis.new.lock("contacts-admin:organisations:import", life: LIFETIME) do
         Rails.logger.debug("Successfully got a lock. Running...")
         yield
       end
