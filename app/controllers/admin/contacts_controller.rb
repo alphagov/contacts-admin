@@ -64,7 +64,7 @@ private
                     else
                       "www.#{uri.host}"
                     end
-    website_root_host = URI.parse(Plek.new.website_root).host
+    website_root_host = URI(Plek.website_root).host
     uri.path if redirect_host == website_root_host
   rescue URI::InvalidURIError
     false
