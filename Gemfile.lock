@@ -480,6 +480,7 @@ DEPENDENCIES
   govuk_app_config
   govuk_schemas
   json-schema
+  mail (~> 2.7.1)
   mlanett-redis-lock
   mysql2
   paper_trail
