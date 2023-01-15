@@ -4,7 +4,7 @@ gem "rails", "7.0.4"
 
 gem "active_hash"
 gem "ancestry"
-gem "bootsnap"
+gem "bootsnap", require: false
 gem "friendly_id"
 gem "mail", "~> 2.7.1"  # TODO: remove once https://github.com/mikel/mail/issues/1489 is fixed.
 gem "mlanett-redis-lock"
