@@ -4,7 +4,7 @@ gem "rails", "7.0.4"
 
 gem "active_hash"
 gem "ancestry"
-gem "bootsnap"
+gem "bootsnap", require: false
 gem "friendly_id"
 gem "mlanett-redis-lock"
 gem "mysql2"
