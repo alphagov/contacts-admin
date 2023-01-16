@@ -6,7 +6,6 @@ gem "active_hash"
 gem "ancestry"
 gem "bootsnap"
 gem "friendly_id"
-gem "mail", "~> 2.8.0"  # TODO: remove once https://github.com/mikel/mail/issues/1489 is fixed.
 gem "mlanett-redis-lock"
 gem "mysql2"
 gem "paper_trail"
