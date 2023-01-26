@@ -164,7 +164,7 @@ GEM
       jquery-rails (~> 4.3)
       plek (>= 2.1)
       rails (>= 6)
-    govuk_app_config (4.13.0)
+    govuk_app_config (5.0.0)
       logstasher (~> 2.1)
       plek (>= 4, < 6)
       prometheus_exporter (~> 2.0)
@@ -275,7 +275,7 @@ GEM
     parser (3.1.2.1)
       ast (~> 2.4.1)
     plek (5.0.0)
-    prometheus_exporter (2.0.6)
+    prometheus_exporter (2.0.8)
       webrick
     pry (0.13.1)
       coderay (~> 1.1)
@@ -289,7 +289,7 @@ GEM
     rack (2.2.6.2)
     rack-protection (3.0.2)
       rack
-    rack-proxy (0.7.4)
+    rack-proxy (0.7.6)
       rack
     rack-test (2.0.2)
       rack (>= 1.3)
