@@ -1,19 +1,19 @@
 require "rails_helper"
+require "gds_api/test_helpers/worldwide"
 
 describe WorldLocation, type: :model do
+  include GdsApi::TestHelpers::Worldwide
+
   describe ".all" do
     it "returns a list of WorldLocations" do
-      api_response = { "results" => [
-        { "format" => "World location", "details" => { "slug" => "United Kingdom" } },
-        { "format" => "World location", "details" => { "slug" => "Finland" } },
-      ] }.to_json
-      stub_request(:get, "http://www.dev.gov.uk/api/world-locations")
-       .to_return(status: 200, body: api_response, headers: {})
+      stub_worldwide_api_has_locations(%w[united-kingdom finland])
 
       locations = WorldLocation.all
       expect(locations.length).to be 2
-      expect(locations.first.slug).to eq "United Kingdom"
-      expect(locations.last.slug).to eq "Finland"
+      expect(locations.first.slug).to eq "united-kingdom"
+      expect(locations.first.title).to eq "United Kingdom"
+      expect(locations.last.slug).to eq "finland"
+      expect(locations.last.title).to eq "Finland"
     end
   end
 
