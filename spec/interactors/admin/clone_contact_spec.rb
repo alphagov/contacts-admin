@@ -26,4 +26,42 @@ describe Admin::CloneContact do
       end
     end
   end
+
+  def stub_worldwide_api_has_selection_of_locations
+    stub_worldwide_api_has_locations %w[
+      afghanistan
+      angola
+      australia
+      bahamas
+      belarus
+      brazil
+      brunei
+      cambodia
+      chad
+      croatia
+      denmark
+      eritrea
+      france
+      ghana
+      iceland
+      japan
+      laos
+      luxembourg
+      malta
+      micronesia
+      mozambique
+      nicaragua
+      panama
+      portugal
+      sao-tome-and-principe
+      singapore
+      south-korea
+      sri-lanka
+      uk-delegation-to-council-of-europe
+      uk-delegation-to-organization-for-security-and-co-operation-in-europe
+      united-kingdom
+      venezuela
+      vietnam
+    ]
+  end
 end

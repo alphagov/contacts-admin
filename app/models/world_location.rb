@@ -1,7 +1,7 @@
 class WorldLocation
   def self.all
     data = Rails.cache.fetch("all", expires_in: 1.day) do
-      Services.worldwide_api.world_locations.with_subsequent_pages.to_a
+      Services.worldwide_api.world_locations.to_a
     end
 
     data
@@ -14,7 +14,6 @@ class WorldLocation
       Services
         .worldwide_api
         .world_location(location_slug)
-        .parsed_content
     end
 
     new(data)

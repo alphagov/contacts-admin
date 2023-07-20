@@ -1,10 +1,13 @@
 require "rails_helper"
+require "gds_api/test_helpers/worldwide"
 
 describe PostAddressesPresenter do
+  include GdsApi::TestHelpers::Worldwide
+
   let(:post) { create :post_address, description: "post description" }
 
   it "transforms a contact to the correct format" do
-    stub_world_location_api
+    stub_worldwide_api_has_locations(%w[united-kingdom finland])
 
     presented = PostAddressesPresenter.new([post]).present.first
 

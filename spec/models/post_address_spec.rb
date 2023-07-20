@@ -1,8 +1,11 @@
 require "rails_helper"
+require "gds_api/test_helpers/worldwide"
 
 RSpec.describe PostAddress, type: :model do
+  include GdsApi::TestHelpers::Worldwide
+
   setup do
-    stub_world_location_api
+    stub_worldwide_api_has_locations(%w[united-kingdom finland])
   end
 
   let(:item) { create(:post_address) }
