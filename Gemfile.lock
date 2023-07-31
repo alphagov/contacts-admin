@@ -133,7 +133,7 @@ GEM
     ffi (1.15.5)
     friendly_id (5.5.0)
       activerecord (>= 4.0.0)
-    gds-api-adapters (89.0.0)
+    gds-api-adapters (90.0.0)
       addressable
       link_header
       null_logger
