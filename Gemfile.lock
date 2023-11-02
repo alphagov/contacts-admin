@@ -85,7 +85,7 @@ GEM
       rouge (>= 1.0.0)
     binding_of_caller (1.0.0)
       debug_inspector (>= 0.0.1)
-    bootsnap (1.16.0)
+    bootsnap (1.17.0)
       msgpack (~> 1.2)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
@@ -238,7 +238,7 @@ GEM
     minitest (5.20.0)
     mlanett-redis-lock (0.2.7)
       redis
-    msgpack (1.6.0)
+    msgpack (1.7.2)
     multi_xml (0.6.0)
     mysql2 (0.5.5)
     net-imap (0.4.1)
