@@ -1,5 +1,3 @@
-require "searchlight/adapters/action_view"
-
 class ContactsSearch < Searchlight::Search
   include Searchlight::Adapters::ActionView
 
