@@ -1,5 +1,3 @@
-require "publisher"
-
 class Contact < ApplicationRecord
   include Versioning
   include FriendlyId

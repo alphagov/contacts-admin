@@ -1,5 +1,4 @@
 require "rails_helper"
-require "redirector_for_gone_contact"
 require "gds_api/test_helpers/publishing_api"
 
 describe RedirectorForGoneContact do
