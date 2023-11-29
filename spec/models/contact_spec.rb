@@ -35,14 +35,9 @@ RSpec.describe Contact, type: :model do
     it "should not be modifiable on an existing contact" do
       contact = create(:contact)
 
-      # The way `attr_readonly` works is to silently throw away any changes to
-      # the read-only field, but not to revert the value on the instance, so to
-      # test it we need to go all the way through to the database.
-      expect {
-        contact.content_id = SecureRandom.uuid
-        contact.save!
-        contact.reload
-      }.not_to(change { contact.content_id })
+      new_content_id = SecureRandom.uuid
+      expect { contact.update(content_id: new_content_id) }.to raise_error(ActiveRecord::ReadonlyAttributeError)
+      expect(contact.content_id).to_not eq(new_content_id)
     end
   end
 
