@@ -24,7 +24,7 @@ gem "govuk_publishing_components"
 gem "plek"
 
 # assets
-gem "sass-rails"
+gem "dartsass-rails"
 gem "select2-rails"
 gem "uglifier"
 
