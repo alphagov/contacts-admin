@@ -406,7 +406,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "contacts-admin@workspace:."
   dependencies:
-    postcss: "npm:^8.4.39"
+    postcss: "npm:^8.4.41"
     standardx: "npm:^7.0.0"
     stylelint: "npm:^16.8.2"
     stylelint-config-gds: "npm:^2.0.0"
