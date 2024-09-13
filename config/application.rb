@@ -25,11 +25,6 @@ module Contacts
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
-    # Once this application is fully deployed to Rails 7.1 and you have no plans to rollback
-    # replace the line below with config.active_support.cache_format_version = 7.1
-    # This will mean that we can revert back to rails 7.0 if there is an issue
-    config.active_support.cache_format_version = 7.0
-
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
@@ -61,17 +56,13 @@ module Contacts
     # https://github.com/alphagov/govuk-frontend/issues/1350
     config.assets.css_compressor = nil
 
-    config.i18n.enforce_available_locales = true
-
     # Compiled assets are written to the location specified in config.assets.prefix.
     config.assets.prefix = "/assets/contacts-admin"
 
     # Generators
     config.generators do |g|
-      g.orm                 :active_record
-      g.template_engine     :erb
-      g.test_framework      :rspec, fixture: false
-      g.fixture_replacement :factory_bot, dir: "spec/factories"
+      g.test_framework :rspec, fixture: false
+      g.factory_bot dir: "spec/factories"
     end
   end
 end
