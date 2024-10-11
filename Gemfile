@@ -20,7 +20,7 @@ gem "gds-sso"
 gem "govspeak"
 gem "govuk_admin_template"
 gem "govuk_app_config"
-gem "govuk_publishing_components", "43.5.0"
+gem "govuk_publishing_components", "44.2.0"
 gem "plek"
 
 # assets
