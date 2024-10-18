@@ -751,7 +751,7 @@ DEPENDENCIES
   govspeak
   govuk_admin_template
   govuk_app_config
-  govuk_publishing_components (= 44.4.1)
+  govuk_publishing_components
   govuk_schemas
   json-schema
   mlanett-redis-lock
