@@ -1,11 +1,4 @@
 namespace :contacts do
-  desc "Import contact data from CSV file"
-  task import_hmrc: :environment do
-    raise ArgumentError, "Please provide contact file path using environment variable DATA_FILE" if ENV["DATA_FILE"].blank?
-
-    ImportContacts.new(ENV["DATA_FILE"]).import
-  end
-
   desc "Crude implementation of splitting the address"
   task split_address: :environment do
     PostAddress.all.to_a.each do |address|
