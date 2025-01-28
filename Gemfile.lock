@@ -214,7 +214,7 @@ GEM
     govuk_personalisation (1.1.0)
       plek (>= 1.9.0)
       rails (>= 6, < 9)
-    govuk_publishing_components (47.0.0)
+    govuk_publishing_components (51.0.0)
       govuk_app_config
       govuk_personalisation (>= 0.7.0)
       kramdown
@@ -237,7 +237,8 @@ GEM
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     io-console (0.8.0)
-    irb (1.14.3)
+    irb (1.15.1)
+      pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     jquery-rails (4.6.0)
@@ -293,14 +294,14 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.7.4)
-    nokogiri (1.18.1)
+    nokogiri (1.18.2)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    nokogiri (1.18.1-aarch64-linux-gnu)
+    nokogiri (1.18.2-aarch64-linux-gnu)
       racc (~> 1.4)
-    nokogiri (1.18.1-arm64-darwin)
+    nokogiri (1.18.2-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.18.1-x86_64-linux-gnu)
+    nokogiri (1.18.2-x86_64-linux-gnu)
       racc (~> 1.4)
     null_logger (0.0.1)
     oauth2 (2.0.9)
@@ -528,6 +529,9 @@ GEM
       ast (~> 2.4.1)
       racc
     plek (5.2.0)
+    pp (0.6.2)
+      prettyprint
+    prettyprint (0.2.0)
     prometheus_exporter (2.2.0)
       webrick
     pry (0.14.2)
@@ -535,7 +539,7 @@ GEM
       method_source (~> 1.0)
     pry-rails (0.3.11)
       pry (>= 0.13.0)
-    psych (5.2.2)
+    psych (5.2.3)
       date
       stringio
     public_suffix (6.0.1)
@@ -668,10 +672,10 @@ GEM
     searchlight (4.1.0)
     securerandom (0.4.1)
     select2-rails (4.0.13)
-    sentry-rails (5.22.1)
+    sentry-rails (5.22.2)
       railties (>= 5.0)
-      sentry-ruby (~> 5.22.1)
-    sentry-ruby (5.22.1)
+      sentry-ruby (~> 5.22.2)
+    sentry-ruby (5.22.2)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
     shoulda-matchers (6.4.0)
