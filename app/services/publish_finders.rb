@@ -51,7 +51,6 @@ private
           "format": "contact",
           "organisations": %w[hm-revenue-customs],
         },
-        "format_name": "Contact HM Revenue & Customs",
         "show_summaries": true,
       },
       "routes": [
