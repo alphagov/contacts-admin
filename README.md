@@ -1,4 +1,8 @@
-# Contacts app
+# Contacts app (DEPRECATED)
+
+> **NOTE**: This project is deprecated and is planned to be consolidated into Specialist Publisher in early 2025.
+
+---
 
 This app publishes contact information for a given organisation to GOV.UK. It replaces the [HMRC contact us application](http://search2.hmrc.gov.uk/kb5/hmrc/contactus/home.page) and although it works for any organisation, only HMRC currently uses it.
 
