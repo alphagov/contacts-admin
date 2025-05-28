@@ -39,5 +39,28 @@ RSpec.describe ContactMigrator do
         "Missing a redirect URL (`new_url`) for #{original_url}",
       )
     end
+
+    it "destroys the Contact" do
+      slug = "corporation-tax-enquiries"
+      contact = create(:contact, slug:)
+      expect(Contact.find_by(slug:)).to eq(contact)
+      ContactMigrator.new.migrate_contact(
+        original_url:,
+        new_url:,
+      )
+      expect(Contact.find_by(slug:)).to eq(nil)
+    end
+
+    it "doesn't destroy the Contact if the unpublish request failed (for whatever reason)" do
+      slug = "corporation-tax-enquiries"
+      contact = create(:contact, slug:)
+      good_args = { original_url:, new_url: }
+      stub_any_publishing_api_unpublish.and_raise(GdsApi::HTTPServerError.new(500, "Arbitrary error message"))
+      expect { ContactMigrator.new.migrate_contact(**good_args) }.to raise_error(
+        MigrateContactError::PublishingApiRequestFailed,
+        "GdsApi::HTTPServerError error (500): Arbitrary error message",
+      )
+      expect(Contact.find_by(slug:)).to eq(contact) # Contact still exists
+    end
   end
 end

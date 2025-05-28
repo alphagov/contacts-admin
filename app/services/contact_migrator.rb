@@ -3,6 +3,7 @@
 
 module MigrateContactError
   class ContactNotFound < StandardError; end
+  class PublishingApiRequestFailed < StandardError; end
   class RedirectUrlMissing < StandardError; end
 end
 
@@ -18,6 +19,10 @@ class ContactMigrator
       alternative_path: new_url,
       discard_drafts: true,
     )
+
+    contact.destroy!
+  rescue GdsApi::HTTPErrorResponse => e
+    raise MigrateContactError::PublishingApiRequestFailed, "#{e.class} error (#{e.code}): #{e.message}"
   end
 
 private
