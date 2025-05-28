@@ -3,6 +3,7 @@
 FactoryBot.define do
   sequence(:contact_description) { |n| "contact record description #{n}" }
   sequence(:contact_information) { |n| "contact information #{n}" }
+  sequence(:contact_slug) { |n| "contact-slug-#{n}" }
   sequence(:contact_title) { |n| "contact title #{n}" }
   sequence(:quick_link) { |n| "http://link_#{n}.com" }
   sequence(:quick_link_title) { |n| "link #{n}" }
@@ -10,6 +11,7 @@ FactoryBot.define do
 
   factory :contact do
     content_id          { SecureRandom.uuid }
+    slug                { generate(:contact_slug) }
     title               { generate(:contact_title) }
     description         { generate(:contact_description) }
     contact_information { generate(:contact_information) }
