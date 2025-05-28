@@ -3,10 +3,12 @@
 
 module MigrateContactError
   class ContactNotFound < StandardError; end
+  class RedirectUrlMissing < StandardError; end
 end
 
 class ContactMigrator
   def migrate_contact(original_url: nil, new_url: nil)
+    validate_redirect_url!(original_url, new_url)
     contact = contact_by_url(original_url)
 
     Services.publishing_api.unpublish(
@@ -19,6 +21,10 @@ class ContactMigrator
   end
 
 private
+
+  def validate_redirect_url!(original_url, new_url)
+    raise MigrateContactError::RedirectUrlMissing, "Missing a redirect URL (`new_url`) for #{original_url}" unless new_url
+  end
 
   def contact_by_url(url)
     slug = url.split("/").last
