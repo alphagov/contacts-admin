@@ -63,4 +63,41 @@ RSpec.describe ContactMigrator do
       expect(Contact.find_by(slug:)).to eq(contact) # Contact still exists
     end
   end
+
+  describe "#migrate_hmrc_contacts" do
+    before do
+      allow(YAML).to receive(:load_file).and_return(
+        YAML.safe_load(<<~YAML_STUB),
+          contacts:
+            - original_url: https://www.gov.uk/government/organisations/hm-revenue-customs/contact/corporation-tax-enquiries
+              new_url: https://www.gov.uk/find-hmrc-contacts/corporation-tax-general-enquiries
+            - original_url: https://www.gov.uk/government/organisations/hm-revenue-customs/contact/agent-dedicated-line-debt-management
+              new_url: https://www.gov.uk/find-hmrc-contacts/agent-dedicated-line-debt-management
+        YAML_STUB
+      )
+      create(:contact, slug: "corporation-tax-enquiries")
+      create(:contact, slug: "agent-dedicated-line-debt-management")
+    end
+
+    it "reads data from config/hmrc_contacts_to_redirect.yml" do
+      expect(YAML).to receive(:load_file).with(Rails.root.join("config/hmrc_contacts_to_redirect.yml"))
+      ContactMigrator.new.migrate_hmrc_contacts
+    end
+
+    it "calls `migrate_contact` on every contact in the file" do
+      migrator = ContactMigrator.new
+      allow(migrator).to receive(:migrate_contact)
+
+      expect(migrator).to receive(:migrate_contact).with(
+        original_url: "https://www.gov.uk/government/organisations/hm-revenue-customs/contact/corporation-tax-enquiries",
+        new_url: "https://www.gov.uk/find-hmrc-contacts/corporation-tax-general-enquiries",
+      ).once.ordered
+      expect(migrator).to receive(:migrate_contact).with(
+        original_url: "https://www.gov.uk/government/organisations/hm-revenue-customs/contact/agent-dedicated-line-debt-management",
+        new_url: "https://www.gov.uk/find-hmrc-contacts/agent-dedicated-line-debt-management",
+      ).once.ordered
+
+      migrator.migrate_hmrc_contacts
+    end
+  end
 end

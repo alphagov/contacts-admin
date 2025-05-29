@@ -8,6 +8,16 @@ module MigrateContactError
 end
 
 class ContactMigrator
+  def migrate_hmrc_contacts
+    contacts = YAML.load_file(Rails.root.join("config/hmrc_contacts_to_redirect.yml"))["contacts"]
+    contacts.each do |contact|
+      migrate_contact(
+        original_url: contact["original_url"],
+        new_url: contact["new_url"],
+      )
+    end
+  end
+
   def migrate_contact(original_url: nil, new_url: nil)
     validate_redirect_url!(original_url, new_url)
     contact = contact_by_url(original_url)
