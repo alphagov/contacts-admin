@@ -30,4 +30,22 @@ namespace :migrate do
       discard_drafts: true,
     )
   end
+
+  desc "This rake task sets up a redirect from the legacy
+  `/government/organisations/legal-aid-agency/contact/legal-aid-agency-customer-services`
+  route to the agreed replacement for that route: the Legal Aid Agency
+  homepage (`/government/organisations/legal-aid-agency`).
+
+  It also deletes the corresponding Contact."
+  task legal_aid_agency_contact: :environment do
+    Services.publishing_api.unpublish(
+      "7d46f9b4-0a6a-4598-afb8-07f437fe4de6",
+      type: "redirect",
+      explanation: "Deprecated the Legal Aid Agency Customer Services contact to retire Contacts Admin.",
+      alternative_path: "/government/organisations/legal-aid-agency",
+      discard_drafts: true,
+    )
+
+    Contact.find_by(slug: "legal-aid-agency-customer-services").destroy!
+  end
 end
