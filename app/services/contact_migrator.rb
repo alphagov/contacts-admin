@@ -10,11 +10,14 @@ end
 class ContactMigrator
   def migrate_hmrc_contacts
     contacts = YAML.load_file(Rails.root.join("config/hmrc_contacts_to_redirect.yml"))["contacts"]
-    contacts.each do |contact|
-      migrate_contact(
-        original_url: contact["original_url"],
-        new_url: contact["new_url"],
-      )
+
+    ActiveRecord::Base.transaction do
+      contacts.each do |contact|
+        migrate_contact(
+          original_url: contact["original_url"],
+          new_url: contact["new_url"],
+        )
+      end
     end
   end
 

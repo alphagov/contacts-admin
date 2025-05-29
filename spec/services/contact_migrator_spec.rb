@@ -99,5 +99,23 @@ RSpec.describe ContactMigrator do
 
       migrator.migrate_hmrc_contacts
     end
+
+    it "deletes all relevant contacts if it succeeds" do
+      expect(Contact.where(slug: "corporation-tax-enquiries").count).to eq(1)
+      expect(Contact.where(slug: "agent-dedicated-line-debt-management").count).to eq(1)
+
+      ContactMigrator.new.migrate_hmrc_contacts
+
+      expect(Contact.where(slug: "corporation-tax-enquiries").count).to eq(0)
+      expect(Contact.where(slug: "agent-dedicated-line-debt-management").count).to eq(0)
+    end
+
+    it "avoids deleting ANY contacts if it encounters an error" do
+      Contact.find_by(slug: "agent-dedicated-line-debt-management").update!(slug: "contact-that-doesnt-exist")
+
+      expect { ContactMigrator.new.migrate_hmrc_contacts }.to raise_error(MigrateContactError::ContactNotFound)
+
+      expect(Contact.where(slug: "corporation-tax-enquiries").count).to eq(1)
+    end
   end
 end
